@@ -8,13 +8,25 @@
 	// 드래그
 	// 냉장고에서 마우스up일 때 냉장고에 재료 적용
 	window.onload = function() {
-		arr = document.getElementsByClassName("class_ingredient");
-		for (var i = 0; i < arr.length; i++) {
-			arr[i].onclick = selectIngredient;
+		smallSort = document.getElementById("small_sort");
+		childList = smallSort.childNodes;
+		childList = removeBlank(childList);
+		
+		for (let index = 0; index < childList.length; index++) {
+			const element = childList[index];
+			element.onclick = selectIngredient;
 		}
 	}
+	function removeBlank(list) {
+		for (let index = 0; index < list.length; index++) {
+			if(list[index].nodeName == "#text") {
+				list[index].remove();
+			}
+		}
+		return list;
+	}
 	function selectIngredient() {
-		
+		divNode = this.getElementsByTagName("div");
 	}
 </script>
 </head>
@@ -22,82 +34,146 @@
 	<h1>냉장고 메인 페이지</h1>
 	<div>	<!-- 냉장고 전체 div -->
 		<div id="selectBox">
-			<form>
+			<form method="POST" action="">
 				<fieldset>
-					<legend>재료 선택</legend>
-					<ul class="big_sort">
+					<legend>테마 선택</legend>
+					<ul id="big_sort">
 						<li>
-							<div class="selected" id="1"></div>
+							<div class="" id="theme_1">주재료</div>
+						</li>
+						<li>
+							<div class="" id="theme_2">부재료</div>
+						</li>
+						<li>
+							<div class="" id="theme_3">양념</div>
 						</li>
 					</ul>
-      				<p class="class_ingredient">
-      					<img alt="" src="../images/ingredients.jpg" width="100px">
-      					<label><input type="checkbox" id="ingredient1" value="쌀"> 쌀</label>
-      				</p>
-					<p class="class_ingredient">
-      					<img alt="" src="../images/ingredients.jpg" width="100px">
-      					<label><input type="checkbox" id="ingredient2" value="계란"> 계란</label>
-      				</p>
-      				<p class="class_ingredient">
-      					<img alt="" src="../images/ingredients.jpg" width="100px">
-      					<label><input type="checkbox" id="ingredient3" value="양상추"> 양상추</label>
-      				</p>
-					<p class="class_ingredient">
-      					<img alt="" src="../images/ingredients.jpg" width="100px">
-      					<label><input type="checkbox" id="ingredient4" value="소고기"> 소고기</label>
-      				</p>
-				</fieldset>	
+				</fieldset>
+				<fieldset>
+					<legend>재료 선택</legend>
+					<ul id="small_sort">
+						<li>
+							<div class="" id="ingredient_1">
+								<img src="../images/ingredients.jpg" width="100px">
+								<p>계란</p>
+							</div>
+						</li>
+						<li>
+							<div class="" id="ingredient_2">
+								<img src="../images/ingredients.jpg" width="100px">
+								<p>쌀</p>
+							</div>
+						</li>
+						<li>
+							<div class="" id="ingredient_3">
+								<img src="../images/ingredients.jpg" width="100px">
+								<p>양상추</p>
+							</div>
+						</li>
+						<li>
+							<div class="" id="ingredient_4">
+								<img src="../images/ingredients.jpg" width="100px">
+								<p>소고기</p>
+							</div>
+						</li>
+						<li>
+							<div class="" id="ingredient_5">
+								<img src="../images/ingredients.jpg" width="100px">
+								<p>토마토</p>
+							</div>
+						</li>
+					</ul>
+				</fieldset>
 			</form>
 		</div>
 		<div id="refrigerator" > <!-- 냉장고 div로 배경이미지를 넣거나 border 속성으로 구분.. -->
-			<p>나의 냉장고</p>
-			<ul id="row1"> <!-- 동적으로 추가되어야 함 -->
-				<li>
-					<p>재료1</p>
-					<img src="../images/ingredients.jpg" width="100px">
-				</li>
-				<li>
-					<p>재료2</p>
-					<img src="../images/ingredients.jpg" width="100px">
-				</li>
-				<li>
-					<p>재료3</p>
-					<img src="../images/ingredients.jpg" width="100px">
-				</li>
-				<li>
-					<p>재료4</p>
-					<img src="../images/ingredients.jpg" width="100px">
-				</li>
-				<li>
-					<p>재료5</p>
-					<img src="../images/ingredients.jpg" width="100px">
-				</li>
-			</ul>
-			<ul id="row2">
-				<li>
-					<p>재료1</p>
-					<img src="../images/ingredients.jpg" width="100px">
-				</li>
-				<li>
-					<p>재료2</p>
-					<img src="../images/ingredients.jpg" width="100px">
-				</li>
-				<li>
-					<p>재료3</p>
-					<img src="../images/ingredients.jpg" width="100px">
-				</li>
-				<li>
-					<p>재료4</p>
-					<img src="../images/ingredients.jpg" width="100px">
-				</li>
-				<li>
-					<p>재료5</p>
-					<img src="../images/ingredients.jpg" width="100px">
-				</li>
-			</ul>
+			<fieldset>
+				<legend>나의 냉장고</legend>
+				<ul id="fridge_row1"> <!-- 동적으로 추가되어야 함 -->
+					<li class="" id="fridge_1">
+						<p>재료1</p>
+						<img src="../images/ingredients.jpg" width="100px">
+					</li>
+					<li class="" id="fridge_2">
+						<p>재료2</p>
+						<img src="../images/ingredients.jpg" width="100px">
+					</li>
+					<li class="" id="fridge_3">
+						<p>재료3</p>
+						<img src="../images/ingredients.jpg" width="100px">
+					</li>
+					<li class="" id="fridge_4">
+						<p>재료4</p>
+						<img src="../images/ingredients.jpg" width="100px">
+					</li>
+					<li class="" id="fridge_5">
+						<p>재료5</p>
+						<img src="../images/ingredients.jpg" width="100px">
+					</li>
+				</ul>
+				<ul id="fridge_row2">
+					<li>
+						<p>재료1</p>
+						<img src="../images/ingredients.jpg" width="100px">
+					</li>
+					<li>
+						<p>재료2</p>
+						<img src="../images/ingredients.jpg" width="100px">
+					</li>
+					<li>
+						<p>재료3</p>
+						<img src="../images/ingredients.jpg" width="100px">
+					</li>
+					<li>
+						<p>재료4</p>
+						<img src="../images/ingredients.jpg" width="100px">
+					</li>
+					<li>
+						<p>재료5</p>
+						<img src="../images/ingredients.jpg" width="100px">
+					</li>
+				</ul>
+			</fieldset>
 		</div>
-		<div id=""> <!-- 재료 장바구니 및 레시피 추천 관련 작은 상자 div -->
-		
+		<div id="basket_box"> <!-- 재료 장바구니 작은 상자 div -->
+			<fieldset>
+				<legend>장바구니</legend>
+				<ul id="small_sort">
+					<li>
+						<div class="" id="basket_1">
+							<img src="../images/ingredients.jpg" width="100px">
+							<p>계란</p>
+						</div>
+					</li>
+					<li>
+						<div class="" id="basket_2">
+							<img src="../images/ingredients.jpg" width="100px">
+							<p>쌀</p>
+						</div>
+					</li>
+				</ul>
+				<input type="button" value="장바구니에 추가">
+			</fieldset>
+		</div>
+		<div id="recommend_box"> <!-- 레시피 추천 관련 작은 상자 div -->
+			<fieldset>
+				<legend>레시피 추천</legend>
+				<ul id="small_sort">
+					<li>
+						<div class="" id="recommend_1">
+							<img src="../images/ingredients.jpg" width="100px">
+							<p>계란</p>
+						</div>
+					</li>
+					<li>
+						<div class="" id="recommend_2">
+							<img src="../images/ingredients.jpg" width="100px">
+							<p>쌀</p>
+						</div>
+					</li>
+				</ul>
+				<input type="button" value="관련레시피 추천">
+			</fieldset>
 		</div>
 	</div>
 </body>
