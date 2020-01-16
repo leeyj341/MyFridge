@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!-- 마이페이지 눌렀을 때 메인화면 -->
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+</head>
+<body>
+	<div id="header">
+		<div class="head">
+			<a class="logo" href="">
+				<img alt="매끼세끼" src=""/>
+			</a>
+			<div class="top">
+				<ul>
+					<li>
+						<h3>
+							<a href="">냉장고</a>
+						</h3>
+					</li>
+					<li>
+						<h3>
+							<a href="">레시피</a>
+						</h3>
+					</li>
+					<li>
+						<h3>
+							<a href="">식당</a>
+						</h3>
+					</li>
+					<li class="mypage">
+						<h3>
+							<a href="/clientweb/project/mypage_main.html">마이페이지</a>
+						</h3>
+						<div class="mypage_inner">
+							<ul>
+								<li>
+									<a href="/clientweb/project/recipe_favorite.html">즐겨찾는 레시피</a>
+								</li>
+								<li>
+									<a href="/clientweb/project/mypoint.html">point 적립내용</a>
+								</li>
+								<li>
+									<a href="/clientweb/project/ask.html">1:1문의사항</a>
+								</li>
+								<li>
+									<a href="/clientweb/project/.html">먹을 식단</a>
+								</li>
+								<li>
+									<a href="/clientweb/project/information_update.html">나의 정보수정</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div class="title">
+			<table>
+				<tr>
+					<th>
+					<span>즐겨찾는 레시피:</span>
+					<strong>10</strong>
+					<span>개</span>
+					</th>
+					<th>
+					<span>point:</span>
+					<strong>50</strong>
+					<span>점</span>
+					</th>
+				</tr>
+			</table>
+		</div>
+		<div class="diet_menu">
+			<table>
+				<tr>
+					<th></th>
+					<th scope="col">일요일</th>
+					<th scope="col">월요일</th>
+					<th scope="col">화요일</th>
+					<th scope="col">수요일</th>
+					<th scope="col">목요일</th>
+					<th scope="col">금요일</th>
+					<th scope="col">토요일</th>
+				</tr>
+				<tr>
+					<td scope="row">아침</td>
+					<td>김치</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td scope="row">점심</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>콩장</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td scope="row">저녁</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>라면</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="buttons">
+			<input type="button" value="<월 전체보기>" onclick="location.replace('calander.html')"/>
+	</div>
+	<div class="kcal">
+		<div>
+			<span>오늘 섭취한 칼로리:</span>
+			<input type="text" value=""/>
+			<button class="" type="submit">
+				<span class="">
+					<i class="">계산하기</i>
+				</span>
+			</button>
+			<b></b>
+		</div>
+		<div class="exercise">
+			<div>
+				<label>걷기=</label>
+				<span id=""></span>
+				<span>(분)</span>
+			</div>
+			<div>
+				<label>뛰기=</label>
+				<span id=""></span>
+				<span>(분)</span>
+			</div>
+			<div>
+				<label>자전거=</label>
+				<span id=""></span>
+				<span>(분)</span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
