@@ -10,22 +10,40 @@
 		<legend>레시피 검색</legend>
 		<label>음식명 : </label>&nbsp;<input type="text" name="food_name"size="50">&nbsp; 
 		<input type="button" value="검색"><br/>
-		<input type="radio" name="food" value="찌개/전골">찌개/전골
-		<input type="radio" name="food" value="면요리">면요리 
-		<input type="radio" name="food" value="메인 반찬" checked="checked">메인 반찬 
-		<input type="radio" name="food" value="양식">양식
-		<input type="radio" name="food" value="중식">중식 
-		<input type="radio" name="food" value="일식">일식
-		<input type="radio" name="food" value="전체 조회">전체 조회
+		<input type="radio" name="ct_food" value="한식">한식 
+		<input type="radio" name="ct_food" value="퓨전">퓨전
+		<input type="radio" name="ct_food" value="서양">서양
+		<input type="radio" name="ct_food" value="이탈리아">이탈리아
+		<input type="radio" name="ct_food" value="일본">일본
+		<input type="radio" name="ct_food" value="중국">중국
+		<input type="radio" name="ct_food" value="동남아시아">동남아시아
+		&nbsp;&nbsp;&nbsp;
+		<input type="button" value="전체 조회">
+		<br/>
+		
+		<input type="radio" name="st_food" value="피자">피자
+		<input type="radio" name="st_food" value="메인 반찬">메인반찬
+		<input type="radio" name="st_food" value="튀김/커틀릿">튀김/커틀릿
+		<input type="radio" name="st_food" value="찜/조림">찜/조림
+		<input type="radio" name="st_food" value="찌개/전골/스튜/국">찌개/전골/스튜/국<br/>
+		<input type="radio" name="st_food" value="밥">밥
+		<input type="radio" name="st_food" value="디저트">디저트
+		<input type="radio" name="st_food" value="만두/면류">만두/면류
+		<input type="radio" name="st_food" value="나물/생채/샐러드">나물/생채/샐러드
+		<input type="radio" name="st_food" value="구이">구이
+		
+		
+		
 		<br /> <br />
 	</fieldset>
 	<div>
 		<h4>레시피 조회</h4>
 		<a href="#">조회순</a>/ <a href="#">최신순</a>/ <a href="#">좋아요순</a>
 	</div>
+	<div>
 	<ul>
 		<li><a class="thumnail" href=""></a> <img alt="recipe" 
-		src="../image/pork1.PNG" width="200" height="200/>
+		src="../images/pork1.PNG" width="200" height="200"/>
 			<div class="caption">
 				<h4>
 					<span>지글지글 돼지구이</span>
@@ -35,7 +53,7 @@
 		</li>
 
 		<li><a class="thumnail" href=""></a> <img alt="recipe"
-			src="../image/pork2.PNG" width="200" height="200 />
+			src="../images/pork2.PNG" width="200" height="200"/>
 			<div class="caption">
 				<h4>
 					<span>맛있는 LA갈비</span>
@@ -45,7 +63,7 @@
 		</li>
 
 		<li><a class="thumnail" href=""></a> <img alt="recipe"
-			src="../image/jjigae.jpg" width="200" height="200/>
+			src="../images/jjigae.jpg" width="200" height="200"/>
 			<div class="caption">
 				<h4>
 					<span>보글보글 만두전골</span>
@@ -55,7 +73,7 @@
 		</li>
 
 		<li><a class="thumnail" href=""></a> <img alt="recipe"
-			src="../image/sandwitch.jpg" width="200" height="200/>
+			src="../images/sandwitch.jpg" width="200" height="200"/>
 			<div class="caption">
 				<h4>
 					<span>한입 샌드위치</span>
@@ -64,5 +82,6 @@
 			</div>
 		</li>
 	</ul>
+	</div>
 </body>
 </html>
