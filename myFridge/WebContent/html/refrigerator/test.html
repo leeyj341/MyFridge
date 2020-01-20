@@ -11,14 +11,16 @@
     <title>매끼세끼 - 마이 냉장고</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="../yummy-master/img/core-img/favicon.ico">
+    <link rel="icon" href="../../yummy-master/img/core-img/favicon.ico">
 
     <!-- Core Stylesheet -->
-    <link href="../yummy-master/style.css" rel="stylesheet">
+    <link href="../../yummy-master/style.css" rel="stylesheet">
 
     <!-- Responsive CSS -->
-    <link href="../yummy-master/css/responsive/responsive.css" rel="stylesheet">
-    <link href="css/refrigerator.css" rel="stylesheet">
+    <link href="../../yummy-master/css/responsive/responsive.css" rel="stylesheet">
+    <link href="../../css/refrigerator/refrigerator.css" rel="stylesheet">
+    <link href="../../css/common/fonts.css" rel="stylesheet">
+    
 
 </head>
 
@@ -130,35 +132,30 @@
 		<div class="row">
 			<div class="col-12">
 				<!-- ****** Theme Select Area Start ****** -->
-				<div class="refrigerator_area col-1" id="selectThemeBox">
+				<div class="refrigerator-area col-1" id="selectThemeBox">
 					<form name="fidge_theme_select_form" method="POST" action="">
-						<ul id="big_sort">
-							<li>
-								<div class="" id="theme_1">주재료</div>
-							</li>
-							<li>
-								<div class="" id="theme_2">부재료</div>
-							</li>
-							<li>
-								<div class="" id="theme_3">양념</div>
-							</li>
-						</ul>
+						<button class="btn btn-orange btn-fill-vert-o"><img class="theme-btn" src="../images/harvest.png"></button>
+						<button class="btn btn-orange btn-fill-vert-o"><img class="theme-btn" src="../images/ingredients.png"></button>
+						<button class="btn btn-orange btn-fill-vert-o"><img class="theme-btn" src="../images/sugar.png"></button>
 					</form>
 				</div>
 				<!-- ****** Theme Select Area End ****** -->
 
 				<!-- ****** Ingredient Select Area Start ****** -->
-				<div class="refrigerator_area col-3" id="selectIngredientBox">
-					<form name="fidge_theme_select_form" method="POST" action="">
-						<ul id="big_sort">
+				<div class="refrigerator-area select-area col-3" id="selectIngredientBox">
+					<form name="ingrediennt_select_form" method="POST" action="">
+						<ul id="small_sort">
 							<li>
-								<div class="" id="theme_1">주재료</div>
+								<div class="" id="ingredient_1" draggable="true">
+									<img src="../images/ingredients.jpg" width="100px">
+									<p>계란</p>
+								</div>
 							</li>
 							<li>
-								<div class="" id="theme_2">부재료</div>
-							</li>
-							<li>
-								<div class="" id="theme_3">양념</div>
+								<div class="" id="ingredient_2" draggable="true">
+									<img src="../images/ingredients.jpg" width="100px">
+									<p>쌀</p>
+								</div>
 							</li>
 						</ul>
 					</form>
@@ -166,7 +163,10 @@
 				<!-- ****** Ingredient Select Area End ****** -->
 
 				<!-- ****** My Fridge Area Select Area End ****** -->
-				<div class="refrigerator_area col-5">
+				<div class="refrigerator-area col-5">
+					<div>
+						<img id="fridge-image" src="../images/kitchen.png">
+					</div>
 					<!-- 냉장고 div로 배경이미지를 넣거나 border 속성으로 구분.. -->
 					<ul id="fridge_list">
 						<!-- 동적으로 추가되어야 함 -->
@@ -181,15 +181,15 @@
 	<!-- ******Refrigerator Area End ****** -->
 
 	<!-- Jquery-2.2.4 js -->
-    <script src="../yummy-master/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="../../yummy-master/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
-    <script src="../yummy-master/js/bootstrap/popper.min.js"></script>
+    <script src="../../yummy-master/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap-4 js -->
-    <script src="../yummy-master/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../../yummy-master/js/bootstrap/bootstrap.min.js"></script>
     <!-- All Plugins JS -->
-    <script src="../yummy-master/js/others/plugins.js"></script>
+    <script src="../../yummy-master/js/others/plugins.js"></script>
     <!-- Active JS -->
-    <script src="../yummy-master/js/active.js"></script>
+    <script src="../../yummy-master/js/active.js"></script>
     
 </body>
 </html>
