@@ -1,0 +1,6 @@
+@charset "EUC-KR";
+
+@font-face {
+  font-family: 'dohyeon';
+  src: url('../../font/BMDOHYEON_ttf.ttf') format('truetype');
+}
