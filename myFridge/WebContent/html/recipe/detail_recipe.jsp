@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,19 +20,19 @@
 <!--  <!-- Responsive CSS -->
 <link href="../../yummy-master/css/responsive/responsive.css"
 	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <style type="text/css">
 img {
-	width: 300px;
-	height: 300px;
+	width: 250px;
+	height: 250px;
 	object-fit: cover;
 }
 
 h4 {
-	margin-left: 200px;
-	font-family: PapyrusM;
+	font-family: PapyrusB;
 	font-size: 30pt;
 	text-align: justify;
-	float: left;
 }
 
 #more {
@@ -52,11 +52,13 @@ h4 {
 	margin-right: 260px;
 }
 
-section {
-	clear: both;
+#underline {
+	color: skyblue;
 }
-#underline{
-color: skyblue;
+
+li {
+	display: inline;
+	margin-right: 20px;
 }
 </style>
 
@@ -161,10 +163,11 @@ color: skyblue;
 									role="button" data-toggle="dropdown" aria-haspopup="true"
 									aria-expanded="false">RECIPE</a>
 									<div class="dropdown-menu" aria-labelledby="yummyDropdown">
-										<a class="dropdown-item" href="#"></a> 
-										<a class="dropdown-item" href="theme_recipe.html"><b>테마별 레시피조회</b></a> 
-											<a class="dropdown-item" href="level_recipe.html"><b>난이도별 레시피 조회</b></a> 
-											<a class="dropdown-item" href="search_recipe.html"><b>레시피	검색</b></a>
+										<a class="dropdown-item" href="#"></a> <a
+											class="dropdown-item" href="theme_recipe.html"><b>테마별
+												레시피조회</b></a> <a class="dropdown-item" href="level_recipe.html"><b>난이도별
+												레시피 조회</b></a> <a class="dropdown-item" href="search_recipe.html"><b>레시피
+												검색</b></a>
 									</div></li>
 								<li class="nav-item"><a class="nav-link" href="#">RESTAURANT</a>
 								</li>
@@ -198,69 +201,82 @@ color: skyblue;
 			</div>
 		</div>
 	</div>
-	<h4>보글보글 맛있는 김치찌개</h4>
-	<div>
-		<div>
-			<span>평점 : </span>
-			<span>9.5</span>
-			<span>/10</span>
-		</div>
-		<div>
-			<span>좋아요 수 :</span>
-				<span>15</span> 
-				<a href="#">
-					<img src="../images/heart.png" >
-				</a>
-		</div>
-	</div>
 
+	<div class="container" style="margin-top: 30px">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="post-thumb">
+					<img src="../../images/pork1.PNG" alt="">
+				</div>
+				<!-- Post Content -->
+				<div class="post-content">
+					<div class="post-meta d-flex">
+						<div class="post-author-date-area d-flex">
+							<!-- Post Author -->
+							<div class="post-author">
+								<a href="#">By 융또융</a>
+							</div>
+							<!-- Post Date -->
+							<div class="post-date">
+								<a href="#">May 19, 2017</a>
+							</div>
+						</div>
+						<!-- Post Comment & Share Area -->
+						<div class="post-comment-share-area d-flex">
+							<!-- Post Favourite -->
+							<div class="post-favourite">
+								<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
+									10</a>
+							</div>
+							<!-- Post Comments -->
+							<div class="post-comments">
+								<a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
+									12</a>
+							</div>
+							<!-- Post Share -->
+							<div class="post-share">
+								<a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+							</div>
+						</div>
+					</div>
+					<div >
+						<div>
+							<h4>요리 간단 소개</h4>
+							<div style="font-family: PapyrusB; font-size: 15pt;">
+								
+								<div>
+									<span>보글보글 맛있는 김치찌개</span><br/>
+									<span>칼로리 :</span> <strong>310</strong> <span>kcal</span>
+								</div>
+							</div>
+						</div>
+
+
+						<div style="font-family: PapyrusB; font-size: 15pt;">
+							<h4>재료</h4>
+							<ul>
+								<li>김치 <strong>0.5</strong> <span> 쪽</span>
+								</li>
+								<li>두부 <strong>1</strong> <span> 모</span>
+								</li>
+								<li><br /> 양파 <strong>0.5</strong> <span> 개</span></li>
+								<li>고추 <strong>1</strong> <span> 개</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<hr class="d-sm-none">
+					
+				</div>
+			</div>
+
+			<div class="col-sm-8">
+				<h4>요리 순서</h4>
 	<div>
-		<span>등록일 : 2020/01/13</span>
-		<span>작성자 : 요리 장인</span>
-	</div>
-		<img alt="" src="../images/jjigae.jpg" width="200" height="200">
-	<div>
-		<p>요리 간단 소개</p>
-		<p>보글보글 맛있는 김치찌개</p>
-		<div>
-			<span>칼로리 :</span>
-			<strong>310</strong>
-			<span>kcal</span>
-		</div>
-	</div>
-	
-	
-	<div>
-		<h4>재료</h4>
-			<ul>
-				<li>
-					김치 
-					<strong>0.5</strong>
-					<span> 쪽</span>
-				</li>
-				<li>
-					두부
-					<strong>1</strong>
-					<span> 모</span>
-				</li>
-				<li>
-					양파
-					<strong>0.5</strong>
-					<span> 개</span>
-				</li>
-				<li>
-					고추
-					<strong>1</strong>
-					<span> 개</span>
-				</li>
-			</ul>
-	</div>
-	
-	<h4>요리 순서</h4>
-	<div>
-		<div>
-			<img alt="" src="../images/jjigae.jpg" width="200" height="200">
-		</div>
+				<div class="post-thumb">
+					<img src="../../yummy-img/img/blog-img/1.jpg" alt="">
+				</div>
 			<p>김치는 1/4포기를 준비해 먹기 좋게 썰어주고</p>
 		<div>
 			<img alt="" src="../images/jjigae.jpg" width="200" height="200">
@@ -268,7 +284,6 @@ color: skyblue;
 			<p>대파는 송송 썰고, 양파는 채 썰어주세요.<br/>
 					매콤하게 드시려면 청양고추를 함께 넣어도 된답니다.</p>
 	</div>
-	<br/>
 	<fieldset>
 		<legend>레시피 후기</legend>
 			<div>
@@ -333,134 +348,73 @@ color: skyblue;
 			<h3>관련 레시피 추천</h3>
 				<input type="button" value="더보기" >
 		</div>
-		<ul>
-			<li>
-				<div>
-					<a class="thumnail" href=""></a>
-					<img alt="recipe" src="../images/pork1.PNG" width="200" height="200/>
-					<div class="caption">
-					<h4><span>지글지글 돼지구이</span></h4>
-					<p>by 윤소윤</p>
-				</div>
-			</li>
-		
-			<li>
-				<div>
-					<a class="thumnail" href=""></a>
-					<img alt="recipe" src="../images/pork2.PNG" width="200" height="200/>
-					<div class="caption">
-					<h4><span>맛있는 LA갈비</span></h4>
-					<p>by 이영주</p>
-				</div>
-			</li>
-		
-			<li>
-				<div>
-					<a class="thumnail" href=""></a>
-					<img alt="recipe" src="../images/jjigae.jpg" width="200" height="200/>
-					<div class="caption">
-					<h4><span>보글보글 만두전골</span></h4>
-					<p>by 성민재</p>
-				</div>
-			</li>
-		
-			<li>
-				<div>
-					<a class="thumnail" href=""></a>
-					<img alt="recipe" src="../images/sandwitch.jpg" width="200" height="200/>
-					<div class="caption">
-					<h4><span>한입 샌드위치</span></h4>
-					<p>by 김민정</p>
-				</div>
-			</li>
-		</ul>
-	<div>
-		<h4>이 레시피를 </h4>
-			<a href="#">
-				<span>
-					<i>공유하기</i>
-				</span>
-			</a>
-			&nbsp;
-			<a href="#">
-				<span>
-					<i>식단 추가</i>
-				</span>
-			</a>
-			&nbsp;
-			<a href="#">
-				<span>
-					<i>찜하기</i>
-				</span>
-			</a>
-			&nbsp;
-			<a href="#">
-				<span>
-					<i>해먹기 귀찮아요</i>
-				</span>
-			</a>
+			</div>
+		</div>
 	</div>
-	<br/><br/>
-	<a href="#">
-		<span>
-			<i>페이지 위로가기</i>
-		</span>
-	</a>
-			<!-- ****** Breadcumb Area End ****** -->
-	<input type="button" value="레시피 추가하기">
-	</div>
-	 <footer class="footer_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="footer-content">
-                        <!-- Logo Area Start -->
-                        <div class="footer-logo-area text-center">
-                            <a href="index.html" class="yummy-logo">Maeggi Seggi</a>
-                        </div>
-                        <!-- Menu Area Start -->
-                        <nav class="navbar navbar-expand-lg">
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#yummyfood-footer-nav" aria-controls="yummyfood-footer-nav" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars" aria-hidden="true"></i> Menu</button>
-                            <!-- Menu Area Start -->
-                            <div class="collapse navbar-collapse justify-content-center" id="yummyfood-footer-nav">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="#">MY FRIDGE <span class="sr-only">(current)</span></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">ABOUT US</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">RECIPE</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">RESTAURANTS</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">MY PAGE</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">MANAGE</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <!-- Copywrite Text -->
-                    <div class="copy_right_text text-center">
-                        <p>Copyright @2018 All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+
+
+	<footer class="footer_area">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="footer-content">
+						<!-- Logo Area Start -->
+						<div class="footer-logo-area text-center">
+							<a href="index.html" class="yummy-logo">Maeggi Seggi</a>
+						</div>
+						<!-- Menu Area Start -->
+						<nav class="navbar navbar-expand-lg">
+							<button class="navbar-toggler" type="button"
+								data-toggle="collapse" data-target="#yummyfood-footer-nav"
+								aria-controls="yummyfood-footer-nav" aria-expanded="false"
+								aria-label="Toggle navigation">
+								<i class="fa fa-bars" aria-hidden="true"></i> Menu
+							</button>
+							<!-- Menu Area Start -->
+							<div class="collapse navbar-collapse justify-content-center"
+								id="yummyfood-footer-nav">
+								<ul class="navbar-nav">
+									<li class="nav-item active"><a class="nav-link" href="#">MY
+											FRIDGE <span class="sr-only">(current)</span>
+									</a></li>
+									<li class="nav-item"><a class="nav-link" href="#">ABOUT
+											US</a></li>
+									<li class="nav-item"><a class="nav-link" href="#">RECIPE</a>
+									</li>
+									<li class="nav-item"><a class="nav-link" href="#">RESTAURANTS</a>
+									</li>
+									<li class="nav-item"><a class="nav-link" href="#">MY
+											PAGE</a></li>
+									<li class="nav-item"><a class="nav-link" href="#">MANAGE</a>
+									</li>
+								</ul>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<!-- Copywrite Text -->
+					<div class="copy_right_text text-center">
+						<p>
+							Copyright @2018 All rights reserved | This template is made with
+							<i class="fa fa-heart-o" aria-hidden="true"></i> by <a
+								href="https://colorlib.com" target="_blank">Colorlib</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
 
 	<!-- Jquery-2.2.4 js -->
 	<script src="../../yummy-master/js/jquery/jquery-2.2.4.min.js"></script>
