@@ -130,31 +130,181 @@
     <!-- ****** Header Area End ****** -->
     
     <!-- ******Refrigerator Area Start ****** -->
+	<!-- ****** Theme Select Area Start ****** -->
+	<div class="">
+		<div class="select-theme-btns col-12">
+			<button class="btn btn-orange btn-fill-vert-o col-1">
+				<img class="theme-btn" src="../../images/harvest.png">
+			</button>
+			<button class="btn btn-orange btn-fill-vert-o col-1">
+				<img class="theme-btn" src="../../images/ingredients.png">
+			</button>
+			<button class="btn btn-orange btn-fill-vert-o col-1">
+				<img class="theme-btn" src="../../images/sugar.png">
+			</button>
+		</div>
+	</div>
+	<!-- ****** Theme Select Area End ****** -->
 	<div class="fridge-area">
-			<div class="col-12">
-				<!-- ****** Theme Select Area Start ****** -->
-				<div class="refrigerator-area col-1" id="selectThemeBox">
-					<form name="fidge_theme_select_form" method="POST" action="">
-						<button class="btn btn-orange btn-fill-vert-o"><img class="theme-btn" src="../../images/harvest.png"></button>
-						<button class="btn btn-orange btn-fill-vert-o"><img class="theme-btn" src="../../images/ingredients.png"></button>
-						<button class="btn btn-orange btn-fill-vert-o"><img class="theme-btn" src="../../images/sugar.png"></button>
-					</form>
-				</div>
-				<!-- ****** Theme Select Area End ****** -->
-
+		<div class="col-12">
 				<!-- ****** Ingredient Select Area Start ****** -->
-				<div class="refrigerator-area col-3" id="selectIngredientBox">
-					<form name="ingrediennt_select_form" method="POST" action="">
-						<ul class="list-scroll sort-list">
+				<div class="refrigerator-area col-5" id="selectIngredientBox">
+					<form class="select-wrapper" name="ingrediennt_select_form" method="POST" action="">
+						<img id="shelf-image" src="../../images/shelf.png">
+						<ul class="sort-list">
 							<li>
 								<div class="" id="ingredient_1" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg">
 									<p>계란</p>
 								</div>
 							</li>
 							<li>
 								<div class="" id="ingredient_2" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg">
+									<p>쌀</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_1" draggable="true">
+									<img src="../../images/ingredients.jpg">
+									<p>계란</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_2" draggable="true">
+									<img src="../../images/ingredients.jpg">
+									<p>쌀</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_1" draggable="true">
+									<img src="../../images/ingredients.jpg">
+									<p>계란</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_2" draggable="true">
+									<img src="../../images/ingredients.jpg">
+									<p>쌀</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_1" draggable="true">
+									<img src="../../images/ingredients.jpg" >
+									<p>계란</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_2" draggable="true">
+									<img src="../../images/ingredients.jpg" >
+									<p>쌀</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_1" draggable="true">
+									<img src="../../images/ingredients.jpg" >
+									<p>계란</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_2" draggable="true">
+									<img src="../../images/ingredients.jpg" >
+									<p>쌀</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_1" draggable="true">
+									<img src="../../images/ingredients.jpg" >
+									<p>계란</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_2" draggable="true">
+									<img src="../../images/ingredients.jpg" >
+									<p>쌀</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_1" draggable="true">
+									<img src="../../images/ingredients.jpg" >
+									<p>계란</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_2" draggable="true">
+									<img src="../../images/ingredients.jpg" >
+									<p>쌀</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_1" draggable="true">
+									<img src="../../images/ingredients.jpg" >
+									<p>계란</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_2" draggable="true">
+									<img src="../../images/ingredients.jpg" >
+									<p>쌀</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_1" draggable="true">
+									<img src="../../images/ingredients.jpg" >
+									<p>계란</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_2" draggable="true">
+									<img src="../../images/ingredients.jpg" >
+									<p>쌀</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_1" draggable="true">
+									<img src="../../images/ingredients.jpg" >
+									<p>계란</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_2" draggable="true">
+									<img src="../../images/ingredients.jpg" >
+									<p>쌀</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_1" draggable="true">
+									<img src="../../images/ingredients.jpg" >
+									<p>계란</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_2" draggable="true">
+									<img src="../../images/ingredients.jpg" >
+									<p>쌀</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_1" draggable="true">
+									<img src="../../images/ingredients.jpg" >
+									<p>계란</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_2" draggable="true">
+									<img src="../../images/ingredients.jpg" >
+									<p>쌀</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_1" draggable="true">
+									<img src="../../images/ingredients.jpg" >
+									<p>계란</p>
+								</div>
+							</li>
+							<li>
+								<div class="" id="ingredient_2" draggable="true">
+									<img src="../../images/ingredients.jpg" >
 									<p>쌀</p>
 								</div>
 							</li>
@@ -172,181 +322,181 @@
 							<!-- 동적으로 추가되어야 함 -->
 							<li>
 								<div class="fridge-li" id="ingredient_1" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_2" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_3" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_4" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_5" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_1" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_2" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_3" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_4" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_5" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_1" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_2" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_3" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_4" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_5" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_1" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_2" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_3" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_4" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_5" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_1" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_2" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_3" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_4" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_5" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_1" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_2" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_3" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_4" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
 							<li>
 								<div class="fridge-li" id="ingredient_5" draggable="true">
-									<img src="../../images/ingredients.jpg" width="100px">
+									<img src="../../images/ingredients.jpg" >
 									<p>토마토</p>
 								</div>
 							</li>
