@@ -4,6 +4,10 @@
 	text-align: center;
 }
 
+#fridge_container {
+	margin-top: 1%;
+}
+
 .refrigerator-area {
 	display: inline-block;
 	vertical-align: top;
@@ -14,13 +18,34 @@
 .select-area {
 	border: solid 2px black;
 	text-align: justify;
-	overflow: scroll;
-	font-family: dohyeon;
+	overflow-y: scroll;
+	font-family: PapyrusM;
+}
+
+.fridge-wrapper {
+	position: relative;
 }
 
 #fridge-image {
 	max-width: 100%;
-	min-width: 100%;
+}
+
+.fridge-list {
+	position: absolute;
+	left: 0;
+	top: 0;
+	vertical-align: top;
+	width: 80%;
+	height: 80%;
+	margin-top: 6%;
+	margin-bottom: 6%;
+	margin-left: 6%;
+	overflow-y: scroll;
+}
+
+.fridge-list > li {
+	display: inline-block;
+	width: 19%;
 }
 
 .theme-btn {
@@ -31,7 +56,34 @@
 	opacity: 100%;
 }
 
-/* 다운받은 버튼 css */
+/* 여기부터 스크롤바 css다... */
+
+.fridge-list::-webkit-scrollbar {
+    background-color:#fff;
+    width:17px
+}
+
+/* background of the scrollbar except button or resizer */
+.fridge-list::-webkit-scrollbar-track {
+    background-color: #f8e9d3;
+}
+
+/* scrollbar itself */
+.fridge-list::-webkit-scrollbar-thumb {
+    background-color:#ffb379;
+    border-radius:16px;
+    border:4px solid #f8e9d3;
+}
+
+/* set button(top and bottom of the scrollbar) */
+.fridge-list::-webkit-scrollbar-button {
+	display:none
+}
+
+/* 여기까지 스크롤 바 css다. */
+
+
+/* ****************** 다운받은 버튼 css ******************* */
 .animate, .btn, .btn-border-o:before, .btn-border-o:after, .btn-border:before, .btn-border:after, .btn-border-rev-o:before, .btn-border-rev-o:after, .btn-border-rev:before, .btn-border-rev:after, .btn-fill-vert-o:before, .btn-fill-vert-o:after, .btn-fill-vert:before, .btn-fill-vert:after, .btn-fill-horz-o:before, .btn-fill-horz-o:after, .btn-fill-horz:before, .btn-fill-horz:after {
   transition: all 0.3s;
 }
@@ -113,3 +165,6 @@
 /* .btn-fill-vert-o.btn-red:hover { */
 /*   border-color: #e74c3c; */
 /* } */
+
+/* ****************** 여기까지 버튼 css ****************** */
+
