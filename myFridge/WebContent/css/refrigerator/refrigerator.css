@@ -1,25 +1,21 @@
 @charset "EUC-KR";
 
-.row {
-	text-align: center;
-}
-
-#fridge_container {
+.fridge-area {
 	margin-top: 1%;
+	text-align: center;
 }
 
 .refrigerator-area {
 	display: inline-block;
 	vertical-align: top;
-	margin: 0.5%;
 	overflow: auto;
+	margin: 0.5%;
 }
 
-.select-area {
-	border: solid 2px black;
-	text-align: justify;
+.sort-list {
 	overflow-y: scroll;
 	font-family: PapyrusM;
+	font-size: medium;
 }
 
 .fridge-wrapper {
@@ -56,27 +52,28 @@
 	opacity: 100%;
 }
 
+
 /* 여기부터 스크롤바 css다... */
 
-.fridge-list::-webkit-scrollbar {
+.list-scroll::-webkit-scrollbar {
     background-color:#fff;
     width:17px
 }
 
 /* background of the scrollbar except button or resizer */
-.fridge-list::-webkit-scrollbar-track {
+.list-scroll::-webkit-scrollbar-track {
     background-color: #f8e9d3;
 }
 
 /* scrollbar itself */
-.fridge-list::-webkit-scrollbar-thumb {
+.list-scroll::-webkit-scrollbar-thumb {
     background-color:#ffb379;
     border-radius:16px;
     border:4px solid #f8e9d3;
 }
 
 /* set button(top and bottom of the scrollbar) */
-.fridge-list::-webkit-scrollbar-button {
+.list-scroll::-webkit-scrollbar-button {
 	display:none
 }
 

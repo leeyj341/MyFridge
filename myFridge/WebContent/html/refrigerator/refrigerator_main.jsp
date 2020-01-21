@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -128,8 +130,7 @@
     <!-- ****** Header Area End ****** -->
     
     <!-- ******Refrigerator Area Start ****** -->
-	<div id="fridge_container">
-		<div class="row">
+	<div class="fridge-area">
 			<div class="col-12">
 				<!-- ****** Theme Select Area Start ****** -->
 				<div class="refrigerator-area col-1" id="selectThemeBox">
@@ -142,9 +143,9 @@
 				<!-- ****** Theme Select Area End ****** -->
 
 				<!-- ****** Ingredient Select Area Start ****** -->
-				<div class="refrigerator-area select-area col-3" id="selectIngredientBox">
+				<div class="refrigerator-area col-3" id="selectIngredientBox">
 					<form name="ingrediennt_select_form" method="POST" action="">
-						<ul id="small_sort">
+						<ul class="list-scroll sort-list">
 							<li>
 								<div class="" id="ingredient_1" draggable="true">
 									<img src="../../images/ingredients.jpg" width="100px">
@@ -167,7 +168,7 @@
 					<div class="fridge-wrapper">
 						<img id="fridge-image" src="../../images/fridge.png">
 						<!-- 냉장고 div로 배경이미지를 넣거나 border 속성으로 구분.. -->
-						<ul class="fridge-list">
+						<ul class="list-scroll fridge-list">
 							<!-- 동적으로 추가되어야 함 -->
 							<li>
 								<div class="fridge-li" id="ingredient_1" draggable="true">
@@ -356,7 +357,6 @@
 				<!-- ****** My Fridge Area Area End ****** -->
 			</div>
 		</div>
-	</div>
 	<!-- ******Refrigerator Area End ****** -->
 
 	<!-- Jquery-2.2.4 js -->
