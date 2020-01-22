@@ -28,7 +28,7 @@ img {
 }
 
 h4 {
-	margin-left: 200px;
+	margin-left: 13%;
 	font-family: PapyrusM;
 	font-size: 30pt;
 	text-align: justify;
@@ -64,7 +64,7 @@ h4 {
 	font-weight : bolder;
 	margin: 4px;
 	cursor: pointer;
-	margin-right: 260px;
+	margin-right: 18%;
 	float: right;
 	border-radius: 10px;
 }
@@ -611,6 +611,51 @@ color: skyblue;
 							</div>
 							<a href="#">
 								<h4 class="post-headline">백종원의 만능고기양념으로 재운 단짠단짠 la 양념갈비</h4>
+							</a>
+						</div>
+					</div>
+				</div>
+						<!-- Single Post -->
+				<div class="col-12 col-md-6 col-lg-4">
+					<div class="single-post wow fadeInUp" data-wow-delay="0.4s">
+						<!-- Post Thumb -->
+						<div class="post-thumb">
+							<img src="../../images/sandwitch.jpg" alt="">
+						</div>
+						<!-- Post Content -->
+						<div class="post-content">
+							<div class="post-meta d-flex">
+								<div class="post-author-date-area d-flex">
+									<!-- Post Author -->
+									<div class="post-author">
+										<a href="#">By 민정민정</a>
+									</div>
+									<!-- Post Date -->
+									<div class="post-date">
+										<a href="#">May 19, 2017</a>
+									</div>
+								</div>
+								<!-- Post Comment & Share Area -->
+								<div class="post-comment-share-area d-flex">
+									<!-- Post Favourite -->
+									<div class="post-favourite">
+										<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
+											10</a>
+									</div>
+									<!-- Post Comments -->
+									<div class="post-comments">
+										<a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
+											12</a>
+									</div>
+									<!-- Post Share -->
+									<div class="post-share">
+										<a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+									</div>
+								</div>
+							</div>
+							<a href="#">
+								<h4 class="post-headline">크리스마스&nbsp;&nbsp;
+									파티음식으로&nbsp;&nbsp; 최고!몬테크리스토 샌드위치:)</h4>
 							</a>
 						</div>
 					</div>
