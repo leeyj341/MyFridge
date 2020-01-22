@@ -26,7 +26,7 @@
 
 </head>
 
-<body>
+<body class="bg-amond">
     <!-- Preloader Start -->
     <div id="preloader">
         <div class="yummy-load"></div>
@@ -129,9 +129,9 @@
     </header>
     <!-- ****** Header Area End ****** -->
     
-    <!-- ******Refrigerator Area Start ****** -->
+    
 	<!-- ****** Theme Select Area Start ****** -->
-	<div class="">
+	<div class="button-area">
 		<div class="select-theme-btns col-12">
 			<button class="btn btn-orange btn-fill-vert-o col-1">
 				<img class="theme-btn" src="../../images/harvest.png">
@@ -142,9 +142,18 @@
 			<button class="btn btn-orange btn-fill-vert-o col-1">
 				<img class="theme-btn" src="../../images/sugar.png">
 			</button>
+			<span class="button-divide col-1"></span>
+			<button class="btn btn-orange btn-fill-vert-o col-1">
+				<img class="theme-btn" src="../../images/recipe-book.png">
+			</button>
+			<button class="btn btn-orange btn-fill-vert-o col-1">
+				<img class="theme-btn" src="../../images/picnic.png">
+			</button>
 		</div>
 	</div>
 	<!-- ****** Theme Select Area End ****** -->
+	
+	<!-- ******Refrigerator Area Start ****** -->
 	<div class="fridge-area">
 		<div class="col-12">
 				<!-- ****** Ingredient Select Area Start ****** -->
@@ -508,7 +517,19 @@
 			</div>
 		</div>
 	<!-- ******Refrigerator Area End ****** -->
-
+	<footer class="footer_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Copywrite Text -->
+                    <div class="copy_right_text text-center">
+                        <p>Copyright @2018 All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
 	<!-- Jquery-2.2.4 js -->
     <script src="../../yummy-master/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
