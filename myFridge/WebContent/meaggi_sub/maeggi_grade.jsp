@@ -136,35 +136,35 @@
 				<li class="col-12">
 					<div class="grade-desc">
 						<img src="../images/tree.png">
-						<p>씨앗</p>
+						<p class="grade-name">씨앗</p>
 						<p>가입즉시</p>
 					</div>
 				</li>
 				<li class="col-12">
 					<div class="grade-desc">
 						<img src="../images/eggs.png">
-						<p>계란</p>
+						<p class="grade-name">계란</p>
 						<p>댓글 10개 이상 작성</p>
 					</div>
 				</li>
 				<li class="col-12">
 					<div class="grade-desc">
 						<img src="../images/fried-egg.png">
-						<p>계란 후라이</p>
+						<p class="grade-name">계란 후라이</p>
 						<p>레시피 3개 이상, 댓글 20개 이상 작성</p>
 					</div>
 				</li>
 				<li class="col-12">
 					<div class="grade-desc">
 						<img src="../images/omelette.png">
-						<p>오므라이스</p>
+						<p class="grade-name">오므라이스</p>
 						<p>레시피 10개 이상, 댓글 50개 이상 작성</p>
 					</div>
 				</li>
 				<li class="col-12">
 					<div class="grade-desc">
 						<img src="../images/hen.png">
-						<p>닭</p>
+						<p class="grade-name">닭</p>
 						<p>페이지 관리자 등급입니다.</p>
 					</div>
 				</li>

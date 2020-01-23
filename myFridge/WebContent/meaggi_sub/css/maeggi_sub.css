@@ -36,6 +36,8 @@
 
 .grade-desc > img {
 	width: 15%;
-	border: solid #c1c1c1 4px;
-	border-radius: 10%;
+	background-color: #f8e9d3;
+	background-repeat: no-repeat;
+	border: solid 2px #ffb379;
+	border-radius: 20%;
 }
