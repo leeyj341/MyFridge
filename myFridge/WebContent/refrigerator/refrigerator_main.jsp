@@ -131,7 +131,7 @@
     
     
 	<!-- ****** Theme Select Area Start ****** -->
-	<div class="button-area">
+	<div class="button-area col-12">
 		<div class="select-theme-btns col-12">
 			<button class="btn btn-orange btn-fill-vert-o col-1">
 				<img class="theme-btn" src="../images/harvest.png">
@@ -159,7 +159,6 @@
 				<!-- ****** Ingredient Select Area Start ****** -->
 				<div class="refrigerator-area col-5" id="selectIngredientBox">
 					<form class="select-wrapper" name="ingrediennt_select_form" method="POST" action="">
-						<img id="shelf-image" src="../images/shelf.png">
 						<ul class="sort-list">
 							<li>
 								<div class="" id="ingredient_1" draggable="true">
@@ -325,7 +324,7 @@
 				<!-- ****** My Fridge Area Select Area End ****** -->
 				<div class="refrigerator-area col-5">
 					<div class="fridge-wrapper">
-						<img id="fridge-image" src="../images/fridge.png">
+						<img id="fridge-image" src="../images/refrigerator.png">
 						<!-- 냉장고 div로 배경이미지를 넣거나 border 속성으로 구분.. -->
 						<ul class="list-scroll fridge-list">
 							<!-- 동적으로 추가되어야 함 -->

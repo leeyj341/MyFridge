@@ -7,6 +7,16 @@
 	font-family: PapyrusL;
 }
 
+.border {
+	display: block;
+	width: 80%;
+	height: 3px;
+	background: #f8e9d3;
+	margin: 10%;
+	margin-top: 40px;
+	margin-bottom: 100px;
+}
+
 .grade_ul {
 	padding: 0% 10%;
 }
@@ -16,22 +26,23 @@
 	margin-bottom: 10%;
 }
 
-.grade-desc {
-}
-
-.grade-desc > p {
+.grade-desc > * {
 	display: inline-block;
-	font-family: PapyrusM;
-	font-size: 30pt;
-	vertical-align: bottom;
+	vertical-align: top;
 }
 
-.grade-desc > p:first-of-type {
+.grade-desc > div {
 	margin-left: 10%;
 }
 
-.grade-desc > p:last-child {
-	margin-left: 3%;	
+.grade-desc p {
+	font-family: PapyrusM;
+	font-size: 25pt;
+}
+
+.grade-desc p:first-of-type {
+	font-weight: bold;
+	font-size: 30pt;
 }
 
 .grade-desc > img {

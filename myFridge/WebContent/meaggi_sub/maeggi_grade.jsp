@@ -130,66 +130,74 @@
 	<!-- ****** Header Area End ****** -->
 
 	<h1 class="col-12 body-h1">매끼세끼 등급 및 혜택</h1>
+	<span class="border"></span>
 	<div>
 		<div>
 			<ul class="grade_ul">
 				<li class="col-12">
 					<div class="grade-desc">
 						<img src="../images/tree.png">
-						<p class="grade-name">씨앗</p>
-						<p>가입즉시</p>
+						<div class="col-8">
+							<p class="grade-name">씨앗</p>
+							<p>가입즉시</p>
+							<p>조금 더 노력하세요.</p>
+						</div>
 					</div>
 				</li>
 				<li class="col-12">
 					<div class="grade-desc">
 						<img src="../images/eggs.png">
-						<p class="grade-name">계란</p>
-						<p>댓글 10개 이상 작성</p>
+						<div class="col-8">
+							<p class="grade-name">계란</p>
+							<p>댓글 10개 이상 작성</p>
+							<p>계란 10구 한 판 쏜다</p>
+						</div>
 					</div>
 				</li>
 				<li class="col-12">
 					<div class="grade-desc">
 						<img src="../images/fried-egg.png">
-						<p class="grade-name">계란 후라이</p>
-						<p>레시피 3개 이상, 댓글 20개 이상 작성</p>
+						<div class="col-8">
+							<p class="grade-name">계란 후라이</p>
+							<p>레시피 3개 이상, 댓글 20개 이상 작성</p>
+							<p>extra virgin olive oil 쏜다</p>
+						</div>
 					</div>
 				</li>
 				<li class="col-12">
 					<div class="grade-desc">
 						<img src="../images/omelette.png">
-						<p class="grade-name">오므라이스</p>
-						<p>레시피 10개 이상, 댓글 50개 이상 작성</p>
+						<div class="col-8">
+							<p class="grade-name">오므라이스</p>
+							<p>레시피 10개 이상, 댓글 50개 이상 작성</p>
+							<p>리챔 세트(6개입) 쏜다</p>
+						</div>
 					</div>
 				</li>
 				<li class="col-12">
 					<div class="grade-desc">
 						<img src="../images/hen.png">
-						<p class="grade-name">닭</p>
-						<p>페이지 관리자 등급입니다.</p>
+						<div class="col-8">
+							<p class="grade-name">닭</p>
+							<p>페이지 관리자 등급입니다.</p>
+						</div>
 					</div>
 				</li>
 			</ul>
 		</div>
-		<div id="grade_benefits">
-			<ul>
-				<li>
-					<p>씨앗:</p>
-					<p>조금 더 노력하세요.</p>
-				</li>
-				<li>
-					<p>계란:</p>
-					<p>계란 10구 한 판 쏜다</p>
-				</li>
-				<li>
-					<p>계란 후라이:</p>
-					<p>extra virgin olive oil 쏜다</p>
-				</li>
-				<li>
-					<p>오므라이스:</p>
-					<p>리챔 세트(6개입) 쏜다</p>
-				</li>
-			</ul>
-		</div>
 	</div>
+	<span class="border"></span>
+	<footer class="footer_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Copywrite Text -->
+                    <div class="copy_right_text text-center">
+                        <p>Copyright @2018 All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
