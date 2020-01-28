@@ -21,7 +21,7 @@
 <link href="style.css" rel="stylesheet">
 
 <!-- Responsive CSS -->
-<link href="css/responsive/responsive.css" rel="stylesheet">
+<link href="../yummy-master/css/responsive/responsive.css" rel="stylesheet">
 
 </head>
 
@@ -134,7 +134,7 @@
 
 	<!-- ****** Breadcumb Area Start ****** -->
 	<div class="breadcumb-area"
-		style="background-image: url(img/bg-img/breadcumb.jpg);">
+		style="background-image: url(../yummy-master/img/bg-img/breadcumb.jpg);">
 		<div class="container h-100">
 			<div class="row h-100 align-items-center">
 				<div class="col-12">
@@ -255,7 +255,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="img/instagram-img/1.jpg" alt="">
+			<img src="../yummy-master/img/instagram-img/1.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -272,7 +272,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="img/instagram-img/2.jpg" alt="">
+			<img src="../yummy-master/img/instagram-img/2.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -289,7 +289,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="img/instagram-img/3.jpg" alt="">
+			<img src="../yummy-master/img/instagram-img/3.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -306,7 +306,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="img/instagram-img/4.jpg" alt="">
+			<img src="../yummy-master/img/instagram-img/4.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -323,7 +323,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="img/instagram-img/5.jpg" alt="">
+			<img src="../yummy-master/img/instagram-img/5.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -340,7 +340,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="img/instagram-img/6.jpg" alt="">
+			<img src="../yummy-master/img/instagram-img/6.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -357,7 +357,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="img/instagram-img/1.jpg" alt="">
+			<img src="../yummy-master/img/instagram-img/1.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -374,7 +374,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="img/instagram-img/2.jpg" alt="">
+			<img src="../yummy-master/img/instagram-img/2.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -487,13 +487,13 @@
 	<!-- ****** Footer Menu Area End ****** -->
 
 	<!-- Jquery-2.2.4 js -->
-	<script src="js/jquery/jquery-2.2.4.min.js"></script>
+	<script src="../yummy-master/js/jquery/jquery-2.2.4.min.js"></script>
 	<!-- Popper js -->
-	<script src="js/bootstrap/popper.min.js"></script>
+	<script src="../yummy-master/js/bootstrap/popper.min.js"></script>
 	<!-- Bootstrap-4 js -->
-	<script src="js/bootstrap/bootstrap.min.js"></script>
+	<script src="../yummy-master/js/bootstrap/bootstrap.min.js"></script>
 	<!-- All Plugins JS -->
-	<script src="js/others/plugins.js"></script>
+	<script src="../yummy-master/js/others/plugins.js"></script>
 	<!-- Active JS -->
-	<script src="js/active.js"></script>
+	<script src="../yummy-master/js/active.js"></script>
 </body>
