@@ -20,8 +20,21 @@
 <!-- Core Stylesheet -->
 <link href="style.css" rel="stylesheet">
 
+<!-- font -->
+<link href="../common/css/fonts.css" rel="stylesheet">
+
 <!-- Responsive CSS -->
 <link href="../yummy-master/css/responsive/responsive.css" rel="stylesheet">
+
+<style type="text/css">
+h2 {
+	
+	font-family: dohyeon;
+	
+}
+
+</style>
+
 
 </head>
 
@@ -215,7 +228,7 @@
 								<option value="notice_searchtitle">제목</option>
 								<option value="notice_searchcontent">본문</option>
 							</select> <input type="text" id="notice_searchtext" value=""> <input
-								type="button" id="notice_serachbutton" value="검색">
+								type="submit" id="notice_serachbutton" value="검색">
 						</form>
 
 					</div>

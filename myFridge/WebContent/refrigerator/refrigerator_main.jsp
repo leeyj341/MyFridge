@@ -51,10 +51,10 @@
                     <div class="signup-search-area d-flex align-items-center justify-content-end">
                         <div class="login_register_area d-flex">
                             <div class="login">
-                                <a href="register.html">Sing in</a>
+                                <a href="http://localhost:8088/myFridge/LoginAndCostomercenter/loginmain.jsp" >sign in</a>
                             </div>
                             <div class="register">
-                                <a href="register.html">Sing up</a>
+                                <a href="register.html">sign up</a>
                             </div>
                         </div>
                         <!-- Search Button Area -->

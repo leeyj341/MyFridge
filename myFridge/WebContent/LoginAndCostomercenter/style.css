@@ -12,10 +12,11 @@
 @import '../yummy-master/css/others/owl.carousel.min.css';
 @import '../yummy-master/css/others/font-awesome.min.css';
 @import '../yummy-master/css/others/pe-icon-7-stroke.css';
-
+@import '../common/css/fonts.css';
 /* --------------------
 :: 1.0 Base CSS
 -------------------- */
+
 
 * {
     margin: 0;
@@ -1468,7 +1469,7 @@ li {
 /* 김민정 : 메인 로그인 페이지  CSS [시작] */
 /* 메인 로그인 페이지  CSS [시작] */
 #outter {
-	border : 1px solid black;
+	
 	padding : 0 auto;
 	text-align: center;
 	
@@ -1505,10 +1506,11 @@ li {
 	font-size: 15pt;
 	margin : 10px;
 	color: grey;
-	
+	font-family: PapyrusM;
 }
 
 #socialLogin_box{
+	font-family : dohyun;
 	font-size: 15pt;
 	margin-top: 15px;
 	margin-bottom : 15px;

@@ -214,8 +214,8 @@
 				<div class="row">
 					<div class="col-3" id="reply_buttons">
 						<form>
-							<input type="button" id="ask_reply_send" value="답변  달기"
-								onclick="alert('답변이 저장되었습니다.')"> <input type="button"
+							<input type="submit" id="ask_reply_send" value="답변  달기"
+								onclick="alert('답변이 저장되었습니다.')"> <input type="submit"
 								id="ask_reply_pause" value="답변지우기" onclick="alert('등록취소.')">
 						</form>
 
