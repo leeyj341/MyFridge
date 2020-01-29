@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,29 +12,19 @@
 <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 <!-- Title -->
-<title> 공지 사항 </title>
+<title> 문의 글 리스트 </title>
 
 <!-- Favicon -->
 <link rel="icon" href="img/core-img/favicon.ico">
 
-<!-- Core Stylesheet -->
-<link href="style.css" rel="stylesheet">
-
 <!-- font -->
-<link href="../common/css/fonts.css" rel="stylesheet">
+<link href="../../common/css/fonts.css" rel="stylesheet">
+
+<!-- Core Stylesheet -->
+<link href="../css/style.css" rel="stylesheet">
 
 <!-- Responsive CSS -->
-<link href="../yummy-master/css/responsive/responsive.css" rel="stylesheet">
-
-<style type="text/css">
-h2 {
-	
-	font-family: dohyeon;
-	
-}
-
-</style>
-
+<link href="../../yummy-master/css/responsive/responsive.css" rel="stylesheet">
 
 </head>
 
@@ -116,17 +106,18 @@ h2 {
 								<li class="nav-item active"><a class="nav-link"
 									href="index.html">MY FRIDGE<span class="sr-only">(current)</span></a>
 								</li>
-								<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="index.html"
-									id="yummyDropdown" role="button" data-toggle="dropdown"
-									aria-haspopup="true" aria-expanded="false">ABOUT US</a>
+								<li class="nav-item dropdown"><a
+									class="nav-link dropdown-toggle" href="#" id="yummyDropdown"
+									role="button" data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="false">ABOUT US</a>
 									<div class="dropdown-menu" aria-labelledby="yummyDropdown">
-										<a class="dropdown-item" href="archive.html">INTRO</a> <a
+										<a class="dropdown-item" href="index.html"></a> <a
+											class="dropdown-item" href="archive.html">INTRO</a> <a
 											class="dropdown-item" href="single.html">GRADE</a> <a
 											class="dropdown-item" href="static.html">QnA</a> <a
 											class="dropdown-item" href="contact.html">CONTACT</a>
 									</div></li>
-								<li class="nav-item"><a class="nav-link" href="index.html">RECIPE</a>
+								<li class="nav-item"><a class="nav-link" href="#">RECIPE</a>
 								</li>
 								<li class="nav-item"><a class="nav-link" href="#">RESTAURANT</a>
 								</li>
@@ -146,12 +137,12 @@ h2 {
 
 	<!-- ****** Breadcumb Area Start ****** -->
 	<div class="breadcumb-area"
-		style="background-image: url(../yummy-master/img/bg-img/breadcumb.jpg);">
+		style="background-image: url(img/bg-img/breadcumb.jpg);">
 		<div class="container h-100">
 			<div class="row h-100 align-items-center">
 				<div class="col-12">
 					<div class="bradcumb-title text-center">
-						<h2>공지 사항</h2>
+						<h2>문의 리스트</h2>
 					</div>
 				</div>
 			</div>
@@ -165,93 +156,114 @@ h2 {
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#"><i
-									class="fa fa-home" aria-hidden="true"></i> About us </a></li>
-							<li class="breadcrumb-item active" aria-current="page">공지 사항
-							</li>
+									class="fa fa-home" aria-hidden="true"></i> 직접 문의하기</a></li>
+							<li class="breadcrumb-item active" aria-current="page">문의
+								리스트</li>
 						</ol>
 					</nav>
 				</div>
 			</div>
-
+			
 
 
 			<div class="row">
 				<!-- row해야 그 집모양 아이콘 있는 곳부터 글자가 시작됨 -->
 				<div class="col-12" id="asklist_customview">
-					<h2>공지 사항</h2>
+					<h2>[관리자 전용 페이지] 문의 글 리스트</h2>
 				</div>
 			</div>
-
+			
 
 			<div class="row">
 				<div class="col-12" id="asklist_customview">
+				
+				<div>
+						<select id="ansComplete">
+							<!-- 완료 선택 시완료된 것만 보여주고 미완료 선택 시 미완료 된 것만 보여줌 -->
+							<option value="completed">완료</option>
+							<option value="notcompleted">미완료</option>
+						</select>
 
-
-
+					</div>
+					
 					<div id="AskUserForm">
-						<table class="noticeboard" id="noticeboard_list" border="1">
-							<tr>
-								<th>번호</th>
-								<th>날짜</th>
-								<th>제목</th>
-								<th>글쓴이</th>
-								<th>조회수</th>
+						<table class="askboard" border="1">
+			<tr>
+				<th>번호</th>
+				<th>날짜</th>
+				<th>제목</th>
+				<th>글쓴이</th>
+				<th>조회수</th>
+				<th>답변상태</th>
+			</tr>
+			<tr>
+				<td class="asknum">5</td>
+				<td class="date">2020/01/15</td>
+				<td class="title">문희에요</td>
+				<td class="name">나문희</td>
+				<td class="hit">100</td>
+				<td class="answercheck">미완료</td>
+			</tr>
+			<tr>
+				<td class="asknum">4</td>
+				<td class="date">2020/01/15</td>
+				<td class="title">안녕 세상!</td>
+				<td class="name">tester</td>
+				<td class="hit">5</td>
+				<td class="answercheck">미완료</td>
+			</tr>
+			<tr>
+				<td class="asknum">3</td>
+				<td class="date">2020/01/15</td>
+				<td class="title">안녕</td>
+				<td class="name">김민정</td>
+				<td class="hit">5</td>
+				<td class="answercheck">미완료</td>
+			</tr>
+			
 
-							</tr>
+			<tr>
+				<td class="asknum">2</td>
+				<td class="date">2020/01/15</td>
+				<td class="title">오타 수정해주세요.</td>
+				<td class="name">debugger</td>
+				<td class="hit">5</td>
+				<td class="answercheck">미완료</td>
+			</tr>
 
-							<tr>
-								<td class="asknum">2</td>
-								<td class="date">2020/01/15</td>
-								<td class="title" align="left">[이벤트] 이벤트 당첨자 안내</td>
-								<td class="name">관리자</td>
-								<td class="hit">89</td>
+			<tr>
+				<td class="asknum">1</td>
+				<td class="date">2020/01/10</td>
+				<td class="title"><a href = "#">아이디는못바꾸나요ㅕ</a></td>
+				<td class="name">princess</td>
+				<td class="hit">20</td>
+				<td class="answercheck">완료</td>
+			</tr>
 
-							</tr>
+		</table>
 
-							<tr>
-								<td class="asknum">1</td>
-								<td class="date">2020/01/10</td>
-								<td class="title" align="left">[긴급] 서버 점검 안내</td>
-								<td class="name">관리자</td>
-								<td class="hit">224</td>
-
-							</tr>
-
-						</table>
 
 					</div>
+					
 
-					<div id="searchdiv">
 
-						<form id="notice_search">
-							<select name="notice_searchhow">
-								<option value="notice_searchtitle">제목</option>
-								<option value="notice_searchcontent">본문</option>
-							</select> <input type="text" id="notice_searchtext" value=""> <input
-								type="submit" id="notice_serachbutton" value="검색">
-						</form>
+
+
 
 					</div>
-
-
 
 
 
 
 				</div>
-
-
-
-
 			</div>
+
+
+
+
+
+
 		</div>
-
-
-
-
-
-
-	</div>
 	</div>
 	<!-- ****** Breadcumb Area End ****** -->
 
@@ -299,7 +311,7 @@ h2 {
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/1.jpg" alt="">
+			<img src="img/instagram-img/1.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -316,7 +328,7 @@ h2 {
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/2.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/2.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -333,7 +345,7 @@ h2 {
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/3.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/3.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -350,7 +362,7 @@ h2 {
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/4.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/4.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -367,7 +379,7 @@ h2 {
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/5.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/5.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -384,7 +396,7 @@ h2 {
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/6.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/6.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -401,7 +413,7 @@ h2 {
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/1.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/1.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -418,7 +430,7 @@ h2 {
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/2.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/2.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -531,13 +543,13 @@ h2 {
 	<!-- ****** Footer Menu Area End ****** -->
 
 	<!-- Jquery-2.2.4 js -->
-	<script src="../yummy-master/js/jquery/jquery-2.2.4.min.js"></script>
+	<script src="../../yummy-master/js/jquery/jquery-2.2.4.min.js"></script>
 	<!-- Popper js -->
-	<script src="../yummy-master/js/bootstrap/popper.min.js"></script>
+	<script src="../../yummy-master/js/bootstrap/popper.min.js"></script>
 	<!-- Bootstrap-4 js -->
-	<script src="../yummy-master/js/bootstrap/bootstrap.min.js"></script>
+	<script src="../../yummy-master/js/bootstrap/bootstrap.min.js"></script>
 	<!-- All Plugins JS -->
-	<script src="../yummy-master/js/others/plugins.js"></script>
+	<script src="../../yummy-master/js/others/plugins.js"></script>
 	<!-- Active JS -->
-	<script src="../yummy-master/js/active.js"></script>
+	<script src="../../yummy-master/js/active.js"></script>
 </body>

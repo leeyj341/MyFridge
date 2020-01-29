@@ -1,0 +1,33 @@
+@charset "EUC-KR";
+
+
+
+#asklist_customview{
+	margin-top : 10px;
+	margin-bottom: 10px;
+	
+}
+
+.askboard{
+	margin-left : auto;
+	margin-right: auto;
+	width : 1000px;
+	text-align: center;
+}
+.askboard th {
+    text-align: center;
+  }
+#ansComplete {
+	float : right;
+	width : 100px;
+	margin-left : 50px;
+	margin-right : 50px;
+	margin-bottom : 30px;
+}
+
+#askdetail_reply_managername{
+	margin-left : 100px;
+	margin-right : 50px;
+	margin-top : 50px;
+	float: left;
+}

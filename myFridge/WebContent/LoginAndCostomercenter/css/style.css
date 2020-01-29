@@ -5,14 +5,14 @@
 
 /* ***** Import CSS ***** */
 
-@import '../yummy-master/css/bootstrap/bootstrap.min.css';
-@import '../yummy-master/css/others/animate.css';
-@import '../yummy-master/css/others/magnific-popup.css';
-@import '../yummy-master/css/others/meanmenu.min.css';
-@import '../yummy-master/css/others/owl.carousel.min.css';
-@import '../yummy-master/css/others/font-awesome.min.css';
-@import '../yummy-master/css/others/pe-icon-7-stroke.css';
-@import '../common/css/fonts.css';
+@import '../../yummy-master/css/bootstrap/bootstrap.min.css';
+@import '../../yummy-master/css/others/animate.css';
+@import '../../yummy-master/css/others/magnific-popup.css';
+@import '../../yummy-master/css/others/meanmenu.min.css';
+@import '../../yummy-master/css/others/owl.carousel.min.css';
+@import '../../yummy-master/css/others/font-awesome.min.css';
+@import '../../yummy-master/css/others/pe-icon-7-stroke.css';
+@import '../../common/css/fonts.css';
 /* --------------------
 :: 1.0 Base CSS
 -------------------- */
