@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 
@@ -10,7 +12,8 @@
 <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 <!-- Title -->
-<title>Yummy Blog - Food Blog Template</title>
+<meta charset="utf-8"/>
+	<title>Kakao Áöµµ ½ÃÀÛÇÏ±â</title>
 
 <!-- Favicon -->
 <link rel="icon" href="../../yummy-master/img/core-img/favicon.ico">
@@ -24,6 +27,8 @@
 <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" type = "text/css">
 
 <link href="css/button.css" rel="stylesheet">
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a9f8501e6405d12afa94844cfc475269&libraries=services"></script>
 </head>
 
 <body>
@@ -138,8 +143,8 @@
 					<div class="single_catagory wow fadeInUp" data-wow-delay=".3s">
 						<img src="images/1.jpg" alt="">
 						<div class="catagory-title">
-							<a href="restaurant_main.html">
-								<h5>#ëª¨ë²” ì‹ë‹¹</h5>
+							<a href="restaurant_main.jsp">
+								<h5>#¸ğ¹ü ½Ä´ç</h5>
 							</a>
 						</div>
 					</div>
@@ -148,8 +153,8 @@
 					<div class="single_catagory wow fadeInUp" data-wow-delay=".6s">
 						<img src="images/2.jpg" alt="">
 						<div class="catagory-title">
-							<a href="restaurant_main2.html">
-								<h5>#ë ˆì‹œí”¼ ê´€ë ¨ ì‹ë‹¹</h5>
+							<a href="restaurant_main2.jsp">
+								<h5>#·¹½ÃÇÇ °ü·Ã ½Ä´ç</h5>
 							</a>
 						</div>
 					</div>
@@ -158,8 +163,8 @@
 					<div class="single_catagory wow fadeInUp" data-wow-delay=".9s">
 						<img src="images/3.jpg" alt="">
 						<div class="catagory-title">
-							<a href="restaurant_main3.html">
-								<h5>#ë‚ ì”¨ ê´€ë ¨ ì‹ë‹¹</h5>
+							<a href="restaurant_main3.jsp">
+								<h5>#³¯¾¾ °ü·Ã ½Ä´ç</h5>
 							</a>
 						</div>
 					</div>
@@ -182,7 +187,89 @@
 								<div class="row">
 							<div class="col-12 col-sm-8 col-md-6 col-lg-8">
 								<div class="post-thumb" >
-								<img src="images/map6.PNG" alt="map1" width="730" height="486.66">
+								<div id="map" style="width:730px;height:486.66px;"></div>
+								<p><em>Áöµµ¸¦ Å¬¸¯ÇØÁÖ¼¼¿ä!</em></p> 
+								<div id="clickLatlng"></div>
+									<script>
+									// ¸¶Ä¿¸¦ Å¬¸¯ÇÏ¸é Àå¼Ò¸íÀ» Ç¥ÃâÇÒ ÀÎÆ÷À©µµ¿ì ÀÔ´Ï´Ù
+									var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(33.450701, 126.570667),
+			level: 3
+		};
+
+		var map = new kakao.maps.Map(container, options);
+		
+		// Àå¼Ò °Ë»ö °´Ã¼¸¦ »ı¼ºÇÕ´Ï´Ù
+		var ps = new kakao.maps.services.Places(); 
+
+		// Å°¿öµå·Î Àå¼Ò¸¦ °Ë»öÇÕ´Ï´Ù
+		ps.keywordSearch('±èÄ¡Âî°³', placesSearchCB); 
+
+		// Å°¿öµå °Ë»ö ¿Ï·á ½Ã È£ÃâµÇ´Â Äİ¹éÇÔ¼ö ÀÔ´Ï´Ù
+		function placesSearchCB (data, status, pagination) {
+		    if (status === kakao.maps.services.Status.OK) {
+
+		        // °Ë»öµÈ Àå¼Ò À§Ä¡¸¦ ±âÁØÀ¸·Î Áöµµ ¹üÀ§¸¦ Àç¼³Á¤ÇÏ±âÀ§ÇØ
+		        // LatLngBounds °´Ã¼¿¡ ÁÂÇ¥¸¦ Ãß°¡ÇÕ´Ï´Ù
+		        var bounds = new kakao.maps.LatLngBounds();
+
+		        for (var i=0; i<data.length; i++) {
+		            displayMarker(data[i]);    
+		            bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+		        }       
+
+		        // °Ë»öµÈ Àå¼Ò À§Ä¡¸¦ ±âÁØÀ¸·Î Áöµµ ¹üÀ§¸¦ Àç¼³Á¤ÇÕ´Ï´Ù
+		        map.setBounds(bounds);
+		    } 
+		}
+
+		// Áöµµ¿¡ ¸¶Ä¿¸¦ Ç¥½ÃÇÏ´Â ÇÔ¼öÀÔ´Ï´Ù
+		function displayMarker(place) {
+		    
+		    // ¸¶Ä¿¸¦ »ı¼ºÇÏ°í Áöµµ¿¡ Ç¥½ÃÇÕ´Ï´Ù
+		    var marker = new kakao.maps.Marker({
+		        map: map,
+		        position: new kakao.maps.LatLng(place.y, place.x) 
+		    });
+
+		    // ¸¶Ä¿¿¡ Å¬¸¯ÀÌº¥Æ®¸¦ µî·ÏÇÕ´Ï´Ù
+		    kakao.maps.event.addListener(marker, 'click', function() {
+		        // ¸¶Ä¿¸¦ Å¬¸¯ÇÏ¸é Àå¼Ò¸íÀÌ ÀÎÆ÷À©µµ¿ì¿¡ Ç¥ÃâµË´Ï´Ù
+		        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+		        infowindow.open(map, marker);
+		    });
+		}
+		
+		// Áöµµ¸¦ Å¬¸¯ÇÑ À§Ä¡¿¡ Ç¥ÃâÇÒ ¸¶Ä¿ÀÔ´Ï´Ù
+		var marker = new kakao.maps.Marker({ 
+		    // Áöµµ Áß½ÉÁÂÇ¥¿¡ ¸¶Ä¿¸¦ »ı¼ºÇÕ´Ï´Ù 
+		    position: map.getCenter() 
+		}); 
+		// Áöµµ¿¡ ¸¶Ä¿¸¦ Ç¥½ÃÇÕ´Ï´Ù
+		marker.setMap(map);
+
+		// Áöµµ¿¡ Å¬¸¯ ÀÌº¥Æ®¸¦ µî·ÏÇÕ´Ï´Ù
+		// Áöµµ¸¦ Å¬¸¯ÇÏ¸é ¸¶Áö¸· ÆÄ¶ó¹ÌÅÍ·Î ³Ñ¾î¿Â ÇÔ¼ö¸¦ È£ÃâÇÕ´Ï´Ù
+		kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
+		    
+		    // Å¬¸¯ÇÑ À§µµ, °æµµ Á¤º¸¸¦ °¡Á®¿É´Ï´Ù 
+		    var latlng = mouseEvent.latLng; 
+		    
+		    // ¸¶Ä¿ À§Ä¡¸¦ Å¬¸¯ÇÑ À§Ä¡·Î ¿Å±é´Ï´Ù
+		    marker.setPosition(latlng);
+		    
+		    var message = 'Å¬¸¯ÇÑ À§Ä¡ÀÇ À§µµ´Â ' + latlng.getLat() + ' ÀÌ°í, ';
+		    message += '°æµµ´Â ' + latlng.getLng() + ' ÀÔ´Ï´Ù';
+		    
+		    var resultDiv = document.getElementById('clickLatlng'); 
+		    resultDiv.innerHTML = message;
+		    
+		});
+		
+		
+	</script>
 
 							<!-- Post Content -->
 							<div class="post-content">
@@ -190,7 +277,7 @@
 									<div class="post-author-date-area d-flex">
 										<!-- Post Author -->
 										<div class="post-author">
-											<a href="#">ì—­ì‚¼ì—­ ì£¼ë³€ ë§›ì§‘</a>
+											<a href="#">¿ª»ï¿ª ÁÖº¯ ¸ÀÁı</a>
 										</div>
 										<!-- Post Date -->
 										<div class="post-date">
@@ -208,13 +295,13 @@
 					<!-- Single Widget Area -->
 					<div class="single-widget-area about-me-widget text-center">
 						<div class="widget-title">
-							<h6>ìˆ˜ë¯¸ ì´ˆë°¥</h6>
+							<h6>¼ö¹Ì ÃÊ¹ä</h6>
 						</div>
 						<div class="about-me-widget-thumb">
-							<img src="images//food.jpg" alt="">
+							<img src="images/food.jpg" alt="">
 						</div>
 						<h4 class="font-shadow-into-light">BEST MENU</h4>
-						<p>ì˜¤í”ˆì‹œê°„ AM 10:00 <br/> ë§ˆê°ì‹œê° PM 10:00</p>
+						<p>¿ÀÇÂ½Ã°£ AM 10:00 <br/> ¸¶°¨½Ã°¨ PM 10:00</p>
 					</div>
 
 					<!-- Single Widget Area -->
@@ -240,7 +327,7 @@
 	</div>
 					<div class="col-12">
 						<a href="#">
-									<h2 class="post-headline">ì‹ë‹¹ ê²€ìƒ‰ API</h2>
+									<h2 class="post-headline">½Ä´ç °Ë»ö API</h2>
 								</a>
 								<div class="container">
 								<div class="row">
@@ -257,12 +344,12 @@
     <input class="search-box" />
   </div>
   <h3 class="response"></h3>
-  <span style="">ì§€ì—­</span>
+  <span style="">Áö¿ª</span>
 										<select>
-											<option value="s">ì„œìš¸</option>
-											<option value="g">ê²½ê¸°ë„</option>
-											<option value="k">ê°•ì›ë„</option>
-											<option value="ks">ê²½ìƒë„</option>
+											<option value="s">¼­¿ï</option>
+											<option value="g">°æ±âµµ</option>
+											<option value="k">°­¿øµµ</option>
+											<option value="ks">°æ»óµµ</option>
 										</select>
 </div>
 									
@@ -272,14 +359,14 @@
 								</div>
 								</div>
 					</div>
-					<h2 class="post-headline"> ê²€ìƒ‰ ê²°ê³¼</h2>
+					<h2 class="post-headline"> °Ë»ö °á°ú</h2>
 					<!-- Single Post -->
 					<div class="row">
 					<div class="col-12 col-md-6 col-lg-4">
 						<div class="single-post wow fadeInUp" data-wow-delay=".4s">
 							<!-- Post Thumb -->
 							<div class="post-thumb">
-								<img src="images/res1.jpg" alt="" width="360" height="270">
+								<a href="restaurant_click.jsp"><img src="images/res1.jpg" alt="" width="360" height="270"></a>
 							</div>
 							<!-- Post Content -->
 							<div class="post-content">
@@ -287,11 +374,11 @@
 									<div class="post-author-date-area d-flex">
 										<!-- Post Author -->
 										<div class="post-author">
-											<a href="#">ì‹ë‹¹1</a>
+											<a href="#">½Ä´ç1</a>
 										</div>
 										<!-- Post Date -->
 										<div class="post-date">
-											<a href="#">ì„œìš¸, í…Œí—¤ë€ë¡œ</a>
+											<a href="#">¼­¿ï, Å×Çì¶õ·Î</a>
 										</div>
 									</div>
 									<!-- Post Comment & Share Area -->
@@ -314,7 +401,7 @@
 									</div>
 								</div>
 								<a href="#">
-									<h4 class="post-headline">ì‚¬ê±°ë¦¬ ì‹ë‹¹</h4>
+									<h4 class="post-headline">»ç°Å¸® ½Ä´ç</h4>
 								</a>
 							</div>
 						</div>
@@ -333,11 +420,11 @@
 									<div class="post-author-date-area d-flex">
 										<!-- Post Author -->
 										<div class="post-author">
-											<a href="#">ì‹ë‹¹2</a>
+											<a href="#">½Ä´ç2</a>
 										</div>
 										<!-- Post Date -->
 										<div class="post-date">
-											<a href="#">ê°•ì›ë„, íƒœë°±</a>
+											<a href="#">°­¿øµµ, ÅÂ¹é</a>
 										</div>
 									</div>
 									<!-- Post Comment & Share Area -->
@@ -360,7 +447,7 @@
 									</div>
 								</div>
 								<a href="#">
-									<h4 class="post-headline">ì˜¤ëŒ€ì‚° ì‹ë‹¹</h4>
+									<h4 class="post-headline">¿À´ë»ê ½Ä´ç</h4>
 								</a>
 							</div>
 						</div>
@@ -379,11 +466,11 @@
 									<div class="post-author-date-area d-flex">
 										<!-- Post Author -->
 										<div class="post-author">
-											<a href="#">ì‹ë‹¹3</a>
+											<a href="#">½Ä´ç3</a>
 										</div>
 										<!-- Post Date -->
 										<div class="post-date">
-											<a href="#">ê²½ìƒë„, ë¶€ì‚°</a>
+											<a href="#">°æ»óµµ, ºÎ»ê</a>
 										</div>
 									</div>
 									<!-- Post Comment & Share Area -->
@@ -406,7 +493,7 @@
 									</div>
 								</div>
 								<a href="#">
-									<h4 class="post-headline">í•œê·¼ì§‘</h4>
+									<h4 class="post-headline">ÇÑ±ÙÁı</h4>
 								</a>
 							</div>
 						</div>
@@ -668,6 +755,55 @@
 	<script src="../../yummy-master/js/others/plugins.js"></script>
 	<!-- Active JS -->
 	<script src="../../yummy-master/js/active.js"></script>
-	<script src="js/jq.js"></script>
 </body>
+<script type="text/javascript">
+	$.fn.toggleState = function(b) {
+	  $(this).stop().animate({
+	    width: b ? "300px" : "50px"
+	  }, 600, "easeOutElastic" );
+	}
+	$(document).ready(function() {
+	  var container = $(".contain");
+	  var boxContainer = $(".search-box-container");
+	  var submit = $(".submit");
+	  var searchBox = $(".search-box");
+	  var response = $(".response");
+	  var isOpen = false;
+	  submit.on("mousedown", function(e) {
+	    e.preventDefault();
+	    boxContainer.toggleState(!isOpen);
+	    isOpen = !isOpen;
+	    if(!isOpen) {
+	      handleRequest();
+	    } else {
+	      searchBox.focus();
+	    }  
+	  });
+	  searchBox.keypress(function(e) {
+	    if(e.which === 13) {
+	      boxContainer.toggleState(false);
+	      isOpen = false;
+	      handleRequest();
+	    }
+	  });
+	  searchBox.blur(function() {
+	    boxContainer.toggleState(false);
+	    isOpen = false;
+	  });
+	  function handleRequest() {
+	    <!-- / You could do an ajax request here... -->
+	    var value = searchBox.val();
+	    searchBox.val('');
+	    if(value.length > 0) {
+	      response.text(('Searching for "' + value + '" . . .'));
+	      response.animate({
+	        opacity: 1
+	      }, 300).delay(2000).animate({
+	        opacity: 0
+	      }, 300);
+	    }
+	  }
+	});
+
+</script>
 </html>

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 
@@ -138,8 +140,8 @@
 					<div class="single_catagory wow fadeInUp" data-wow-delay=".3s">
 						<img src="images/1.jpg" alt="">
 						<div class="catagory-title">
-							<a href="restaurant_main.html">
-								<h5>#ëª¨ë²” ì‹ë‹¹</h5>
+							<a href="restaurant_main.jsp">
+								<h5>#¸ð¹ü ½Ä´ç</h5>
 							</a>
 						</div>
 					</div>
@@ -148,8 +150,8 @@
 					<div class="single_catagory wow fadeInUp" data-wow-delay=".6s">
 						<img src="images/2.jpg" alt="">
 						<div class="catagory-title">
-							<a href="restaurant_main2.html">
-								<h5>#ë ˆì‹œí”¼ ê´€ë ¨ ì‹ë‹¹</h5>
+							<a href="restaurant_main2.jsp">
+								<h5>#·¹½ÃÇÇ °ü·Ã ½Ä´ç</h5>
 							</a>
 						</div>
 					</div>
@@ -158,8 +160,8 @@
 					<div class="single_catagory wow fadeInUp" data-wow-delay=".9s">
 						<img src="images/3.jpg" alt="">
 						<div class="catagory-title">
-							<a href="restaurant_main3.html">
-								<h5>#ë‚ ì”¨ ê´€ë ¨ ì‹ë‹¹</h5>
+							<a href="restaurant_main3.jsp">
+								<h5>#³¯¾¾ °ü·Ã ½Ä´ç</h5>
 							</a>
 						</div>
 					</div>
@@ -190,7 +192,7 @@
 									<div class="post-author-date-area d-flex">
 										<!-- Post Author -->
 										<div class="post-author">
-											<a href="#">ì—­ì‚¼ì—­ ì£¼ë³€ ë§›ì§‘</a>
+											<a href="#">¿ª»ï¿ª ÁÖº¯ ¸ÀÁý</a>
 										</div>
 										<!-- Post Date -->
 										<div class="post-date">
@@ -208,13 +210,13 @@
 					<!-- Single Widget Area -->
 					<div class="single-widget-area about-me-widget text-center">
 						<div class="widget-title">
-							<h6>ìˆ˜ë¯¸ ì´ˆë°¥</h6>
+							<h6>¼ö¹Ì ÃÊ¹ä</h6>
 						</div>
 						<div class="about-me-widget-thumb">
 							<img src="images//food.jpg" alt="">
 						</div>
 						<h4 class="font-shadow-into-light">BEST MENU</h4>
-						<p>ì˜¤í”ˆì‹œê°„ AM 10:00 <br/> ë§ˆê°ì‹œê° PM 10:00</p>
+						<p>¿ÀÇÂ½Ã°£ AM 10:00 <br/> ¸¶°¨½Ã°¨ PM 10:00</p>
 					</div>
 
 					<!-- Single Widget Area -->
@@ -240,7 +242,7 @@
 	</div>
 					<div class="col-12">
 						<a href="#">
-									<h2 class="post-headline">ì‹ë‹¹ ê²€ìƒ‰ API</h2>
+									<h2 class="post-headline">½Ä´ç °Ë»ö API</h2>
 								</a>
 								<div class="container">
 								<div class="row">
@@ -257,12 +259,12 @@
     <input class="search-box" />
   </div>
   <h3 class="response"></h3>
-  <span style="">ì§€ì—­</span>
+  <span style="">Áö¿ª</span>
 										<select>
-											<option value="s">ì„œìš¸</option>
-											<option value="g">ê²½ê¸°ë„</option>
-											<option value="k">ê°•ì›ë„</option>
-											<option value="ks">ê²½ìƒë„</option>
+											<option value="s">¼­¿ï</option>
+											<option value="g">°æ±âµµ</option>
+											<option value="k">°­¿øµµ</option>
+											<option value="ks">°æ»óµµ</option>
 										</select>
 </div>
 									
@@ -272,7 +274,7 @@
 								</div>
 								</div>
 					</div>
-					<h2 class="post-headline"> ê²€ìƒ‰ ê²°ê³¼</h2>
+					<h2 class="post-headline"> °Ë»ö °á°ú</h2>
 					<!-- Single Post -->
 					<div class="row">
 					<div class="col-12 col-md-6 col-lg-4">
@@ -287,11 +289,11 @@
 									<div class="post-author-date-area d-flex">
 										<!-- Post Author -->
 										<div class="post-author">
-											<a href="#">ì‹ë‹¹1</a>
+											<a href="#">½Ä´ç1</a>
 										</div>
 										<!-- Post Date -->
 										<div class="post-date">
-											<a href="#">ì„œìš¸, í…Œí—¤ëž€ë¡œ</a>
+											<a href="#">¼­¿ï, Å×Çì¶õ·Î</a>
 										</div>
 									</div>
 									<!-- Post Comment & Share Area -->
@@ -314,7 +316,7 @@
 									</div>
 								</div>
 								<a href="#">
-									<h4 class="post-headline">ì‚¬ê±°ë¦¬ ì‹ë‹¹</h4>
+									<h4 class="post-headline">»ç°Å¸® ½Ä´ç</h4>
 								</a>
 							</div>
 						</div>
@@ -333,11 +335,11 @@
 									<div class="post-author-date-area d-flex">
 										<!-- Post Author -->
 										<div class="post-author">
-											<a href="#">ì‹ë‹¹2</a>
+											<a href="#">½Ä´ç2</a>
 										</div>
 										<!-- Post Date -->
 										<div class="post-date">
-											<a href="#">ê°•ì›ë„, íƒœë°±</a>
+											<a href="#">°­¿øµµ, ÅÂ¹é</a>
 										</div>
 									</div>
 									<!-- Post Comment & Share Area -->
@@ -360,7 +362,7 @@
 									</div>
 								</div>
 								<a href="#">
-									<h4 class="post-headline">ì˜¤ëŒ€ì‚° ì‹ë‹¹</h4>
+									<h4 class="post-headline">¿À´ë»ê ½Ä´ç</h4>
 								</a>
 							</div>
 						</div>
@@ -379,11 +381,11 @@
 									<div class="post-author-date-area d-flex">
 										<!-- Post Author -->
 										<div class="post-author">
-											<a href="#">ì‹ë‹¹3</a>
+											<a href="#">½Ä´ç3</a>
 										</div>
 										<!-- Post Date -->
 										<div class="post-date">
-											<a href="#">ê²½ìƒë„, ë¶€ì‚°</a>
+											<a href="#">°æ»óµµ, ºÎ»ê</a>
 										</div>
 									</div>
 									<!-- Post Comment & Share Area -->
@@ -406,7 +408,7 @@
 									</div>
 								</div>
 								<a href="#">
-									<h4 class="post-headline">í•œê·¼ì§‘</h4>
+									<h4 class="post-headline">ÇÑ±ÙÁý</h4>
 								</a>
 							</div>
 						</div>
