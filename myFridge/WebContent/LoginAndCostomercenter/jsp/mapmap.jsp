@@ -198,11 +198,24 @@
 			center: new kakao.maps.LatLng(33.450701, 126.570667),
 			level: 3
 		};
-//
+		
+		
+
 		var map = new kakao.maps.Map(container, options);
+		
+		var points=[
+			new kakao.maps.LatLng(33.452278, 126.567803),
+		    new kakao.maps.LatLng(33.452671, 126.574792),
+		    new kakao.maps.LatLng(33.451744, 126.572441)
+			
+		];
+		
+		
 		
 		// 장소 검색 객체를 생성합니다
 		var ps = new kakao.maps.services.Places(); 
+		
+		
 
 		// 키워드로 장소를 검색합니다
 		ps.keywordSearch('김치찌개', placesSearchCB); 
