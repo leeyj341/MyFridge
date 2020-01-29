@@ -12,16 +12,16 @@
 
 
 <!-- Favicon -->
-<link rel="icon" href="../../yummy-master/img/core-img/favicon.ico">
+<link rel="icon" href="../yummy-master/img/core-img/favicon.ico">
 
 
 <!-- Core Stylesheet -->
-<link href="../../yummy-master/style.css" rel="stylesheet">
-<link href="../../css/common/fonts.css" rel="stylesheet">
+<link href="../yummy-master/style.css" rel="stylesheet">
+	<link href="../common/css/fonts.css" rel="stylesheet">
 
 
 <!--  <!-- Responsive CSS -->
-<link href="../../yummy-master/css/responsive/responsive.css"
+<link href="../yummy-master/css/responsive/responsive.css"
    rel="stylesheet">
 <style type="text/css">
 img {
@@ -220,7 +220,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <img src="../../images/pork1.PNG" alt="">
+                     <img src="../images/pork1.PNG" alt="">
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -264,7 +264,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.3s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <img src="../../images/pork2.PNG" alt="">
+                     <img src="../images/pork2.PNG" alt="">
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -312,7 +312,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.4s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <img src="../../images/sandwitch.jpg" alt="">
+                     <img src="../images/sandwitch.jpg" alt="">
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -375,7 +375,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <img src="../../images/pork1.PNG" alt="">
+                     <img src="../images/pork1.PNG" alt="">
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -419,7 +419,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.3s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <img src="../../images/pork2.PNG" alt="">
+                     <img src="../images/pork2.PNG" alt="">
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -467,7 +467,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.4s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <img src="../../images/sandwitch.jpg" alt="">
+                     <img src="../images/sandwitch.jpg" alt="">
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -530,7 +530,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <img src="../../images/pork1.PNG" alt="">
+                     <img src="../images/pork1.PNG" alt="">
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -574,7 +574,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.3s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <img src="../../images/pork2.PNG" alt="">
+                     <img src="../images/pork2.PNG" alt="">
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -622,7 +622,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.4s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <img src="../../images/sandwitch.jpg" alt="">
+                     <img src="../images/sandwitch.jpg" alt="">
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -722,14 +722,14 @@ section {
 
 
    <!-- Jquery-2.2.4 js -->
-   <script src="../../yummy-master/js/jquery/jquery-2.2.4.min.js"></script>
+   <script src="../yummy-master/js/jquery/jquery-2.2.4.min.js"></script>
    <!-- Popper js -->
-   <script src="../../yummy-master/js/bootstrap/popper.min.js"></script>
+   <script src="../yummy-master/js/bootstrap/popper.min.js"></script>
    <!-- Bootstrap-4 js -->
-   <script src="../../yummy-master/js/bootstrap/bootstrap.min.js"></script>
+   <script src="../yummy-master/js/bootstrap/bootstrap.min.js"></script>
    <!-- All Plugins JS -->
-   <script src="../../yummy-master/js/others/plugins.js"></script>
+   <script src="../yummy-master/js/others/plugins.js"></script>
    <!-- Active JS -->
-   <script src="../../yummy-master/js/active.js"></script>
+   <script src="../yummy-master/js/active.js"></script>
 </body>
 </html>
