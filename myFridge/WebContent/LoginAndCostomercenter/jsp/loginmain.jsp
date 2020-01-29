@@ -18,13 +18,13 @@
 <link rel="icon" href="img/core-img/favicon.ico">
 
 <!-- Core Stylesheet -->
-<link href="style.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
 
 <!-- font -->
-<link href="../common/css/fonts.css" rel="stylesheet">
+<link href="../../common/css/fonts.css" rel="stylesheet">
 
 <!-- Responsive CSS -->
-<link href="../yummy-master/css/responsive/responsive.css"
+<link href="../../yummy-master/css/responsive/responsive.css"
 	rel="stylesheet">
 	
 
@@ -288,7 +288,7 @@ font-family: dohyeon;
 					<div class="single-post wow fadeInUp" data-wow-delay="0.6s">
 						<!-- Post Thumb -->
 						<div class="post-thumb">
-							<img src="../yummy-master/img/blog-img/3.jpg" alt="">
+							<img src="../../yummy-master/img/blog-img/3.jpg" alt="">
 						</div>
 						<!-- Post Content -->
 						<div class="post-content">
@@ -335,7 +335,7 @@ font-family: dohyeon;
 					<div class="single-post wow fadeInUp" data-wow-delay="0.7s">
 						<!-- Post Thumb -->
 						<div class="post-thumb">
-							<img src="../yummy-master/img/blog-img/4.jpg" alt="">
+							<img src="../../yummy-master/img/blog-img/4.jpg" alt="">
 						</div>
 						<!-- Post Content -->
 						<div class="post-content">
@@ -383,7 +383,7 @@ font-family: dohyeon;
 						<!-- Post Thumb -->
 						<div class="post-thumb">
 							<a href="http://www.ssg.com"><img
-								src="../yummy-master/img/blog-img/5.jpg" alt=""></a>
+								src="../../yummy-master/img/blog-img/5.jpg" alt=""></a>
 						</div>
 
 						<a href="#">
@@ -429,7 +429,7 @@ font-family: dohyeon;
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/1.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/1.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -446,7 +446,7 @@ font-family: dohyeon;
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/2.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/2.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -463,7 +463,7 @@ font-family: dohyeon;
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/3.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/3.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -480,7 +480,7 @@ font-family: dohyeon;
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/4.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/4.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -497,7 +497,7 @@ font-family: dohyeon;
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/5.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/5.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -514,7 +514,7 @@ font-family: dohyeon;
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/6.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/6.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -531,7 +531,7 @@ font-family: dohyeon;
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/1.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/1.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -548,7 +548,7 @@ font-family: dohyeon;
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/2.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/2.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -661,13 +661,13 @@ font-family: dohyeon;
 	<!-- ****** Footer Menu Area End ****** -->
 
 	<!-- Jquery-2.2.4 js -->
-	<script src="../yummy-master/js/jquery/jquery-2.2.4.min.js"></script>
+	<script src="../../yummy-master/js/jquery/jquery-2.2.4.min.js"></script>
 	<!-- Popper js -->
-	<script src="../yummy-master/js/bootstrap/popper.min.js"></script>
+	<script src="../../yummy-master/js/bootstrap/popper.min.js"></script>
 	<!-- Bootstrap-4 js -->
-	<script src="../yummy-master/js/bootstrap/bootstrap.min.js"></script>
+	<script src="../../yummy-master/js/bootstrap/bootstrap.min.js"></script>
 	<!-- All Plugins JS -->
-	<script src="../yummy-master/js/others/plugins.js"></script>
+	<script src="../../yummy-master/js/others/plugins.js"></script>
 	<!-- Active JS -->
-	<script src="../yummy-master/js/active.js"></script>
+	<script src="../../yummy-master/js/active.js"></script>
 </body>

@@ -19,11 +19,14 @@
 <!-- Favicon -->
 <link rel="icon" href="img/core-img/favicon.ico">
 
+<!-- font -->
+<link href="../../common/css/fonts.css" rel="stylesheet">
+
 <!-- Core Stylesheet -->
-<link href="style.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
 
 <!-- Responsive CSS -->
-<link href="../yummy-master/css/responsive/responsive.css" rel="stylesheet">
+<link href="../../yummy-master/css/responsive/responsive.css" rel="stylesheet">
 
 </head>
 
@@ -289,13 +292,13 @@
 	<!-- ****** Footer Menu Area End ****** -->
 
 	<!-- Jquery-2.2.4 js -->
-	<script src="../yummy-master/js/jquery/jquery-2.2.4.min.js"></script>
+	<script src="../../yummy-master/js/jquery/jquery-2.2.4.min.js"></script>
 	<!-- Popper js -->
-	<script src="../yummy-master/js/bootstrap/popper.min.js"></script>
+	<script src="../../yummy-master/js/bootstrap/popper.min.js"></script>
 	<!-- Bootstrap-4 js -->
-	<script src="../yummy-master/js/bootstrap/bootstrap.min.js"></script>
+	<script src="../../yummy-master/js/bootstrap/bootstrap.min.js"></script>
 	<!-- All Plugins JS -->
-	<script src="../yummy-master/js/others/plugins.js"></script>
+	<script src="../../yummy-master/js/others/plugins.js"></script>
 	<!-- Active JS -->
-	<script src="../yummy-master/js/active.js"></script>
+	<script src="../../yummy-master/js/active.js"></script>
 </body>

@@ -11,14 +11,14 @@
 <title>maeggi saeggi</title>
 
 <!-- Favicon -->
-<link rel="icon" href="../../yummy-master/img/core-img/favicon.ico">
+<link rel="icon" href="../yummy-master/img/core-img/favicon.ico">
 
 <!-- Core Stylesheet -->
-<link href="../../yummy-master/style.css" rel="stylesheet">
-<link href="../../css/common/fonts.css" rel="stylesheet">
+<link href="../yummy-master/style.css" rel="stylesheet">
+	<link href="../common/css/fonts.css" rel="stylesheet">
 
 <!--  <!-- Responsive CSS -->
-<link href="../../yummy-master/css/responsive/responsive.css"
+<link href="../yummy-master/css/responsive/responsive.css"
 	rel="stylesheet">
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <link rel="stylesheet"
@@ -37,21 +37,21 @@ h4 {
 	text-align: justify;
 }
 
-#more {
-	width: 80px;
-	background-color: #f8585b;
-	border: none;
-	color: #fff;
-	padding: 10px 0;
+#add {
+	width:100%;
+	background-color: white;
+	border: solid 1px #fdd7c8;
+	color: #f8585b;
+	padding: 9px 10px;
 	text-align: center;
 	text-decoration: none;
-	display: inline-block;
 	font-size: 15px;
+	font-weight : bolder;
 	margin: 4px;
 	cursor: pointer;
-	float: right;
+	/* margin-right: 10%; */
+	float: left;
 	border-radius: 10px;
-	margin-right: 260px;
 }
 
 #underline {
@@ -70,6 +70,16 @@ li {
   background-color:#fdd7c8;
 }
 </style>
+
+<script type="text/javascript">
+
+function popup(){
+	window.open("planner_add.jsp","식단 관리","top=10, left=10, width=1000, height=600, status=no, menubar=no, toolbar=no, resizable=no");
+
+}
+</script>
+
+
 
 </head>
 <body>
@@ -217,7 +227,7 @@ li {
 			<div class="single-post">
 				<h4>지글지글 맛있는 돼지구이</h4>
 				<div class="post-thumb">
-					<img src="../../images/pork1.PNG" alt="">
+					<img src="../images/pork1.PNG" alt="">
 				</div>
 				<!-- Post Content -->
 				<div class="post-content">
@@ -282,7 +292,7 @@ li {
 							</ul>
 						</div>
 					</div>
-
+					<input type="button" id="add" value="식단에 추가하기" onclick="popup()">
 					<hr class="d-sm-none">
 					
 				</div>
@@ -314,7 +324,7 @@ li {
 						<div class="single-post">
 							<!-- Post Thumb -->
 							<div class="post-thumb">
-								<img src="../../yummy-master/img/blog-img/15.jpg" alt="">
+								<img src="../yummy-master/img/blog-img/15.jpg" alt="">
 							</div>
 							<!-- Post Content -->
 							<div class="post-content">
@@ -339,7 +349,7 @@ li {
 						<div class="single-post">
 							<!-- Post Thumb -->
 							<div class="post-thumb">
-								<img src="../../yummy-master/img/blog-img/5.jpg" alt="">
+								<img src="../yummy-master/img/blog-img/5.jpg" alt="">
 							</div>
 							<!-- Post Content -->
 							<div class="post-content">
@@ -364,7 +374,7 @@ li {
 						<div class="single-post">
 							<!-- Post Thumb -->
 							<div class="post-thumb">
-								<img src="../../yummy-master/img/blog-img/16.jpg" alt="">
+								<img src="../yummy-master/img/blog-img/16.jpg" alt="">
 							</div>
 							<!-- Post Content -->
 							<div class="post-content">
@@ -389,7 +399,7 @@ li {
 						<div class="single-post">
 							<!-- Post Thumb -->
 							<div class="post-thumb">
-								<img src="../../yummy-master/img/blog-img/5.jpg" alt="">
+								<img src="../yummy-master/img/blog-img/5.jpg" alt="">
 							</div>
 							<!-- Post Content -->
 							<div class="post-content">
@@ -417,7 +427,7 @@ li {
 				
 				<div class="row">
 				<div class="col-12 none" style="float : left;">
-					<h4><span id="underline">3</span> Comments</h4>
+					<h4><span id="underline">3</span> 댓글 </h4>
 
 					<ol>
 						<!-- Single Comment Area -->
@@ -425,7 +435,7 @@ li {
 							<div class="comment-wrapper d-flex">
 								<!-- Comment Meta -->
 								<div class="comment-author">
-									<img src="../../yummy-master/img/blog-img/17.jpg" alt="">
+									<img src="../yummy-master/img/blog-img/17.jpg" alt="">
 								</div>
 								<!-- Comment Content -->
 								<div class="comment-content">
@@ -442,7 +452,7 @@ li {
 									<div class="comment-wrapper d-flex">
 										<!-- Comment Meta -->
 										<div class="comment-author">
-											<img src="../../yummy-master/img/blog-img/18.jpg" alt="">
+											<img src="../yummy-master/img/blog-img/18.jpg" alt="">
 										</div>
 										<!-- Comment Content -->
 										<div class="comment-content">
@@ -461,7 +471,7 @@ li {
 							<div class="comment-wrapper d-flex">
 								<!-- Comment Meta -->
 								<div class="comment-author">
-									<img src="../../yummy-master/img/blog-img/19.jpg" alt="">
+									<img src="../yummy-master/img/blog-img/19.jpg" alt="">
 								</div>
 								<!-- Comment Content -->
 								<div class="comment-content">
@@ -594,14 +604,14 @@ li {
 	</footer>
 
 	<!-- Jquery-2.2.4 js -->
-	<script src="../../yummy-master/js/jquery/jquery-2.2.4.min.js"></script>
+	<script src="../yummy-master/js/jquery/jquery-2.2.4.min.js"></script>
 	<!-- Popper js -->
-	<script src="../../yummy-master/js/bootstrap/popper.min.js"></script>
+	<script src="../yummy-master/js/bootstrap/popper.min.js"></script>
 	<!-- Bootstrap-4 js -->
-	<script src="../../yummy-master/js/bootstrap/bootstrap.min.js"></script>
+	<script src="../yummy-master/js/bootstrap/bootstrap.min.js"></script>
 	<!-- All Plugins JS -->
-	<script src="../../yummy-master/js/others/plugins.js"></script>
+	<script src="../yummy-master/js/others/plugins.js"></script>
 	<!-- Active JS -->
-	<script src="../../yummy-master/js/active.js"></script>
+	<script src="../yummy-master/js/active.js"></script>
 </body>
 </html>

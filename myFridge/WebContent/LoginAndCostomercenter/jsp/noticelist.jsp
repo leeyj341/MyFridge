@@ -12,16 +12,29 @@
 <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 <!-- Title -->
-<title> 공지 사항 글 상세 </title>
+<title> 공지 사항 </title>
 
 <!-- Favicon -->
 <link rel="icon" href="img/core-img/favicon.ico">
 
 <!-- Core Stylesheet -->
-<link href="style.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
+
+<!-- font -->
+<link href="../../common/css/fonts.css" rel="stylesheet">
 
 <!-- Responsive CSS -->
-<link href="../yummy-master/css/responsive/responsive.css" rel="stylesheet">
+<link href="../../yummy-master/css/responsive/responsive.css" rel="stylesheet">
+
+<style type="text/css">
+h2 {
+	
+	font-family: dohyeon;
+	
+}
+
+</style>
+
 
 </head>
 
@@ -103,18 +116,17 @@
 								<li class="nav-item active"><a class="nav-link"
 									href="index.html">MY FRIDGE<span class="sr-only">(current)</span></a>
 								</li>
-								<li class="nav-item dropdown"><a
-									class="nav-link dropdown-toggle" href="#" id="yummyDropdown"
-									role="button" data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="false">ABOUT US</a>
+								<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="index.html"
+									id="yummyDropdown" role="button" data-toggle="dropdown"
+									aria-haspopup="true" aria-expanded="false">ABOUT US</a>
 									<div class="dropdown-menu" aria-labelledby="yummyDropdown">
-										<a class="dropdown-item" href="index.html"></a> <a
-											class="dropdown-item" href="archive.html">INTRO</a> <a
+										<a class="dropdown-item" href="archive.html">INTRO</a> <a
 											class="dropdown-item" href="single.html">GRADE</a> <a
 											class="dropdown-item" href="static.html">QnA</a> <a
 											class="dropdown-item" href="contact.html">CONTACT</a>
 									</div></li>
-								<li class="nav-item"><a class="nav-link" href="#">RECIPE</a>
+								<li class="nav-item"><a class="nav-link" href="index.html">RECIPE</a>
 								</li>
 								<li class="nav-item"><a class="nav-link" href="#">RESTAURANT</a>
 								</li>
@@ -139,7 +151,7 @@
 			<div class="row h-100 align-items-center">
 				<div class="col-12">
 					<div class="bradcumb-title text-center">
-						<h2>문의 리스트</h2>
+						<h2>공지 사항</h2>
 					</div>
 				</div>
 			</div>
@@ -153,20 +165,23 @@
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#"><i
-									class="fa fa-home" aria-hidden="true"></i>공지사항</a></li>
-							<li class="breadcrumb-item active" aria-current="page">공지 글
-								상세보기</li>
+									class="fa fa-home" aria-hidden="true"></i> About us </a></li>
+							<li class="breadcrumb-item active" aria-current="page">공지 사항
+							</li>
 						</ol>
 					</nav>
 				</div>
 			</div>
 
+
+
 			<div class="row">
 				<!-- row해야 그 집모양 아이콘 있는 곳부터 글자가 시작됨 -->
 				<div class="col-12" id="asklist_customview">
-					<h2>공지 글 상세보기</h2>
+					<h2>공지 사항</h2>
 				</div>
 			</div>
+
 
 			<div class="row">
 				<div class="col-12" id="asklist_customview">
@@ -174,62 +189,105 @@
 
 
 					<div id="AskUserForm">
-						<table class="askboard" id="askboard_detail" border="1">
+						<table class="noticeboard" id="noticeboard_list" border="1">
 							<tr>
-								<td>작성자</td>
-								<td>관리자</td>
+								<th>번호</th>
+								<th>날짜</th>
+								<th>제목</th>
+								<th>글쓴이</th>
+								<th>조회수</th>
+
 							</tr>
 
 							<tr>
-								<td>작성일</td>
-								<td>2020-01-15</td>
+								<td class="asknum">2</td>
+								<td class="date">2020/01/15</td>
+								<td class="title" align="left">[이벤트] 이벤트 당첨자 안내</td>
+								<td class="name">관리자</td>
+								<td class="hit">89</td>
+
 							</tr>
 
 							<tr>
-								<td>제목</td>
-								<td>[공지]02/10 서버 점검 안내</td>
-							</tr>
-
-							<tr>
-								<td>content</td>
-								<td align="left">02/10 01:00 ~ 05:00 동안 서버 점검이 진행될 예정입니다.<br />
-									해당 시간 동안 사이트 접속이 제한되므로 이용에 참고 바랍니다.<br />감사합니다.<br />-매끼세끼 드림-<br /></td>
+								<td class="asknum">1</td>
+								<td class="date">2020/01/10</td>
+								<td class="title" align="left">[긴급] 서버 점검 안내</td>
+								<td class="name">관리자</td>
+								<td class="hit">224</td>
 
 							</tr>
+
 						</table>
+
+					</div>
+
+					<div id="searchdiv">
+
+						<form id="notice_search">
+							<select name="notice_searchhow">
+								<option value="notice_searchtitle">제목</option>
+								<option value="notice_searchcontent">본문</option>
+							</select> <input type="text" id="notice_searchtext" value=""> <input
+								type="submit" id="notice_serachbutton" value="검색">
+						</form>
+
+					</div>
+
+
+
+
+
+
+				</div>
+
+
+
+
+			</div>
+		</div>
+
+
+
+
+
+
+	</div>
+	</div>
+	<!-- ****** Breadcumb Area End ****** -->
+
+
+
+
+
+	<!-- ****** Archive Area Start ****** -->
+	<section class="archive-area section_padding_80">
+
+
+		<div class="container">
+
+
+			<div class="col-12">
+				<div class="pagination-area d-sm-flex mt-15">
+					<nav aria-label="#">
+						<ul class="pagination">
+							<li class="page-item active"><a class="page-link" href="#">1
+									<span class="sr-only">(current)</span>
+							</a></li>
+							<li class="page-item"><a class="page-link" href="#">2</a></li>
+							<li class="page-item"><a class="page-link" href="#">3</a></li>
+							<li class="page-item"><a class="page-link" href="#">Next
+									<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+							</a></li>
+						</ul>
+					</nav>
+					<div class="page-status">
+						<p>Page 1 of 60 results</p>
 					</div>
 				</div>
-
-				<div id="notice_back">
-					<input type="button" id="notice_backtolist_button" value="목록으로"
-						onclick="location.href='notice.html' ">
-				</div>
 			</div>
-
-
-		
-
 
 		</div>
-		<!-- ****** Breadcumb Area End ****** -->
-
-
-
-
-
-		<!-- ****** Archive Area Start ****** -->
-		<section class="archive-area section_padding_80">
-
-
-			<div class="container">
-
-
-				<div class="col-12">
-					<div class="pagination-area d-sm-flex mt-15"></div>
-				</div>
-
-			</div>
-	</div>
+		</div>
 	</section>
 	<!-- ****** Archive Area End ****** -->
 
@@ -241,7 +299,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/1.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/1.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -258,7 +316,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/2.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/2.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -275,7 +333,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/3.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/3.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -292,7 +350,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/4.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/4.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -309,7 +367,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/5.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/5.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -326,7 +384,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/6.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/6.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -343,7 +401,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/1.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/1.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -360,7 +418,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../yummy-master/img/instagram-img/2.jpg" alt="">
+			<img src="../../yummy-master/img/instagram-img/2.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -473,13 +531,13 @@
 	<!-- ****** Footer Menu Area End ****** -->
 
 	<!-- Jquery-2.2.4 js -->
-	<script src="../yummy-master/js/jquery/jquery-2.2.4.min.js"></script>
+	<script src="../../yummy-master/js/jquery/jquery-2.2.4.min.js"></script>
 	<!-- Popper js -->
-	<script src="../yummy-master/js/bootstrap/popper.min.js"></script>
+	<script src="../../yummy-master/js/bootstrap/popper.min.js"></script>
 	<!-- Bootstrap-4 js -->
-	<script src="../yummy-master/js/bootstrap/bootstrap.min.js"></script>
+	<script src="../../yummy-master/js/bootstrap/bootstrap.min.js"></script>
 	<!-- All Plugins JS -->
-	<script src="../yummy-master/js/others/plugins.js"></script>
+	<script src="../../yummy-master/js/others/plugins.js"></script>
 	<!-- Active JS -->
-	<script src="../yummy-master/js/active.js"></script>
+	<script src="../../yummy-master/js/active.js"></script>
 </body>
