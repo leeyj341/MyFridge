@@ -143,7 +143,7 @@
 
 	<!-- ****** Breadcumb Area Start ****** -->
 	<div class="breadcumb-area"
-		style="background-image: url(../yummy-master/img/bg-img/breadcumb.jpg);">
+		style="background-image: url(../../yummy-master/img/bg-img/breadcumb.jpg);">
 		<div class="container h-100">
 			<div class="row h-100 align-items-center">
 				<div class="col-12">

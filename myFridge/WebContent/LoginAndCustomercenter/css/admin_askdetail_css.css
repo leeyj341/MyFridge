@@ -1,6 +1,8 @@
 @charset "EUC-KR";
 
-
+body,h2,h3{
+	font-family: 'PapyrusM';
+}
 
 
 .askboard{
