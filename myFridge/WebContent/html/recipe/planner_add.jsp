@@ -5,9 +5,12 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
-<body>
-	<div>
+<body style="text-align: center;">
+	<div class="row">
+	<div class="col-sm-6" style="background-color:lavender;">
 		<h2>나에게 없는 재료 체크하기</h2>
 				<fieldset>
 					<legend>재료확인</legend>
@@ -20,7 +23,7 @@
 					<input type="button" value="체크한 재료 모두 장바구니에 추가하기">
 				</fieldset>
 	</div>
-	<div>
+	<div class="col-sm-6" style="background-color:lavenderblush;">
 		<div>
 			<h2>날짜 선택</h2>
 			<input type="date" name="day" min="2020-01-01">
@@ -35,6 +38,7 @@
 			<span>kcal</span>
 		</div>
 		<input type="submit" value="식단에 추가하기">
+	</div>
 	</div>
 </body>
 </html>

@@ -37,21 +37,21 @@ h4 {
 	text-align: justify;
 }
 
-#more {
-	width: 80px;
-	background-color: #f8585b;
-	border: none;
-	color: #fff;
-	padding: 10px 0;
+#add {
+	width:100%;
+	background-color: white;
+	border: solid 1px #fdd7c8;
+	color: #f8585b;
+	padding: 9px 10px;
 	text-align: center;
 	text-decoration: none;
-	display: inline-block;
 	font-size: 15px;
+	font-weight : bolder;
 	margin: 4px;
 	cursor: pointer;
-	float: right;
+	/* margin-right: 10%; */
+	float: left;
 	border-radius: 10px;
-	margin-right: 260px;
 }
 
 #underline {
@@ -70,6 +70,16 @@ li {
   background-color:#fdd7c8;
 }
 </style>
+
+<script type="text/javascript">
+
+function popup(){
+	window.open("planner_add.jsp","식단 관리","top=10, left=10, width=1000, height=600, status=no, menubar=no, toolbar=no, resizable=no");
+
+}
+</script>
+
+
 
 </head>
 <body>
@@ -282,7 +292,7 @@ li {
 							</ul>
 						</div>
 					</div>
-
+					<input type="button" id="add" value="식단에 추가하기" onclick="popup()">
 					<hr class="d-sm-none">
 					
 				</div>
@@ -417,7 +427,7 @@ li {
 				
 				<div class="row">
 				<div class="col-12 none" style="float : left;">
-					<h4><span id="underline">3</span> Comments</h4>
+					<h4><span id="underline">3</span> 댓글 </h4>
 
 					<ol>
 						<!-- Single Comment Area -->
