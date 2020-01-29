@@ -31,7 +31,7 @@ var ps = new kakao.maps.services.Places();
 
 
 
-
+//HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
 if (navigator.geolocation) {
     
     // GeoLocation을 이용해서 접속 위치를 얻어옵니다
@@ -56,6 +56,31 @@ if (navigator.geolocation) {
     displayMarker(locPosition, message);
 }
 
+// 지도에 마커와 인포윈도우를 표시하는 함수입니다
+function displayMarker(locPosition, message) {
+
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({  
+        map: map, 
+        position: locPosition
+    }); 
+    
+    var iwContent = message, // 인포윈도우에 표시할 내용
+        iwRemoveable = true;
+
+    // 인포윈도우를 생성합니다
+    var infowindow = new kakao.maps.InfoWindow({
+        content : iwContent,
+        removable : iwRemoveable
+    });
+    
+    // 인포윈도우를 마커위에 표시합니다 
+    infowindow.open(map, marker);
+    
+    // 지도 중심좌표를 접속위치로 변경합니다
+    map.setCenter(locPosition);      
+}    
+
 
 
 
@@ -65,7 +90,7 @@ if (navigator.geolocation) {
 
 
 // 키워드로 장소를 검색합니다
-ps.keywordSearch('이태원 맛집', placesSearchCB, {lat, lon});
+ps.keywordSearch('김치찌개', placesSearchCB, locPosition); 
 
 // 키워드 검색 완료 시 호출되는 콜백함수 입니다
 function placesSearchCB (data, status, pagination) {
