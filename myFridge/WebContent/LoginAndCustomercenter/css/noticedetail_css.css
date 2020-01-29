@@ -1,26 +1,20 @@
 @charset "EUC-KR";
 
-#noticeboard_list{
+#noticeboard_detail{
 	margin-left : auto;
 	margin-right: auto;
 	width : 1000px;
 	text-align: center;
 	
 }
-.noticeboard th{
-	text-align: center;
+
+
+#noticelist_customview{
+	margin-top : 10px;
+	margin-bottom: 10px;
 }
 
-#searchdiv{
-	position : relative;
-	top : 50px;
-	text-align : center;
-	
-}
 
-#notice_serachbutton{
-	width : 50px;
-}
 #notice_backtolist_button{
 	width : 100px;
 }

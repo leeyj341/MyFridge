@@ -23,7 +23,8 @@
 <link href="../../common/css/fonts.css" rel="stylesheet">
 
 <!-- Core Stylesheet -->
-<link href="../css/style.css" rel="stylesheet">
+<link href="../../yummy-master/style.css" rel="stylesheet">
+<link href="../css/join_css.css" rel="stylesheet">
 
 <!-- Responsive CSS -->
 <link href="../../yummy-master/css/responsive/responsive.css" rel="stylesheet">

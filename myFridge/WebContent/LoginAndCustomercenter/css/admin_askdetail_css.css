@@ -1,12 +1,7 @@
 @charset "EUC-KR";
 
-/* 문의사항리스트(고객입장)  CSS [시작] */
 
-#asklist_customview{
-	margin-top : 10px;
-	margin-bottom: 10px;
-	
-}
+
 
 .askboard{
 	margin-left : auto;
@@ -31,7 +26,7 @@
 	margin-top : 50px;
 	float: left;
 }
-/*문의사항 글 상세보기 (관리자 입장)*/
+
 
 #ask_reply_send{
 width : 100px;
