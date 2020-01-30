@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <meta name="description" content="">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -183,10 +183,10 @@ li {
 									aria-expanded="false">RECIPE</a>
 									<div class="dropdown-menu" aria-labelledby="yummyDropdown">
 										<a class="dropdown-item" href="#"></a> <a
-											class="dropdown-item" href="theme_recipe.jsp"><b>í…Œë§ˆë³„
-												ë ˆì‹œí”¼ì¡°íšŒ</b></a> <a class="dropdown-item" href="level_recipe.jsp"><b>ë‚œì´ë„ë³„
-												ë ˆì‹œí”¼ ì¡°íšŒ</b></a> <a class="dropdown-item" href="search_recipe.jsp"><b>ë ˆì‹œí”¼
-												ê²€ìƒ‰</b></a>
+											class="dropdown-item" href="theme_recipe.jsp"><b>Å×¸¶º°
+												·¹½ÃÇÇÁ¶È¸</b></a> <a class="dropdown-item" href="level_recipe.jsp"><b>³­ÀÌµµº°
+												·¹½ÃÇÇ Á¶È¸</b></a> <a class="dropdown-item" href="search_recipe.jsp"><b>·¹½ÃÇÇ
+												°Ë»ö</b></a>
 									</div></li>
 								<li class="nav-item"><a class="nav-link" href="#">RESTAURANT</a>
 								</li>
@@ -228,10 +228,10 @@ li {
 					<div class="form-group">
 						<div class="input-group">
 							<input type="text" name="q" class="form-control"
-								placeholder="Type something ..." value="ë§¤ìƒì´êµ­"
+								placeholder="Type something ..." value="¸Å»ýÀÌ±¹"
 								style="font-size: 20pt;">
 							<div class="input-group-btn">
-								<input type="button" id="more" value="ì¡°íšŒ"> <i
+								<input type="button" id="more" value="Á¶È¸"> <i
 									class="ion-search"></i>
 							</div>
 						</div>
@@ -246,50 +246,50 @@ li {
 
 				<div class="container">
 					<form class="checkbox-group">
-						<div id="title">ë‚˜ë¼ë³„</div>
+						<div id="title">³ª¶óº°</div>
 						<div class="form-group">
 							<label><input type="radio" name="c-food" checked>All
 								Countries</label>
 						</div>
 						<div class="form-group">
-							<label><input type="radio" name="c-food">í•œì‹</label>
+							<label><input type="radio" name="c-food">ÇÑ½Ä</label>
 						</div>
 						<div class="form-group">
-							<label><input type="radio" name="c-food"> í“¨ì „</label>
+							<label><input type="radio" name="c-food"> Ç»Àü</label>
 						</div>
 						<div class="form-group">
-							<label><input type="radio" name="c-food"> ì„œì–‘/ì´íƒˆë¦¬ì•„</label>
+							<label><input type="radio" name="c-food"> ¼­¾ç/ÀÌÅ»¸®¾Æ</label>
 						</div>
 						<div class="form-group">
-							<label><input type="radio" name="c-food"> ì¤‘êµ­
-								/ë™ë‚¨ì•„ì‹œì•„</label>
+							<label><input type="radio" name="c-food"> Áß±¹
+								/µ¿³²¾Æ½Ã¾Æ</label>
 						</div>
 						<div class="form-group">
-							<label><input type="radio" name="c-food"> ì¼ë³¸</label>
+							<label><input type="radio" name="c-food"> ÀÏº»</label>
 						</div>
 						<br>
-						<div id="title">ì¢…ë¥˜ë³„</div>
+						<div id="title">Á¾·ùº°</div>
 						<div class="form-group">
 							<label><input type="checkbox" name="category" checked>All
 								Categories</label>
 						</div>
 						<div class="form-group">
-							<label><input type="checkbox" name="category">ë©”ì¸ë°˜ì°¬</label>
+							<label><input type="checkbox" name="category">¸ÞÀÎ¹ÝÂù</label>
 						</div>
 						<div class="form-group">
-							<label><input type="checkbox" name="category">í”¼ìž/ë””ì €íŠ¸</label>
+							<label><input type="checkbox" name="category">ÇÇÀÚ/µðÀúÆ®</label>
 						</div>
 						<div class="form-group">
-							<label><input type="checkbox" name="category">ì°œ/ì°Œê°œ/ì „ê³¨/êµ­</label>
+							<label><input type="checkbox" name="category">Âò/Âî°³/Àü°ñ/±¹</label>
 						</div>
 						<div class="form-group">
-							<label><input type="checkbox" name="category">ë°¥</label>
+							<label><input type="checkbox" name="category">¹ä</label>
 						</div>
 						<div class="form-group">
-							<label><input type="checkbox" name="category">ë§Œë‘/ë©´ë¥˜</label>
+							<label><input type="checkbox" name="category">¸¸µÎ/¸é·ù</label>
 						</div>
 						<div class="form-group">
-							<label><input type="checkbox" name="category">ë‚˜ë¬¼/ìƒì±„/ìƒëŸ¬ë“œ</label>
+							<label><input type="checkbox" name="category">³ª¹°/»ýÃ¤/»ø·¯µå</label>
 						</div>
 					</form>
 				</div>
@@ -308,7 +308,7 @@ li {
 						</select>
 					</div>
 					<div class="search-result">
-						<span id="underline">ë§¤ìƒì´êµ­</span> ìœ¼ë¡œ ì¡°íšŒëœ ê²°ê³¼ëŠ” 5,200 ê°œ ìž…ë‹ˆë‹¤.
+						<span id="underline">¸Å»ýÀÌ±¹</span> À¸·Î Á¶È¸µÈ °á°ú´Â 5,200 °³ ÀÔ´Ï´Ù.
 					</div>
 				</div>
 				<div class="single-post-line">
