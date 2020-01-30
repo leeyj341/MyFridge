@@ -11,13 +11,13 @@
 <body>
 	<div class="col-12">
 		<!-- 이곳에 top화면을 연결하세요" -->
-		<tiles:insertAttribute name="top"></tiles:insertAttribute>
+		<%-- <tiles:insertAttribute name="top"></tiles:insertAttribute> --%>
 	</div>
 	<div class="col-12">
 		<tiles:insertAttribute name="content"></tiles:insertAttribute>
 	</div>
 	<div class="col-12">
-		<tiles:insertAttribute name="bottom"></tiles:insertAttribute>
+		<%-- <tiles:insertAttribute name="bottom"></tiles:insertAttribute> --%>
 	</div>
 	
 </body>
