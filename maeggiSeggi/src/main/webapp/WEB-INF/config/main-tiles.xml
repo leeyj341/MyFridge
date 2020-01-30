@@ -10,7 +10,4 @@
 		<put-attribute name="bottom" value="/WEB-INF/views/include/bottom.jsp"></put-attribute>
 	</definition>
 	
-
-	
-	
 </tiles-definitions>   
