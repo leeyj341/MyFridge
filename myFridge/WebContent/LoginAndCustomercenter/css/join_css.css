@@ -1,5 +1,7 @@
 @charset "EUC-KR";
-
+body,h2,h3{
+	font-family: 'PapyrusM';
+}
 
 .join_form{
 	margin-bottom : 20px;

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,16 +12,17 @@
 <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 <!-- Title -->
-<title> 공지 사항 글 상세 </title>
+<title> 문의 글 리스트 </title>
 
 <!-- Favicon -->
 <link rel="icon" href="img/core-img/favicon.ico">
 
-<!-- Core Stylesheet -->
-<link href="../css/style.css" rel="stylesheet">
-
 <!-- font -->
 <link href="../../common/css/fonts.css" rel="stylesheet">
+
+<!-- Core Stylesheet -->
+<link href="../../yummy-master/style.css" rel="stylesheet">
+<link href="../css/admin_asklist_css.css" rel="stylesheet">
 
 <!-- Responsive CSS -->
 <link href="../../yummy-master/css/responsive/responsive.css" rel="stylesheet">
@@ -137,7 +138,7 @@
 
 	<!-- ****** Breadcumb Area Start ****** -->
 	<div class="breadcumb-area"
-		style="background-image: url(../yummy-master/img/bg-img/breadcumb.jpg);">
+		style="background-image: url(../../yummy-master/img/bg-img/breadcumb.jpg);">
 		<div class="container h-100">
 			<div class="row h-100 align-items-center">
 				<div class="col-12">
@@ -156,83 +157,150 @@
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#"><i
-									class="fa fa-home" aria-hidden="true"></i>공지사항</a></li>
-							<li class="breadcrumb-item active" aria-current="page">공지 글
-								상세보기</li>
+									class="fa fa-home" aria-hidden="true"></i> 직접 문의하기</a></li>
+							<li class="breadcrumb-item active" aria-current="page">문의
+								리스트</li>
 						</ol>
 					</nav>
 				</div>
 			</div>
+			
+
 
 			<div class="row">
 				<!-- row해야 그 집모양 아이콘 있는 곳부터 글자가 시작됨 -->
 				<div class="col-12" id="asklist_customview">
-					<h2>공지 글 상세보기</h2>
+					<h2>[관리자 전용 페이지] 문의 글 리스트</h2>
 				</div>
 			</div>
+			
 
 			<div class="row">
 				<div class="col-12" id="asklist_customview">
+				
+				<div>
+						<select id="ansComplete">
+							<!-- 완료 선택 시완료된 것만 보여주고 미완료 선택 시 미완료 된 것만 보여줌 -->
+							<option value="completed">완료</option>
+							<option value="notcompleted">미완료</option>
+						</select>
 
-
-
-					<div id="AskUserForm">
-						<table class="askboard" id="askboard_detail" border="1">
-							<tr>
-								<td>작성자</td>
-								<td>관리자</td>
-							</tr>
-
-							<tr>
-								<td>작성일</td>
-								<td>2020-01-15</td>
-							</tr>
-
-							<tr>
-								<td>제목</td>
-								<td>[공지]02/10 서버 점검 안내</td>
-							</tr>
-
-							<tr>
-								<td>content</td>
-								<td align="left">02/10 01:00 ~ 05:00 동안 서버 점검이 진행될 예정입니다.<br />
-									해당 시간 동안 사이트 접속이 제한되므로 이용에 참고 바랍니다.<br />감사합니다.<br />-매끼세끼 드림-<br /></td>
-
-							</tr>
-						</table>
 					</div>
-				</div>
+					
+					<div id="AskUserForm">
+						<table class="askboard" border="1">
+			<tr>
+				<th>번호</th>
+				<th>날짜</th>
+				<th>제목</th>
+				<th>글쓴이</th>
+				<th>조회수</th>
+				<th>답변상태</th>
+			</tr>
+			<tr>
+				<td class="asknum">5</td>
+				<td class="date">2020/01/15</td>
+				<td class="title">문희에요</td>
+				<td class="name">나문희</td>
+				<td class="hit">100</td>
+				<td class="answercheck">미완료</td>
+			</tr>
+			<tr>
+				<td class="asknum">4</td>
+				<td class="date">2020/01/15</td>
+				<td class="title">안녕 세상!</td>
+				<td class="name">tester</td>
+				<td class="hit">5</td>
+				<td class="answercheck">미완료</td>
+			</tr>
+			<tr>
+				<td class="asknum">3</td>
+				<td class="date">2020/01/15</td>
+				<td class="title">안녕</td>
+				<td class="name">김민정</td>
+				<td class="hit">5</td>
+				<td class="answercheck">미완료</td>
+			</tr>
+			
 
-				<div id="notice_back">
-					<input type="button" id="notice_backtolist_button" value="목록으로"
-						onclick="location.href='notice.html' ">
+			<tr>
+				<td class="asknum">2</td>
+				<td class="date">2020/01/15</td>
+				<td class="title">오타 수정해주세요.</td>
+				<td class="name">debugger</td>
+				<td class="hit">5</td>
+				<td class="answercheck">미완료</td>
+			</tr>
+
+			<tr>
+				<td class="asknum">1</td>
+				<td class="date">2020/01/10</td>
+				<td class="title"><a href = "#">아이디는못바꾸나요ㅕ</a></td>
+				<td class="name">princess</td>
+				<td class="hit">20</td>
+				<td class="answercheck">완료</td>
+			</tr>
+
+		</table>
+
+
+					</div>
+					
+
+
+
+
+
+					</div>
+
+
+
+
 				</div>
 			</div>
 
 
-		
+
+
 
 
 		</div>
-		<!-- ****** Breadcumb Area End ****** -->
-
-
-
-
-
-		<!-- ****** Archive Area Start ****** -->
-		<section class="archive-area section_padding_80">
-
-
-			<div class="container">
-
-
-				<div class="col-12">
-					<div class="pagination-area d-sm-flex mt-15"></div>
-				</div>
-
-			</div>
 	</div>
+	<!-- ****** Breadcumb Area End ****** -->
+
+
+
+
+
+	<!-- ****** Archive Area Start ****** -->
+	<section class="archive-area section_padding_80">
+
+
+		<div class="container">
+
+
+			<div class="col-12">
+				<div class="pagination-area d-sm-flex mt-15">
+					<nav aria-label="#">
+						<ul class="pagination">
+							<li class="page-item active"><a class="page-link" href="#">1
+									<span class="sr-only">(current)</span>
+							</a></li>
+							<li class="page-item"><a class="page-link" href="#">2</a></li>
+							<li class="page-item"><a class="page-link" href="#">3</a></li>
+							<li class="page-item"><a class="page-link" href="#">Next
+									<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+							</a></li>
+						</ul>
+					</nav>
+					<div class="page-status">
+						<p>Page 1 of 60 results</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		</div>
 	</section>
 	<!-- ****** Archive Area End ****** -->
 
@@ -244,7 +312,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="../../yummy-master/img/instagram-img/1.jpg" alt="">
+			<img src="img/instagram-img/1.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">

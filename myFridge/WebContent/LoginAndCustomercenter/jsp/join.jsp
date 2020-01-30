@@ -23,7 +23,8 @@
 <link href="../../common/css/fonts.css" rel="stylesheet">
 
 <!-- Core Stylesheet -->
-<link href="../css/style.css" rel="stylesheet">
+<link href="../../yummy-master/style.css" rel="stylesheet">
+<link href="../css/join_css.css" rel="stylesheet">
 
 <!-- Responsive CSS -->
 <link href="../../yummy-master/css/responsive/responsive.css" rel="stylesheet">
@@ -139,7 +140,7 @@
 
 	<!-- ****** Breadcumb Area Start ****** -->
 	<div class="breadcumb-area"
-		style="background-image: url(img/bg-img/breadcumb.jpg);">
+		style="background-image: url(../../yummy-master/img/bg-img/breadcumb.jpg);">
 		<div class="container h-100">
 			<div class="row h-100 align-items-center">
 				<div class="col-12">

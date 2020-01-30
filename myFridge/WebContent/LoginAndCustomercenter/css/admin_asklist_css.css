@@ -17,17 +17,3 @@
 .askboard th {
     text-align: center;
   }
-#ansComplete {
-	float : right;
-	width : 100px;
-	margin-left : 50px;
-	margin-right : 50px;
-	margin-bottom : 30px;
-}
-
-#askdetail_reply_managername{
-	margin-left : 100px;
-	margin-right : 50px;
-	margin-top : 50px;
-	float: left;
-}

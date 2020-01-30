@@ -12,30 +12,20 @@
 <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 <!-- Title -->
-<title>로그인 페이지</title>
+<title> 공지 사항 글 상세 </title>
 
 <!-- Favicon -->
 <link rel="icon" href="img/core-img/favicon.ico">
 
 <!-- Core Stylesheet -->
-<link href="../css/style.css" rel="stylesheet">
+<link href="../../yummy-master/style.css" rel="stylesheet">
+<link href="../css/noticedetail_css.css" rel="stylesheet">
 
 <!-- font -->
 <link href="../../common/css/fonts.css" rel="stylesheet">
 
 <!-- Responsive CSS -->
-<link href="../../yummy-master/css/responsive/responsive.css"
-	rel="stylesheet">
-	
-
-<style type="text/css">
-#socialLogin_box, #top3title,#loginbutton,h4{
-font-family: dohyeon;
-}
-
-
-</style>	
-	
+<link href="../../yummy-master/css/responsive/responsive.css" rel="stylesheet">
 
 </head>
 
@@ -64,10 +54,10 @@ font-family: dohyeon;
 						class="signup-search-area d-flex align-items-center justify-content-end">
 						<div class="login_register_area d-flex">
 							<div class="login">
-								<a href="../loginmain.jsp">로그인</a>
+								<a href="register.html">Sing in</a>
 							</div>
 							<div class="register">
-								<a href="../join.jsp">회원가입</a>
+								<a href="register.html">Sing up</a>
 							</div>
 						</div>
 						<!-- Search Button Area -->
@@ -147,7 +137,18 @@ font-family: dohyeon;
 	<!-- ****** Header Area End ****** -->
 
 	<!-- ****** Breadcumb Area Start ****** -->
-
+	<div class="breadcumb-area"
+		style="background-image: url(../yummy-master/img/bg-img/breadcumb.jpg);">
+		<div class="container h-100">
+			<div class="row h-100 align-items-center">
+				<div class="col-12">
+					<div class="bradcumb-title text-center">
+						<h2>공지 사항</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div class="breadcumb-nav">
 		<div class="container">
@@ -156,268 +157,80 @@ font-family: dohyeon;
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#"><i
-									class="fa fa-home" aria-hidden="true"></i> Login</a></li>
-							<li class="breadcrumb-item active" aria-current="page">Login
-								Page</li>
+									class="fa fa-home" aria-hidden="true"></i>공지사항</a></li>
+							<li class="breadcrumb-item active" aria-current="page">공지 글
+								상세보기</li>
 						</ol>
 					</nav>
 				</div>
 			</div>
-		</div>
-	</div>
-	<!-- ****** Breadcumb Area End ****** -->
 
-
-
-	<!-- ****** Archive Area Start ****** -->
-	<section class="archive-area section_padding_80">
-
-
-		<div class="container">
-
-			<!-- 여기부터  로그인 컨텐츠-->
-			<div id="outter">
-
-
-				<div id="right_inner">
-					<form>
-						<div id="login_box">
-							<h2>Member Login</h2>
-							<ul id="input_button">
-								<li id="id_pass">
-									<ul>
-										<li class="logintext" id="ID"><div class="logintext_div">
-												<input type="text" class="input_logintext"
-													placeholder=' 아이디'>
-											</div></li>
-										<!-- id -->
-										<li class="logintext" id="pass"><div
-												class="logintext_div">
-												<input type="password" class="input_logintext"
-													placeholder=' 비밀번호'>
-											</div></li>
-										<!-- pass -->
-									</ul>
-								</li>
-								<li>
-									<button id="loginbutton">로그인</button>
-								</li>
-							</ul>
-							<ul id="joinAndsearch">
-								<li>[회원가입]</li>
-								<li>[아이디/비밀번호 찾기]</li>
-							</ul>
-						</div>
-						<!-- login_box -->
-						<div id="notmember_box">비회원으로 이용하기</div>
-						<div id="socialLogin_box">
-							소셜 로그인
-							<li id="socialList">
-								<ul>
-									<li><input type="button" class="socialbutton" id="social1"
-										value="NAVER로 로그인"></li>
-
-									<li><input type="button" class="socialbutton" id="social2"
-										value="KAKAO로 로그인"></li>
-
-									<li><input type="button" class="socialbutton" id="social3"
-										value="Google로 로그인"></li>
-
-								</ul>
-							</li>
-
-						</div>
-					</form>
-				</div>
-
-			</div>
-
-			<div id="top3title">이번 주 조회 수 top3 레시피</div>
 			<div class="row">
+				<!-- row해야 그 집모양 아이콘 있는 곳부터 글자가 시작됨 -->
+				<div class="col-12" id="noticelist_customview">
+					<h2>공지 글 상세보기</h2>
+				</div>
+			</div>
 
-				<!-- Single Post -->
+			<div class="row">
+				<div class="col-12" id="notice_view">
+					<div id="NoticeDetailForm">
+						<table class="noticeboard" id="noticeboard_detail" border="1">
+							<tr>
+								<td>작성자</td>
+								<td>관리자</td>
+							</tr>
 
-				<div class="col-12 col-md-6 col-lg-4">
-					<div class="single-post wow fadeInUp" data-wow-delay="0.1s">
-						<!-- Post Thumb -->
-						<div class="post-thumb">
-							<img src="../yummy-master/img/blog-img/2.jpg" alt="">
-						</div>
-						<!-- Post Content -->
-						<div class="post-content">
-							<div class="post-meta d-flex">
-								<div class="post-author-date-area d-flex">
-									<!-- Post Author -->
-									<div class="post-author">
-										<a href="#">연어공주</a>
-									</div>
-									<!-- Post Date -->
-									<div class="post-date">
-										<a href="#">May 19, 2017</a>
-									</div>
-								</div>
-								<!-- Post Comment & Share Area -->
-								<div class="post-comment-share-area d-flex">
-									<!-- Post Favourite -->
-									<div class="post-favourite">
-										<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
-											10</a>
-									</div>
-									<!-- Post Comments -->
-									<div class="post-comments">
-										<a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
-											12</a>
-									</div>
-									<!-- Post Share -->
-									<div class="post-share">
-										<a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-									</div>
-								</div>
-							</div>
-							<a href="#">
-								<h4 class="post-headline">연어 샌드위치</h4>
-							</a>
-						</div>
+							<tr>
+								<td>작성일</td>
+								<td>2020-01-15</td>
+							</tr>
+
+							<tr>
+								<td>제목</td>
+								<td>[공지]02/10 서버 점검 안내</td>
+							</tr>
+
+							<tr>
+								<td>content</td>
+								<td align="left">02/10 01:00 ~ 05:00 동안 서버 점검이 진행될 예정입니다.<br />
+									해당 시간 동안 사이트 접속이 제한되므로 이용에 참고 바랍니다.<br />감사합니다.<br />-매끼세끼 드림-<br /></td>
+
+							</tr>
+						</table>
 					</div>
 				</div>
 
-
-
-				<!-- Single Post -->
-				<div class="col-12 col-md-6 col-lg-4">
-					<div class="single-post wow fadeInUp" data-wow-delay="0.6s">
-						<!-- Post Thumb -->
-						<div class="post-thumb">
-							<img src="../../yummy-master/img/blog-img/3.jpg" alt="">
-						</div>
-						<!-- Post Content -->
-						<div class="post-content">
-							<div class="post-meta d-flex">
-								<div class="post-author-date-area d-flex">
-									<!-- Post Author -->
-									<div class="post-author">
-										<a href="#">쁘띠공주</a>
-									</div>
-									<!-- Post Date -->
-									<div class="post-date">
-										<a href="#">May 19, 2017</a>
-									</div>
-								</div>
-								<!-- Post Comment & Share Area -->
-								<div class="post-comment-share-area d-flex">
-									<!-- Post Favourite -->
-									<div class="post-favourite">
-										<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
-											10</a>
-									</div>
-									<!-- Post Comments -->
-									<div class="post-comments">
-										<a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
-											12</a>
-									</div>
-									<!-- Post Share -->
-									<div class="post-share">
-										<a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-									</div>
-								</div>
-							</div>
-							<a href="#">
-								<h4 class="post-headline">든든한 한끼~ 소고기 국수</h4>
-							</a>
-						</div>
-					</div>
+				<div id="notice_back">
+					<input type="button" id="notice_backtolist_button" value="목록으로"
+						onclick="location.href='notice.html' ">
 				</div>
+			</div>
+
+
+		
+
+
+		</div>
+		<!-- ****** Breadcumb Area End ****** -->
 
 
 
-				<!-- Single Post -->
-				<div class="col-12 col-md-6 col-lg-4">
-					<div class="single-post wow fadeInUp" data-wow-delay="0.7s">
-						<!-- Post Thumb -->
-						<div class="post-thumb">
-							<img src="../../yummy-master/img/blog-img/4.jpg" alt="">
-						</div>
-						<!-- Post Content -->
-						<div class="post-content">
-							<div class="post-meta d-flex">
-								<div class="post-author-date-area d-flex">
-									<!-- Post Author -->
-									<div class="post-author">
-										<a href="#">zl존법사</a>
-									</div>
-									<!-- Post Date -->
-									<div class="post-date">
-										<a href="#">May 19, 2017</a>
-									</div>
-								</div>
-								<!-- Post Comment & Share Area -->
-								<div class="post-comment-share-area d-flex">
-									<!-- Post Favourite -->
-									<div class="post-favourite">
-										<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
-											10</a>
-									</div>
-									<!-- Post Comments -->
-									<div class="post-comments">
-										<a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
-											12</a>
-									</div>
-									<!-- Post Share -->
-									<div class="post-share">
-										<a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-									</div>
-								</div>
-							</div>
-							<a href="#">
-								<h4 class="post-headline">제철음식, 굴 카나페</h4>
-							</a>
-						</div>
-					</div>
-				</div>
 
 
+		<!-- ****** Archive Area Start ****** -->
+		<section class="archive-area section_padding_80">
 
-				<!-- 기업광고  -->
+
+			<div class="container">
+
+
 				<div class="col-12">
-					<div class="single-post wow fadeInUp" data-wow-delay="1.2s">
-						<!-- Post Thumb -->
-						<div class="post-thumb">
-							<a href="http://www.ssg.com"><img
-								src="../../yummy-master/img/blog-img/5.jpg" alt=""></a>
-						</div>
-
-						<a href="#">
-							<h4 class="post-headline">위 사진은 기업 광고 사진이 올라오는 곳입니다.</h4>
-						</a>
-					</div>
+					<div class="pagination-area d-sm-flex mt-15"></div>
 				</div>
+
 			</div>
-
-
-
-
-			<div class="col-12">
-				<div class="pagination-area d-sm-flex mt-15">
-					<nav aria-label="#">
-						<ul class="pagination">
-							<li class="page-item active"><a class="page-link" href="#">1
-									<span class="sr-only">(current)</span>
-							</a></li>
-							<li class="page-item"><a class="page-link" href="#">2</a></li>
-							<li class="page-item"><a class="page-link" href="#">3</a></li>
-							<li class="page-item"><a class="page-link" href="#">Next
-									<i class="fa fa-angle-double-right" aria-hidden="true"></i>
-							</a></li>
-						</ul>
-					</nav>
-					<div class="page-status">
-						<p>Page 1 of 60 results</p>
-					</div>
-				</div>
-			</div>
-
-		</div>
-		</div>
+	</div>
 	</section>
 	<!-- ****** Archive Area End ****** -->
 

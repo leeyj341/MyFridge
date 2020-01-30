@@ -1,5 +1,8 @@
 @charset "EUC-KR";
 
+body,h2,h3{
+	font-family: 'PapyrusM';
+}
 /* 메인 로그인 페이지  CSS [시작] */
 #outter {
 	
