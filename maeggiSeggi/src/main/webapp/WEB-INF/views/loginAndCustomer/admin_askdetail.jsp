@@ -22,9 +22,9 @@
 
 
 <!-- Core Stylesheet -->
-<link href="../../yummy-master/style.css" rel="stylesheet">
+<link href="/maeggiSeggi/yummy-master/style.css" rel="stylesheet">
 
-<link href="../css/admin_askdetail_css.css" rel="stylesheet">
+<link href="/maeggiSeggi/common/css/admin_askdetail_css.css" rel="stylesheet">
 
 
 
