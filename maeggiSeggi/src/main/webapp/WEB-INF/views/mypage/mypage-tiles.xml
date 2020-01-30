@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+       
+<tiles-definitions>
+	<definition name="mypage/ask" extends="maeggiTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/mypage/ask.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="mypage/ask/write" extends="maeggiTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/mypage/ask.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="mypage/ask/title" extends="maeggiTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/mypage/ask.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="mypage/information_update" extends="maeggiTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/mypage/ask.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="mypage/mypage_main" extends="maeggiTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/mypage/ask.jsp"></put-attribute>
+	</definition>
+	
+	
+</tiles-definitions>   
