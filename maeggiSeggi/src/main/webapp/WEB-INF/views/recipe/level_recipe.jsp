@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <meta name="description" content="">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -166,9 +166,9 @@ section {
                            aria-expanded="false">RECIPE</a>
                            <div class="dropdown-menu" aria-labelledby="yummyDropdown">
                               <a class="dropdown-item" href="#"></a> 
-                              <a class="dropdown-item" href="theme_recipe.jsp"><b>í…Œë§ˆë³„ ë ˆì‹œí”¼ì¡°íšŒ</b></a> 
-                                 <a class="dropdown-item" href="level_recipe.jsp"><b>ë‚œì´ë„ë³„ ë ˆì‹œí”¼ ì¡°íšŒ</b></a> 
-                                 <a class="dropdown-item" href="search_recipe.jsp"><b>ë ˆì‹œí”¼   ê²€ìƒ‰</b></a>
+                              <a class="dropdown-item" href="theme_recipe.jsp"><b>Å×¸¶º° ·¹½ÃÇÇÁ¶È¸</b></a> 
+                                 <a class="dropdown-item" href="level_recipe.jsp"><b>³­ÀÌµµº° ·¹½ÃÇÇ Á¶È¸</b></a> 
+                                 <a class="dropdown-item" href="search_recipe.jsp"><b>·¹½ÃÇÇ   °Ë»ö</b></a>
                            </div></li>
                         <li class="nav-item"><a class="nav-link" href="#">RESTAURANT</a>
                         </li>
@@ -204,7 +204,7 @@ section {
    </div>
 <div id="line">
       <div id="headtitle">
-         <h4>ë‚˜ëŠ”ì•¼ <span id="underline">ì´ˆê¸‰ </span>ìš”ë¦¬ì‚¬</h4>
+         <h4>³ª´Â¾ß <span id="underline">ÃÊ±Þ </span>¿ä¸®»ç</h4>
          <input type="button" id="more" value="More">
       </div>
    </div>
@@ -228,7 +228,7 @@ section {
                         <div class="post-author-date-area d-flex">
                            <!-- Post Author -->
                            <div class="post-author">
-                              <a href="#">By ìœµë˜ìœµ</a>
+                              <a href="#">By À¶¶ÇÀ¶</a>
                            </div>
                            <!-- Post Date -->
                            <div class="post-date">
@@ -254,7 +254,7 @@ section {
                         </div>
                      </div>
                      <a href="#">
-                        <h4 class="post-headline">ì§€ê¸€ì§€ê¸€ ë§›ìžˆëŠ” ê¹€ì¹˜ì°Œê°œ</h4>
+                        <h4 class="post-headline">Áö±ÛÁö±Û ¸ÀÀÖ´Â ±èÄ¡Âî°³</h4>
                      </a>
                   </div>
                </div>
@@ -272,7 +272,7 @@ section {
                         <div class="post-author-date-area d-flex">
                            <!-- Post Author -->
                            <div class="post-author">
-                              <a href="#">By ì˜ì£¼ì˜ì£¼</a>
+                              <a href="#">By ¿µÁÖ¿µÁÖ</a>
                            </div>
                            <!-- Post Date -->
                            <div class="post-date">
@@ -298,7 +298,7 @@ section {
                         </div>
                      </div>
                      <a href="#">
-                        <h4 class="post-headline">ë°±ì¢…ì›ì˜ ë§ŒëŠ¥ê³ ê¸°ì–‘ë…ìœ¼ë¡œ ìž¬ìš´ ë‹¨ì§ ë‹¨ì§  la ì–‘ë…ê°ˆë¹„</h4>
+                        <h4 class="post-headline">¹éÁ¾¿øÀÇ ¸¸´É°í±â¾ç³äÀ¸·Î Àç¿î ´ÜÂ§´ÜÂ§ la ¾ç³ä°¥ºñ</h4>
                      </a>
                   </div>
                </div>
@@ -320,7 +320,7 @@ section {
                         <div class="post-author-date-area d-flex">
                            <!-- Post Author -->
                            <div class="post-author">
-                              <a href="#">By ë¯¼ì •ë¯¼ì •</a>
+                              <a href="#">By ¹ÎÁ¤¹ÎÁ¤</a>
                            </div>
                            <!-- Post Date -->
                            <div class="post-date">
@@ -346,8 +346,8 @@ section {
                         </div>
                      </div>
                      <a href="#">
-                        <h4 class="post-headline">í¬ë¦¬ìŠ¤ë§ˆìŠ¤&nbsp;&nbsp;
-                           íŒŒí‹°ìŒì‹ìœ¼ë¡œ&nbsp;&nbsp; ìµœê³ !ëª¬í…Œí¬ë¦¬ìŠ¤í†  ìƒŒë“œìœ„ì¹˜:)</h4>
+                        <h4 class="post-headline">Å©¸®½º¸¶½º&nbsp;&nbsp;
+                           ÆÄÆ¼À½½ÄÀ¸·Î&nbsp;&nbsp; ÃÖ°í!¸óÅ×Å©¸®½ºÅä »÷µåÀ§Ä¡:)</h4>
                      </a>
                   </div>
                </div>
@@ -359,7 +359,7 @@ section {
 
    <div id="line">
       <div id="headtitle">
-         <h4>ë‚˜ëŠ”ì•¼ <span id="underline">ì¤‘ê¸‰</span>ìš”ë¦¬ì‚¬</h4>
+         <h4>³ª´Â¾ß <span id="underline">Áß±Þ</span>¿ä¸®»ç</h4>
          <input type="button" id="more" value="More">
       </div>
    </div>
@@ -383,7 +383,7 @@ section {
                         <div class="post-author-date-area d-flex">
                            <!-- Post Author -->
                            <div class="post-author">
-                              <a href="#">By ìœµë˜ìœµ</a>
+                              <a href="#">By À¶¶ÇÀ¶</a>
                            </div>
                            <!-- Post Date -->
                            <div class="post-date">
@@ -409,7 +409,7 @@ section {
                         </div>
                      </div>
                      <a href="#">
-                        <h4 class="post-headline">ì§€ê¸€ì§€ê¸€ ë§›ìžˆëŠ” ê¹€ì¹˜ì°Œê°œ</h4>
+                        <h4 class="post-headline">Áö±ÛÁö±Û ¸ÀÀÖ´Â ±èÄ¡Âî°³</h4>
                      </a>
                   </div>
                </div>
@@ -427,7 +427,7 @@ section {
                         <div class="post-author-date-area d-flex">
                            <!-- Post Author -->
                            <div class="post-author">
-                              <a href="#">By ì˜ì£¼ì˜ì£¼</a>
+                              <a href="#">By ¿µÁÖ¿µÁÖ</a>
                            </div>
                            <!-- Post Date -->
                            <div class="post-date">
@@ -453,7 +453,7 @@ section {
                         </div>
                      </div>
                      <a href="#">
-                        <h4 class="post-headline">ë°±ì¢…ì›ì˜ ë§ŒëŠ¥ê³ ê¸°ì–‘ë…ìœ¼ë¡œ ìž¬ìš´ ë‹¨ì§ ë‹¨ì§  la ì–‘ë…ê°ˆë¹„</h4>
+                        <h4 class="post-headline">¹éÁ¾¿øÀÇ ¸¸´É°í±â¾ç³äÀ¸·Î Àç¿î ´ÜÂ§´ÜÂ§ la ¾ç³ä°¥ºñ</h4>
                      </a>
                   </div>
                </div>
@@ -475,7 +475,7 @@ section {
                         <div class="post-author-date-area d-flex">
                            <!-- Post Author -->
                            <div class="post-author">
-                              <a href="#">By ë¯¼ì •ë¯¼ì •</a>
+                              <a href="#">By ¹ÎÁ¤¹ÎÁ¤</a>
                            </div>
                            <!-- Post Date -->
                            <div class="post-date">
@@ -501,8 +501,8 @@ section {
                         </div>
                      </div>
                      <a href="#">
-                        <h4 class="post-headline">í¬ë¦¬ìŠ¤ë§ˆìŠ¤&nbsp;&nbsp;
-                           íŒŒí‹°ìŒì‹ìœ¼ë¡œ&nbsp;&nbsp; ìµœê³ !ëª¬í…Œí¬ë¦¬ìŠ¤í†  ìƒŒë“œìœ„ì¹˜:)</h4>
+                        <h4 class="post-headline">Å©¸®½º¸¶½º&nbsp;&nbsp;
+                           ÆÄÆ¼À½½ÄÀ¸·Î&nbsp;&nbsp; ÃÖ°í!¸óÅ×Å©¸®½ºÅä »÷µåÀ§Ä¡:)</h4>
                      </a>
                   </div>
                </div>
@@ -514,7 +514,7 @@ section {
 
    <div id="line">
       <div id="headtitle">
-         <h4>ë‚˜ëŠ”ì•¼ <span id="underline"> ê³ ê¸‰ </span>ìš”ë¦¬ì‚¬</h4>
+         <h4>³ª´Â¾ß <span id="underline"> °í±Þ </span>¿ä¸®»ç</h4>
          <input type="button" id="more" value="More">
       </div>
    </div>
@@ -538,7 +538,7 @@ section {
                         <div class="post-author-date-area d-flex">
                            <!-- Post Author -->
                            <div class="post-author">
-                              <a href="#">By ìœµë˜ìœµ</a>
+                              <a href="#">By À¶¶ÇÀ¶</a>
                            </div>
                            <!-- Post Date -->
                            <div class="post-date">
@@ -564,7 +564,7 @@ section {
                         </div>
                      </div>
                      <a href="#">
-                        <h4 class="post-headline">ì§€ê¸€ì§€ê¸€ ë§›ìžˆëŠ” ê¹€ì¹˜ì°Œê°œ</h4>
+                        <h4 class="post-headline">Áö±ÛÁö±Û ¸ÀÀÖ´Â ±èÄ¡Âî°³</h4>
                      </a>
                   </div>
                </div>
@@ -582,7 +582,7 @@ section {
                         <div class="post-author-date-area d-flex">
                            <!-- Post Author -->
                            <div class="post-author">
-                              <a href="#">By ì˜ì£¼ì˜ì£¼</a>
+                              <a href="#">By ¿µÁÖ¿µÁÖ</a>
                            </div>
                            <!-- Post Date -->
                            <div class="post-date">
@@ -608,7 +608,7 @@ section {
                         </div>
                      </div>
                      <a href="#">
-                        <h4 class="post-headline">ë°±ì¢…ì›ì˜ ë§ŒëŠ¥ê³ ê¸°ì–‘ë…ìœ¼ë¡œ ìž¬ìš´ ë‹¨ì§ ë‹¨ì§  la ì–‘ë…ê°ˆë¹„</h4>
+                        <h4 class="post-headline">¹éÁ¾¿øÀÇ ¸¸´É°í±â¾ç³äÀ¸·Î Àç¿î ´ÜÂ§´ÜÂ§ la ¾ç³ä°¥ºñ</h4>
                      </a>
                   </div>
                </div>
@@ -630,7 +630,7 @@ section {
                         <div class="post-author-date-area d-flex">
                            <!-- Post Author -->
                            <div class="post-author">
-                              <a href="#">By ë¯¼ì •ë¯¼ì •</a>
+                              <a href="#">By ¹ÎÁ¤¹ÎÁ¤</a>
                            </div>
                            <!-- Post Date -->
                            <div class="post-date">
@@ -656,8 +656,8 @@ section {
                         </div>
                      </div>
                      <a href="#">
-                        <h4 class="post-headline">í¬ë¦¬ìŠ¤ë§ˆìŠ¤&nbsp;&nbsp;
-                           íŒŒí‹°ìŒì‹ìœ¼ë¡œ&nbsp;&nbsp; ìµœê³ !ëª¬í…Œí¬ë¦¬ìŠ¤í†  ìƒŒë“œìœ„ì¹˜:)</h4>
+                        <h4 class="post-headline">Å©¸®½º¸¶½º&nbsp;&nbsp;
+                           ÆÄÆ¼À½½ÄÀ¸·Î&nbsp;&nbsp; ÃÖ°í!¸óÅ×Å©¸®½ºÅä »÷µåÀ§Ä¡:)</h4>
                      </a>
                   </div>
                </div>
