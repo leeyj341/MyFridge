@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <meta name="description" content="">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -74,7 +74,7 @@ li {
 <script type="text/javascript">
 
 function popup(){
-	window.open("planner_add.jsp","ì‹ë‹¨ ê´€ë¦¬","top=10, left=10, width=1000, height=600, status=no, menubar=no, toolbar=no, resizable=no");
+	window.open("planner_add.jsp","½Ä´Ü °ü¸®","top=100, left=450, width=700, height=600, status=no, menubar=no, toolbar=no, resizable=no");
 
 }
 </script>
@@ -183,10 +183,10 @@ function popup(){
 									aria-expanded="false">RECIPE</a>
 									<div class="dropdown-menu" aria-labelledby="yummyDropdown">
 										<a class="dropdown-item" href="#"></a> <a
-											class="dropdown-item" href="theme_recipe.html"><b>í…Œë§ˆë³„
-												ë ˆì‹œí”¼ì¡°íšŒ</b></a> <a class="dropdown-item" href="level_recipe.html"><b>ë‚œì´ë„ë³„
-												ë ˆì‹œí”¼ ì¡°íšŒ</b></a> <a class="dropdown-item" href="search_recipe.html"><b>ë ˆì‹œí”¼
-												ê²€ìƒ‰</b></a>
+											class="dropdown-item" href="theme_recipe.html"><b>Å×¸¶º°
+												·¹½ÃÇÇÁ¶È¸</b></a> <a class="dropdown-item" href="level_recipe.html"><b>³­ÀÌµµº°
+												·¹½ÃÇÇ Á¶È¸</b></a> <a class="dropdown-item" href="search_recipe.html"><b>·¹½ÃÇÇ
+												°Ë»ö</b></a>
 									</div></li>
 								<li class="nav-item"><a class="nav-link" href="#">RESTAURANT</a>
 								</li>
@@ -225,7 +225,7 @@ function popup(){
 		<div class="row">
 			<div class="col-sm-4">
 			<div class="single-post">
-				<h4>ì§€ê¸€ì§€ê¸€ ë§›ìžˆëŠ” ë¼ì§€êµ¬ì´</h4>
+				<h4>Áö±ÛÁö±Û ¸ÀÀÖ´Â µÅÁö±¸ÀÌ</h4>
 				<div class="post-thumb">
 					<img src="../images/pork1.PNG" alt="">
 				</div>
@@ -235,7 +235,7 @@ function popup(){
 						<div class="post-author-date-area d-flex">
 							<!-- Post Author -->
 							<div class="post-author">
-								<a href="#">By ìœµë˜ìœµ</a>
+								<a href="#">By À¶¶ÇÀ¶</a>
 							</div>
 							<!-- Post Date -->
 							<div class="post-date">
@@ -268,11 +268,11 @@ function popup(){
 					</div>
 					<div class="jumbotron">
 						<div>
-							<h4>ìš”ë¦¬ ê°„ë‹¨ ì†Œê°œ</h4>
+							<h4>¿ä¸® °£´Ü ¼Ò°³</h4>
 							<div style="font-family: PapyrusB; font-size: 15pt;">
 
 								<div>
-									<span>ì™„ì „ ì§±ì§± ë§›ìžˆëŠ” ë¼ì§€êµ¬ì´ ìž…ë‹ˆë‹¤ ê°•ì¶”ê°•ì¶”!</span><br /> <span>ì¹¼ë¡œë¦¬ :</span> <strong>310</strong>
+									<span>¿ÏÀü Â¯Â¯ ¸ÀÀÖ´Â µÅÁö±¸ÀÌ ÀÔ´Ï´Ù °­Ãß°­Ãß!</span><br /> <span>Ä®·Î¸® :</span> <strong>310</strong>
 									<span>kcal</span>
 								</div>
 							</div>
@@ -280,19 +280,19 @@ function popup(){
 
 
 						<div style="font-family: PapyrusB; font-size: 15pt;">
-							<h4>ìž¬ë£Œ</h4>
+							<h4>Àç·á</h4>
 							<ul>
-								<li>ê¹€ì¹˜ <strong>0.5</strong> <span> ìª½</span>
+								<li>±èÄ¡ <strong>0.5</strong> <span> ÂÊ</span>
 								</li>
-								<li>ë‘ë¶€ <strong>1</strong> <span> ëª¨</span>
+								<li>µÎºÎ <strong>1</strong> <span> ¸ð</span>
 								</li>
-								<li><br /> ì–‘íŒŒ <strong>0.5</strong> <span> ê°œ</span></li>
-								<li>ê³ ì¶” <strong>1</strong> <span> ê°œ</span>
+								<li><br /> ¾çÆÄ <strong>0.5</strong> <span> °³</span></li>
+								<li>°íÃß <strong>1</strong> <span> °³</span>
 								</li>
 							</ul>
 						</div>
 					</div>
-					<input type="button" id="add" value="ì‹ë‹¨ì— ì¶”ê°€í•˜ê¸°" onclick="popup()">
+					<input type="button" id="add" value="½Ä´Ü¿¡ Ãß°¡ÇÏ±â" onclick="popup()">
 					<hr class="d-sm-none">
 					
 				</div>
@@ -300,16 +300,16 @@ function popup(){
 			
 			<div class="col-sm-8">
 			 <div class="single-post">
-				<h4>ìš”ë¦¬ ìˆœì„œ</h4>
+				<h4>¿ä¸® ¼ø¼­</h4>
 				<div>
 					
 					<ul class="list-group list-group-flush">
-						<li class="list-group-item">ìš°ì„  ëƒ„ë¹„ì— ê°„ìž¥ ë°˜ì»µê³¼ ì„¤íƒ• ë°˜ì»µì„ ë„£ê³ </li>
-						<li class="list-group-item">ë§¤ì‹¤ì²­ 1/3ì»µ, ë¬¼ 2ì»µ ë„£ì–´ íŒ”íŒ” ë“ì—¬ì¤€ í›„ ë¶ˆì„ êº¼ì„œ ì™„ì „ížˆ ì‹í˜€ ì¤ë‹ˆë‹¤.ì–‘ë…ì´ ì‹ëŠ” ë™ì•ˆ,</li>
-						<li class="list-group-item">ë¼ì§€ëª©ì‹¬ì— ì¹¼ì§‘ì„ ì‚¬ì„ ìœ¼ë¡œ ë‚´ì–´ ì£¼ì„¸ìš”. ì•žë’¤ë©´ ê³ ë£¨ê³ ë£¨~</li>
-						<li class="list-group-item">ê·¸ë¦¬ê³  ì•„ê¹Œ ë“ì¸ ì–‘ë…ì´ ë‹¤ì‹ìœ¼ë©´, ì†Œì£¼ 1í°ìˆ , ë‹¤ì§„ë§ˆëŠ˜ 2í°ìˆ ê³¼ ì–‘íŒŒ 1/4ë¥¼ ê°ˆì•„ì„œ ë„£ì–´ì£¼ë©´ ì–‘ë…ë!ã…‹</li>
-						<li class="list-group-item">ì´ì œ ì¹¼ì§‘ë‚¸ ë¼ì§€ê³ ê¸°ë¥¼ ë„£ì–´ 1ì¼ ìž¬ì›Œì£¼ë©´ ë!</li>
-						<li class="list-group-item">ê°€ì—´ëœ íŒ¬ì— ì•žë’¤ë¡œ ë§›ìžˆê²Œ êµ¬ì›Œì£¼ì„¸ìš”~ã…Ž	</li>
+						<li class="list-group-item">¿ì¼± ³¿ºñ¿¡ °£Àå ¹ÝÄÅ°ú ¼³ÅÁ ¹ÝÄÅÀ» ³Ö°í</li>
+						<li class="list-group-item">¸Å½ÇÃ» 1/3ÄÅ, ¹° 2ÄÅ ³Ö¾î ÆÈÆÈ ²ú¿©ÁØ ÈÄ ºÒÀ» ²¨¼­ ¿ÏÀüÈ÷ ½ÄÇô ÁÝ´Ï´Ù.¾ç³äÀÌ ½Ä´Â µ¿¾È,</li>
+						<li class="list-group-item">µÅÁö¸ñ½É¿¡ Ä®ÁýÀ» »ç¼±À¸·Î ³»¾î ÁÖ¼¼¿ä. ¾ÕµÚ¸é °í·ç°í·ç~</li>
+						<li class="list-group-item">±×¸®°í ¾Æ±î ²úÀÎ ¾ç³äÀÌ ´Ù½ÄÀ¸¸é, ¼ÒÁÖ 1Å«¼ú, ´ÙÁø¸¶´Ã 2Å«¼ú°ú ¾çÆÄ 1/4¸¦ °¥¾Æ¼­ ³Ö¾îÁÖ¸é ¾ç³ä³¡!¤»</li>
+						<li class="list-group-item">ÀÌÁ¦ Ä®Áý³½ µÅÁö°í±â¸¦ ³Ö¾î 1ÀÏ Àç¿öÁÖ¸é ³¡!</li>
+						<li class="list-group-item">°¡¿­µÈ ÆÒ¿¡ ¾ÕµÚ·Î ¸ÀÀÖ°Ô ±¸¿öÁÖ¼¼¿ä~¤¾	</li>
 
 					</ul>
 				</div>
@@ -317,7 +317,7 @@ function popup(){
 				
 				<!-- Related Post Area -->
 				<div class="related-post-area section_padding_50">
-					<h4 class="mb-30">ê´€ë ¨ ë ˆì‹œí”¼</h4>
+					<h4 class="mb-30">°ü·Ã ·¹½ÃÇÇ</h4>
 
 					<div class="related-post-slider owl-carousel">
 						<!-- Single Related Post-->
@@ -427,7 +427,7 @@ function popup(){
 				
 				<div class="row">
 				<div class="col-12 none" style="float : left;">
-					<h4><span id="underline">3</span> ëŒ“ê¸€ </h4>
+					<h4><span id="underline">3</span> ´ñ±Û </h4>
 
 					<ol>
 						<!-- Single Comment Area -->
@@ -490,38 +490,38 @@ function popup(){
 				 <div class="single-post">
 				<fieldset>
 					<h4>
-						ë ˆì‹œí”¼ í›„ê¸°
+						·¹½ÃÇÇ ÈÄ±â
 					</h4>
 					<div>
-						<span>ì „ì²´ </span> <strong>20</strong> <span>ê±´</span> 
-						<button type="button" class="btn btn-outline-warning btn-sm" style="float:right;margin-bottom: 1%">í›„ê¸° ë“±ë¡</button>
+						<span>ÀüÃ¼ </span> <strong>20</strong> <span>°Ç</span> 
+						<button type="button" class="btn btn-outline-warning btn-sm" style="float:right;margin-bottom: 1%">ÈÄ±â µî·Ï</button>
 					</div>
 				</fieldset>
-				<table class="table table-hover" summary="ë²ˆí˜¸,ë‚´ìš©,ê¸€ì“´ì´,ë“±ë¡ì¼ë¡œ êµ¬ì„±ëœ ê²Œì‹œíŒ">
+				<table class="table table-hover" summary="¹øÈ£,³»¿ë,±Û¾´ÀÌ,µî·ÏÀÏ·Î ±¸¼ºµÈ °Ô½ÃÆÇ">
 					<thead>
 						<tr>
-							<th>ë²ˆí˜¸</th>
-							<th>ë‚´ìš©</th>
-							<th>ê¸€ì“´ì´</th>
-							<th>ë“±ë¡ì¼</th>
+							<th>¹øÈ£</th>
+							<th>³»¿ë</th>
+							<th>±Û¾´ÀÌ</th>
+							<th>µî·ÏÀÏ</th>
 						</tr>
 					</thead>
 					<tr>
 						<td>1</td>
-						<td>ë„ˆë¬´ë„ˆë¬´ ë§›ìžˆì–´ìš”</td>
-						<td>ìš”ë¦¬ì§€í‚´ì´</td>
+						<td>³Ê¹«³Ê¹« ¸ÀÀÖ¾î¿ä</td>
+						<td>¿ä¸®ÁöÅ´ÀÌ</td>
 						<td>20-01-22</td>
 					</tr>
 					<tr>
 						<td>2</td>
-						<td>ë°¥ì´ëž‘ ë¨¹ìœ¼ë‹ˆ ìš”ë¦¬ê°€ ì¼í’ˆ</td>
-						<td>ë°¥ìˆ˜ë‹ˆ</td>
+						<td>¹äÀÌ¶û ¸ÔÀ¸´Ï ¿ä¸®°¡ ÀÏÇ°</td>
+						<td>¹ä¼ö´Ï</td>
 						<td>20-01-18</td>
 					</tr>
 					<tr>
 						<td>3</td>
-						<td>í˜¼ìž ë¨¹ê¸° ì•„ì‰¬ìš´ ìš”ë¦¬ ã…œã…œ</td>
-						<td>ìžì·¨ìƒ</td>
+						<td>È¥ÀÚ ¸Ô±â ¾Æ½¬¿î ¿ä¸® ¤Ì¤Ì</td>
+						<td>ÀÚÃë»ý</td>
 						<td>20-01-14</td>
 					</tr>
 				</table>

@@ -1,45 +1,89 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
+<script>
+	// Ignore this in your implementation
+	window.isMbscDemo = true;
+</script>
 <title>Insert title here</title>
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
- 	<link href="../common/css/fonts.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link href="../common/css/fonts.css" rel="stylesheet">
+<link rel="stylesheet" href="css/mobiscroll.javascript.min.css">
+<script src="js/mobiscroll.javascript.min.js"></script>
+
+<style type="text/css">
+h4 {
+	text-align: center;
+}
+</style>
 </head>
-<body style="text-align: center;">
-	<div class="row">
-	<div class="col-sm-6" style="background-color:lavender;">
-		<h2>ë‚˜ì—ê²Œ ì—†ëŠ” ì¬ë£Œ ì²´í¬í•˜ê¸°</h2>
-				<fieldset>
-					<legend>ì¬ë£Œí™•ì¸</legend>
-					<input type="checkbox" name="food" value="ì–‘íŒŒ">ì–‘íŒŒ
-					<input type="checkbox" name="food" value="ê³„ë€">ê³„ë€
-					<input type="checkbox" name="food" value="ì˜¤ì´">ì˜¤ì´
-					<input type="checkbox" name="food" value="ë¼ì§€ê³ ê¸°">ë¼ì§€ê³ ê¸°
-					<input type="checkbox" name="food" value="ì¹˜ì¦ˆ">ì¹˜ì¦ˆ
-					<input type="checkbox" name="food" value="ê³ ì¶”ê°€ë£¨">ê³ ì¶”ê°€ë£¨<br/>
-					<input type="button" value="ì²´í¬í•œ ì¬ë£Œ ëª¨ë‘ ì¥ë°”êµ¬ë‹ˆì— ì¶”ê°€í•˜ê¸°">
-				</fieldset>
-	</div>
-	<div class="col-sm-6" style="background-color:lavenderblush;">
-		<div>
-			<h2>ë‚ ì§œ ì„ íƒ</h2>
-			<input type="date" name="day" min="2020-01-01">
-			<input type="radio" name="time" value="ì•„ì¹¨">ì•„ì¹¨
-			<input type="radio" name="time" value="ì ì‹¬">ì ì‹¬
-			<input type="radio" name="time" value="ì €ë…">ì €ë…<br/>
-			<input type="button" value="ì¹¼ë¡œë¦¬ í™•ì¸í•˜ê¸°">
+<body style="font-family: PapyrusB;">
+	<div class="row" style="margin-left: auto; margin-right: auto;">
+		<div class="col-sm-6"
+			style="background-color: lavender; margin-right: auto; padding: 0px">
+
+			<h4>³ª¿¡°Ô ¾ø´Â Àç·á Ã¼Å©ÇÏ±â</h4>
+			<fieldset style="text-align: center;">
+				<h4>Àç·áÈ®ÀÎ</h4>
+				<input type="checkbox" name="food" value="¾çÆÄ">¾çÆÄ <input
+					type="checkbox" name="food" value="°è¶õ">°è¶õ <input
+					type="checkbox" name="food" value="¿ÀÀÌ">¿ÀÀÌ <input
+					type="checkbox" name="food" value="µÅÁö°í±â">µÅÁö°í±â <input
+					type="checkbox" name="food" value="Ä¡Áî">Ä¡Áî <input
+					type="checkbox" name="food" value="°íÃß°¡·ç">°íÃß°¡·ç<br /> <br />
+				<br /> <br /> <input type="button" value="Ã¼Å©ÇÑ Àç·á ¸ğµÎ Àå¹Ù±¸´Ï¿¡ Ãß°¡ÇÏ±â">
+			</fieldset>
 		</div>
-		<div>
-			<span>ì˜ˆìƒë˜ëŠ” ì¹¼ë¡œë¦¬</span>
-				<strong>1200</strong>
-			<span>kcal</span>
+		<div class="col-sm-5"
+			style="background-color: lavenderblush; height: 800px;">
+			<div mbsc-page class="demo-week-view">
+				<div mbsc-form>
+					<div class="mbsc-form-group">
+						<div class="mbsc-form-group-title">ÁÖ°£ ½Ä´Ü Ãß°¡</div>
+						<div id="demo-one-week" />
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<input type="radio" name="time" value="¾ÆÄ§">¾ÆÄ§ 
+				<input type="radio" name="time" value="Á¡½É">Á¡½É 
+				<input type="radio" name="time"	value="Àú³á">Àú³á
+				<br /> <input type="button" value="Ä®·Î¸® È®ÀÎÇÏ±â">
+			</div>
+			<div>
+				<span>¿¹»óµÇ´Â Ä®·Î¸®</span> <strong>1200</strong> <span>kcal</span>
+			</div>
+			<input type="submit" value="½Ä´Ü¿¡ Ãß°¡ÇÏ±â">
 		</div>
-		<input type="submit" value="ì‹ë‹¨ì— ì¶”ê°€í•˜ê¸°">
 	</div>
-	</div>
+	<script>
+
+    // Use the settings object to change the theme
+    mobiscroll.settings = {
+        lang: 'en',            // Specify language like: lang: 'pl' or omit setting to use default
+        theme: 'ios',          // Specify theme like: theme: 'ios' or omit setting to use default
+        themeVariant: 'light'  // More info about themeVariant: https://docs.mobiscroll.com/4-10-2/javascript/calendar#opt-themeVariant
+    };
+    
+    mobiscroll.calendar('#demo-one-week', {
+        display: 'inline',     // Specify display mode like: display: 'bottom' or omit setting to use default
+        weeks: 1,
+        
+    });
+
+    mobiscroll.listview('.md-marked-list', {
+        theme: 'ios',
+        themeVariant: 'light',
+        swipe: false
+    });
+    
+   
+</script>
 </body>
 </html>
