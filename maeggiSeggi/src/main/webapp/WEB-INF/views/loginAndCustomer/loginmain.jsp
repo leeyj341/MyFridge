@@ -205,7 +205,7 @@ font-family: dohyeon;
 								</li>
 							</ul>
 							<ul id="joinAndsearch">
-								<li>[회원가입]</li>
+								<li><a href="/maeggiSeggi/logintojoin.do">[회원가입]</a></li>
 								<li>[아이디/비밀번호 찾기]</li>
 							</ul>
 						</div>
