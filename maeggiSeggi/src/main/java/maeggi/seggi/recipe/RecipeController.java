@@ -5,19 +5,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class RecipeController {
-	@RequestMapping("/recipe.do")
+	@RequestMapping("/recipe/main.do")
 	public String recipe() {
-		return "recipe";
+		return "main";
 	}
-	@RequestMapping("/themeRecipe.do")
+	@RequestMapping("/recipe/themeRecipe.do")
 	public String theme() {
 		return "theme";
 	}
-	@RequestMapping("/levelRecipe.do")
+	@RequestMapping("/recipe/levelRecipe.do")
 	public String level() {
 		return "level";
 	}
-	@RequestMapping("/searchRecipe.do")
+	@RequestMapping("/recipe/searchRecipe.do")
 	public String search() {
 		return "search";
 	}
