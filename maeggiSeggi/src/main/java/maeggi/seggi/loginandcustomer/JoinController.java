@@ -1,15 +1,15 @@
-package maeggi.seggi.minjung;
+package maeggi.seggi.loginandcustomer;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class LogintoJoinController {
+public class JoinController {
 	
-@RequestMapping("/logintojoin.do")	
+@RequestMapping("/loginandcustomer/join.do")	
 public String logintojoin() {
 	
-	return "logintojoin";
+	return "loginandcustomer/join";   
 }
 
 }
