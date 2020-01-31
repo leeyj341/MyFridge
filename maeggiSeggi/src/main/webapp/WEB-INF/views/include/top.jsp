@@ -11,6 +11,23 @@
 
 	 <!-- Favicon -->
     <link rel="icon" href="/maeggiSeggi/images/core-img/favicon.ico">
+    
+    <!-- Core Stylesheet -->
+    <link href="/maeggiSeggi/common/css/style.css" rel="stylesheet">
+    
+    <!-- Responsive CSS -->
+    <link href="/maeggiSeggi/common/css/responsive/responsive.css" rel="stylesheet">
+    
+    <!-- Jquery-2.2.4 js -->
+    <script src="/maeggiSeggi/common/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="/maeggiSeggi/common/js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap-4 js -->
+    <script src="/maeggiSeggi/common/js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins JS -->
+    <script src="/maeggiSeggi/common/js/others/plugins.js"></script>
+    <!-- Active JS -->
+    <script src="/maeggiSeggi/common/js/active.js"></script>
 </head>
 <body>
 

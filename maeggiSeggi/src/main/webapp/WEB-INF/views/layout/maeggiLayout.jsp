@@ -11,24 +11,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<!-- Title -->
     <title>매끼세끼</title>
-    
-    <!-- Core Stylesheet -->
-    <link href="/maeggiSeggi/common/css/style.css" rel="stylesheet">
-    
-    <!-- Responsive CSS -->
-    <link href="/maeggiSeggi/common/css/responsive/responsive.css" rel="stylesheet">
-    <link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
 	
-    <!-- Jquery-2.2.4 js -->
-    <script src="/maeggiSeggi/common/js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
-    <script src="/maeggiSeggi/common/js/bootstrap/popper.min.js"></script>
-    <!-- Bootstrap-4 js -->
-    <script src="/maeggiSeggi/common/js/bootstrap/bootstrap.min.js"></script>
-    <!-- All Plugins JS -->
-    <script src="/maeggiSeggi/common/js/others/plugins.js"></script>
-    <!-- Active JS -->
-    <script src="/maeggiSeggi/common/js/active.js"></script>
 </head>
 <body>
 

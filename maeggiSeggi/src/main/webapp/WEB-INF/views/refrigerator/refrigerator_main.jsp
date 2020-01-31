@@ -14,6 +14,7 @@
 
     <!-- CSS -->
     <link href="/maeggiSeggi/common/css/refrigerator.css" rel="stylesheet">
+    <link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
     
 </head>
     
