@@ -21,4 +21,8 @@ public class RecipeController {
 	public String search() {
 		return "search";
 	}
+	@RequestMapping("/recipe/detailRecipe.do")
+	public String detail() {
+		return "detail";
+	}
 }

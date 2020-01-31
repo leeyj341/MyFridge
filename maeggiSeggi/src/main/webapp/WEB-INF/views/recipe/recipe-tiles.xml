@@ -15,5 +15,8 @@
 	<definition name="search" extends="maeggiTemplate">
 		<put-attribute name="content" value="/WEB-INF/views/recipe/search_recipe.jsp"/>
 	</definition>
+	<definition name="detail" extends="maeggiTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/recipe/detail_recipe.jsp"/>
+	</definition>
 	
 </tiles-definitions>
