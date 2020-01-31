@@ -8,15 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <!-- Favicon -->
-    <link rel="icon" href="/maeggiSeggi/images/core-img/favicon.ico">
-
-    <!-- Core Stylesheet -->
-    <link href="/maeggiSeggi/common/css/style.css" rel="stylesheet">
-
-    <!-- Responsive CSS -->
-    <link href="/maeggiSeggi/common/css/responsive/responsive.css" rel="stylesheet">
+</head>
 </head>
 <body>
 	<footer class="footer_area">
@@ -35,5 +27,6 @@
 			</div>
 		</div>
 	</footer>
+	
 </body>
 </html>

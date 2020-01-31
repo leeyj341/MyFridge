@@ -3,7 +3,7 @@
 .bg-amond {
 	background-attachment: fixed;
     background-position: center center;
-    background-image: url(../../images/amond.png);
+    background-image: url(/maeggiSeggi/images/amond.png);
     position: relative;
     background-size: cover;
     z-index: 1;
