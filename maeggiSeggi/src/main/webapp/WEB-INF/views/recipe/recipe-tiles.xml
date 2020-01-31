@@ -3,7 +3,7 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-	<definition name="recipe" extends="maeggiTemplate">
+	<definition name="main" extends="maeggiTemplate">
 		<put-attribute name="content" value="/WEB-INF/views/recipe/main.jsp" />
 	</definition>
 	<definition name="theme" extends="maeggiTemplate">
