@@ -99,15 +99,15 @@
                         <div class="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
                             <ul class="navbar-nav" id="yummy-nav">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="index.html">MY FRIDGE<span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="/maeggiSeggi/refrigerator/fridge.do">MY FRIDGE<span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ABOUT US</a>
                                     <div class="dropdown-menu" aria-labelledby="yummyDropdown">
                                         <a class="dropdown-item" href="index.html"></a>
-                                        <a class="dropdown-item" href="archive.html">INTRO</a>
-                                        <a class="dropdown-item" href="single.html">GRADE</a>
-                                        <a class="dropdown-item" href="static.html">QnA</a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/sub/intro.do">INTRO</a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/sub/grade.do">GRADE</a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/sub/QnA.do">QnA</a>
                                         <a class="dropdown-item" href="contact.html">CONTACT</a>
                                     </div>
                                 </li>
