@@ -12,25 +12,15 @@
     <!-- Title -->
     <title>매끼세끼 - 마이 냉장고</title>
 
-    <!-- Favicon -->
-    <link rel="icon" href="../yummy-master/img/core-img/favicon.ico">
-
-    <!-- Core Stylesheet -->
-    <link href="../yummy-master/style.css" rel="stylesheet">
-
-    <!-- Responsive CSS -->
-    <link href="../yummy-master/css/responsive/responsive.css" rel="stylesheet">
-    <link href="css/refrigerator.css" rel="stylesheet">
-    <link href="../common/css/fonts.css" rel="stylesheet">
+    <!-- CSS -->
+    <link href="/maeggiSeggi/common/css/refrigerator.css" rel="stylesheet">
+    
+</head>
     
 
 </head>
 
 <body class="bg-amond">
-    <!-- Preloader Start -->
-    <div id="preloader">
-        <div class="yummy-load"></div>
-    </div>
 
 	<!-- ******Refrigerator Area Start ****** -->
 	<div class="fridge-area">
@@ -38,19 +28,19 @@
 			<!-- ****** Theme Select Area Start ****** -->
 			<div class="button-area col-1">
 				<button class="btn btn-orange btn-fill-vert-o">
-					<img class="theme-btn" src="../images/harvest.png">
+					<img class="theme-btn" src="/maeggiSeggi/images/harvest.png">
 				</button>
 				<button class="btn btn-orange btn-fill-vert-o">
-					<img class="theme-btn" src="../images/ingredients.png">
+					<img class="theme-btn" src="/maeggiSeggi/images/ingredients.png">
 				</button>
 				<button class="btn btn-orange btn-fill-vert-o">
-					<img class="theme-btn" src="../images/sugar.png">
+					<img class="theme-btn" src="/maeggiSeggi/images/sugar.png">
 				</button>
 				<button class="btn btn-orange btn-fill-vert-o">
-					<img class="theme-btn" src="../images/recipe-book.png">
+					<img class="theme-btn" src="/maeggiSeggi/images/recipe-book.png">
 				</button>
 				<button class="btn btn-orange btn-fill-vert-o">
-					<img class="theme-btn" src="../images/picnic.png">
+					<img class="theme-btn" src="/maeggiSeggi/images/picnic.png">
 				</button>
 			</div>
 			<!-- ****** Theme Select Area End ****** -->
@@ -61,157 +51,157 @@
 					<ul class="sort-list">
 						<li>
 							<div class="" id="ingredient_1" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>계란</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_2" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>쌀</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_1" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>계란</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_2" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>쌀</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_1" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>계란</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_2" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>쌀</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_1" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>계란</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_2" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>쌀</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_1" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>계란</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_2" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>쌀</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_1" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>계란</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_2" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>쌀</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_1" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>계란</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_2" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>쌀</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_1" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>계란</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_2" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>쌀</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_1" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>계란</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_2" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>쌀</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_1" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>계란</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_2" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>쌀</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_1" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>계란</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_2" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>쌀</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_1" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>계란</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_2" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>쌀</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_1" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>계란</p>
 							</div>
 						</li>
 						<li>
 							<div class="" id="ingredient_2" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>쌀</p>
 							</div>
 						</li>
@@ -223,187 +213,187 @@
 			<!-- ****** My Fridge Area Select Area End ****** -->
 			<div class="refrigerator-area col-5">
 				<div class="fridge-wrapper">
-					<img id="fridge-image" src="../images/refrigerator.png">
+					<img id="fridge-image" src="/maeggiSeggi/images/refrigerator.png">
 					<!-- 냉장고 div로 배경이미지를 넣거나 border 속성으로 구분.. -->
 					<ul class="list-scroll fridge-list">
 						<!-- 동적으로 추가되어야 함 -->
 						<li>
 							<div class="fridge-li" id="ingredient_1" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_2" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_3" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_4" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_5" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_1" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_2" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_3" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_4" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_5" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_1" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_2" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_3" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_4" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_5" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_1" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_2" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_3" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_4" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_5" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_1" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_2" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_3" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_4" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_5" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_1" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_2" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_3" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_4" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>
 						<li>
 							<div class="fridge-li" id="ingredient_5" draggable="true">
-								<img src="../images/ingredients.jpg">
+								<img src="/maeggiSeggi/images/ingredients.jpg">
 								<p>토마토</p>
 							</div>
 						</li>

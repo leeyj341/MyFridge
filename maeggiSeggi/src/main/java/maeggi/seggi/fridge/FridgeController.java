@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class FridgeController {
-	@RequestMapping("/fridge.do")
+	@RequestMapping("/refrigerator/fridge.do")
 	public String fridgeContent() {
-		return "fridgeContent";
+		return "fridge";
 	}
 
 }
