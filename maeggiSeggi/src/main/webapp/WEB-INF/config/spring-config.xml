@@ -41,9 +41,6 @@
 	</beans:bean>
 	
 
-	<context:component-scan base-package="maeggi.seggi.maeggiSeggi" />
-	<context:component-scan base-package="maeggi.seggi.mypage" />
-
 	<context:component-scan base-package="maeggi.seggi" />
 	<context:component-scan base-package="team.maeggiSeggi" />
 
