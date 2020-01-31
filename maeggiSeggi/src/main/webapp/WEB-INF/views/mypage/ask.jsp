@@ -18,7 +18,7 @@
     <link rel="icon" href="img/core-img/favicon.ico">
 
     <!-- Core Stylesheet -->
-    <link href="style.css" rel="stylesheet">
+    <link href="/maeggiSeggi/common/css/minjae.css" rel="stylesheet">
 
     <!-- Responsive CSS -->
     <link href="css/responsive/responsive.css" rel="stylesheet">
@@ -79,7 +79,7 @@
 										<input type = "button" id="towrite" value="검색" onclick="" style="color:white; background-color: #fc6c3f; width: 100px;">	
 									</span>
 									<span class="write">
-										<input type = "button" id="towrite" value="글쓰기" onclick="location.href='ask_write.jsp'" style="color:white; background-color: #fc6c3f; width: 100px;">
+										<input type = "button" id="towrite" value="글쓰기" onclick="location.href='ask_write.do'" style="color:white; background-color: #fc6c3f; width: 100px;">
 									</span>
 							</span>
 					</div>
@@ -98,7 +98,7 @@
 				</tr>
 				<tr>
 					<td>1</td>
-					<td><a href="ask_title.jsp">제목이 뭘까</a></td>
+					<td><a href="ask_title.do">제목이 뭘까</a></td>
 					<td>2020-01-14</td>
 					<td>답변 대기중</td>
 				</tr>
@@ -324,7 +324,7 @@
                                         <a class="nav-link" href="#">RESTAURANT</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="mypage_main.jsp">MY PAGE</a>
+                                        <a class="nav-link" href="mypage_main.do">MY PAGE</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">MANAGE</a>

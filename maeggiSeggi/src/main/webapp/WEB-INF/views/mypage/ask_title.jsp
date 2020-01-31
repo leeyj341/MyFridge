@@ -19,7 +19,7 @@
 <link rel="icon" href="img/core-img/favicon.ico">
 
 <!-- Core Stylesheet -->
-<link href="style.css" rel="stylesheet">
+<link href="/maeggiSeggi/common/css/minjae.css" rel="stylesheet">
 
 <!-- Responsive CSS -->
 <link href="css/responsive/responsive.css" rel="stylesheet">
@@ -121,7 +121,7 @@
 				<div style="text-align: center;">
 					<form>
 						<input type="button" id="mypage_ask_reply_send" value="목록 보기"
-								onclick="location.href='ask.jsp'" style="color:white; background-color: #fc6c3f; width: 100px">
+								onclick="location.href='ask.do'" style="color:white; background-color: #fc6c3f; width: 100px">
 						<input type="button" id="mypage_ask_reply_send" value="댓글  달기"
 								onclick="alert('댓글이 저장되었습니다.')" style="color:white; background-color: #fc6c3f; width: 100px"> 
 						<input type="button"

@@ -25,11 +25,11 @@
 	</definition>
 	
 	<definition name="mypage/mypoint" extends="maeggiTemplate">
-		<put-attribute name="content" value="/WEB-INF/views/mypage/mypage_main.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/mypage/mypoint.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="mypage/recipe_favorite" extends="maeggiTemplate">
-		<put-attribute name="content" value="/WEB-INF/views/mypage/mypage_main.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/mypage/recipe_favorite.jsp"></put-attribute>
 	</definition>
 	
 	
