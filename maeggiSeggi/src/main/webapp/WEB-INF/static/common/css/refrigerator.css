@@ -3,7 +3,7 @@
 .bg-amond {
 	background-attachment: fixed;
     background-position: center center;
-    background-image: url(../../images/amond.png);
+    background-image: url(/maeggiSeggi/images/amond.png);
     position: relative;
     background-size: cover;
     z-index: 1;
@@ -56,7 +56,7 @@
 	text-align: center;
 }
 
-.sort-list > li  p {
+.sort-list > li p {
 	font-family: PapyrusM;
 	font-size: 24pt;
 }
