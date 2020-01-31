@@ -5,9 +5,9 @@
        
 <tiles-definitions>
 	<definition name="maeggiTemplate" template="/WEB-INF/views/layout/maeggiLayout.jsp">
-		<!-- <put-attribute name="top" value="/WEB-INF/views/include/top.jsp"></put-attribute> -->
+		<put-attribute name="top" value="/WEB-INF/views/include/top.jsp"></put-attribute>
 		<put-attribute name="content" value="/WEB-INF/views/include/content.jsp"></put-attribute>
-		<!-- <put-attribute name="bottom" value="/WEB-INF/views/include/bottom.jsp"></put-attribute> -->
+		<put-attribute name="bottom" value="/WEB-INF/views/include/bottom.jsp"></put-attribute>
 	</definition>
 	
 </tiles-definitions>   
