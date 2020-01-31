@@ -4,10 +4,12 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
        
 <tiles-definitions>
-	<definition name="restautant" extends="maeggiTemplate">
-		<put-attribute name="top" value="/WEB-INF/views/include/top.jsp"></put-attribute>
-		<put-attribute name="content" value="/WEB-INF/views/include/content.jsp"></put-attribute>
-		<put-attribute name="bottom" value="/WEB-INF/views/include/bottom.jsp"></put-attribute>
+	<definition name="restaurant" extends="maeggiTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/restaurant/restaurant_main.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="map" extends="maeggiTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/restaurant/test.jsp"></put-attribute>
 	</definition>
 	
 </tiles-definitions>
