@@ -35,7 +35,7 @@
 </head>
 
 <body>
-	<tiles:insertAttribute name="top"></tiles:insertAttribute>
+	
 
 	<!-- ****** Breadcumb Area Start ****** -->
 	<div class="breadcumb-area"
@@ -121,19 +121,6 @@
 			<button type="submit" class="btn btn-default">Submit</button>
 		</form>
 	</div>
-
-
-
-
-
-	<tiles:insertAttribute name="bottom"></tiles:insertAttribute>
-
-
-
-
-
-
-
 
 
 

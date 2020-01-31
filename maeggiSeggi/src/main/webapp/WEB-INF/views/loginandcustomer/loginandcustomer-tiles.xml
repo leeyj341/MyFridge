@@ -8,11 +8,11 @@
  
  
  	<definition name="loginandcustomer/join" extends="maeggiTemplate">
- 		<put-attribute name="content" value="/WEB-INF/views/loginAndCustomer/join.jsp"></put-attribute>
+ 		<put-attribute name="content" value="/WEB-INF/views/loginandcustomer/join.jsp"></put-attribute>
  	</definition>
  	
  	<definition name="loginandcustomer/login" extends="maeggiTemplate">
- 		<put-attribute name="content" value="/WEB-INF/views/loginAndCustomer/login.jsp"></put-attribute>
+ 		<put-attribute name="content" value="/WEB-INF/views/loginandcustomer/login.jsp"></put-attribute>
  	</definition>
  
  

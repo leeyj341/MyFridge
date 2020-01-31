@@ -43,9 +43,8 @@ font-family: dohyeon;
 </head>
 
 <body>
-		<!-- top " -->
+		
 
-	<tiles:insertAttribute name="top"></tiles:insertAttribute>
 
 
 
@@ -271,8 +270,6 @@ font-family: dohyeon;
 			</div>
 </div>
 
-<!-- bottom -->	
-		<tiles:insertAttribute name="bottom"></tiles:insertAttribute>
 
 
 </body>
