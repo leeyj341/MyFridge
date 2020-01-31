@@ -9,18 +9,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <!-- Favicon -->
+	 <!-- Favicon -->
     <link rel="icon" href="/maeggiSeggi/images/core-img/favicon.ico">
-
+    
     <!-- Core Stylesheet -->
     <link href="/maeggiSeggi/common/css/style.css" rel="stylesheet">
-
+    
     <!-- Responsive CSS -->
     <link href="/maeggiSeggi/common/css/responsive/responsive.css" rel="stylesheet">
+    
+    <!-- Jquery-2.2.4 js -->
+    <script src="/maeggiSeggi/common/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="/maeggiSeggi/common/js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap-4 js -->
+    <script src="/maeggiSeggi/common/js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins JS -->
+    <script src="/maeggiSeggi/common/js/others/plugins.js"></script>
+    <!-- Active JS -->
+    <script src="/maeggiSeggi/common/js/active.js"></script>
 </head>
 <body>
-<!-- ****** Top Header Area Start ****** -->
-    <div class="top_header_area">
+
+	<!-- Preloader Start -->
+	<div id="preloader">
+		<div class="yummy-load"></div>
+	</div>
+	<!-- ****** Top Header Area Start ****** -->
+	<div class="top_header_area">
         <div class="container">
             <div class="row">
                 <div class="col-5 col-sm-6">
