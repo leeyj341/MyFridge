@@ -9,19 +9,19 @@
 	</definition>
 	
 	<definition name="mypage/ask/write" extends="maeggiTemplate">
-		<put-attribute name="content" value="/WEB-INF/views/mypage/ask.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/mypage/ask_write.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="mypage/ask/title" extends="maeggiTemplate">
-		<put-attribute name="content" value="/WEB-INF/views/mypage/ask.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/mypage/ask_title.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="mypage/information_update" extends="maeggiTemplate">
-		<put-attribute name="content" value="/WEB-INF/views/mypage/ask.jsp"></put-attribute>
+	<definition name="mypage/information/update" extends="maeggiTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/mypage/information_update.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="mypage/mypage_main" extends="maeggiTemplate">
-		<put-attribute name="content" value="/WEB-INF/views/mypage/ask.jsp"></put-attribute>
+	<definition name="mypage/mypage/main" extends="maeggiTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/mypage/mypage_main.jsp"></put-attribute>
 	</definition>
 	
 	

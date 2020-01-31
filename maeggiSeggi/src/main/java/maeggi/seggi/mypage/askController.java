@@ -23,12 +23,12 @@ public class askController {
 	
 	@RequestMapping("/information_update.do")
 	public String information_update() {
-		return "mypage/information_update";
+		return "mypage/information/update";
 	}
 	
 	@RequestMapping("/mypage_main.do")
 	public String mypage_main() {
-		return "mypage/mypage_main";
+		return "mypage/mypage/main";
 	}
 	
 }
