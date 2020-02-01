@@ -38,17 +38,12 @@ font-family: dohyeon;
 
 
 </style>	
-	
 
 </head>
 
 <body>
 		
 
-
-
-
-	
 		<div class="container">
 
 			<!-- 여기부터  로그인 컨텐츠-->
