@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
 </head>
 <body>
@@ -18,9 +19,9 @@
 					<!-- Copywrite Text -->
 					<div class="copy_right_text text-center">
 						<p>
-							Copyright @2018 All rights reserved | This template is made with
-							<i class="fa fa-heart-o" aria-hidden="true"></i> by <a
-								href="https://colorlib.com" target="_blank">Colorlib</a>
+							Copyright @2020 All rights reserved | This site is made with
+							<i class="fas fa-heart" aria-hidden="true"></i> by <a
+								href="/maeggiSeggi/sub/intro.do" target="_self">maeggiSeggi-Team</a>
 						</p>
 					</div>
 				</div>

@@ -4,19 +4,18 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<script>
-	// Ignore this in your implementation
-	window.isMbscDemo = true;
-</script>
+
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<link href="../common/css/fonts.css" rel="stylesheet">
-<link rel="stylesheet" href="css/mobiscroll.javascript.min.css">
-<script src="js/mobiscroll.javascript.min.js"></script>
+<link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
 
 <style type="text/css">
+* {
+  margin: 0;
+  padding: 0;
+}
 h4 {
 	text-align: center;
 }
@@ -41,14 +40,7 @@ h4 {
 		</div>
 		<div class="col-sm-5"
 			style="background-color: lavenderblush; height: 800px;">
-			<div mbsc-page class="demo-week-view">
-				<div mbsc-form>
-					<div class="mbsc-form-group">
-						<div class="mbsc-form-group-title">주간 식단 추가</div>
-						<div id="demo-one-week" />
-					</div>
-				</div>
-			</div>
+						<h4>주간 식단 추가</h4>
 
 			<div>
 				<input type="radio" name="time" value="아침">아침 
@@ -62,28 +54,6 @@ h4 {
 			<input type="submit" value="식단에 추가하기">
 		</div>
 	</div>
-	<script>
-
-    // Use the settings object to change the theme
-    mobiscroll.settings = {
-        lang: 'en',            // Specify language like: lang: 'pl' or omit setting to use default
-        theme: 'ios',          // Specify theme like: theme: 'ios' or omit setting to use default
-        themeVariant: 'light'  // More info about themeVariant: https://docs.mobiscroll.com/4-10-2/javascript/calendar#opt-themeVariant
-    };
-    
-    mobiscroll.calendar('#demo-one-week', {
-        display: 'inline',     // Specify display mode like: display: 'bottom' or omit setting to use default
-        weeks: 1,
-        
-    });
-
-    mobiscroll.listview('.md-marked-list', {
-        theme: 'ios',
-        themeVariant: 'light',
-        swipe: false
-    });
-    
-   
-</script>
+	
 </body>
 </html>
