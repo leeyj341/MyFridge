@@ -54,15 +54,15 @@
                     <div class="signup-search-area d-flex align-items-center justify-content-end">
                         <div class="login_register_area d-flex">
                             <div class="login">
-                                <a href="index.html" >sign in</a>
+                                <a href="#" >sign in</a>
                             </div>
                             <div class="register">
-                                <a href="register.html">sign up</a>
+                                <a href="#">sign up</a>
                             </div>
                         </div>
                         <!-- Search Button Area -->
                         <div class="search_button">
-                            <a class="searchBtn" href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+                            <a class="searchBtn" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
                         </div>
                         <!-- Search Form -->
                         <div class="search-hidden-form">

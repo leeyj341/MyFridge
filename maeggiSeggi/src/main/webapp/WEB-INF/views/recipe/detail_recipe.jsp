@@ -13,12 +13,9 @@
 
 
 <!-- Core Stylesheet -->
-<link href="/maeggiSeggi/common/css/style.css" rel="stylesheet">
 <link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
 
 <!-- Responsive CSS -->
-<link href="/maeggiSeggi/common/css/responsive/responsive.css"
-	rel="stylesheet">
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -73,7 +70,7 @@ li {
 <script type="text/javascript">
 
 function popup(){
-	window.open("planner_add.jsp","侥窜 包府","top=100, left=450, width=700, height=600, status=no, menubar=no, toolbar=no, resizable=no");
+	window.open("/maeggiSeggi/recipe/addPlanner.do","侥窜 包府","top=100, left=450, width=700, height=450, status=no, menubar=no, toolbar=no, resizable=no");
 
 }
 </script>
@@ -203,7 +200,33 @@ function popup(){
 						<div class="single-post">
 							<!-- Post Thumb -->
 							<div class="post-thumb">
-								<img src="../yummy-master/img/blog-img/15.jpg" alt="">
+								<img src="/maeggiSeggi/images/blog-img/15.jpg" alt="">
+							</div>
+							<!-- Post Content -->
+							<div class="post-content">
+								<div class="post-meta d-flex">
+									<div class="post-author-date-area d-flex">
+										<!-- Post Author -->
+										<div class="post-author">
+											<a href="#">By Marian</a>
+										</div>
+										<!-- Post Date -->
+										<div class="post-date">
+											<a href="#">May 19, 2017</a>
+										</div>
+									</div>
+								</div>
+								<a href="#">
+									<h6>The Top Breakfast And Brunch Spots In Hove</h6>
+								</a>
+							</div>
+						</div>
+						
+						<!-- Single Related Post-->
+						<div class="single-post">
+							<!-- Post Thumb -->
+							<div class="post-thumb">
+								<img src="/maeggiSeggi/images/blog-img/5.jpg" alt="">
 							</div>
 							<!-- Post Content -->
 							<div class="post-content">
@@ -228,7 +251,7 @@ function popup(){
 						<div class="single-post">
 							<!-- Post Thumb -->
 							<div class="post-thumb">
-								<img src="../yummy-master/img/blog-img/5.jpg" alt="">
+								<img src="/maeggiSeggi/images/blog-img/16.jpg" alt="">
 							</div>
 							<!-- Post Content -->
 							<div class="post-content">
@@ -253,32 +276,7 @@ function popup(){
 						<div class="single-post">
 							<!-- Post Thumb -->
 							<div class="post-thumb">
-								<img src="../yummy-master/img/blog-img/16.jpg" alt="">
-							</div>
-							<!-- Post Content -->
-							<div class="post-content">
-								<div class="post-meta d-flex">
-									<div class="post-author-date-area d-flex">
-										<!-- Post Author -->
-										<div class="post-author">
-											<a href="#">By Marian</a>
-										</div>
-										<!-- Post Date -->
-										<div class="post-date">
-											<a href="#">May 19, 2017</a>
-										</div>
-									</div>
-								</div>
-								<a href="#">
-									<h6>The Top Breakfast And Brunch Spots In Hove</h6>
-								</a>
-							</div>
-						</div>
-						<!-- Single Related Post-->
-						<div class="single-post">
-							<!-- Post Thumb -->
-							<div class="post-thumb">
-								<img src="../yummy-master/img/blog-img/5.jpg" alt="">
+								<img src="/maeggiSeggi/images/blog-img/5.jpg" alt="">
 							</div>
 							<!-- Post Content -->
 							<div class="post-content">
@@ -314,7 +312,7 @@ function popup(){
 							<div class="comment-wrapper d-flex">
 								<!-- Comment Meta -->
 								<div class="comment-author">
-									<img src="../yummy-master/img/blog-img/17.jpg" alt="">
+									<img src="/maeggiSeggi/images/blog-img/17.jpg" alt="">
 								</div>
 								<!-- Comment Content -->
 								<div class="comment-content">
@@ -331,7 +329,7 @@ function popup(){
 									<div class="comment-wrapper d-flex">
 										<!-- Comment Meta -->
 										<div class="comment-author">
-											<img src="../yummy-master/img/blog-img/18.jpg" alt="">
+											<img src="/maeggiSeggi/images/blog-img/18.jpg" alt="">
 										</div>
 										<!-- Comment Content -->
 										<div class="comment-content">
@@ -350,7 +348,7 @@ function popup(){
 							<div class="comment-wrapper d-flex">
 								<!-- Comment Meta -->
 								<div class="comment-author">
-									<img src="../yummy-master/img/blog-img/19.jpg" alt="">
+									<img src="/maeggiSeggi/images/blog-img/19.jpg" alt="">
 								</div>
 								<!-- Comment Content -->
 								<div class="comment-content">
@@ -366,6 +364,7 @@ function popup(){
 					</ol>
 				</div>
 				</div>
+				
 				 <div class="single-post">
 				<fieldset>
 					<h4>

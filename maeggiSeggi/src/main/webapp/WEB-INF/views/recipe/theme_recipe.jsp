@@ -10,16 +10,6 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>maeggi saeggi</title>
 
-<!-- Favicon -->
-<!-- <link rel="icon" href="maeggiSeggi/images/core-img/favicon.ico"> -->
-
-<!-- Core Stylesheet -->
-<!-- <link href="/maeggiSeggi/common/css/style.css" rel="stylesheet"> -->
-
-
-<!--Responsive CSS -->
-<!-- <link href="/maeggiSeggi/common/css/responsive/responsive.css" rel="stylesheet"> -->
-
 <link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
 <style type="text/css">
 img {

@@ -12,6 +12,10 @@
 <link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
 
 <style type="text/css">
+* {
+  margin: 0;
+  padding: 0;
+}
 h4 {
 	text-align: center;
 }
