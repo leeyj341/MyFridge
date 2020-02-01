@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
-	
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 <meta charset="UTF-8">
@@ -17,93 +17,85 @@
 <title>로그인 페이지</title>
 
 <!-- Favicon -->
-<link rel="icon" href="img/core-img/favicon.ico">
-
-<!-- Core Stylesheet -->
-<link href="../../yummy-master/style.css" rel="stylesheet">
-<link href="../css/loginmain_css.css" rel="stylesheet">
+<link rel="icon" href="/maeggiSeggi/images/core-img/favicon.ico">
 
 <!-- font -->
-<link href="../../common/css/fonts.css" rel="stylesheet">
+<link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
+
+<!-- Core Stylesheet -->
+<link href="/maeggiSeggi/common/css/style.css" rel="stylesheet">
+<link href="/maeggiSeggi/common/css/k_login.css" rel="stylesheet">
+
 
 <!-- Responsive CSS -->
-<link href="../../yummy-master/css/responsive/responsive.css"
+<link href="/maeggiSeggi/common/css/responsive/responsive.css"
 	rel="stylesheet">
-	
-
-<style type="text/css">
-#socialLogin_box, #top3title,#loginbutton,h4{
-font-family: dohyeon;
-}
 
 
-</style>	
 
 </head>
 
 <body>
-		
-
-		<div class="container">
-
-			<!-- 여기부터  로그인 컨텐츠-->
-			<div id="outter">
 
 
-				<div id="right_inner">
-					<form>
-						<div id="login_box">
-							<h2>Member Login</h2>
-							<ul id="input_button">
-								<li id="id_pass">
-									<ul>
-										<li class="logintext" id="ID"><div class="logintext_div">
-												<input type="text" class="input_logintext"
-													placeholder=' 아이디'>
-											</div></li>
-										<!-- id -->
-										<li class="logintext" id="pass"><div
-												class="logintext_div">
-												<input type="password" class="input_logintext"
-													placeholder=' 비밀번호'>
-											</div></li>
-										<!-- pass -->
-									</ul>
-								</li>
-								<li>
-									<button id="loginbutton">로그인</button>
-								</li>
-							</ul>
-							<ul id="joinAndsearch">
-								<li><a href="/maeggiSeggi/logintojoin.do">[회원가입]</a></li>
-								<li>[아이디/비밀번호 찾기]</li>
-							</ul>
-						</div>
-						<!-- login_box -->
-						<div id="notmember_box">비회원으로 이용하기</div>
-						<div id="socialLogin_box">
-							소셜 로그인
-							<li id="socialList">
+	<div class="container">
+
+		<!-- 여기부터  로그인 컨텐츠-->
+		<div id="outter">
+
+
+			<div id="right_inner">
+				<form>
+					<div id="login_box">
+						<h1>Member Login</h1>
+						<ul id="input_button">
+							<li id="id_pass">
 								<ul>
-									<li><input type="button" class="socialbutton" id="social1"
-										value="NAVER로 로그인"></li>
-
-									<li><input type="button" class="socialbutton" id="social2"
-										value="KAKAO로 로그인"></li>
-
-									<li><input type="button" class="socialbutton" id="social3"
-										value="Google로 로그인"></li>
-
+									<li class="logintext" id="ID"><div class="logintext_div">
+											<input type="text" class="input_logintext" placeholder=' 아이디'>
+										</div></li>
+									<!-- id -->
+									<li class="logintext" id="pass"><div class="logintext_div">
+											<input type="password" class="input_logintext"
+												placeholder=' 비밀번호'>
+										</div></li>
+									<!-- pass -->
 								</ul>
 							</li>
+							<li>
+								<button id="loginbutton">로그인</button>
+							</li>
+						</ul>
+						<ul id="joinAndsearch">
+							<li><a href="/maeggiSeggi/loginandcustomer/join.do">[회원가입]</a></li>
+							<li>[아이디/비밀번호 찾기]</li>
+						</ul>
+					</div>
+					<!-- login_box -->
+					<div id="notmember_box">비회원으로 이용하기</div>
+					<div id="socialLogin_box">
+						소셜 로그인
+						<li id="socialList">
+							<ul>
+								<li><input type="button" class="socialbutton" id="social1"
+									value="NAVER로 로그인"></li>
 
-						</div>
-					</form>
-				</div>
+								<li><input type="button" class="socialbutton" id="social2"
+									value="KAKAO로 로그인"></li>
 
+								<li><input type="button" class="socialbutton" id="social3"
+									value="Google로 로그인"></li>
+
+							</ul>
+						</li>
+
+					</div>
+				</form>
 			</div>
 
-			<div id="top3title">이번 주 조회 수 top3 레시피</div>
+
+
+			<h2>이번 주 조회 수 top3 레시피</h2>
 			<div class="row">
 
 				<!-- Single Post -->
@@ -112,7 +104,7 @@ font-family: dohyeon;
 					<div class="single-post wow fadeInUp" data-wow-delay="0.1s">
 						<!-- Post Thumb -->
 						<div class="post-thumb">
-							<img src="../../yummy-master/img/blog-img/2.jpg" alt="">
+							<img src="/maeggiSeggi/images/blog-img/2.jpg" alt="">
 						</div>
 						<!-- Post Content -->
 						<div class="post-content">
@@ -159,7 +151,7 @@ font-family: dohyeon;
 					<div class="single-post wow fadeInUp" data-wow-delay="0.6s">
 						<!-- Post Thumb -->
 						<div class="post-thumb">
-							<img src="../../yummy-master/img/blog-img/3.jpg" alt="">
+							<img src="/maeggiSeggi/images/blog-img/3.jpg" alt="">
 						</div>
 						<!-- Post Content -->
 						<div class="post-content">
@@ -206,7 +198,7 @@ font-family: dohyeon;
 					<div class="single-post wow fadeInUp" data-wow-delay="0.7s">
 						<!-- Post Thumb -->
 						<div class="post-thumb">
-							<img src="../../yummy-master/img/blog-img/4.jpg" alt="">
+							<img src="/maeggiSeggi/images/blog-img/4.jpg" alt="">
 						</div>
 						<!-- Post Content -->
 						<div class="post-content">
@@ -239,9 +231,9 @@ font-family: dohyeon;
 									</div>
 								</div>
 							</div>
-							
-								<h4>제철음식, 굴 카나페</h4>
-						
+
+							<h4>제철음식, 홍합 카나페</h4>
+
 						</div>
 					</div>
 				</div>
@@ -254,16 +246,17 @@ font-family: dohyeon;
 						<!-- Post Thumb -->
 						<div class="post-thumb">
 							<a href="http://www.ssg.com"><img
-								src="../../yummy-master/img/blog-img/5.jpg" alt=""></a>
+								src="/maeggiSeggi/images/blog-img/5.jpg" alt=""></a>
 						</div>
 
-						
-							<h4>위 사진은 기업 광고 사진이 올라오는 곳입니다.</h4>
-						
+
+						<h4>위 사진은 기업 광고 사진이 올라오는 곳입니다.</h4>
+
 					</div>
 				</div>
 			</div>
-</div>
+		</div>
+	</div>
 
 
 

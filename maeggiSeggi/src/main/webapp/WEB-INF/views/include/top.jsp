@@ -54,24 +54,24 @@
                     <div class="signup-search-area d-flex align-items-center justify-content-end">
                         <div class="login_register_area d-flex">
                             <div class="login">
-                                <a href="#" >sign in</a>
+                                <a href="/maeggiSeggi/loginandcustomer/login.do" >sign in</a>
                             </div>
                             <div class="register">
-                                <a href="#">sign up</a>
+                                <a href="/maeggiSeggi/loginandcustomer/join.do">sign up</a>
                             </div>
                         </div>
                         <!-- Search Button Area -->
-                        <div class="search_button">
+                       <!-- <div class="search_button">
                             <a class="searchBtn" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
-                        </div>
+                        </div>-->
                         <!-- Search Form -->
-                        <div class="search-hidden-form">
+                        <!--<div class="search-hidden-form">
                             <form action="#" method="get">
                                 <input type="search" name="search" id="search-anything" placeholder="Search Anything...">
                                 <input type="submit" value="" class="d-none">
                                 <span class="searchBtn"><i class="fa fa-times" aria-hidden="true"></i></span>
                             </form>
-                        </div>
+                        </div>--> 
                     </div>
                 </div>
             </div>
@@ -108,6 +108,7 @@
                                         <a class="dropdown-item" href="/maeggiSeggi/sub/intro.do">INTRO</a>
                                         <a class="dropdown-item" href="/maeggiSeggi/sub/grade.do">GRADE</a>
                                         <a class="dropdown-item" href="/maeggiSeggi/sub/QnA.do">QnA</a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/loginandcustomer/noticelist.do">NOTICE</a>
                                         <a class="dropdown-item" href="contact.html">CONTACT</a>
                                     </div>
                                 </li>
