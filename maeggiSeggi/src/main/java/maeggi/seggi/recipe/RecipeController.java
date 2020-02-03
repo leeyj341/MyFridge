@@ -29,4 +29,8 @@ public class RecipeController {
 	public String add() {
 		return "add";
 	}
+	@RequestMapping("/recipe/weather.do")
+	public String weather() {
+		return "weather";
+	}
 }

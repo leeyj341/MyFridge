@@ -21,5 +21,8 @@
 	<definition name="add" extends="popupTemplate">
 		<put-attribute name="content" value="/WEB-INF/views/recipe/planner_add.jsp"/>
 	</definition>
+	<definition name="weather" extends="popupTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/recipe/gridTest.jsp"/>
+	</definition>
 	
 </tiles-definitions>
