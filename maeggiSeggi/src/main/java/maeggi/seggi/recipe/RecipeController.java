@@ -21,4 +21,12 @@ public class RecipeController {
 	public String search() {
 		return "search";
 	}
+	@RequestMapping("/recipe/detailRecipe.do")
+	public String detail() {
+		return "detail";
+	}
+	@RequestMapping("/recipe/addPlanner.do")
+	public String add() {
+		return "add";
+	}
 }

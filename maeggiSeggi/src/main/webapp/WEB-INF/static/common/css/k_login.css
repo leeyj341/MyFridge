@@ -1,18 +1,22 @@
 @charset "UTF-8";
 
-body,h2,h3{
-	font-family: 'PapyrusM';
+#outter, h4, h2, h1{
+font-family: 'PapyrusM';
 }
+
 /* 메인 로그인 페이지  CSS [시작] */
 #outter {
 	
 	padding : 0 auto;
-	text-align: center;
+	
+	
 	
 }
 
 #right_inner{
 	padding : 50px;
+	font-family: 'PapyrusM';
+	text-align: center;
 }
 
 #input_button{
@@ -32,6 +36,7 @@ body,h2,h3{
 	width : 300px;
 	height : 50px;
 	margin-bottom : 30px;
+	font-size: 20pt;
 }
 .socialbutton{
 	width : 300px;
@@ -46,7 +51,7 @@ body,h2,h3{
 }
 
 #socialLogin_box{
-	font-family : dohyun;
+	font-family : dohyeon;
 	font-size: 15pt;
 	margin-top: 15px;
 	margin-bottom : 15px;

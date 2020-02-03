@@ -1,7 +1,8 @@
 @charset "UTF-8";
-body,h2,h3{
+#outter,h2,h3{
 	font-family: 'PapyrusM';
 }
+
 
 .join_form{
 	margin-bottom : 20px;

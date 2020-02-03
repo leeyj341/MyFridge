@@ -14,13 +14,13 @@
 <link rel="icon" href="maeggiSeggi/images/core-img/favicon.ico">
 
 <!-- Core Stylesheet -->
-<link href="../yummy-master/style.css" rel="stylesheet">
+<link href="/maeggiSeggi/common/css/style.css" rel="stylesheet">
 
 
-<!--  <!-- Responsive CSS -->
-<link href="../yummy-master/css/responsive/responsive.css"
+<!--Responsive CSS -->
+<link href="/maeggiSeggi/common/css/responsive/responsive.css"
 	rel="stylesheet">
-	<link href="../common/css/fonts.css" rel="stylesheet">
+	<link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
 <style type="text/css">
 img {
 	width: 300px;
@@ -551,22 +551,5 @@ color: red;
 	<br />
 	<br />
 
-
-
-		<!-- ****** Breadcumb Area End ****** -->
-
-
-
-
-	<!-- Jquery-2.2.4 js -->
-	<script src="../yummy-master/js/jquery/jquery-2.2.4.min.js"></script>
-	<!-- Popper js -->
-	<script src="../yummy-master/js/bootstrap/popper.min.js"></script>
-	<!-- Bootstrap-4 js -->
-	<script src="../yummy-master/js/bootstrap/bootstrap.min.js"></script>
-	<!-- All Plugins JS -->
-	<script src="../yummy-master/js/others/plugins.js"></script>
-	<!-- Active JS -->
-	<script src="../yummy-master/js/active.js"></script>
 </body>
 </html>
