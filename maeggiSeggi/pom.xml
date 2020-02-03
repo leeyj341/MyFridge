@@ -132,6 +132,29 @@
 			<version>1.1.1</version>
 		</dependency>
 		
+		<!-- spring JDBC -->
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+		<dependency>
+		   <groupId>org.springframework</groupId>
+ 		   <artifactId>spring-jdbc</artifactId>
+ 		   <version>${org.springframework-version}</version>
+		</dependency>
+		
+		<!-- mybatis �씪�씠釉뚮윭由� -->
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis</artifactId>
+		    <version>3.3.0</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis-spring</artifactId>
+		    <version>1.2.3</version>
+		</dependency>
+		
 	</dependencies>
 	<build>
 		<plugins>
