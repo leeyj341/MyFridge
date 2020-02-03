@@ -17,9 +17,6 @@
     <link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
     
 </head>
-    
-
-</head>
 
 <body class="bg-amond">
 
