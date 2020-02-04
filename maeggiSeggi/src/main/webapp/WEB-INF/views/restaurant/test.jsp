@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a7786ca578eabcf447df71f78399388e&libraries=services"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 	var map;
 	var container;
@@ -34,7 +33,7 @@
 				map = new kakao.maps.Map(container, options); 		//지도 생성 및 객체 리턴
 				
 				//마커로 사용할 이미지 등록
-				var imageSrc = '../images/myPin.png';
+				var imageSrc = '/maeggiSeggi/images/myPin.png';
 				var imageSize = new kakao.maps.Size(54,59);
 				var imageOption = {offset: new kakao.maps.Point(17, 59)};
 				
@@ -94,7 +93,7 @@
 	function displayMarkers(place) {
 		
 		//마커로 사용할 이미지 등록
-		var imageSrc = '../images/pin.png';
+		var imageSrc = '/maeggiSeggi/images/pin.png';
 		var imageSize = new kakao.maps.Size(54,59);
 		var imageOption = {offset: new kakao.maps.Point(17, 59)};
 		

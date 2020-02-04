@@ -10,8 +10,8 @@ public class RestaurantController {
 		return "restaurant";
 	}
 	
-	@RequestMapping("/map.do")
-	public String mapview() {
-		return "map";
+	@RequestMapping("/click.do")
+	public String click() {
+		return "click";
 	}
 }
