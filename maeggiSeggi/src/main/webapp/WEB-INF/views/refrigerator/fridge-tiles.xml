@@ -7,4 +7,7 @@
 	<definition name="fridge" extends="maeggiTemplate">
 		<put-attribute name="content" value="/WEB-INF/views/refrigerator/refrigerator_main.jsp"></put-attribute>
 	</definition>
+	<definition name="calendar" extends="maeggiTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/refrigerator/testCalendar.jsp"></put-attribute>
+	</definition>
 </tiles-definitions>
