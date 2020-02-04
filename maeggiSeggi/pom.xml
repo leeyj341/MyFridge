@@ -140,7 +140,7 @@
  		   <version>${org.springframework-version}</version>
 		</dependency>
 		
-		<!-- mybatis �씪�씠釉뚮윭由� -->
+		<!-- mybatis 라이브러리 -->
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 		<dependency>
 		    <groupId>org.mybatis</groupId>
