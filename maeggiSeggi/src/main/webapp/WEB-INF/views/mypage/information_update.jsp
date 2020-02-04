@@ -64,7 +64,7 @@
 							<div class="">
 								
 								<div class="mypage_info_texts">
-									<input name="id" class="" type="text" disabled="disabled" placeholder="아이디"/>
+									<input name="member_id" class="" type="text" disabled="disabled" placeholder="아이디"/>
 								</div>
 							</div>
 							<p class="" style="display: none;"></p>
@@ -73,7 +73,7 @@
 							<div class="">
 								
 								<div class="mypage_info_texts">
-									<input name="" class="" type="password" placeholder="비밀번호">
+									<input name="pass" class="" type="password" placeholder="비밀번호">
 									<span class="" style="display: none;"></span>
 								</div>
 							</div>
@@ -83,7 +83,7 @@
 							<div class="">
 								
 								<div class="mypage_info_texts">
-									<input name="" class="" type="password" placeholder="비밀번호 확인"/>
+									<input name="pass" class="" type="password" placeholder="비밀번호 확인"/>
 									<span class=""></span>
 								</div>
 							</div>
@@ -96,7 +96,7 @@
 							<div class="">
 								
 								<div class="mypage_info_texts">
-									<input name="" class="" type="text" disabled="disabled" placeholder="이름"/>
+									<input name="name" class="" type="text" disabled="disabled" placeholder="이름"/>
 								</div>
 							</div>
 						</div>
@@ -107,12 +107,8 @@
 										
 										<div>
 											<span class="">
-												<input name="" class="" type="text" maxlength="6" disabled="disabled" placeholder="주민번호 앞자리"/>
-											</span>
-											<span>-</span>
-											<span>
-												<input name="" class="" type="text" maxlength="7" disabled="disabled" placeholder="주민번호 뒷자리"/>
-											</span>
+												<input name="identi" class="" type="text" maxlength="6" disabled="disabled" placeholder="주민번호 앞자리"/>
+											</span>										
 										</div>
 									</div>
 								</div>
@@ -140,7 +136,7 @@
 								
 								<div class="">
 									<span class="">
-										<select name="selectPhone" title="휴대폰 앞 3자리" class="">
+										<select name="phonenum" title="휴대폰 앞 3자리" class="">
 											<option value="010">010</option>
 											<option value="011">011</option>
 											<option value="016">016</option>
@@ -150,7 +146,7 @@
 										</select>
 									</span>
 									<span class="num">
-										<input name="inputPhone" class="" type="tel" maxlength="8" placeholder="휴대폰 번호 (숫자만)"/>
+										<input name="phonenum" class="" type="tel" maxlength="8" placeholder="휴대폰 번호 (숫자만)"/>
 									</span>
 								</div>
 							</div>
@@ -183,7 +179,7 @@
 							<div class="">
 								
 								<div class="">
-									<input name="inputHeight" class="" type="text" maxlength="3" placeholder="키(cm)"/>
+									<input name="height" class="" type="text" maxlength="3" placeholder="키(cm)"/>
 								</div>
 							</div>
 						</div>
@@ -191,7 +187,7 @@
 							<div class="">
 								
 								<div class="">
-									<input name="inputWeight" class="" type="text" maxlength="3" placeholder="몸무게(kg)"/>
+									<input name="weight" class="" type="text" maxlength="3" placeholder="몸무게(kg)"/>
 								</div>
 							</div>
 						</div>
