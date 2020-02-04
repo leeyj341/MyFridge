@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- mapper가 너무 많으니까 namespace로 구분지어주기 -->
+<mapper namespace="maeggi.seggi.mypage">
+	<select id="listall" resultType="board">
+		select * from ask
+	</select>
+ 	<insert id="insert" parameterType="board">
+		insert into ask values(ask_seq.nextval,'seong', #{ask_title},#{ask_content},sysdate,'답변 대기중')	
+	
+	</insert>
+	<select id="read" parameterType="String" resultType="board">
+		select * from ask where ask_id = #{ask_id}
+	</select>
+	
+	<update id="update" parameterType="board">
+		update ask set ask_title = #{ask_title}, ask_content = #{ask_content} where ask_id = #{ask_id}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from ask where ask_id = #{ask_id}
+	</delete>
+</mapper>
