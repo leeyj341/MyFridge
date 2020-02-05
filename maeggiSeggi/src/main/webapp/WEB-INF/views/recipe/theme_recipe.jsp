@@ -91,7 +91,7 @@ color: skyblue;
 	<div id="line">
 		<div id="headtitle">
 			<h4><span id="underline">비오는 날</span> 이런 음식 어때요?</h4>
-			<input type="button" id="add" value="레시피 등록">
+			<input type="button" id="add" value="레시피 등록" href="/maeggiSeggi/recipe/board_write.do">
 			<input type="button" id="more" value="More">
 		</div>
 	</div>
