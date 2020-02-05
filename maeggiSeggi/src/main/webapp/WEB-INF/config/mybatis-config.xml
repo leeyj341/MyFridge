@@ -17,6 +17,4 @@
 		<mapper resource="mapper/mypage_board.xml" />
 		<mapper resource="mapper/loginandcustomer_member.xml" />
 	</mappers>
-
-
 </configuration>

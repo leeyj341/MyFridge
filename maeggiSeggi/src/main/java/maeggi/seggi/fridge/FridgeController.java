@@ -14,5 +14,7 @@ public class FridgeController {
 	public String calendar() {
 		return "calendar";
 	}
+	
+	
 
 }
