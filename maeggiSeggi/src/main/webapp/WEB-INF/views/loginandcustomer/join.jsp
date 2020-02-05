@@ -54,8 +54,35 @@
 			});
 		});
 		
+		
 		$(document).ready(function() {
+			//id 중복체크
+			$("#member_id").on("keyup",function(){
+				$.get("/maeggiSeggi/loginandcustomer/idCheck.do", {"member_id":$("#member_id").val()}, 
+						function(data) {						
+							$("#checkVal").text(data); 
+				}, "text")
+				
+			});
 			
+			//핸드폰 번호 수
+			$("#phonenum").on("keyup",function(){
+				myphone = $("#phonenum").val();
+				resultStr ="";//결과 문자열을 저장할 변수
+				colour = ""; 
+				if(myphone.length != 11){
+					resultStr = "핸드폰 번호는 11자리로 입력해야 합니다.";
+					colour = "red";
+				}else{
+					resultStr = "핸드폰 번호 입력완료.";					
+					colour = "green";
+				}
+				//웹페이지에 div태그 내부에 문자열을 추가 -> html()을 이용해도 좋다.
+				$("#result_phone").text(resultStr);
+				$("#result_phone").css("color",colour);
+			});
+			
+			//주민번호 수
 			$("#ssn").on("keyup",function(){
 				myssn = $("#ssn").val();
 				resultStr ="";//결과 문자열을 저장할 변수
@@ -64,13 +91,14 @@
 					resultStr = "주민등록번호는 13자리로 입력해야 합니다.";
 					colour = "red";
 				}else{
-					resultStr = "주민등록번호는 입력완료.";					
+					resultStr = "주민등록번호 입력완료.";					
 					colour = "green";
 				}
 				//웹페이지에 div태그 내부에 문자열을 추가 -> html()을 이용해도 좋다.
-				$("#result").text(resultStr);
-				$("#result").css("color",colour);
+				$("#result_ssn").text(resultStr);
+				$("#result_ssn").css("color",colour);
 			});
+			
 		});
 		</script>
 ​
@@ -120,11 +148,14 @@
 ​
 ​
 		<div class="container">
-			<form action="" method="POST">
+			<form action="/maeggiSeggi/loginandcustomer/join.do" method="POST">
 				<div class="join_form">
-					<label for="email">아이디:</label> <input type="ID"
-						class="form-control" id="member_id" name="member_id" placeholder="Enter email">
-				</div>
+					<label for="id">아이디:</label> 
+					<input type="text"
+						class="form-control" id="member_id" name="member_id" placeholder="Enter id">
+					<span id="checkVal" style="color: red;"></span>
+				</div>												
+								
 				<div class="join_form">
 					<label for="pwd">비밀번호:</label> <input type="password"
 						class="form-control" id="pass" name="pass" placeholder="Enter password">
@@ -151,11 +182,16 @@
 					</span>
 				</div>
 ​
+				<div class="join_form">
+					<label for="pwd"> 핸드폰 번호 : ( - 없이 11자리 숫자만 입력  )</label> <input type="text"
+						class="form-control" id="phonenum" name="phonenum" placeholder="예시 : 01012345678">
+					<div id="result_phone" style="color: red;"></div>
+				</div>
 ​
 				<div class="join_form">
 					<label for="pwd"> 주민등록번호 : ( - 없이 13자리 숫자만 입력  )</label> <input type="text"
 						class="form-control" id="ssn" name="ssn" placeholder="예시 : 9409152222222">
-					<div id="result" style="color: red;"></div>
+					<div id="result_ssn" style="color: red;"></div>
 				</div>
 				
 				<div class="join_form">
@@ -173,7 +209,7 @@
 				
 ​
 				
-				<button type="submit" class="btn btn-default">Submit</button>
+				<button type="submit" class="btn btn-default" id="submit">Submit</button>
 			</form>
 		</div>
 ​

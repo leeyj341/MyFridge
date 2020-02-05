@@ -11,7 +11,11 @@
  	</select>
  	
  	<insert id="register">
- 		insert into member(member_id, pass, name, gender, ssn, phonenum) 
- 		values(#{member_id}, #{pass}, #{name},#{gender},#{ssn},#{phonenum})
+ 		insert into member
+ 		values(#{member_id}, #{pass}, #{name},#{ssn},#{phonenum},#{height},#{weight},#{gender},'seed',0,0,sysdate,'test')
  	</insert>
+ 	
+ 	<select id="idCheck" resultType="member" parameterType="String" >
+		select * from member where member_id = #{member_id}
+	</select>
 </mapper>
