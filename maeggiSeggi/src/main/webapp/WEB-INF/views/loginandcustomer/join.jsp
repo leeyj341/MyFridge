@@ -80,48 +80,56 @@
 
 
 		<div class="container">
-			<form>
+			<form action="" method="POST">
 				<div class="join_form">
 					<label for="email">아이디:</label> <input type="ID"
-						class="form-control" id="join_email" placeholder="Enter email">
+						class="form-control" id="join_id" name="join_id" placeholder="Enter email">
 				</div>
 				<div class="join_form">
 					<label for="pwd">비밀번호:</label> <input type="password"
-						class="form-control" id="join_pass" placeholder="Enter password">
+						class="form-control" id="join_pass" name="join_pass" placeholder="Enter password">
+
 				</div>
 				<div class="join_form">
 					<label for="pwd">비밀번호 확인:</label> <input type="text"
-						class="form-control" id="join_pass_confirm"
+						class="form-control" id="join_pass_confirm" name="join_pass_cofirm"
 						placeholder="Enter password">
 				</div>
 				<div class="join_form">
 					<label for="pwd">이름:</label> <input type="text"
-						class="form-control" id="join_name" placeholder="name">
+						class="form-control" id="join_name" name="join_name" placeholder="name">
 				</div>
 
 
 				<div class="join_form">
 					<label for="pwd"> 성별 : </label> <span class="join_form"> <input
 						name="gender" class="" type="radio" value="male" /> <label>남자</label>
-					</span> <span class=""> <input name="gender" class="" type="radio"
+					</span> <span class=""> <input id="join_gender" name="join_gender" type="radio"
 						value="female" /> <label>여자</label>
 					</span>
 				</div>
 
 
 				<div class="join_form">
-					<label for="pwd">생년월일 6자리 : (예시: 940915)</label> <input type="text"
-						class="form-control" id="join_birthday" placeholder="yymmdd">
+					<label for="pwd"> 주민등록번호 : ( - 없이 13자리 숫자만 입력  )</label> <input type="text"
+						class="form-control" id="join_ssn" name="join_ssn" placeholder="예시 : 9409152222222">
 				</div>
+				
 				<div class="join_form">
-					<label for="pwd">전화번호 : </label><input type="text"
-						class="form-control" id="join_phone" placeholder="phone nunmber">
+					<label for="pwd"> 키 : (cm) </label><input type="text"
+						class="form-control" id="join_height" name="join_height" placeholder="phone nunmber">
+						
 				</div>
-
-
-				<div class="checkbox">
-					<label><input type="checkbox"> Remember me</label>
+				
+				<div class="join_form">
+					<label for="pwd"> 몸무게 : (kg) </label><input type="text"
+						class="form-control" id="join_weight" name="join_weight" placeholder="phone nunmber">
+						
 				</div>
+				
+				
+
+				
 				<button type="submit" class="btn btn-default">Submit</button>
 			</form>
 		</div>
