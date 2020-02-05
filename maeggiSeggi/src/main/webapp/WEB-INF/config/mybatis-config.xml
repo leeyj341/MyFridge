@@ -2,7 +2,19 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
-  
-<configuration>
 
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+	<typeAliases>
+		<typeAlias type="maeggi.seggi.mypage.BoardVO" alias="board" />
+		<typeAlias type="maeggi.seggi.loginandcustomer.memberVO"
+			alias="member" />
+	</typeAliases>
+	<mappers>
+		<mapper resource="mapper/mypage_board.xml" />
+		<mapper resource="mapper/loginandcustomer_member.xml" />
+	</mappers>
 </configuration>

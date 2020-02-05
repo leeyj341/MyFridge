@@ -9,5 +9,12 @@ public class FridgeController {
 	public String fridgeContent() {
 		return "fridge";
 	}
+	
+	@RequestMapping("/calendar.do")
+	public String calendar() {
+		return "calendar";
+	}
+	
+	
 
 }
