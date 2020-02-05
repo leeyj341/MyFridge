@@ -19,8 +19,7 @@ public class memberDAOImpl implements memberDAO {
 
 	@Override
 	public int insert(memberVO user) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.insert("maeggi.seggi.loginandcustomer.register", user);
 	}
 
 	@Override

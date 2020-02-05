@@ -1,26 +1,28 @@
 package maeggi.seggi.loginandcustomer;
 
+import java.sql.Date;
+
 public class memberVO {
 	private String member_id;
 	private String pass;
 	private String name;
-	private String ssn;
-	private String phonenum;
-	private String height;
-	private String weight;
+	private int ssn;
+	private int phonenum;
+	private int height;
+	private int weight;
 	private String gender;
 	private String grade;
-	private String point;
-	private String my_money;
-	private String regdate;
+	private int point;
+	private int my_money;
+	private Date regdate;
 	private String mgr_id;
 	
 	public memberVO() {
 		
 	}
 
-	public memberVO(String member_id, String pass, String name, String ssn, String phonenum, String height,
-			String weight, String gender, String grade, String point, String my_money, String regdate, String mgr_id) {
+	public memberVO(String member_id, String pass, String name, int ssn, int phonenum, int height, int weight,
+			String gender, String grade, int point, int my_money, Date regdate, String mgr_id) {
 		super();
 		this.member_id = member_id;
 		this.pass = pass;
@@ -61,35 +63,35 @@ public class memberVO {
 		this.name = name;
 	}
 
-	public String getSsn() {
+	public int getSsn() {
 		return ssn;
 	}
 
-	public void setSsn(String ssn) {
+	public void setSsn(int ssn) {
 		this.ssn = ssn;
 	}
 
-	public String getPhonenum() {
+	public int getPhonenum() {
 		return phonenum;
 	}
 
-	public void setPhonenum(String phonenum) {
+	public void setPhonenum(int phonenum) {
 		this.phonenum = phonenum;
 	}
 
-	public String getHeight() {
+	public int getHeight() {
 		return height;
 	}
 
-	public void setHeight(String height) {
+	public void setHeight(int height) {
 		this.height = height;
 	}
 
-	public String getWeight() {
+	public int getWeight() {
 		return weight;
 	}
 
-	public void setWeight(String weight) {
+	public void setWeight(int weight) {
 		this.weight = weight;
 	}
 
@@ -109,27 +111,27 @@ public class memberVO {
 		this.grade = grade;
 	}
 
-	public String getPoint() {
+	public int getPoint() {
 		return point;
 	}
 
-	public void setPoint(String point) {
+	public void setPoint(int point) {
 		this.point = point;
 	}
 
-	public String getMy_money() {
+	public int getMy_money() {
 		return my_money;
 	}
 
-	public void setMy_money(String my_money) {
+	public void setMy_money(int my_money) {
 		this.my_money = my_money;
 	}
 
-	public String getRegdate() {
+	public Date getRegdate() {
 		return regdate;
 	}
 
-	public void setRegdate(String regdate) {
+	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
 
@@ -147,7 +149,6 @@ public class memberVO {
 				+ phonenum + ", height=" + height + ", weight=" + weight + ", gender=" + gender + ", grade=" + grade
 				+ ", point=" + point + ", my_money=" + my_money + ", regdate=" + regdate + ", mgr_id=" + mgr_id + "]";
 	}
-	
 	
 	
 }

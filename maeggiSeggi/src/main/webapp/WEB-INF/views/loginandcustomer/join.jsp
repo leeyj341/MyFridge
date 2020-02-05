@@ -3,43 +3,43 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <!DOCTYPE html>
 <html>
-
+​
 <head>
-
-
+​
+​
 <meta charset="UTF-8">
 <meta name="description" content="">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
+​
 <!-- Title -->
 <title>회원 가입</title>
-
+​
 <!-- Favicon -->
 <link rel="icon" href="/maeggiSeggi/images/core-img/favicon.ico">
-
+​
 <!-- font -->
 <link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
-
+​
 <!-- Core Stylesheet -->
 <link href="/maeggiSeggi/common/css/style.css" rel="stylesheet">
 <link href="/maeggiSeggi/common/css/k_join.css" rel="stylesheet">
-
-
+​
+​
 <!-- Responsive CSS -->
 <link href="/maeggiSeggi/common/css/responsive/responsive.css"
 	rel="stylesheet">
-
-
-
+​
+​
+​
 </head>
-
+​
 <body>
-
+​
 	<div id="outter">
-
+​
 		<!-- ****** Breadcumb Area Start ****** -->
 		<div class="breadcumb-area"
 			style="background-image: url(../../yummy-master/img/bg-img/breadcumb.jpg);">
@@ -53,7 +53,7 @@
 				</div>
 			</div>
 		</div>
-
+​
 		<div class="breadcumb-nav">
 			<div class="container">
 				<div class="row">
@@ -68,7 +68,7 @@
 						</nav>
 					</div>
 				</div>
-
+​
 				<div class="row">
 					<!-- row해야 그 집모양 아이콘 있는 곳부터 글자가 시작됨 -->
 					<div class="col-12" id="asklist_customview">
@@ -77,8 +77,8 @@
 				</div>
 			</div>
 		</div>
-
-
+​
+​
 		<div class="container">
 			<form action="" method="POST">
 				<div class="join_form">
@@ -88,7 +88,7 @@
 				<div class="join_form">
 					<label for="pwd">비밀번호:</label> <input type="password"
 						class="form-control" id="join_pass" name="join_pass" placeholder="Enter password">
-
+​
 				</div>
 				<div class="join_form">
 					<label for="pwd">비밀번호 확인:</label> <input type="text"
@@ -99,8 +99,8 @@
 					<label for="pwd">이름:</label> <input type="text"
 						class="form-control" id="join_name" name="join_name" placeholder="name">
 				</div>
-
-
+​
+​
 				<div class="join_form">
 					<label for="pwd"> 성별 : </label> <span class="join_form"> <input
 						name="gender" class="" type="radio" value="male" /> <label>남자</label>
@@ -108,8 +108,8 @@
 						value="female" /> <label>여자</label>
 					</span>
 				</div>
-
-
+​
+​
 				<div class="join_form">
 					<label for="pwd"> 주민등록번호 : ( - 없이 13자리 숫자만 입력  )</label> <input type="text"
 						class="form-control" id="join_ssn" name="join_ssn" placeholder="예시 : 9409152222222">
@@ -128,14 +128,14 @@
 				</div>
 				
 				
-
+​
 				
 				<button type="submit" class="btn btn-default">Submit</button>
 			</form>
 		</div>
-
-
+​
+​
 	</div>
-
-
+​
+​
 </body>

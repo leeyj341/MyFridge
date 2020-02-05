@@ -50,13 +50,33 @@ public class loginandcustomerController {
 		return "redirect:/recipe/main.do";
 	}
 	
-
-	@RequestMapping("/loginandcustomer/join.do")
-	public String join() {
-
+	//회원가입 view
+	@RequestMapping(value= "/loginandcustomer/join.do", method = RequestMethod.GET)
+	public String joinView() {
 		return "loginandcustomer/join";
 	}
-
+		
+	// 회원가입 Post
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public String join(memberVO vo){	
+		return "redirect:/loginandcustomer/login.do";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@RequestMapping("/loginandcustomer/admin_askdetail.do")
 	public String admin_askdetail() {
 

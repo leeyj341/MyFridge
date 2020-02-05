@@ -9,4 +9,9 @@
  		from member
  		where member_id = #{member_id} and pass = #{pass}
  	</select>
+ 	
+ 	<insert id="register">
+ 		insert into member(member_id, pass, name, gender, ssn, phonenum) 
+ 		values(#{member_id}, #{pass}, #{name},#{gender},#{ssn},#{phonenum})
+ 	</insert>
 </mapper>
