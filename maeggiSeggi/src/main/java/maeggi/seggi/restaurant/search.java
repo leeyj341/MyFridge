@@ -1,5 +1,5 @@
 package maeggi.seggi.restaurant;
-
+ 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -18,12 +18,12 @@ public class search {
  
     public static void main(String[] args) {
  
-        String clientId = "kDO2KjxT2Tq2Qhbc0KQM";
+    	String clientId = "kDO2KjxT2Tq2Qhbc0KQM";
         String clientSecret = "BRvEOByFGB";
         int display = 2;
  
         try {
-            String text = URLEncoder.encode("슈퍼집 논현점", "utf-8");
+            String text = URLEncoder.encode("충주 맛집", "utf-8");
             String apiURL = "https://openapi.naver.com/v1/search/local?query=" + text + "&display=" + display + "&";
             URL url = new URL(apiURL);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
