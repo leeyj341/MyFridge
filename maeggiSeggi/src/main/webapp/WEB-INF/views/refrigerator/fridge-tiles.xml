@@ -10,4 +10,5 @@
 	<definition name="calendar" extends="maeggiTemplate">
 		<put-attribute name="content" value="/WEB-INF/views/refrigerator/testCalendar.jsp"></put-attribute>
 	</definition>
+	
 </tiles-definitions>

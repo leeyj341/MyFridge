@@ -45,19 +45,19 @@
 
 
 			<div id="right_inner">
-				<form>
+				<form action="/maeggiSeggi/loginandcustomer/login.do" method="post">
 					<div id="login_box">
 						<h1>Member Login</h1>
 						<ul id="input_button">
 							<li id="id_pass">
 								<ul>
-									<li class="logintext" id="ID"><div class="logintext_div">
-											<input type="text" class="input_logintext" placeholder=' 아이디'>
+									<li class="logintext" id="member_id"><div class="logintext_div">
+											<input type="text" class="input_logintext" placeholder=' 아이디' name ="member_id" >
 										</div></li>
 									<!-- id -->
 									<li class="logintext" id="pass"><div class="logintext_div">
-											<input type="password" class="input_logintext"
-												placeholder=' 비밀번호'>
+											<input type="password" class="input_logintext" name ="pass"
+												placeholder=' 비밀번호' >
 										</div></li>
 									<!-- pass -->
 								</ul>
