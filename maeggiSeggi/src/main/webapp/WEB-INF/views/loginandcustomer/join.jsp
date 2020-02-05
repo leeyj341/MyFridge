@@ -31,8 +31,48 @@
 <!-- Responsive CSS -->
 <link href="/maeggiSeggi/common/css/responsive/responsive.css"
 	rel="stylesheet">
+
 ​
-​
+<script type="text/javascript">
+		$(function() {
+			$("#alert-success").hide();
+			$("#alert-danger").hide();
+			$("input").keyup(function() {
+				var pass = $("#pass").val();
+				var pass_confirm = $("#pass_confirm").val();
+				if (pass != "" || pass_confirm != "") {
+					if (pass == pass_confirm) {
+						$("#alert-success").show();
+						$("#alert-danger").hide();
+						$("#submit").removeAttr("disabled");
+					} else {
+						$("#alert-success").hide();
+						$("#alert-danger").show();
+						$("#submit").attr("disabled", "disabled");
+					}
+				}
+			});
+		});
+		
+		$(document).ready(function() {
+			
+			$("#ssn").on("keyup",function(){
+				myssn = $("#ssn").val();
+				resultStr ="";//결과 문자열을 저장할 변수
+				colour = ""; 
+				if(myssn.length != 13){
+					resultStr = "주민등록번호는 13자리로 입력해야 합니다.";
+					colour = "red";
+				}else{
+					resultStr = "주민등록번호는 입력완료.";					
+					colour = "green";
+				}
+				//웹페이지에 div태그 내부에 문자열을 추가 -> html()을 이용해도 좋다.
+				$("#result").text(resultStr);
+				$("#result").css("color",colour);
+			});
+		});
+		</script>
 ​
 </head>
 ​
@@ -83,28 +123,30 @@
 			<form action="" method="POST">
 				<div class="join_form">
 					<label for="email">아이디:</label> <input type="ID"
-						class="form-control" id="join_id" name="join_id" placeholder="Enter email">
+						class="form-control" id="member_id" name="member_id" placeholder="Enter email">
 				</div>
 				<div class="join_form">
 					<label for="pwd">비밀번호:</label> <input type="password"
-						class="form-control" id="join_pass" name="join_pass" placeholder="Enter password">
+						class="form-control" id="pass" name="pass" placeholder="Enter password">
 ​
 				</div>
 				<div class="join_form">
 					<label for="pwd">비밀번호 확인:</label> <input type="text"
-						class="form-control" id="join_pass_confirm" name="join_pass_cofirm"
+						class="form-control" id="pass_confirm" name="pass_cofirm"
 						placeholder="Enter password">
+					<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
+					<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
 				</div>
 				<div class="join_form">
 					<label for="pwd">이름:</label> <input type="text"
-						class="form-control" id="join_name" name="join_name" placeholder="name">
+						class="form-control" id="name" name="name" placeholder="name">
 				</div>
 ​
 ​
 				<div class="join_form">
 					<label for="pwd"> 성별 : </label> <span class="join_form"> <input
-						name="gender" class="" type="radio" value="male" /> <label>남자</label>
-					</span> <span class=""> <input id="join_gender" name="join_gender" type="radio"
+						name="gender" id="gender" type="radio" value="male" /> <label>남자</label>
+					</span> <span class=""> <input id="gender" name="gender" type="radio"
 						value="female" /> <label>여자</label>
 					</span>
 				</div>
@@ -112,18 +154,19 @@
 ​
 				<div class="join_form">
 					<label for="pwd"> 주민등록번호 : ( - 없이 13자리 숫자만 입력  )</label> <input type="text"
-						class="form-control" id="join_ssn" name="join_ssn" placeholder="예시 : 9409152222222">
+						class="form-control" id="ssn" name="ssn" placeholder="예시 : 9409152222222">
+					<div id="result" style="color: red;"></div>
 				</div>
 				
 				<div class="join_form">
 					<label for="pwd"> 키 : (cm) </label><input type="text"
-						class="form-control" id="join_height" name="join_height" placeholder="phone nunmber">
+						class="form-control" id="height" name="height" placeholder="예시: 180">
 						
 				</div>
 				
 				<div class="join_form">
 					<label for="pwd"> 몸무게 : (kg) </label><input type="text"
-						class="form-control" id="join_weight" name="join_weight" placeholder="phone nunmber">
+						class="form-control" id="weight" name="weight" placeholder="예시: 70">
 						
 				</div>
 				
