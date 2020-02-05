@@ -6,8 +6,8 @@ public class memberVO {
 	private String member_id;
 	private String pass;
 	private String name;
-	private int ssn;
-	private int phonenum;
+	private String ssn;
+	private String phonenum;
 	private int height;
 	private int weight;
 	private String gender;
@@ -21,7 +21,7 @@ public class memberVO {
 		
 	}
 
-	public memberVO(String member_id, String pass, String name, int ssn, int phonenum, int height, int weight,
+	public memberVO(String member_id, String pass, String name, String ssn, String phonenum, int height, int weight,
 			String gender, String grade, int point, int my_money, Date regdate, String mgr_id) {
 		super();
 		this.member_id = member_id;
@@ -63,19 +63,19 @@ public class memberVO {
 		this.name = name;
 	}
 
-	public int getSsn() {
+	public String getSsn() {
 		return ssn;
 	}
 
-	public void setSsn(int ssn) {
+	public void setSsn(String ssn) {
 		this.ssn = ssn;
 	}
 
-	public int getPhonenum() {
+	public String getPhonenum() {
 		return phonenum;
 	}
 
-	public void setPhonenum(int phonenum) {
+	public void setPhonenum(String phonenum) {
 		this.phonenum = phonenum;
 	}
 
@@ -149,6 +149,5 @@ public class memberVO {
 				+ phonenum + ", height=" + height + ", weight=" + weight + ", gender=" + gender + ", grade=" + grade
 				+ ", point=" + point + ", my_money=" + my_money + ", regdate=" + regdate + ", mgr_id=" + mgr_id + "]";
 	}
-	
-	
+
 }

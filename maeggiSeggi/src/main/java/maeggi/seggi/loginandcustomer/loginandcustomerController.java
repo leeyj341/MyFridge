@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -22,10 +23,8 @@ public class loginandcustomerController {
 	
 	@RequestMapping(value="/loginandcustomer/login.do", method = RequestMethod.POST)
 	public ModelAndView login(memberVO loginUserInfo,HttpServletRequest request) {
-		System.out.println("로그인하기위해 사용자입력값"+loginUserInfo);
 		ModelAndView mav = new ModelAndView();
 		memberVO loginuser = service.login(loginUserInfo);
-		System.out.println("로그인하고 나온정보"+loginuser);
 		mav.addObject("loginuser", loginuser);
 		String viewName="";
 		if(loginuser!=null) {
@@ -36,7 +35,7 @@ public class loginandcustomerController {
 			viewName = "fridge";
 		}else {
 			//로그인 실패시 로그인 페이지 보여준다는 의미
-			viewName = "loginandcustomer/login.do";
+			viewName = "loginandcustomer/login";
 		}
 		mav.setViewName(viewName);//viewName을 변수처리.
 		return mav;
@@ -57,20 +56,26 @@ public class loginandcustomerController {
 	}
 		
 	// 회원가입 Post
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String join(memberVO vo){	
+	@RequestMapping(value = "/loginandcustomer/join.do", method = RequestMethod.POST)
+	public String join(memberVO user){
+		System.out.println("넘어온 정보"+user);
+		service.insert(user);
 		return "redirect:/loginandcustomer/login.do";
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@RequestMapping(value = "/loginandcustomer/idCheck.do", method = RequestMethod.GET , 
+			produces="application/text;charset=utf-8")
+	public @ResponseBody String idCheck(String member_id) {
+		boolean state = service.idCheck(member_id);
+	    String result ="";
+		if(state) {
+			result = "사용 불가능한 아이디";
+		}else {
+			result = "사용 가능한 아이디";
+		}
+		return result;
+
+	}
 	
 	
 	

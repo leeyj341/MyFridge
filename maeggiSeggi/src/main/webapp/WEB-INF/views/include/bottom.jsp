@@ -12,6 +12,7 @@
 </head>
 </head>
 <body>
+<br/><br/><br/>
 	<footer class="footer_area">
 		<div class="container">
 			<div class="row">
