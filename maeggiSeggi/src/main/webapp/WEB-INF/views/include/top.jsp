@@ -116,7 +116,6 @@
                                         <a class="dropdown-item" href="/maeggiSeggi/sub/grade.do">GRADE</a>
                                         <a class="dropdown-item" href="/maeggiSeggi/sub/QnA.do">QnA</a>
                                         <a class="dropdown-item" href="/maeggiSeggi/loginandcustomer/noticelist.do">NOTICE</a>
-                                        <a class="dropdown-item" href="contact.html">CONTACT</a>
                                     </div>
                                 </li>
                         		<li class="nav-item dropdown">
