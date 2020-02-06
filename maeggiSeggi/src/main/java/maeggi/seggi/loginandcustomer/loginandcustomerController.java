@@ -5,8 +5,10 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -48,6 +50,33 @@ public class loginandcustomerController {
 		}
 		return "redirect:/recipe/main.do";
 	}
+	
+/*	@RequestMapping(value = "/kakaoOauth.do")
+	public String getKakaoSignIn(ModelMap model,@RequestParam("code") String code, HttpSession session) throws Exception {
+
+	  JsonNode userInfo = kakaoLogin.getKakaoUserInfo(code);
+
+	  System.out.println(userInfo);
+
+	  String id = userInfo.get("id").toString();
+	  String email = userInfo.get("kaccount_email").toString();
+	  String image = userInfo.get("properties").get("profile_image").toString();
+	  String nickname = userInfo.get("properties").get("nickname").toString();
+
+	  System.out.println(id + email);
+
+
+	  model.addAttribute("k_userInfo", userInfo);
+	  model.addAttribute("id", id);
+	  model.addAttribute("email", email);
+	  model.addAttribute("nickname", nickname);
+	  model.addAttribute("image", image);
+
+	  return "main/main.tiles";
+	}*/
+	
+	
+	
 	
 	//회원가입 view
 	@RequestMapping(value= "/loginandcustomer/join.do", method = RequestMethod.GET)
