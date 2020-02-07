@@ -31,7 +31,7 @@
     <script src="/maeggiSeggi/common/js/active.js"></script>
 </head>
 <body>
-<<<<<<< HEAD
+
 	 <% 
 		memberVO loginuser = (memberVO)session.getAttribute("loginuser"); 
  		
@@ -149,11 +149,7 @@
                                         <a class="dropdown-item" href="/maeggiSeggi/mypage/information_update.do"><b>회원 정보 조회</b></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/mypage/ask.do"><b>1:1 문의 사항</b></a>
                                         <a class="dropdown-item" href="/maeggiSeggi//mypage/mypoint.do"><b>My Point</b></a>
-=======
-	<% 
-		memberVO loginuser = (memberVO)session.getAttribute("loginuser"); 
-		session.setAttribute("id", loginuser.getMember_id());
-	%>
+
 	<!-- Preloader Start -->
 	<div id="preloader">
 		<div class="yummy-load"></div>
@@ -184,7 +180,7 @@
                             <div class="login">
                                 <a href="/maeggiSeggi/loginandcustomer/logout.do" >sign out</a>
                             </div>
-                            <% } %>
+                            <% session.setAttribute("id", loginuser.getMember_id()); } %>
                             <div class="register">
                                 <a href="/maeggiSeggi/loginandcustomer/join.do">sign up</a>
                             </div>
@@ -267,7 +263,7 @@
                                         <a class="dropdown-item" href="/maeggiSeggi/mypage/information_update.do"><b>회원 정보 조회</b></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/mypage/ask.do"><b>1:1 문의 사항</b></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/mypage/mypoint.do"><b>My Point</b></a>
->>>>>>> refs/remotes/origin/master
+
                                     </div>
                                 </li>
                                 <li class="nav-item">
