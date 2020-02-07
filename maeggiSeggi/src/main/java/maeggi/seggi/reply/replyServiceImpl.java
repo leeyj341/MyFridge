@@ -1,4 +1,4 @@
-package maeggi.seggi.mypage;
+package maeggi.seggi.reply;
 
 import java.util.List;
 
@@ -7,28 +7,28 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BoardServiceImpl implements BoardService {
+public class replyServiceImpl implements replyService {
 	@Autowired
-	@Qualifier("boardDao")
-	BoardDAO dao;
+	@Qualifier("replyDao")
+	replyDAO dao;
 	
 	@Override
-	public List<BoardVO> listall() {
+	public List<replyBoardVO> listall() {
 		return dao.listall();
 	}
 
 	@Override
-	public int insert(BoardVO board) {
+	public int insert(replyBoardVO board) {
 		return dao.insert(board);
 	}
 
 	@Override
-	public BoardVO read(String board_no) {
+	public replyBoardVO read(String board_no) {
 		return dao.read(board_no);
 	}
 
 	@Override
-	public int update(BoardVO board) {
+	public int update(replyBoardVO board) {
 		return dao.update(board);
 	}
 
@@ -40,13 +40,13 @@ public class BoardServiceImpl implements BoardService {
 	
 	//======================== 답변형 게시판 ========================
 	@Override
-	public void reply(BoardVO board) {
+	public void reply(replyBoardVO board) {
 		dao.reply(board);
 		
 	}
 
 	@Override
-	public List<BoardVO> list_reply() {
+	public List<replyBoardVO> list_reply() {
 		return dao.list_reply();
 	}
 
