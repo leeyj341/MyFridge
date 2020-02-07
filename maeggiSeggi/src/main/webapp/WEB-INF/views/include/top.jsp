@@ -31,10 +31,10 @@
     <script src="/maeggiSeggi/common/js/active.js"></script>
 </head>
 <body>
-	<% 
+	 <% 
 		memberVO loginuser = (memberVO)session.getAttribute("loginuser"); 
-		session.setAttribute("id", loginuser.getMember_id());
-	%>
+ 		
+ 	%> 
 	<!-- Preloader Start -->
 	<div id="preloader">
 		<div class="yummy-load"></div>
@@ -57,19 +57,20 @@
                 <div class="col-7 col-sm-6">
                     <div class="signup-search-area d-flex align-items-center justify-content-end">
                         <div class="login_register_area d-flex">
-                            <% if(loginuser==null){ %>
+                             <% if(loginuser==null){ %> 
                             <div class="login">
                                 <a href="/maeggiSeggi/loginandcustomer/login.do" >sign in</a>
                             </div>
-                            <% }else{ %>
+                             <% }else{ %> 
                             <div class="login">
                                 <a href="/maeggiSeggi/loginandcustomer/logout.do" >sign out</a>
                             </div>
-                            <% } %>
+                             <% session.setAttribute("id", loginuser.getMember_id());} %> 
                             <div class="register">
                                 <a href="/maeggiSeggi/loginandcustomer/join.do">sign up</a>
                             </div>
                         </div>
+                        <% %>
                         <!-- Search Button Area -->
                        <!-- <div class="search_button">
                             <a class="searchBtn" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
