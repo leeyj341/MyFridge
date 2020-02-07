@@ -33,14 +33,19 @@ public class loginandcustomerController {
 	public ModelAndView login(memberVO loginUserInfo,HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		memberVO loginuser = service.login(loginUserInfo);
-		mav.addObject("loginuser", loginuser);
+		System.out.println(loginUserInfo+"=================================================");
+		System.out.println(loginuser+"=================================================");
 		String viewName="";
+		mav.addObject("loginuser", loginuser);
+		
+		
 		if(loginuser!=null) {
 			//로그인 성공시
 			HttpSession ses = request.getSession();
 			//2. 세션에 데이터 공유
 			ses.setAttribute("loginuser", loginuser);
 			viewName = "fridge";
+		
 		}else {
 			//로그인 실패시 로그인 페이지 보여준다는 의미
 			viewName = "loginandcustomer/login";
