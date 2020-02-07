@@ -3,30 +3,27 @@ package maeggi.seggi.mypage;
 import java.sql.Date;
 
 public class BoardVO {
-	String ask_id;
+	int askno;
 	String ask_title;
 	String ask_content;
 	Date ask_regdate;
-	String ask_mgr_reply;
 	String member_id;
 	public BoardVO() {
 		
 	}
-	public BoardVO(String ask_id, String ask_title, String ask_content, Date ask_regdate, String ask_mgr_reply,
-			String member_id) {
+	public BoardVO(int askno, String ask_title, String ask_content, Date ask_regdate, String member_id) {
 		super();
-		this.ask_id = ask_id;
+		this.askno = askno;
 		this.ask_title = ask_title;
 		this.ask_content = ask_content;
 		this.ask_regdate = ask_regdate;
-		this.ask_mgr_reply = ask_mgr_reply;
 		this.member_id = member_id;
 	}
-	public String getAsk_id() {
-		return ask_id;
+	public int getAskno() {
+		return askno;
 	}
-	public void setAsk_id(String ask_id) {
-		this.ask_id = ask_id;
+	public void setAskno(int askno) {
+		this.askno = askno;
 	}
 	public String getAsk_title() {
 		return ask_title;
@@ -46,12 +43,6 @@ public class BoardVO {
 	public void setAsk_regdate(Date ask_regdate) {
 		this.ask_regdate = ask_regdate;
 	}
-	public String getAsk_mgr_reply() {
-		return ask_mgr_reply;
-	}
-	public void setAsk_mgr_reply(String ask_mgr_reply) {
-		this.ask_mgr_reply = ask_mgr_reply;
-	}
 	public String getMember_id() {
 		return member_id;
 	}
@@ -60,12 +51,9 @@ public class BoardVO {
 	}
 	@Override
 	public String toString() {
-		return "BoardVO [ask_id=" + ask_id + ", ask_title=" + ask_title + ", ask_content=" + ask_content
-				+ ", ask_regdate=" + ask_regdate + ", ask_mgr_reply=" + ask_mgr_reply + ", member_id=" + member_id
-				+ "]";
+		return "BoardVO [askno=" + askno + ", ask_title=" + ask_title + ", ask_content=" + ask_content
+				+ ", ask_regdate=" + ask_regdate + ", member_id=" + member_id + "]";
 	}
-
 	
-
 	
 }

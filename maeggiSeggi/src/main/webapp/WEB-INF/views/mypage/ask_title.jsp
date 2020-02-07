@@ -1,3 +1,5 @@
+<%@page import="maeggi.seggi.reply.replyBoardVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
@@ -24,13 +26,63 @@
 <!-- Responsive CSS -->
 <link href="css/responsive/responsive.css" rel="stylesheet">
 
+<script type="text/javascript">
+	
+	function hideDiv(id){ //수정, 댓글 작성화면을 가진 DIV들을 숨기는 함수.
+	    var div = document.getElementById(id);
+	    div.style.display = "none";	//매개변수로 넘어오는 id값으로 html을 찾아서 안보이게 처리.
+	    document.body.appendChild(div); //부모를 document.body로 바꿈.
+	}
+	
+	function fn_replyDelete(replyno){
+		
+	}
+	
+	function fn_replyReply(replyno){
+	    var form = document.form3;
+	    var reply = document.getElementById("reply"+replyno);
+	    var replyDia = document.getElementById("replyDialog");
+	    replyDia.style.display = "";
+	   
+	    if (updateReno) {
+	        fn_replyUpdateCancel();
+	    }
+	   
+	    form.rememo.value = "";
+	    form.reparent.value=reno;
+	    reply.appendChild(replyDia);
+	    form.rewriter.focus();
+	}
+	
+	function fn_replyReplyCancel(){
+	    hideDiv("replyDialog");
+	}
+	
+	function fn_replyReplySave(){
+	    var form = document.form3;
+	   
+	    if (form.replytitle.value=="") { ////title을 writer로 수정해줘야됨. VO추가해서
+	        alert("작성자를 입력해주세요.");
+	        form.replytitle.focus();
+	        return;
+	    }
+	    if (form.replytitle.value=="") {// title을 content로 수정해줘야됨. VO추가해서
+	        alert("글 내용을 입력해주세요.");
+	        form.replytitle.focus();
+	        return;
+	    }
+	   
+	    form.action="board6ReplySave";// 컨트롤러랑 연결~!!!
+	    form.submit();   
+	}
+</script>
+
+
+
 </head>
 
 <body>
-
-	<div class="col-12">
-		
-	</div>
+	<% ArrayList<replyBoardVO> list_reply = (ArrayList<replyBoardVO>)request.getAttribute("list_reply");%>
 
 	<!-- ****** Breadcumb Area Start ****** -->
 <div>	
@@ -101,7 +153,32 @@
 				</div>
 			</div>
 			
-			<div id="mypage_AskUserForm">
+			<%for(int i=0;i<list_reply.size();i++){ 
+				replyBoardVO repl = list_reply.get(i);
+			%>
+				<div style="border: 1px solid gray; width: 600px; padding: 5px; margin-top: 5px; 
+					margin-left: <%= 20 * repl.getGroupdepth()%>px;">
+					<%= repl.getReplywriter() %>
+					<%= repl.getReplydate() %>
+					<a onclick="fn_replyDelete(<%= repl.getReplyno()%>)">삭제</a>
+					<a onclick="fn_replyReply(<%= repl.getReplyno()%>)">댓글</a>
+				<br/>
+					<div id="reply<%= repl.getReplyno()%>"><%=repl.getReplytitle() %></div>
+				</div>
+				<br/>
+				<div id="replyDialog" style="width: 99%; display: none">
+					<form name="form3" action="/maeggiSeggi/board/reply.do" method="post">
+						<input type="hidden" name="replywriter">
+						<input type="hidden" name="replyno">
+						<input type="hidden" name="groupord">
+						<textarea rows="3" cols="60" name="ask_content" maxlength="500"></textarea>
+						<a href="#" onclick="fn_replyReplySave()">저장</a>
+						<a href="#" onclick="fn_replyReplyCancel()">취소</a>
+					</form>
+				</div>
+				<% } %>
+		
+			<!-- <div id="mypage_AskUserForm">
 				<div>
 					<h3>댓글</h3>
 				</div>
@@ -128,7 +205,7 @@
 								id="mypage_ask_reply_pause" value="댓글지우기" onclick="alert('댓글이 삭제되었습니다.')" style="color:white; background-color: #fc6c3f; width: 100px"style="color:white; background-color: #fc6c3f; width: 100px">
 					</form>
 				</div>
-			</div>
+			</div> -->
 	
 		</div>
 	</div>

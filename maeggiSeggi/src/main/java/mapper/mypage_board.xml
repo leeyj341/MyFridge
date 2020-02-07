@@ -15,11 +15,22 @@
 		select * from ask where ask_id = #{ask_id}
 	</select>
 	
-	<update id="update" parameterType="board">
+	<!-- <update id="update" parameterType="board">
 		update ask set ask_title = #{ask_title}, ask_content = #{ask_content} where ask_id = #{ask_id}
-	</update>
+	</update> -->
 	
 	<delete id="delete" parameterType="int">
 		delete from ask where ask_id = #{ask_id}
 	</delete>
+	
+	
 </mapper>
+
+
+
+
+
+
+
+
+
