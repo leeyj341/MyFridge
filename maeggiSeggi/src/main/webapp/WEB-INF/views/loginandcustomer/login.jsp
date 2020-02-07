@@ -38,7 +38,7 @@
 </head>
 
 <body>
-	<%
+<%-- 	<%
     String clientId = "UZclW6QXimKCZ91kF1ie";//애플리케이션 클라이언트 아이디값";
     String redirectURI = URLEncoder.encode("http://localhost:8088/maeggiSeggi/callback", "UTF-8");
     SecureRandom random = new SecureRandom();
@@ -48,7 +48,7 @@
     apiURL += "&redirect_uri=" + redirectURI;
     apiURL += "&state=" + state;
     session.setAttribute("state", state);
- %>
+ %> --%>
  
 	<div class="container">
 
