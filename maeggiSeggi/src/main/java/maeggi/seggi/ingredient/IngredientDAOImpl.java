@@ -12,8 +12,8 @@ public class IngredientDAOImpl implements IngredientDAO {
 	SqlSession session;
 
 	@Override
-	public List<IngredientVO> selectAllByTypeName(String type) {
-		return session.selectList("maeggi.seggi.ingredient.selectAllByTypeName", type);
+	public List<IngredientVO> selectAll() {
+		return session.selectList("maeggi.seggi.ingredient.selectAll");
 	}
 
 }

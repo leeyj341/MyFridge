@@ -15,6 +15,7 @@
 		select * from ask where ask_id = #{ask_id}
 	</select>
 	
+<<<<<<< HEAD
 	<!-- <update id="update" parameterType="board">
 		update ask set ask_title = #{ask_title}, ask_content = #{ask_content} where ask_id = #{ask_id}
 	</update> -->
@@ -68,3 +69,13 @@
 
 
 
+=======
+	<update id="update" parameterType="board">
+		update ask set ask_title = #{ask_title}, ask_content = #{ask_content} where ask_id = #{ask_id}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from ask where ask_id = #{ask_id}
+	</delete>
+</mapper>
+>>>>>>> branch 'master' of https://github.com/leeyj341/MyFridge.git

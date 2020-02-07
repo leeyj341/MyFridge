@@ -80,8 +80,7 @@
 		<beans:property value="5000000" name="maxUploadSize" />
 		<beans:property value="UTF-8" name="defaultEncoding" />
 	</beans:bean>
-	<context:component-scan
-		base-package="maeggi.seggi" />
+	<context:component-scan base-package="maeggi.seggi" />
 
 
 
