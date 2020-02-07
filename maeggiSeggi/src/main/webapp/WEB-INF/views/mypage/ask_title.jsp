@@ -1,4 +1,4 @@
-<%@page import="maeggi.seggi.mypage.BoardVO"%>
+<%@page import="maeggi.seggi.reply.BoardVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -34,9 +34,13 @@
 	    document.body.appendChild(div); //부모를 document.body로 바꿈.
 	}
 	
-	function fn_replyReply(ask_bbsno){
+	function fn_replyDelete(replyno){
+		
+	}
+	
+	function fn_replyReply(replyno){
 	    var form = document.form3;
-	    var reply = document.getElementById("reply"+ask_bbsno);
+	    var reply = document.getElementById("reply"+replyno);
 	    var replyDia = document.getElementById("replyDialog");
 	    replyDia.style.display = "";
 	   
@@ -77,13 +81,10 @@
 </head>
 
 <body>
-	<%
-		ArrayList<BoardVO> list_reply = (ArrayList<BoardVO>) request.getAttribute("list_reply");
-	%>
-
+	<% ArrayList<replyBoardVO> list_reply = (ArrayList<replyBoardVO>)request.getAttribute("list_reply");%>
 
 	<!-- ****** Breadcumb Area Start ****** -->
-
+<div>	
 	<div class="breadcumb-area"
 		style="background-image: url(/maeggiSeggi/images/bg-img/breadcumb.jpg);">
 		<div class="container h-100">
@@ -106,10 +107,8 @@
 							<li class="breadcrumb-item"><a href="#"><i
 									class="fa fa-home" aria-hidden="true"></i>Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page">MyPage</li>
-							<li class="breadcrumb-item active" aria-current="page">1:1
-								문의사항</li>
-							<li class="breadcrumb-item active" aria-current="page">1:1
-								문의사항 상세보기</li>
+							<li class="breadcrumb-item active" aria-current="page">1:1 문의사항</li>
+							<li class="breadcrumb-item active" aria-current="page">1:1 문의사항 상세보기</li>
 						</ol>
 					</nav>
 				</div>
@@ -154,36 +153,33 @@
 				</div>
 			</div>
 
-		<%-- 	<%
-				for (int i = 0; i < list_reply.size(); i++) {
-					BoardVO repl = list_reply.get(i);
+			
+			<%for(int i=0;i<list_reply.size();i++){ 
+				replyBoardVO repl = list_reply.get(i);
 			%>
-			<div
-				style="border: 1px solid gray; width: 600px; padding: 5px; margin-top: 5px; 
-					margin-left: <%=20 * repl.getAsk_depth()%>px;">
-				<%=repl.getAsk_regdate()%>
-				<a href="#" onclick="fn_replyDelete(<%=repl.getAsk_bbsno()%>)">삭제</a>
-				<a href="#" onclick="fn_replyUpdate(<%=repl.getAsk_bbsno()%>)">수정</a>
-				<a href="#" onclick="fn_replyReply(<%=repl.getAsk_bbsno()%>)">댓글</a>
-				<br />
-				<div id="reply<%=repl.getAsk_bbsno()%>"><%=repl.getAsk_content()%></div>
-			</div>
-			<br />
-			<div id="replyDialog" style="width: 99%; display: none">
-				<form name="form3" action="/maeggiSeggi/board/reply.do"
-					method="post">
-					<input type="hidden" name="ask_id" value="<%=repl.getAsk_id()%>">
-					<input type="hidden" name="ask_bbsno"> <input type="hidden"
-						name="ask_grpord">
-					<textarea rows="3" cols="60" name="ask_content" maxlength="500"></textarea>
-					<a href="#" onclick="fn_replyReplySave()">저장</a> <a href="#"
-						onclick="fn_replyReplyCancel()">취소</a>
-				</form>
-			</div>
-			<%
-				}
-			%> --%>
-
+			
+				<div style="border: 1px solid gray; width: 600px; padding: 5px; margin-top: 5px; 
+					margin-left: <%= 20 * repl.getGroupdepth()%>px;">
+					<%= repl.getReplywriter() %>
+					<%= repl.getReplydate() %>
+					<a onclick="fn_replyDelete(<%= repl.getReplyno()%>)">삭제</a>
+					<a onclick="fn_replyReply(<%= repl.getReplyno()%>)">댓글</a>
+				<br/>
+					<div id="reply<%= repl.getReplyno()%>"><%=repl.getReplytitle() %></div>
+				</div>
+				<br/>
+				<div id="replyDialog" style="width: 99%; display: none">
+					<form name="form3" action="/maeggiSeggi/board/reply.do" method="post">
+						<input type="hidden" name="replywriter">
+						<input type="hidden" name="replyno">
+						<input type="hidden" name="groupord">
+						<textarea rows="3" cols="60" name="ask_content" maxlength="500"></textarea>
+						<a href="#" onclick="fn_replyReplySave()">저장</a>
+						<a href="#" onclick="fn_replyReplyCancel()">취소</a>
+					</form>
+				</div>
+				<% } %>
+		
 			<!-- <div id="mypage_AskUserForm">
 				<div>
 					<h3>댓글</h3>

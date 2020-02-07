@@ -15,6 +15,8 @@
 		<!-- fridge -->
 		<typeAlias type="maeggi.seggi.fridge.FridgeVO" alias="fridge"/>
 		<typeAlias type="maeggi.seggi.fridge.FridgeDetailVO" alias="fridgeDetail"/>
+		<!-- reply -->
+		<typeAlias type="maeggi.seggi.reply.replyBoardVO" alias="reply"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/mypage_board.xml" />
@@ -26,5 +28,8 @@
 		
 		<!-- Ingredient -->
 		<mapper resource="mapper/ingredient.xml"/>
+		
+		<!-- reply -->
+		<mapper resource="mapper/reply.xml"/>
 	</mappers>
 </configuration>
