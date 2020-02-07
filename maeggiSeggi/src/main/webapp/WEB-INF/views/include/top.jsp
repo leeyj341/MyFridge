@@ -31,6 +31,8 @@
     <script src="/maeggiSeggi/common/js/active.js"></script>
 </head>
 <body>
+
+
 	 <% 
 		memberVO loginuser = (memberVO)session.getAttribute("loginuser"); 	
  	%> 
