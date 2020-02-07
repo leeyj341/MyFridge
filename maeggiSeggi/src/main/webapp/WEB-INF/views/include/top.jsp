@@ -31,10 +31,8 @@
     <script src="/maeggiSeggi/common/js/active.js"></script>
 </head>
 <body>
-<<<<<<< HEAD
 	 <% 
-		memberVO loginuser = (memberVO)session.getAttribute("loginuser"); 
- 		
+		memberVO loginuser = (memberVO)session.getAttribute("loginuser"); 	
  	%> 
 	<!-- Preloader Start -->
 	<div id="preloader">

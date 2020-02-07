@@ -79,11 +79,40 @@ public class BoardController {
 		return "redirect:/board/title.do";
 	}
 	
+	//bbsno이 0이고 grpno가 0이 아니면
+	//reply = insertBoardReply
 	@RequestMapping(value="/board/reply.do", method = RequestMethod.POST)
-	public String reply(BoardVO board) {
-		service.reply(board);
-		return "redirect:/board/title.do";
+	public ModelAndView reply(BoardVO board) {
+		ModelAndView mav = new ModelAndView();
+		if(board.getAsk_bbsno()==0) {
+			if(board.getAsk_grpno()!=0) {
+				service.reply(board);
+			}
+		}
+		
+		return mav;
 	}
+	
+	/*  public void insertBoardReply(BoardReplyVO param) {
+	        if (param.getReno() == null || "".equals(param.getReno())) {
+	            if (param.getReparent() != null) {
+	                BoardReplyVO replyInfo = sqlSession.selectOne("selectBoard6ReplyParent", param.getReparent());
+	                param.setRedepth(replyInfo.getRedepth());
+	                param.setReorder(replyInfo.getReorder() + 1);
+	                sqlSession.selectOne("updateBoard6ReplyOrder", replyInfo);
+	            } else {
+	                Integer reorder = sqlSession.selectOne("selectBoard6ReplyMaxOrder", param.getBrdno());
+	                param.setReorder(reorder);
+	            }
+	           
+	            sqlSession.insert("insertBoard6Reply", param);
+	        } else {
+	            sqlSession.insert("updateBoard6Reply", param);
+	        }
+	    }*/
+
+
+	
 	
 	
 	
