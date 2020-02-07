@@ -1,3 +1,5 @@
+<%@page import="maeggi.seggi.recipe.RecipeVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -6,8 +8,7 @@
 <meta charset="EUC-KR">
 <meta name="description" content="">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport"content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Maeggi Seggi</title>
 
 <!-- Favicon -->
@@ -18,7 +19,8 @@
 
 
 <!--Responsive CSS -->
-<link href="/maeggiSeggi/common/css/responsive/responsive.css" rel="stylesheet">
+<link href="/maeggiSeggi/common/css/responsive/responsive.css"
+	rel="stylesheet">
 <link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 <link rel="stylesheet"
@@ -69,8 +71,6 @@ li {
 	float: left;
 }
 
-
-
 .single-post {
 	display: inline-block;
 }
@@ -100,20 +100,21 @@ li {
 			</div>
 		</div>
 	</div>
-
+	<% ArrayList<RecipeVO> list = (ArrayList<RecipeVO>)request.getAttribute("recipeList"); %>
 	<br />
 	<div class="container" style="margin-top: 30px; font-family: PapyrusM;">
 		<div class="row">
 			<div class="col-sm-4">
 				<h2 class="aside-title">Recipe Search</h2>
-				<form>
+				<form action="recipeSearch" method="get">
 					<div class="form-group">
 						<div class="input-group">
-							<input type="text" name="q" class="form-control"
-								placeholder="Type something ..." value="매생이국"
+						
+							<input type="text" name="search" class="form-control"
+								placeholder="매생이국"
 								style="font-size: 20pt;">
 							<div class="input-group-btn">
-								<input type="button" id="more" value="조회"> <i
+								<input type="button" id="more" name="read" value="조회"> <i
 									class="ion-search"></i>
 							</div>
 						</div>
@@ -128,50 +129,55 @@ li {
 
 				<div class="container">
 					<form class="checkbox-group">
+						<div id="check">
 						<div id="title">나라별</div>
 						<div class="form-group">
-							<label><input type="radio" name="c-food" checked>All
-								Countries</label>
+							<label><input type="radio" name="category" value="all" checked>All Countries</label>
 						</div>
 						<div class="form-group">
-							<label><input type="radio" name="c-food">한식</label>
+							<label><input type="radio" name="category" value="한식">한식</label>
 						</div>
 						<div class="form-group">
-							<label><input type="radio" name="c-food"> 퓨전</label>
+							<label><input type="radio" name="category" value="퓨전">
+								퓨전</label>
 						</div>
 						<div class="form-group">
-							<label><input type="radio" name="c-food"> 서양/이탈리아</label>
+							<label><input type="radio" name="category" value="서양/이탈리아">
+								서양/이탈리아</label>
 						</div>
 						<div class="form-group">
-							<label><input type="radio" name="c-food"> 중국
-								/동남아시아</label>
+							<label><input type="radio" name="category" value="중국/동남아시아">
+								중국 /동남아시아</label>
 						</div>
 						<div class="form-group">
-							<label><input type="radio" name="c-food"> 일본</label>
-						</div>
+							<label><input type="radio" name="category" value="일본">
+								일본</label></div>
+							</div>	
+						
+						
 						<br>
 						<div id="title">종류별</div>
 						<div class="form-group">
-							<label><input type="checkbox" name="category" checked>All
+							<label><input type="checkbox" name="sort" checked>All
 								Categories</label>
 						</div>
 						<div class="form-group">
-							<label><input type="checkbox" name="category">메인반찬</label>
+							<label><input type="checkbox" name="sort">메인반찬</label>
 						</div>
 						<div class="form-group">
-							<label><input type="checkbox" name="category">피자/디저트</label>
+							<label><input type="checkbox" name="sort">피자/디저트</label>
 						</div>
 						<div class="form-group">
-							<label><input type="checkbox" name="category">찜/찌개/전골/국</label>
+							<label><input type="checkbox" name="sort">찜/찌개/전골/국</label>
 						</div>
 						<div class="form-group">
-							<label><input type="checkbox" name="category">밥</label>
+							<label><input type="checkbox" name="sort">밥</label>
 						</div>
 						<div class="form-group">
-							<label><input type="checkbox" name="category">만두/면류</label>
+							<label><input type="checkbox" name="sort">만두/면류</label>
 						</div>
 						<div class="form-group">
-							<label><input type="checkbox" name="category">나물/생채/샐러드</label>
+							<label><input type="checkbox" name="sort">나물/생채/샐러드</label>
 						</div>
 					</form>
 				</div>
@@ -197,7 +203,8 @@ li {
 					<div class="single-post">
 						<!-- Post Thumb -->
 						<div class="post-thumb">
-							<a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="/maeggiSeggi/images/jjigae.jpg" alt=""/></a>
+							<a href="/maeggiSeggi/recipe/detailRecipe.do"><img
+								src="/maeggiSeggi/images/jjigae.jpg" alt="" /></a>
 						</div>
 						<!-- Post Content -->
 						<div class="post-content">
@@ -224,7 +231,8 @@ li {
 					<div class="single-post">
 						<!-- Post Thumb -->
 						<div class="post-thumb">
-							<a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="/maeggiSeggi/images/pork2.PNG" alt=""/></a>
+							<a href="/maeggiSeggi/recipe/detailRecipe.do"><img
+								src="/maeggiSeggi/images/pork2.PNG" alt="" /></a>
 						</div>
 						<!-- Post Content -->
 						<div class="post-content">
@@ -250,7 +258,8 @@ li {
 				<div class="single-post">
 					<!-- Post Thumb -->
 					<div class="post-thumb">
-						<a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="/maeggiSeggi/images/sandwitch.jpg" alt=""/></a>
+						<a href="/maeggiSeggi/recipe/detailRecipe.do"><img
+							src="/maeggiSeggi/images/sandwitch.jpg" alt="" /></a>
 					</div>
 					<!-- Post Content -->
 					<div class="post-content">
@@ -275,7 +284,8 @@ li {
 				<div class="single-post">
 					<!-- Post Thumb -->
 					<div class="post-thumb">
-						<a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="/maeggiSeggi/images/1.jpg" alt=""/></a>
+						<a href="/maeggiSeggi/recipe/detailRecipe.do"><img
+							src="/maeggiSeggi/images/1.jpg" alt="" /></a>
 					</div>
 					<!-- Post Content -->
 					<div class="post-content">
@@ -296,76 +306,107 @@ li {
 						</a>
 					</div>
 				</div>
-								<div class="single-post">
-						<!-- Post Thumb -->
-						<div class="post-thumb">
-							<a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="/maeggiSeggi/images/2.jpg" alt=""/></a>
-						</div>
-						<!-- Post Content -->
-						<div class="post-content">
-							<div class="post-meta d-flex">
-								<div class="post-author-date-area d-flex">
-									<!-- Post Author -->
-									<div class="post-author">
-										<a href="#">By Marian</a>
-									</div>
-									<!-- Post Date -->
-									<div class="post-date">
-										<a href="#">May 19, 2017</a>
-									</div>
+				<div class="single-post">
+					<!-- Post Thumb -->
+					<div class="post-thumb">
+						<a href="/maeggiSeggi/recipe/detailRecipe.do"><img
+							src="/maeggiSeggi/images/2.jpg" alt="" /></a>
+					</div>
+					<!-- Post Content -->
+					<div class="post-content">
+						<div class="post-meta d-flex">
+							<div class="post-author-date-area d-flex">
+								<!-- Post Author -->
+								<div class="post-author">
+									<a href="#">By Marian</a>
+								</div>
+								<!-- Post Date -->
+								<div class="post-date">
+									<a href="#">May 19, 2017</a>
 								</div>
 							</div>
-							<a href="/maeggiSeggi/recipe/detailRecipe.do">
-								<h6>The Top Breakfast And Brunch Spots In Hove</h6>
-							</a>
 						</div>
+						<a href="/maeggiSeggi/recipe/detailRecipe.do">
+							<h6>The Top Breakfast And Brunch Spots In Hove</h6>
+						</a>
 					</div>
-					<div class="single-post">
-						<!-- Post Thumb -->
-						<div class="post-thumb">
-							<a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="/maeggiSeggi/images/pork1.PNG" alt=""/></a>
-						</div>
-						<!-- Post Content -->
-						<div class="post-content">
-							<div class="post-meta d-flex">
-								<div class="post-author-date-area d-flex">
-									<!-- Post Author -->
-									<div class="post-author">
-										<a href="#">By Marian</a>
-									</div>
-									<!-- Post Date -->
-									<div class="post-date">
-										<a href="#">May 19, 2017</a>
-									</div>
+				</div>
+				<div class="single-post">
+					<!-- Post Thumb -->
+					<div class="post-thumb">
+						<a href="/maeggiSeggi/recipe/detailRecipe.do"><img
+							src="/maeggiSeggi/images/pork1.PNG" alt="" /></a>
+					</div>
+					<!-- Post Content -->
+					<div class="post-content">
+						<div class="post-meta d-flex">
+							<div class="post-author-date-area d-flex">
+								<!-- Post Author -->
+								<div class="post-author">
+									<a href="#">By Marian</a>
+								</div>
+								<!-- Post Date -->
+								<div class="post-date">
+									<a href="#">May 19, 2017</a>
 								</div>
 							</div>
-							<a href="/maeggiSeggi/recipe/detailRecipe.do">
-								<h6>The Top Breakfast And Brunch Spots In Hove</h6>
-							</a>
 						</div>
+						<a href="/maeggiSeggi/recipe/detailRecipe.do">
+							<h6>The Top Breakfast And Brunch Spots In Hove</h6>
+						</a>
 					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-<div class="col-12">
-                  
-                        <nav style="float:right;margin-right: 200px;">
-                            <ul class="pagination">
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                 <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                                </li>
-                            </ul>
-                            <div class="page-status">
-                            <p>Page 1 of 60 results</p>
-                      	    </div>
-                        </nav>
-                        
-                    </div>
+	<div class="col-12">
+
+		<nav style="float: right; margin-right: 200px;">
+			<ul class="pagination">
+				<li class="page-item active"><a class="page-link" href="#">1
+						<span class="sr-only">(current)</span>
+				</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item"><a class="page-link" href="#">4</a></li>
+				<li class="page-item"><a class="page-link" href="#">Next <i
+						class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+			</ul>
+			<div class="page-status">
+				<p>Page 1 of 60 results</p>
+			</div>
+			<div id="test"></div>
+		</nav>
+
+	</div>
+	<script type="text/javascript">
+	category="${category}";
+	$(document).ready(function(){
+	  	$("#check>input").each(function() {
+	  		$(this).on("click",function(){
+	  			category = $(this).text();
+	  			$.ajax({
+	  				url:"/recipe/ajax_searchRecipe.do",
+	  				type:"get",
+	  				data:{
+	  					"category":category},
+	  					
+	  					success:function(data){
+	  						
+	  						mydata="";
+	  						
+	  						for(i=0;i<data.length;i++){
+	  						mydata=mydata+data[i].name;
+	  					}
+	  					$("#test").append(mydata);
+	  				}
+	  			})
+	  		})
+			
+		})	
+		
+	});
+	
+	</script>
 </body>
 </html>
