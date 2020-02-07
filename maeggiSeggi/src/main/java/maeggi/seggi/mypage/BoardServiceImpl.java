@@ -37,4 +37,17 @@ public class BoardServiceImpl implements BoardService {
 		return dao.delete(board_no);
 	}
 
+	
+	//======================== 답변형 게시판 ========================
+	@Override
+	public void reply(BoardVO board) {
+		dao.reply(board);
+		
+	}
+
+	@Override
+	public List<BoardVO> list_reply() {
+		return dao.list_reply();
+	}
+
 }

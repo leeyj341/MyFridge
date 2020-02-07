@@ -81,7 +81,7 @@
 											<div class="option">
 												<div>
 													<form onsubmit="; return false;">
-														키워드 : <input type="text" value="검색" id="keyword"
+														키워드 : <input type="text" value="" id="keyword"
 															size="15">
 														<button id="sendkey" type="submit">검색</button>
 													</form>
@@ -117,28 +117,11 @@
 					<!-- Single Widget Area -->
 					<div class="single-widget-area about-me-widget text-center">
 						<div class="widget-title">
-							<h6>수미 초밥</h6>
-						</div>
-						<div class="about-me-widget-thumb">
-							<img src="/maeggiSeggi/images/food.jpg" alt="">
-						</div>
-						<h4 class="font-shadow-into-light">BEST MENU</h4>
-						<p>오픈시간 AM 10:00 <br/> 마감시감 PM 10:00</p>
-					</div>
-
-					<!-- Single Widget Area -->
-					<div class="single-widget-area subscribe_widget text-center">
-						<div class="widget-title">
-							<h6>Subscribe &amp; Follow</h6>
-						</div>
-						<div class="subscribe-link">
-							<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-							<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-							<a href="#"><i class="fa fa-google" aria-hidden="true"></i></a>
-							<a href="#"><i class="fa fa-linkedin-square"
-								aria-hidden="true"></i></a> <a href="#"><i
-								class="fa fa-instagram" aria-hidden="true"></i></a> <a href="#"><i
-								class="fa fa-vimeo" aria-hidden="true"></i></a>
+							<table id="sch" width="370">
+								<tr>
+									<td class="scon" style="">식당정보</td>
+								</tr>
+							</table>
 						</div>
 					</div>
 				</div>
@@ -170,146 +153,6 @@
 								</div>
 							</div>
 						</div>
-					</div>
-					<h2 class="post-headline"> 검색 결과</h2>
-					<!-- Single Post -->
-					<div class="row">
-					<div class="col-12 col-md-6 col-lg-4">
-						<div class="single-post wow fadeInUp" data-wow-delay=".4s">
-							<!-- Post Thumb -->
-							<div class="post-thumb">
-								<a href="/maeggiSeggi/click.do"><img src="/maeggiSeggi/images/res1.jpg" alt="" width="360" height="270"></a>
-							</div>
-							<!-- Post Content -->
-							<div class="post-content">
-								<div class="post-meta d-flex">
-									<div class="post-author-date-area d-flex">
-										<!-- Post Author -->
-										<div class="post-author">
-											<a href="#">식당1</a>
-										</div>
-										<!-- Post Date -->
-										<div class="post-date">
-											<a href="#">서울, 테헤란로</a>
-										</div>
-									</div>
-									<!-- Post Comment & Share Area -->
-									<div class="post-comment-share-area d-flex">
-										<!-- Post Favourite -->
-										<div class="post-favourite">
-											<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
-												10</a>
-										</div>
-										<!-- Post Comments -->
-										<div class="post-comments">
-											<a href="#"><i class="fa fa-comment-o"
-												aria-hidden="true"></i> 12</a>
-										</div>
-										<!-- Post Share -->
-										<div class="post-share">
-											<a href="#"><i class="fa fa-share-alt"
-												aria-hidden="true"></i></a>
-										</div>
-									</div>
-								</div>
-								<a href="/maeggiSeggi/views/restaurant/click.do">
-									<h4 class="post-headline">사거리 식당</h4>
-								</a>
-							</div>
-						</div>
-					</div>
-
-					<!-- Single Post -->
-					<div class="col-12 col-md-6 col-lg-4">
-						<div class="single-post wow fadeInUp" data-wow-delay=".6s">
-							<!-- Post Thumb -->
-							<div class="post-thumb">
-								<img src="/maeggiSeggi/images/res2.jpg" alt="">
-							</div>
-							<!-- Post Content -->
-							<div class="post-content">
-								<div class="post-meta d-flex">
-									<div class="post-author-date-area d-flex">
-										<!-- Post Author -->
-										<div class="post-author">
-											<a href="#">식당2</a>
-										</div>
-										<!-- Post Date -->
-										<div class="post-date">
-											<a href="#">강원도, 태백</a>
-										</div>
-									</div>
-									<!-- Post Comment & Share Area -->
-									<div class="post-comment-share-area d-flex">
-										<!-- Post Favourite -->
-										<div class="post-favourite">
-											<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
-												10</a>
-										</div>
-										<!-- Post Comments -->
-										<div class="post-comments">
-											<a href="#"><i class="fa fa-comment-o"
-												aria-hidden="true"></i> 12</a>
-										</div>
-										<!-- Post Share -->
-										<div class="post-share">
-											<a href="#"><i class="fa fa-share-alt"
-												aria-hidden="true"></i></a>
-										</div>
-									</div>
-								</div>
-								<a href="#">
-									<h4 class="post-headline">오대산 식당</h4>
-								</a>
-							</div>
-						</div>
-					</div>
-
-					<!-- Single Post -->
-					<div class="col-12 col-md-6 col-lg-4">
-						<div class="single-post wow fadeInUp" data-wow-delay=".8s">
-							<!-- Post Thumb -->
-							<div class="post-thumb">
-								<img src="/maeggiSeggi/images/res3.jpg" alt="">
-							</div>
-							<!-- Post Content -->
-							<div class="post-content">
-								<div class="post-meta d-flex">
-									<div class="post-author-date-area d-flex">
-										<!-- Post Author -->
-										<div class="post-author">
-											<a href="#">식당3</a>
-										</div>
-										<!-- Post Date -->
-										<div class="post-date">
-											<a href="#">경상도, 부산</a>
-										</div>
-									</div>
-									<!-- Post Comment & Share Area -->
-									<div class="post-comment-share-area d-flex">
-										<!-- Post Favourite -->
-										<div class="post-favourite">
-											<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
-												10</a>
-										</div>
-										<!-- Post Comments -->
-										<div class="post-comments">
-											<a href="#"><i class="fa fa-comment-o"
-												aria-hidden="true"></i> 12</a>
-										</div>
-										<!-- Post Share -->
-										<div class="post-share">
-											<a href="#"><i class="fa fa-share-alt"
-												aria-hidden="true"></i></a>
-										</div>
-									</div>
-								</div>
-								<a href="#">
-									<h4 class="post-headline">한근집</h4>
-								</a>
-							</div>
-						</div>
-					</div>
 					</div>
 				</div>
 			</div>

@@ -25,16 +25,15 @@ public class BoardController {
 	//게시글을 작성하기 위한 뷰를 response할 메소드 
 	@RequestMapping(value="/board/insert.do",method=RequestMethod.GET)
 	public String insertView() {
-		return "mypage/ask/write";		
+		return "mypage/ask/write";
 	}
 	
 	//입력한 글을 실제 db에 넣는 메소드
 	@RequestMapping(value = "/board/insert.do" ,method = RequestMethod.POST)
 	public String insert(BoardVO board) {
-		System.out.println("*****************************"+board);
-		int result = service.insert(board);
-		System.out.println("###################" + result);
-		return "redirect:/board/list.do";	
+		service.insert(board);
+		return "redirect:/board/list.do";
+		
 	}
 	
 	//제목 눌러서 글 상세보기
@@ -57,4 +56,35 @@ public class BoardController {
 	public String delete(BoardVO board) {
 		return "redirect:/board/list.do";		
 	}
+	//======================= 답변형 게시판 =========================
+	//댓글 전체보기
+	@RequestMapping("/board/list_reply.do")
+	public ModelAndView list_reply(){
+		ModelAndView mav = new ModelAndView();
+		List<BoardVO> list_reply = service.list_reply();
+		mav.addObject("list_reply", list_reply);
+		mav.setViewName("mypage/ask/title");
+		return mav;
+	}
+	
+	@RequestMapping(value="/board/title.do" , method = RequestMethod.GET)
+	public String preUpdate(BoardVO board) {
+		service.update(board);
+		return "redirect:/board/title.do";
+	}
+	
+	@RequestMapping(value="/board/title.do", method = RequestMethod.POST)
+	public String updateGrpord(BoardVO board) {
+		service.reply(board);
+		return "redirect:/board/title.do";
+	}
+	
+	@RequestMapping(value="/board/reply.do", method = RequestMethod.POST)
+	public String reply(BoardVO board) {
+		service.reply(board);
+		return "redirect:/board/title.do";
+	}
+	
+	
+	
 }

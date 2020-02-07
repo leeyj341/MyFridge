@@ -3,6 +3,7 @@ var markers = [];
 
 var map;
 var mapContainer;
+var test;
 window.onload = function() {
 	//현재 위치 기반 지도 생성
 	createMap();
@@ -125,7 +126,7 @@ function displayPlaces(places) {
         var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
             marker = addMarker(placePosition, i), 
             itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
-
+        
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
         // LatLngBounds 객체에 좌표를 추가합니다
         bounds.extend(placePosition);
@@ -165,7 +166,7 @@ function getListItem(index, places) {
     var el = document.createElement('li'),
     itemStr = '<span class="markerbg marker_' + (index+1) + '"></span>' +
                 '<div class="info">' +
-                '   <h5>' + places.place_name + '</h5>';
+                '   <h5 id="test'+(index)+'">' + places.place_name + '</h5>';
 
     if (places.road_address_name) {
         itemStr += '    <span>' + places.road_address_name + '</span>' +
@@ -179,7 +180,26 @@ function getListItem(index, places) {
 
     el.innerHTML = itemStr;
     el.className = 'item';
-
+    //on(,,)중간에 주는게 이벤트주고 싶은 거
+    $(document).on("click","#test"+index,function(){
+    	title = $(this).text();
+    	$.ajax({
+    		url:"/maeggiSeggi/restaurant/search.do",
+    		type:"get",
+    		data:{
+    			"tit":title},
+    		success:function(data){
+    			mydata="";
+    			for (var i = 0; i < data.length; i++) {
+					mydata = mydata+
+						"<tr><td class='scon' style=''>"+data[i].title+"<br/>"+"<a href="+data[i].link+">"+data[i].link+"</a>"+"<br/>"+data[i].category+"<br/>"+data[i].description+"<br/>"+data[i].telephone+"<br/>"+data[i].address
+						+"</td></tr>"
+				}
+    			$("#sch").empty();
+    			$("#sch").append(mydata);
+    		}
+    	});
+    });
     return el;
 }
 
@@ -246,10 +266,12 @@ function displayPagination(pagination) {
 // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
 // 인포윈도우에 장소명을 표시합니다
 function displayInfowindow(marker, title) {
-    var content = '<div id=' + title +  'style="padding:5px;z-index:1;">' + title + '</div>';
-
+    var content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
+    
     infowindow.setContent(content);
     infowindow.open(map, marker);
+    
+    
 }
 
  // 검색결과 목록의 자식 Element를 제거하는 함수입니다

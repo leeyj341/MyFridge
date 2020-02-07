@@ -23,5 +23,8 @@
 		<!-- fridge -->
 		<mapper resource="mapper/fridge.xml"/>
 		<mapper resource="mapper/fridge_detail.xml"/>
+		
+		<!-- Ingredient -->
+		<mapper resource="mapper/ingredient.xml"/>
 	</mappers>
 </configuration>
