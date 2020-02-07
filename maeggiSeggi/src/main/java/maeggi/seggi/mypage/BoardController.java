@@ -30,6 +30,7 @@ public class BoardController {
 
 	@RequestMapping(value = "/board/insert.do" ,method = RequestMethod.POST)
 	public String insert(BoardVO board) {
+		service.insert(board);
 		return "redirect:/board/list.do";
 		
 	}
@@ -52,4 +53,35 @@ public class BoardController {
 	public String delete(BoardVO board) {
 		return "redirect:/board/list.do";		
 	}
+	//======================= 답변형 게시판 =========================
+	//댓글 전체보기
+	@RequestMapping("/board/list_reply.do")
+	public ModelAndView list_reply(){
+		ModelAndView mav = new ModelAndView();
+		List<BoardVO> list_reply = service.list_reply();
+		mav.addObject("list_reply", list_reply);
+		mav.setViewName("mypage/ask/title");
+		return mav;
+	}
+	
+	@RequestMapping(value="/board/title.do" , method = RequestMethod.GET)
+	public String preUpdate(BoardVO board) {
+		service.update(board);
+		return "redirect:/board/title.do";
+	}
+	
+	@RequestMapping(value="/board/title.do", method = RequestMethod.POST)
+	public String updateGrpord(BoardVO board) {
+		service.reply(board);
+		return "redirect:/board/title.do";
+	}
+	
+	@RequestMapping(value="/board/reply.do", method = RequestMethod.POST)
+	public String reply(BoardVO board) {
+		service.reply(board);
+		return "redirect:/board/title.do";
+	}
+	
+	
+	
 }

@@ -144,7 +144,7 @@
                                         <a class="dropdown-item" href="/maeggiSeggi/mypage_main.do"><b>식단 관리</b></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/mypage/information_update.do"><b>회원 정보 조회</b></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/mypage/ask.do"><b>1:1 문의 사항</b></a>
-                                        <a class="dropdown-item" href="/maeggiSeggi//mypage/mypoint.do"><b>My Point</b></a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/mypage/mypoint.do"><b>My Point</b></a>
                                     </div>
                                 </li>
                                 <li class="nav-item">

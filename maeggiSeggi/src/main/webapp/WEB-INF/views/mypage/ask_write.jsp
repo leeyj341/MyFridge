@@ -3,30 +3,22 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
     <!-- Title -->
     <title>Yummy Blog - Food Blog Template</title>
-
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
-
     <!-- Core Stylesheet -->
     <link href="/maeggiSeggi/common/css/minjae.css" rel="stylesheet">
-
     <!-- Responsive CSS -->
     <link href="css/responsive/responsive.css" rel="stylesheet">
-
 </head>
-
 <body>
-
     <!-- ****** Breadcumb Area Start ****** -->
     <div class="breadcumb-area" style="background-image: url(img/bg-img/breadcumb.jpg);z-index: 0">
         <div class="container h-100">
@@ -56,46 +48,46 @@
         </div>
     </div>
     <!-- ****** Breadcumb Area End ****** -->
-	
-	<!-- 1:1 ask write area start -->
+    
+    <!-- 1:1 ask write area start -->
    <div>
-		<fieldset>
-			<div>
-				<div class="mypage_info_texts" style="width: 420px; margin-left: auto; margin-right: auto;">
-					<span>이름</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<input name="id" class="" type="text" disabled="disabled" placeholder="아이디"/>
-				</div>
-				<div style="width: 420px; margin-left: auto; margin-right: auto;">
-					<span>제목</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<span>
-						<input name="title" title="제목" class="" placeholder="제목을 입력해 주세요." value=""/>
-					</span>
-				</div>
-				<div style="width: 420px; margin-left: auto; margin-right: auto;">
-					<span>첨부하기</span>&nbsp;
-					<span>
-						<input type="button" value="파일 첨부하기" onclick="" style="color:white; background-color: #fc6c3f; width: 150px"/>
-					</span>
-				</div>
-				<p></p>
-				<div style="width: 420px; margin-left: auto; margin-right: auto;">
-					<textarea rows="10" cols="50"></textarea>
-				</div>
-			</div>
-		</fieldset>
-		<div style="width: 210px; margin-left: auto; margin-right: auto;">
-			<input type="button" value="작성 완료" onclick="alert('작성을 완료했습니다.'); location.href='ask.do'" style="color:white; background-color: #fc6c3f; width: 100px"/>
-			<input type="button" value="작성 취소" onclick="alert('작성을 취소했습니다.'); location.href='ask.do'" style="color:white; background-color: #fc6c3f; width: 100px"/>
-		</div>
-	</div>
-	<p></p>
-	<!-- 1:1 ask write area end -->
+    <form action="/maeggiSeggi/board/insert.do" method="post">
+        <fieldset>
+            <div>
+                <div class="mypage_info_texts" style="width: 420px; margin-left: auto; margin-right: auto;">
+                    <span>작성자</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input name="id" type="hidden" value="seong"/>성민재
+                </div>
+                <div style="width: 420px; margin-left: auto; margin-right: auto;">
+                    <span>제목</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span>
+                        <input name="title" type="text"/>
+                    </span>
+                </div>
+                <div style="width: 420px; margin-left: auto; margin-right: auto;">
+                    <span>첨부하기</span>&nbsp;
+                    <span>
+                        <input type="button" value="파일 첨부하기" onclick="" style="color:white; background-color: #fc6c3f; width: 150px"/>
+                    </span>
+                </div>
+                <p></p>
+                <div style="width: 420px; margin-left: auto; margin-right: auto;">
+                    <textarea name="content" rows="10" cols="50"></textarea>
+                </div>
+            </div>
+        </fieldset>
+        <div style="width: 210px; margin-left: auto; margin-right: auto;">
+            <input type="submit" value="작성 완료" onclick="alert('작성을 완료했습니다.');" style="color:white; background-color: #fc6c3f; width: 100px"/>
+            <input type="reset" value="작성 취소" onclick="alert('작성을 취소했습니다.'); location.href='ask.do'" style="color:white; background-color: #fc6c3f; width: 100px"/>
+        </div>
+        </form>
+    </div>
+    <p></p>
+    <!-- 1:1 ask write area end -->
     
     
-
     <!-- ****** Instagram Area Start ****** -->
     <div class="instargram_area owl-carousel section_padding_100_0 clearfix" id="portfolio">
-
         <!-- Instagram Item -->
         <div class="instagram_gallery_item">
             <!-- Instagram Thumb -->
@@ -111,7 +103,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Instagram Item -->
         <div class="instagram_gallery_item">
             <!-- Instagram Thumb -->
@@ -127,7 +118,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Instagram Item -->
         <div class="instagram_gallery_item">
             <!-- Instagram Thumb -->
@@ -143,7 +133,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Instagram Item -->
         <div class="instagram_gallery_item">
             <!-- Instagram Thumb -->
@@ -159,7 +148,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Instagram Item -->
         <div class="instagram_gallery_item">
             <!-- Instagram Thumb -->
@@ -175,7 +163,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Instagram Item -->
         <div class="instagram_gallery_item">
             <!-- Instagram Thumb -->
@@ -191,7 +178,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Instagram Item -->
         <div class="instagram_gallery_item">
             <!-- Instagram Thumb -->
@@ -207,7 +193,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Instagram Item -->
         <div class="instagram_gallery_item">
             <!-- Instagram Thumb -->
@@ -223,10 +208,8 @@
                 </div>
             </div>
         </div>
-
     </div>
     <!-- ****** Our Creative Portfolio Area End ****** -->
-
     <!-- ****** Footer Social Icon Area Start ****** -->
     <div class="social_icon_area clearfix">
         <div class="container">
@@ -260,7 +243,6 @@
         </div>
     </div>
     <!-- ****** Footer Social Icon Area End ****** -->
-
 <!-- ****** Footer Menu Area Start ****** -->
     <footer class="footer_area">
         <div class="container">
@@ -304,7 +286,6 @@
         </div>
        </footer>
     <!-- ****** Footer Menu Area End ****** -->
-
     <!-- Jquery-2.2.4 js -->
     <script src="js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
