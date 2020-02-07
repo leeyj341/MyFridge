@@ -1,8 +1,8 @@
-<%@page import="maeggi.seggi.reply.BoardVO"%>
+<%@page import="maeggi.seggi.reply.replyBoardVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,19 +15,19 @@
 <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 <!-- Title -->
-<title>1:1문의사항</title>
+<title>Yummy Blog - Food Blog Template</title>
 
 <!-- Favicon -->
 <link rel="icon" href="img/core-img/favicon.ico">
 
 <!-- Core Stylesheet -->
-<link href="/maeggiSeggi/common/css/style.css" rel="stylesheet">
 <link href="/maeggiSeggi/common/css/minjae.css" rel="stylesheet">
 
 <!-- Responsive CSS -->
-<link href="/maeggiSeggi/common/css/responsive/responsive.css" rel="stylesheet">
+<link href="css/responsive/responsive.css" rel="stylesheet">
 
 <script type="text/javascript">
+	
 	function hideDiv(id){ //수정, 댓글 작성화면을 가진 DIV들을 숨기는 함수.
 	    var div = document.getElementById(id);
 	    div.style.display = "none";	//매개변수로 넘어오는 id값으로 html을 찾아서 안보이게 처리.
@@ -53,6 +53,7 @@
 	    reply.appendChild(replyDia);
 	    form.rewriter.focus();
 	}
+	
 	function fn_replyReplyCancel(){
 	    hideDiv("replyDialog");
 	}
@@ -86,7 +87,7 @@
 	<!-- ****** Breadcumb Area Start ****** -->
 <div>	
 	<div class="breadcumb-area"
-		style="background-image: url(/maeggiSeggi/images/bg-img/breadcumb.jpg);">
+		style="background-image: url(img/bg-img/breadcumb.jpg);">
 		<div class="container h-100">
 			<div class="row h-100 align-items-center">
 				<div class="col-12">
@@ -127,8 +128,7 @@
 
 
 					<div id="mypage_AskUserForm">
-						<table class="mypage_askboard" id="mypage_askboard_detail"
-							border="1">
+						<table class="mypage_askboard" id="mypage_askboard_detail" border="1">
 							<tr>
 								<td>작성자</td>
 								<td>debugger</td>
@@ -152,12 +152,10 @@
 					</div>
 				</div>
 			</div>
-
 			
 			<%for(int i=0;i<list_reply.size();i++){ 
 				replyBoardVO repl = list_reply.get(i);
 			%>
-			
 				<div style="border: 1px solid gray; width: 600px; padding: 5px; margin-top: 5px; 
 					margin-left: <%= 20 * repl.getGroupdepth()%>px;">
 					<%= repl.getReplywriter() %>
@@ -206,12 +204,268 @@
 						<input type="button"
 								id="mypage_ask_reply_pause" value="댓글지우기" onclick="alert('댓글이 삭제되었습니다.')" style="color:white; background-color: #fc6c3f; width: 100px"style="color:white; background-color: #fc6c3f; width: 100px">
 					</form>
-				</div>-->
+				</div>
+			</div> -->
+	
+		</div>
+	</div>
+		<!-- ****** Breadcumb Area End ****** -->
+
+
+
+
+
+		<!-- ****** Archive Area Start ****** -->
+		<section class="archive-area section_padding_80">
+
+
+			<div class="container">
+
+
+				<div class="col-12">
+					<div class="pagination-area d-sm-flex mt-15"></div>
+				</div>
+
+			</div>
+	</div>
+	</section>
+	<!-- ****** Archive Area End ****** -->
+
+	<!-- ****** Instagram Area Start ****** -->
+	<div
+		class="instargram_area owl-carousel section_padding_100_0 clearfix"
+		id="portfolio">
+
+		<!-- Instagram Item -->
+		<div class="instagram_gallery_item">
+			<!-- Instagram Thumb -->
+			<img src="img/instagram-img/1.jpg" alt="">
+			<!-- Hover -->
+			<div class="hover_overlay">
+				<div class="yummy-table">
+					<div class="yummy-table-cell">
+						<div class="follow-me text-center">
+							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
+								Follow me</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Instagram Item -->
+		<div class="instagram_gallery_item">
+			<!-- Instagram Thumb -->
+			<img src="img/instagram-img/2.jpg" alt="">
+			<!-- Hover -->
+			<div class="hover_overlay">
+				<div class="yummy-table">
+					<div class="yummy-table-cell">
+						<div class="follow-me text-center">
+							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
+								Follow me</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Instagram Item -->
+		<div class="instagram_gallery_item">
+			<!-- Instagram Thumb -->
+			<img src="img/instagram-img/3.jpg" alt="">
+			<!-- Hover -->
+			<div class="hover_overlay">
+				<div class="yummy-table">
+					<div class="yummy-table-cell">
+						<div class="follow-me text-center">
+							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
+								Follow me</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Instagram Item -->
+		<div class="instagram_gallery_item">
+			<!-- Instagram Thumb -->
+			<img src="img/instagram-img/4.jpg" alt="">
+			<!-- Hover -->
+			<div class="hover_overlay">
+				<div class="yummy-table">
+					<div class="yummy-table-cell">
+						<div class="follow-me text-center">
+							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
+								Follow me</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Instagram Item -->
+		<div class="instagram_gallery_item">
+			<!-- Instagram Thumb -->
+			<img src="img/instagram-img/5.jpg" alt="">
+			<!-- Hover -->
+			<div class="hover_overlay">
+				<div class="yummy-table">
+					<div class="yummy-table-cell">
+						<div class="follow-me text-center">
+							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
+								Follow me</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Instagram Item -->
+		<div class="instagram_gallery_item">
+			<!-- Instagram Thumb -->
+			<img src="img/instagram-img/6.jpg" alt="">
+			<!-- Hover -->
+			<div class="hover_overlay">
+				<div class="yummy-table">
+					<div class="yummy-table-cell">
+						<div class="follow-me text-center">
+							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
+								Follow me</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Instagram Item -->
+		<div class="instagram_gallery_item">
+			<!-- Instagram Thumb -->
+			<img src="img/instagram-img/1.jpg" alt="">
+			<!-- Hover -->
+			<div class="hover_overlay">
+				<div class="yummy-table">
+					<div class="yummy-table-cell">
+						<div class="follow-me text-center">
+							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
+								Follow me</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Instagram Item -->
+		<div class="instagram_gallery_item">
+			<!-- Instagram Thumb -->
+			<img src="img/instagram-img/2.jpg" alt="">
+			<!-- Hover -->
+			<div class="hover_overlay">
+				<div class="yummy-table">
+					<div class="yummy-table-cell">
+						<div class="follow-me text-center">
+							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
+								Follow me</a>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 
 	</div>
+	<!-- ****** Our Creative Portfolio Area End ****** -->
 
+	<!-- ****** Footer Social Icon Area Start ****** -->
+	<div class="social_icon_area clearfix">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="footer-social-area d-flex">
+						<div class="single-icon">
+							<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i><span>facebook</span></a>
+						</div>
+						<div class="single-icon">
+							<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
+						</div>
+						<div class="single-icon">
+							<a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i><span>GOOGLE+</span></a>
+						</div>
+						<div class="single-icon">
+							<a href="#"><i class="fa fa-linkedin-square"
+								aria-hidden="true"></i><span>linkedin</span></a>
+						</div>
+						<div class="single-icon">
+							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
+						</div>
+						<div class="single-icon">
+							<a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i><span>VIMEO</span></a>
+						</div>
+						<div class="single-icon">
+							<a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i><span>YOUTUBE</span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ****** Footer Social Icon Area End ****** -->
 
+	<!-- ****** Footer Menu Area Start ****** -->
+	<footer class="footer_area">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="footer-content">
+						<!-- Logo Area Start -->
+						<div class="footer-logo-area text-center">
+							<a href="index.html" class="yummy-logo">Yummy Blog</a>
+						</div>
+						<!-- Menu Area Start -->
+						<nav class="navbar navbar-expand-lg">
+							<button class="navbar-toggler" type="button"
+								data-toggle="collapse" data-target="#yummyfood-footer-nav"
+								aria-controls="yummyfood-footer-nav" aria-expanded="false"
+								aria-label="Toggle navigation">
+								<i class="fa fa-bars" aria-hidden="true"></i> Menu
+							</button>
+							<!-- Menu Area Start -->
+							<div class="collapse navbar-collapse justify-content-center"
+								id="yummyfood-footer-nav">
+								<ul class="navbar-nav">
+									<li class="nav-item active"><a class="nav-link" href="#">Home
+											<span class="sr-only">(current)</span>
+									</a></li>
+									<li class="nav-item"><a class="nav-link" href="#">Features</a>
+									</li>
+									<li class="nav-item"><a class="nav-link" href="#">Categories</a>
+									</li>
+									<li class="nav-item"><a class="nav-link" href="#">Archive</a>
+									</li>
+									<li class="nav-item"><a class="nav-link" href="#">About</a>
+									</li>
+									<li class="nav-item"><a class="nav-link" href="#">Contact</a>
+									</li>
+								</ul>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
 
+	<div class="col-12">
+		
+	</div>
+	<!-- ****** Footer Menu Area End ****** -->
 
+	<!-- Jquery-2.2.4 js -->
+	<script src="js/jquery/jquery-2.2.4.min.js"></script>
+	<!-- Popper js -->
+	<script src="js/bootstrap/popper.min.js"></script>
+	<!-- Bootstrap-4 js -->
+	<script src="js/bootstrap/bootstrap.min.js"></script>
+	<!-- All Plugins JS -->
+	<script src="js/others/plugins.js"></script>
+	<!-- Active JS -->
+	<script src="js/active.js"></script>
 </body>
