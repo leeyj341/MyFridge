@@ -26,3 +26,30 @@
   src: url('/maeggiSeggi/fonts/Typo_PapyrusM.ttf') format('truetype');
 }
 /* 여기까지 타이포 파피루스 */
+
+/* 나눔 고딕 */
+@font-face {
+  font-family: 'nanum';
+  src: url('/maeggiSeggi/fonts/NanumGothic.ttf') format('truetype');
+}
+
+/* 나눔 스퀘어 */
+@font-face {
+  font-family: 'nanumSquare_acB';
+  src: url('/maeggiSeggi/fonts/NanumSquare_acB.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'nanumSquare_acEB';
+  src: url('/maeggiSeggi/fonts/NanumSquare_acEB.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'nanumSquare_acL';
+  src: url('/maeggiSeggi/fonts/NanumSquare_acL.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'nanumSquare_acR';
+  src: url('/maeggiSeggi/fonts/NanumSquare_acR.ttf') format('truetype');
+}

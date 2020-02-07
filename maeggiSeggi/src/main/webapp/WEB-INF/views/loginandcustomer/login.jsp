@@ -83,20 +83,40 @@
 							<li>[아이디/비밀번호 찾기]</li>
 						</ul>
 					</div>
-				</form>
-				
-				<!-- <form action="/maeggiSeggi/login.do"> -->
 					<!-- login_box -->
 					<div id="notmember_box">비회원으로 이용하기</div>
 					<div id="socialLogin_box">
 						소셜 로그인
 						<div id="socialList">
 							<ul>
+								
 								<li>
-									<div class = "text-center">
-										<a href = "<%=apiURL%>"><img width="300" alt="Naver Login" src="/maeggiSeggi/images/btn_login_naver.png"></a>									
+									<div class="text-center">
+										<a href="${naver_url}"><img width="300" alt="Naver Login"
+											src="/maeggiSeggi/images/btn_login_naver.png"></a>
 									</div>
 								</li>
+								<li><a id="kakao-login-btn"></a>
+								<a href="http://developers.kakao.com/logout"></a>
+								<script type='text/javascript'>
+									
+										// 사용할 앱의 JavaScript 키를 설정해 주세요.
+										Kakao.init('c29ff88794664b94fee0ec7f346eb28d');
+										// 카카오 로그인 버튼을 생성합니다.
+										Kakao.Auth.createLoginButton({
+											container : '#kakao-login-btn',
+											success : function(authObj) {
+												alert(JSON.stringify(authObj))
+												
+												;
+											},
+											fail : function(err) {
+												alert(JSON.stringify(err));
+											}
+										});
+										
+									</script></li>
+
 
 								<li><input type="button" class="socialbutton" id="social2"
 									value="KAKAO로 로그인"></li>
@@ -105,9 +125,8 @@
 									value="Google로 로그인"></li>
 							</ul>
 						</div>
-
 					</div>
-				<!-- </form> -->
+				</form>
 			</div>
 
 

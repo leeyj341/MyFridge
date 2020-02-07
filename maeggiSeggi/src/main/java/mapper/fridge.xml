@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="maeggi.seggi.fridge">
+	<select id="selectMyFridgeByName" parameterType="String" resultType="fridge">
+		select * from refrigerator where member_id=#{member_id}
+	</select>
+	<insert id="insertFridge" parameterType="fridge">
+		insert into refrigerator values(concat('r',fridge_id_seq.nextval), #{name}, sysdate, #{member_id})
+	</insert>
+</mapper>

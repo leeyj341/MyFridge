@@ -31,7 +31,10 @@
     <script src="/maeggiSeggi/common/js/active.js"></script>
 </head>
 <body>
-	<% memberVO loginuser = (memberVO)session.getAttribute("loginuser"); %>
+	<% 
+		memberVO loginuser = (memberVO)session.getAttribute("loginuser"); 
+		session.setAttribute("id", loginuser.getMember_id());
+	%>
 	<!-- Preloader Start -->
 	<div id="preloader">
 		<div class="yummy-load"></div>

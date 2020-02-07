@@ -40,20 +40,37 @@ h4 {
 
 
 #more {
-   width: 80px;
-   background-color: #f8585b;
-   border: none;
-   color: #fff;
-   padding: 10px 0;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 15px;
-   margin: 4px;
-   cursor: pointer;
-   float: right;
-   border-radius: 10px;
-   margin-right: 260px;
+	width: 80px;
+	background-color: #f8585b;
+	border: none;
+	color: #fff;
+	padding: 10px 0;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 15px;
+	margin: 4px;
+	cursor: pointer;
+	float: right;
+	border-radius: 10px;
+	
+}
+#add {
+	width: 90px;
+	background-color: white;
+	border: solid 1px #f8585b;
+	color: #f8585b;
+	padding: 9px 0;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 15px;
+	font-weight : bolder;
+	margin: 4px;
+	cursor: pointer;
+	margin-right: 18%;
+	float: right;
+	border-radius: 10px;
 }
 #underline{
 color: skyblue;
@@ -85,7 +102,8 @@ section {
 <div id="line">
       <div id="headtitle">
          <h4>나는야 <span id="underline">초급 </span>요리사</h4>
-         <input type="button" id="more" value="More">
+         <a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="레시피 등록" ></a>
+			<input type="button" id="more" value="More">
       </div>
    </div>
 
@@ -240,7 +258,8 @@ section {
    <div id="line">
       <div id="headtitle">
          <h4>나는야 <span id="underline">중급</span>요리사</h4>
-         <input type="button" id="more" value="More">
+       <a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="레시피 등록" ></a>
+			<input type="button" id="more" value="More">
       </div>
    </div>
 
@@ -395,7 +414,8 @@ section {
    <div id="line">
       <div id="headtitle">
          <h4>나는야 <span id="underline"> 고급 </span>요리사</h4>
-         <input type="button" id="more" value="More">
+         <a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="레시피 등록" ></a>
+			<input type="button" id="more" value="More">
       </div>
    </div>
 

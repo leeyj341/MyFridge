@@ -73,10 +73,9 @@
 			<div class="row">
 				<div class="col-12" id="asklist_customview">
 
-
-
 					<div id="AskUserForm">
 						<table class="askboard" id="askboard_detail" border="1">
+						
 							<tr>
 								<td>작성자</td>
 								<td>debugger</td>
@@ -96,7 +95,9 @@
 								<td>content</td>
 								<td>레시피에 오타가있어요. 빨리 수정해주세요 .</td>
 							</tr>
+							
 						</table>
+						
 					</div>
 				</div>
 			</div>

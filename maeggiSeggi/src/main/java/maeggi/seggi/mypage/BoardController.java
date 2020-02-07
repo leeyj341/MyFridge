@@ -22,12 +22,13 @@ public class BoardController {
 		return mav;
 	}
 	
+	//게시글을 작성하기 위한 뷰를 response할 메소드 
 	@RequestMapping(value="/board/insert.do",method=RequestMethod.GET)
 	public String insertView() {
 		return "mypage/ask/write";
-		
 	}
-
+	
+	//입력한 글을 실제 db에 넣는 메소드
 	@RequestMapping(value = "/board/insert.do" ,method = RequestMethod.POST)
 	public String insert(BoardVO board) {
 		service.insert(board);
@@ -35,6 +36,7 @@ public class BoardController {
 		
 	}
 	
+	//제목 눌러서 글 상세보기
 	@RequestMapping("/board/read.do")
 	public ModelAndView read(String board_no){
 		ModelAndView mav = new ModelAndView();
@@ -44,12 +46,13 @@ public class BoardController {
 		return mav;
 	}
 	
+	//글 수정
 	@RequestMapping(value = "/board/update.do" ,method = RequestMethod.POST)
 	public String update(BoardVO board) {
 		return "redirect:/board/list.do";
 	}
 	
-	
+	//글 삭제
 	public String delete(BoardVO board) {
 		return "redirect:/board/list.do";		
 	}
