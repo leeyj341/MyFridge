@@ -1,3 +1,4 @@
+<%@page import="maeggi.seggi.loginandcustomer.memberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,29 +17,68 @@
     <link href="/maeggiSeggi/common/css/refrigerator.css" rel="stylesheet">
     <link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
     
+    <!-- JS -->
+    <script type="text/javascript">
+	    $(document).ready(function() {
+	    	var memId = '<%= session.getAttribute("id") %>';
+	    	$.ajax({
+	    		url:"/maeggiSeggi/refrigerator/ajax_fridge.do",
+	    		type:"get",
+	    		data: {
+	    			"id": memId
+	    			},
+	    		success: function(data) {
+	    			if(data.length < 1) $("#fridge_name").text("냉장고를 추가하세요!");
+	    			
+	    			mydata = "";
+	    			for (var i = 0; i < data.length; i++) {
+	    				if(data[i].main_fridge == '1') {
+	    					$("#fridge_name").html("<b>" + memId + "</b> 님의 " + "<b>#" + data[i].name + "</b> 냉장고");
+	    				}
+	    			}
+	    		}
+	    	});
+	    	
+	    	$(".fridge-btn").each(function() {
+	    		$(this).on("mouseover", function() {
+	    			if($(this).children("p").text() == "레시피") {
+	    				$(this).children("p").text("추천")
+	    			} else if($(this).children("p").text() == "냉장고") {
+	    				$(this).children("p").text("관리")
+	    			}
+	    		});
+	    		$(this).on("mouseout", function() {
+	    			if($(this).children("p").text() == "추천") {
+	    				$(this).children("p").text("레시피")
+	    			} else if($(this).children("p").text() == "관리") {
+	    				$(this).children("p").text("냉장고")
+	    			}
+	    		})
+	    	});
+	    });
+    </script>
 </head>
 
 <body class="bg-amond">
-
 	<!-- ******Refrigerator Area Start ****** -->
 	<div class="fridge-area">
 		<div class="col-12">
 			<!-- ****** Theme Select Area Start ****** -->
 			<div class="button-area col-1">
-				<button class="btn btn-orange btn-fill-vert-o">
-					<img class="theme-btn" src="/maeggiSeggi/images/harvest.png">
+				<button class="fridge-btn btn-orange btn-fill-vert-o">
+					<p>주재료</p>
 				</button>
-				<button class="btn btn-orange btn-fill-vert-o">
-					<img class="theme-btn" src="/maeggiSeggi/images/ingredients.png">
+				<button class="fridge-btn btn-orange btn-fill-vert-o">
+					<p>부재료</p>
 				</button>
-				<button class="btn btn-orange btn-fill-vert-o">
-					<img class="theme-btn" src="/maeggiSeggi/images/sugar.png">
+				<button class="fridge-btn btn-orange btn-fill-vert-o">
+					<p>양념</p>
 				</button>
-				<button class="btn btn-orange btn-fill-vert-o">
-					<img class="theme-btn" src="/maeggiSeggi/images/recipe-book.png">
+				<button class="fridge-btn btn-orange btn-fill-vert-o">
+					<p>레시피</p>
 				</button>
-				<button class="btn btn-orange btn-fill-vert-o">
-					<img class="theme-btn" src="/maeggiSeggi/images/picnic.png">
+				<button class="fridge-btn btn-orange btn-fill-vert-o">
+					<p>냉장고</p>
 				</button>
 			</div>
 			<!-- ****** Theme Select Area End ****** -->
@@ -46,7 +86,7 @@
 			<div class="refrigerator-area col-5" id="selectIngredientBox">
 				<form class="select-wrapper" name="ingrediennt_select_form"
 					method="POST" action="">
-					<ul class="sort-list">
+					<ul id="fridge_list" class="sort-list">
 						<li>
 							<div class="" id="ingredient_1" draggable="true">
 								<img src="/maeggiSeggi/images/ingredients.jpg">
@@ -397,6 +437,7 @@
 						</li>
 					</ul>
 				</div>
+				<p id="fridge_name"></p>
 			</div>
 
 		</div>
