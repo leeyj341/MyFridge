@@ -1,4 +1,4 @@
-<%@page import="maeggi.seggi.mypage.BoardVO"%>
+<%@page import="maeggi.seggi.reply.replyBoardVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -27,15 +27,20 @@
 <link href="css/responsive/responsive.css" rel="stylesheet">
 
 <script type="text/javascript">
+	
 	function hideDiv(id){ //수정, 댓글 작성화면을 가진 DIV들을 숨기는 함수.
 	    var div = document.getElementById(id);
 	    div.style.display = "none";	//매개변수로 넘어오는 id값으로 html을 찾아서 안보이게 처리.
 	    document.body.appendChild(div); //부모를 document.body로 바꿈.
 	}
 	
-	function fn_replyReply(ask_bbsno){
+	function fn_replyDelete(replyno){
+		
+	}
+	
+	function fn_replyReply(replyno){
 	    var form = document.form3;
-	    var reply = document.getElementById("reply"+ask_bbsno);
+	    var reply = document.getElementById("reply"+replyno);
 	    var replyDia = document.getElementById("replyDialog");
 	    replyDia.style.display = "";
 	   
@@ -48,6 +53,7 @@
 	    reply.appendChild(replyDia);
 	    form.rewriter.focus();
 	}
+	
 	function fn_replyReplyCancel(){
 	    hideDiv("replyDialog");
 	}
@@ -76,10 +82,7 @@
 </head>
 
 <body>
-	<% ArrayList<BoardVO> list_reply = (ArrayList<BoardVO>)request.getAttribute("list_reply");%>
-	<div class="col-12">
-		
-	</div>
+	<% ArrayList<replyBoardVO> list_reply = (ArrayList<replyBoardVO>)request.getAttribute("list_reply");%>
 
 	<!-- ****** Breadcumb Area Start ****** -->
 <div>	
@@ -151,30 +154,30 @@
 			</div>
 			
 			<%for(int i=0;i<list_reply.size();i++){ 
-				BoardVO repl = list_reply.get(i);
+				replyBoardVO repl = list_reply.get(i);
 			%>
 				<div style="border: 1px solid gray; width: 600px; padding: 5px; margin-top: 5px; 
-					margin-left: <%= 20 * repl.getAsk_depth()%>px;">
-					<%= repl.getAsk_regdate() %>
-					<a href="#" onclick="fn_replyDelete(<%= repl.getAsk_bbsno()%>)">삭제</a>
-					<a href="#" onclick="fn_replyUpdate(<%= repl.getAsk_bbsno()%>)">수정</a>
-					<a href="#" onclick="fn_replyReply(<%= repl.getAsk_bbsno()%>)">댓글</a>
+					margin-left: <%= 20 * repl.getGroupdepth()%>px;">
+					<%= repl.getReplywriter() %>
+					<%= repl.getReplydate() %>
+					<a onclick="fn_replyDelete(<%= repl.getReplyno()%>)">삭제</a>
+					<a onclick="fn_replyReply(<%= repl.getReplyno()%>)">댓글</a>
 				<br/>
-					<div id="reply<%= repl.getAsk_bbsno()%>"><%=repl.getAsk_content() %></div>
+					<div id="reply<%= repl.getReplyno()%>"><%=repl.getReplytitle() %></div>
 				</div>
 				<br/>
 				<div id="replyDialog" style="width: 99%; display: none">
 					<form name="form3" action="/maeggiSeggi/board/reply.do" method="post">
-						<input type="hidden" name="ask_id" value="<%= repl.getAsk_id() %>">
-						<input type="hidden" name="ask_bbsno">
-						<input type="hidden" name="ask_grpord">
+						<input type="hidden" name="replywriter">
+						<input type="hidden" name="replyno">
+						<input type="hidden" name="groupord">
 						<textarea rows="3" cols="60" name="ask_content" maxlength="500"></textarea>
 						<a href="#" onclick="fn_replyReplySave()">저장</a>
 						<a href="#" onclick="fn_replyReplyCancel()">취소</a>
 					</form>
 				</div>
 				<% } %>
-			
+		
 			<!-- <div id="mypage_AskUserForm">
 				<div>
 					<h3>댓글</h3>

@@ -23,41 +23,7 @@
 		delete from ask where ask_id = #{ask_id}
 	</delete>
 	
-	<!-- ============================ 답변형 게시판 ============================== -->
 	
-	<!-- 전체 댓글의 개수 -->
-	<select id="totlist_board" resultType="int" parameterType="board">
-		select count(ask_id) from ask
-	</select>
-	
-	<!-- 댓글 리스트 -->
-	<select id="list_reply" resultType="board" parameterType="board">
-		select * from ask order by ask_bbsno desc, ask_grpord asc   
-	</select>
-
-	<!-- 댓글 읽기 -->
-
-
-	<!-- 댓글 등록 -->
-	<!-- ask_bbsno 시퀀스 등록하기 -->
-	<insert id="insert_board" parameterType="board">
-		insert into ask(ask_bbsno,ask_title,ask_content, ask_grpord, ask_depth, ask_grpno) 
-		values(ask_bbsno_seq.nextval, #{title}, #{content}, 0,0, ask_bbsno_seq.currval)
-	</insert>
-	
-	<!-- ask_grpord 증가 -->
-	<update id="updateGrpord_board" parameterType="board">
-		<![CDATA[
-				update ask set ask_grpord = ask_grpord + 1 
-				where ask_grpno = #{ask_grpno} and ask_grpord > #{ask_grpord}
-				]]>
-	</update>
-	
-	<!-- 대댓글등록 -->
-	<insert id="reply" parameterType="board">
-		insert into ask(ask_bbsno,ask_title,ask_content, ask_grpord, ask_depth, ask_grpno)
-		values(ask_bbsno_seq.nextval,#{title},#{content},#{ask_grpord}+1,#{ask_depth}+1,#{ask_grpno})
-	</insert>
 </mapper>
 
 
