@@ -134,5 +134,11 @@ public class loginandcustomerController {
 
 		return "loginandcustomer/noticelist";
 	}
+	
+	@RequestMapping("/loginandcustomer/admin_notice_write.do")
+	public String admin_notice_write() {
+
+		return "loginandcustomer/admin_notice_write";
+	}
 
 }

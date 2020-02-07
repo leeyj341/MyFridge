@@ -83,7 +83,6 @@
 								<option value="completed">완료</option>
 								<option value="notcompleted">미완료</option>
 							</select>
-
 						</div>
 
 						<div id="AskUserForm">

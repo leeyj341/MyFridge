@@ -33,7 +33,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="bradcumb-title text-center">
-                        <h2>1:1 문의사항</h2>
+                        <h2>공지사항 글쓰기 (관리자)</h2>
                     </div>
                 </div>
             </div>
@@ -46,9 +46,9 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">MyPage</li>
-                            <li class="breadcrumb-item active" aria-current="page">1:1 문의사항</li>
-                            <li class="breadcrumb-item active" aria-current="page">글쓰기</li>
+                            <li class="breadcrumb-item active" aria-current="page">ABOUT US</li>
+                            <li class="breadcrumb-item active" aria-current="page">공지사항</li>
+                            <li class="breadcrumb-item active" aria-current="page">글쓰기(관리자)</li>
                         </ol>
                     </nav>
                 </div>
@@ -59,17 +59,16 @@
 	
 	<!-- 1:1 ask write area start -->
    <div>
-   	<form action="/maeggiSeggi/board/insert.do" method="post">
 		<fieldset>
 			<div>
 				<div class="mypage_info_texts" style="width: 420px; margin-left: auto; margin-right: auto;">
-					<span>작성자</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<input name="id" type="hidden" value="seong"/>성민재
+					<span>이름</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input name="id" class="" type="text" disabled="disabled" placeholder="아이디"/>
 				</div>
 				<div style="width: 420px; margin-left: auto; margin-right: auto;">
 					<span>제목</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<span>
-						<input name="title" type="text"/>
+						<input name="title" title="제목" class="" placeholder="제목을 입력해 주세요." value=""/>
 					</span>
 				</div>
 				<div style="width: 420px; margin-left: auto; margin-right: auto;">
@@ -80,17 +79,19 @@
 				</div>
 				<p></p>
 				<div style="width: 420px; margin-left: auto; margin-right: auto;">
-					<textarea name="content" rows="10" cols="50"></textarea>
+					<textarea rows="10" cols="50"></textarea>
 				</div>
 			</div>
 		</fieldset>
 		<div style="width: 210px; margin-left: auto; margin-right: auto;">
-			<input type="submit" value="작성 완료" onclick="alert('작성을 완료했습니다.');" style="color:white; background-color: #fc6c3f; width: 100px"/>
-			<input type="reset" value="작성 취소" onclick="alert('작성을 취소했습니다.'); location.href='ask.do'" style="color:white; background-color: #fc6c3f; width: 100px"/>
+			<input type="button" value="작성 완료" onclick="alert('작성을 완료했습니다.'); location.href='ask.do'" style="color:white; background-color: #fc6c3f; width: 100px"/>
+			<input type="button" value="작성 취소" onclick="alert('작성을 취소했습니다.'); location.href='ask.do'" style="color:white; background-color: #fc6c3f; width: 100px"/>
 		</div>
-		</form>
 	</div>
 	<p></p>
-	<!-- 1:1 ask write area end -->
-  
+    
+    
+
+   
+
 </body>

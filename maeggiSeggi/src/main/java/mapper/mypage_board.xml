@@ -9,7 +9,7 @@
 	</select>
  	<insert id="insert" parameterType="board">
 		insert into ask values(ask_seq.nextval,'seong', #{ask_title},#{ask_content},sysdate,'답변 대기중')	
-	
+
 	</insert>
 	<select id="read" parameterType="String" resultType="board">
 		select * from ask where ask_id = #{ask_id}
