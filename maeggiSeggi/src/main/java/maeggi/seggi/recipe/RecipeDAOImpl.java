@@ -8,31 +8,32 @@ import org.springframework.stereotype.Repository;
 @Repository("recipeDao")
 public class RecipeDAOImpl implements RecipeDAO {
 	@Autowired
-	SqlSession SqlSession;
+	SqlSession sqlSession;
 	
 	@Override
 	public List<RecipeVO> recipeList() {
-		return SqlSession.selectList("maeggi.seggi.recipe.listall");
+		return sqlSession.selectList("maeggi.seggi.recipe.listall");
 	}
 
 	@Override
 	public int insert(RecipeVO recipe) {
 		System.out.println(recipe);
-		return SqlSession.insert("maeggi.seggi.recipe.insert",recipe);
+		return sqlSession.insert("maeggi.seggi.recipe.insert",recipe);
 	}
 
 	@Override
-	public List<RecipeVO> categorySearch(String categorySearch) {
-		System.out.println("dao=>"+categorySearch);//디버깅
-		List<RecipeVO> list = SqlSession.selectList("maeggi.seggi.recipe.categoryRecipe");
-		System.out.println("dao=>"+list.size());
+	public List<RecipeVO> categorySearch(String category) {
+		List<RecipeVO> list = sqlSession.selectList("maeggi.seggi.recipe.categoryRecipe", category);
+		System.out.println(category + list.size());
 		return list;
 	}
 
 	@Override
 	public List<RecipeVO> searchList(String search) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println(search);
+		List<RecipeVO> recipeList = sqlSession.selectList("maeggi.seggi.recipe.recipeSearch",search);
+		System.out.println("dao=>"+recipeList.size());
+		return recipeList;
 	}
 
 

@@ -14,6 +14,7 @@ public class RecipeServiceImpl implements RecipeService {
 	@Override
 	public List<RecipeVO> recipeList(String category) {
 		List<RecipeVO> list = null;
+		System.out.println("category : " + category);
 		if(category!=null) {
 			if(category.equals("all")) {
 				list=dao.recipeList();
