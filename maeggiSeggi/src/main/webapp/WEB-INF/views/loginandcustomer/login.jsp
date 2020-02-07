@@ -31,7 +31,7 @@
 <link href="/maeggiSeggi/common/css/responsive/responsive.css"
 	rel="stylesheet">
 
-
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 
 </head>
 
@@ -51,13 +51,15 @@
 						<ul id="input_button">
 							<li id="id_pass">
 								<ul>
-									<li class="logintext" id="member_id"><div class="logintext_div">
-											<input type="text" class="input_logintext" placeholder=' 아이디' name ="member_id" >
+									<li class="logintext" id="member_id"><div
+											class="logintext_div">
+											<input type="text" class="input_logintext" placeholder=' 아이디'
+												name="member_id">
 										</div></li>
 									<!-- id -->
 									<li class="logintext" id="pass"><div class="logintext_div">
-											<input type="password" class="input_logintext" name ="pass"
-												placeholder=' 비밀번호' >
+											<input type="password" class="input_logintext" name="pass"
+												placeholder=' 비밀번호'>
 										</div></li>
 									<!-- pass -->
 								</ul>
@@ -73,23 +75,47 @@
 					</div>
 					<!-- login_box -->
 					<div id="notmember_box">비회원으로 이용하기</div>
+
 					<div id="socialLogin_box">
 						소셜 로그인
-						<li id="socialList">
+						<div id="socialList">
 							<ul>
-								<li><input type="button" class="socialbutton" id="social1"
-									value="NAVER로 로그인"></li>
+								<li>
+									<div class="text-center">
+										<a href="${naver_url}"><img width="300" alt="Naver Login"
+											src="/maeggiSeggi/images/btn_login_naver.png"></a>
+									</div>
+								</li>
+								<li><a id="kakao-login-btn"></a>
+								<a href="http://developers.kakao.com/logout"></a>
+								<script type='text/javascript'>
+									
+										// 사용할 앱의 JavaScript 키를 설정해 주세요.
+										Kakao.init('c29ff88794664b94fee0ec7f346eb28d');
+										// 카카오 로그인 버튼을 생성합니다.
+										Kakao.Auth.createLoginButton({
+											container : '#kakao-login-btn',
+											success : function(authObj) {
+												alert(JSON.stringify(authObj))
+												
+												;
+											},
+											fail : function(err) {
+												alert(JSON.stringify(err));
+											}
+										});
+										
+									</script></li>
 
-								<li><input type="button" class="socialbutton" id="social2"
-									value="KAKAO로 로그인"></li>
+
 
 								<li><input type="button" class="socialbutton" id="social3"
 									value="Google로 로그인"></li>
-
 							</ul>
-						</li>
-
+						</div>
 					</div>
+
+
 				</form>
 			</div>
 

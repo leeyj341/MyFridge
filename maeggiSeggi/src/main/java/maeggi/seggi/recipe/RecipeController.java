@@ -29,8 +29,8 @@ public class RecipeController {
 	public String add() {
 		return "add";
 	}
-	@RequestMapping("/recipe/board_write.do")
+	@RequestMapping("/recipe/recipe_write.do")
 	public String write() {
-		return "board_write";
+		return "recipe_write";
 	}
 }
