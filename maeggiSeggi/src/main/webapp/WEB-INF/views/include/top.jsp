@@ -31,7 +31,10 @@
     <script src="/maeggiSeggi/common/js/active.js"></script>
 </head>
 <body>
-	<% memberVO loginuser = (memberVO)session.getAttribute("loginuser"); %>
+	<% 
+		memberVO loginuser = (memberVO)session.getAttribute("loginuser"); 
+		session.setAttribute("id", loginuser.getMember_id());
+	%>
 	<!-- Preloader Start -->
 	<div id="preloader">
 		<div class="yummy-load"></div>
@@ -116,7 +119,6 @@
                                         <a class="dropdown-item" href="/maeggiSeggi/sub/grade.do">GRADE</a>
                                         <a class="dropdown-item" href="/maeggiSeggi/sub/QnA.do">QnA</a>
                                         <a class="dropdown-item" href="/maeggiSeggi/loginandcustomer/noticelist.do">NOTICE</a>
-                                        <a class="dropdown-item" href="contact.html">CONTACT</a>
                                     </div>
                                 </li>
                         		<li class="nav-item dropdown">

@@ -91,7 +91,7 @@ color: skyblue;
 	<div id="line">
 		<div id="headtitle">
 			<h4><span id="underline">비오는 날</span> 이런 음식 어때요?</h4>
-			<input type="button" id="add" value="레시피 등록">
+			<a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="레시피 등록" ></a>
 			<input type="button" id="more" value="More">
 		</div>
 	</div>
@@ -241,7 +241,7 @@ color: skyblue;
 	<div id="line">
 		<div id="headtitle">
 			<h4><span id="underline">숙취</span>에는 이런 음식 어때요?</h4>
-			<input type="button" id="add" value="레시피 등록">
+			<a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="레시피 등록" ></a>
 			<input type="button" id="more" value="More">
 		</div>
 	</div>
@@ -392,7 +392,7 @@ color: skyblue;
 	<div id="line">
 		<div id="headtitle">
 			<h4><span id="underline">피로에 지친날</span> 이런 음식 어때요?</h4>
-			<input type="button" id="add" value="레시피 등록">
+			<a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="레시피 등록" ></a>
 			<input type="button" id="more" value="More">
 		</div>
 	</div>
@@ -542,7 +542,7 @@ color: skyblue;
 	<div id="line">
 		<div id="headtitle">
 			<h4>오래 앉아있는 <span id="underline">수험생,직장인들</span> 이런 음식 어때요?</h4>
-			<input type="button" id="add" value="레시피 등록">
+			<a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="레시피 등록" ></a>
 			<input type="button" id="more" value="More">
 		</div>
 	</div>

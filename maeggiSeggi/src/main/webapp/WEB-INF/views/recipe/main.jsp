@@ -103,7 +103,7 @@ color: red;
 	<div id="line">
 		<div id="headtitle">
 			<h4>지금 가장 <span id="underline">HOT</span>한 요리</h4>
-			<input type="button" id="add" value="레시피 등록">
+			<a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="레시피 등록" ></a>
 			<input type="button" id="more" value="More">
 		</div>
 	</div>
@@ -253,7 +253,7 @@ color: red;
 	<div id="line">
 		<div id="headtitle">
 			<h4><span id="underline">이번 주 </span>추천 요리</h4>
-			<input type="button" id="add" value="레시피 등록">
+			<a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="레시피 등록" ></a>
 			<input type="button" id="more" value="More">
 		</div>
 	</div>
@@ -404,7 +404,7 @@ color: red;
 	<div id="line">
 		<div id="headtitle">
 			<h4><span id="underline">오늘</span>의 추천 요리</h4>
-			<input type="button" id="add" value="레시피 등록">
+			<a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="레시피 등록" ></a>
 			<input type="button" id="more" value="More">
 		</div>
 	</div>

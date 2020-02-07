@@ -19,8 +19,7 @@ public class memberDAOImpl implements memberDAO {
 
 	@Override
 	public int insert(memberVO user) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.insert("maeggi.seggi.loginandcustomer.register", user);
 	}
 
 	@Override
@@ -58,10 +57,13 @@ public class memberDAOImpl implements memberDAO {
 		return sqlSession.selectOne("maeggi.seggi.loginandcustomer.login", loginUser);
 	}
 
-	@Override
-	public boolean idCheck(String id) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean idCheck(String member_id) {
+		boolean result = false;
+		memberVO user = sqlSession.selectOne("maeggi.seggi.loginandcustomer.idCheck", member_id);
+		if(user!=null) {
+			result = true;
+		}
+		return result;
 	}
 
 	@Override
