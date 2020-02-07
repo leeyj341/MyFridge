@@ -16,11 +16,15 @@
     <!-- CSS -->
     <link href="/maeggiSeggi/common/css/refrigerator.css" rel="stylesheet">
     <link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
+    <link rel="stylesheet" href="/maeggiSeggi/common/css/wow-alert.css">
+    
     
     <!-- JS -->
+    <script src="/maeggiSeggi/common/js/wow-alert.js"></script>
     <script src="/maeggiSeggi/common/js/fridge.js"></script>
     <script type="text/javascript">
 	    $(document).ready(function() {
+	    	var list;
 	    	var memId = '<%= session.getAttribute("id") %>';
 	    	$.ajax({
 	    		url:"/maeggiSeggi/refrigerator/ajax_fridge.do",
@@ -229,6 +233,10 @@
 						</li>
 					</ul>
 				</form>
+				<div id="input_search">
+					<input type="text" placeholder="재료명을 입력하세요.">
+					<a><i class="fa fa-search fa-2x" aria-hidden="true"></i></a>
+				</div>
 			</div>
 			<!-- ****** Ingredient Select Area End ****** -->
 

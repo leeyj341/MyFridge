@@ -33,7 +33,6 @@
 <body>
 	<% 
 		memberVO loginuser = (memberVO)session.getAttribute("loginuser"); 
-		session.setAttribute("id", loginuser.getMember_id());
 	%>
 	<!-- Preloader Start -->
 	<div id="preloader">
@@ -57,11 +56,13 @@
                 <div class="col-7 col-sm-6">
                     <div class="signup-search-area d-flex align-items-center justify-content-end">
                         <div class="login_register_area d-flex">
-                            <% if(loginuser==null){ %>
+                            <% if(loginuser == null){ %>
                             <div class="login">
                                 <a href="/maeggiSeggi/loginandcustomer/login.do" >sign in</a>
                             </div>
-                            <% }else{ %>
+                            <% } else { 
+                            	session.setAttribute("id", loginuser.getMember_id());
+                            %>
                             <div class="login">
                                 <a href="/maeggiSeggi/loginandcustomer/logout.do" >sign out</a>
                             </div>
