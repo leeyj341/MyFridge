@@ -24,5 +24,8 @@
 	<definition name="recipe_write" extends="maeggiTemplate">
 		<put-attribute name="content" value="/WEB-INF/views/recipe/recipe_write.jsp"/>
 	</definition>
+	<definition name="sample" extends="maeggiTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/recipe/sample.jsp"/>
+	</definition>
 	
 </tiles-definitions>

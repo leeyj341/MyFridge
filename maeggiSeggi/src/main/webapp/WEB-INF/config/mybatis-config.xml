@@ -11,6 +11,7 @@
 	<typeAliases>
 		<typeAlias type="maeggi.seggi.mypage.BoardVO" alias="board" />
 		<typeAlias type="maeggi.seggi.loginandcustomer.memberVO" alias="member" />
+		<typeAlias type="maeggi.seggi.recipe.RecipeVO" alias="recipe"/>
 		<!-- fridge -->
 		<typeAlias type="maeggi.seggi.fridge.FridgeVO" alias="fridge"/>
 		<typeAlias type="maeggi.seggi.fridge.FridgeDetailVO" alias="fridgeDetail"/>
@@ -18,6 +19,7 @@
 	<mappers>
 		<mapper resource="mapper/mypage_board.xml" />
 		<mapper resource="mapper/loginandcustomer_member.xml" />
+		<mapper resource="mapper/recipe.xml"/>
 		<!-- fridge -->
 		<mapper resource="mapper/fridge.xml"/>
 		<mapper resource="mapper/fridge_detail.xml"/>

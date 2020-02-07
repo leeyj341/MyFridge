@@ -8,7 +8,9 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
 <title>Insert title here</title>
-
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
 <style type="text/css">
 b {
 	text-align: justify;
@@ -124,12 +126,12 @@ display: inline;
 	<br>
 	
 	
-		<form action="/maeggiSeggi/recipe/main.do" method="post">
+		<form class="form-horizontal" action=""	method="POST" enctype="multipart/form-data"	name="myform">
 			<p><b>제목  </b></p>
-			<input type="text" id="title" style="width: 80%;" placeholde="레시피 제목을 입력해주세요" />
+			<input type="text" id="name" style="width: 80%;" placeholde="레시피 제목을 입력해주세요" />
 			
 			<p><b>레시피 요약  </b></p>
-			<input type="text" id="intro" style="width: 80%;" placeholde="본인의 레시피를 간단히 표현해 주세요" />
+			<input type="text" id="content_intro" style="width: 80%;" placeholde="본인의 레시피를 간단히 표현해 주세요" />
 			
 			<div>
 				<p>
@@ -162,7 +164,7 @@ display: inline;
 			</p>
 			<span>인원 :</span>
 			<div class="selectbox">
-				<select id="select_per">
+				<select id="amount_per_person">
 					<option selected>인분</option>
 					<option>1인분</option>
 					<option>2인분</option>
@@ -175,7 +177,7 @@ display: inline;
 
 			<span>조리 시간 :</span>
 			<div class="selectbox">
-				<select id="select_Time">
+				<select id="cook_time">
 					<option selected>분</option>
 					<option>10분</option>
 					<option>20분</option>
@@ -187,7 +189,7 @@ display: inline;
 			</div>
 			<span>요리 난이도:</span>
 			<div class="selectbox">
-				<select id="select_level">
+				<select id="cook_level">
 					<option selected>난이도</option>
 					<option>초급</option>
 					<option>중급</option>
@@ -251,30 +253,21 @@ display: inline;
   			</div>
   			<br/>
   			
-  			</form>
+  			
   			
   			<p><b>요리 사진</b></p>
-  			<div class="jumbotron">
- 			<form action="" method="post" enctype="multi">
+  			
+ 			<div class="jumbotron">
 	  			<input type="file" id="real-input" class="image_inputType_file" accept="img/*" required multiple><br/>
 	  			<input type="file" id="real-input" class="image_inputType_file" accept="img/*" required multiple><br/>
 	  			<input type="file" id="real-input" class="image_inputType_file" accept="img/*" required multiple><br/>
 	  			<input type="file" id="real-input" class="image_inputType_file" accept="img/*" required multiple><br/>
 	  			<input type="file" id="real-input" class="image_inputType_file" accept="img/*" required multiple><br/>
-	  			<br/><br/>
-				<button class="browse-btn">사진업로드</button>
-			</form>
-  			</div>
-		
-		
-		
-		 	
-		
+	  		</div>
+  			
 		<input id="register" type="submit" value="레시피 등록">
-		
-		
-		
-	
+		</form>
+
 			<input id="cancle" type="button" value="등록 취소">
 		
 	
