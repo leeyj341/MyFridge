@@ -61,14 +61,14 @@
 	function fn_replyReplySave(){
 	    var form = document.form3;
 	   
-	    if (form.writer.value=="") {
+	    if (form.replytitle.value=="") { ////title을 writer로 수정해줘야됨. VO추가해서
 	        alert("작성자를 입력해주세요.");
-	        form.writer.focus();
+	        form.replytitle.focus();
 	        return;
 	    }
-	    if (form.ask_content.value=="") {
+	    if (form.replytitle.value=="") {// title을 content로 수정해줘야됨. VO추가해서
 	        alert("글 내용을 입력해주세요.");
-	        form.ask_content.focus();
+	        form.replytitle.focus();
 	        return;
 	    }
 	   
