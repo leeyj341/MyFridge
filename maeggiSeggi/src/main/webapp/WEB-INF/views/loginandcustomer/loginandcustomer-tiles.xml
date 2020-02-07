@@ -28,6 +28,10 @@
 		<put-attribute name="content" value="/WEB-INF/views/loginandcustomer/noticelist.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="loginandcustomer/admin_notice_write" extends="maeggiTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/loginandcustomer/admin_notice_write.jsp"></put-attribute>
+	</definition>
+	
 	
 	
 	
