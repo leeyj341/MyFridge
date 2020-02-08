@@ -25,10 +25,10 @@
 <link href="/maeggiSeggi/common/css/minjae.css" rel="stylesheet">
 
 <!-- Responsive CSS -->
-<link href="css/responsive/responsive.css" rel="stylesheet">
+<link href="/maeggiSeggi/common/css/responsive/responsive.css" rel="stylesheet">
 
 <!-- 수정, 삭제 버튼 구현 -->
-<script src="js/jquery/jquery-2.2.4.min.js"></script>
+<!-- <script src="js/jquery/jquery-2.2.4.min.js"></script> -->
 
 <script type="text/javascript">
 
@@ -64,47 +64,29 @@
 	    document.body.appendChild(div); //부모를 document.body로 바꿈.
 	}
 	
-	/* function fn_replyDelete(replyno){
-		document.getelementsbyclassname("contentDelete").innerHtml = "삭제되었습니다."
-	} */
 	
-	 function fn_replyReply(replyno){
-	    var form = document.form3;
-	    var reply = document.getElementById("reply"+replyno);
-	    var replyDia = document.getElementById("replyDialog");
-	    replyDia.style.display = "";
-	   
-	    if (updateReno) {
-	        fn_replyUpdateCancel();
-	    }
-	   
-	    form.rememo.value = "";
-	    form.reparent.value=replyno;
-	    reply.appendChild(replyDia);
-	    form.rewriter.focus();
-	} 
+	 function fn_replyReply(getreplynumber){
+		 
+		 
+			var replyno = "reply"+getreplynumber;
+		 
+		    var form = document.form3;
+		    
+		    var reply = document.getElementById(replyno);
+		    var replyDia = document.getElementById("replyDialog");
+		    replyDia.style.display = "";
+		   
+		    if (updateReno) {
+		        fn_replyUpdateCancel();
+		    }
+		   
+		    form.rememo.value = "";
+		    form.reparent.value=replyno;
+		    reply.appendChild(replyDia);
+		    form.rewriter.focus();
+		} 
 	
-	for(var i=0; i<10;i++){
-	 $(document).on("click","#test"+index,function(){
-	    	title = $(this).text();
-	    	$.ajax({
-	    		url:"/maeggiSeggi/restaurant/search.do",
-	    		type:"get",
-	    		data:{
-	    			"tit":title},
-	    		success:function(data){
-	    			mydata="";
-	    			for (var i = 0; i < data.length; i++) {
-						mydata = mydata+
-							"<tr><td class='scon' style=''>"+data[i].title+"<br/>"+"<a href="+data[i].link+">"+data[i].link+"</a>"+"<br/>"+data[i].category+"<br/>"+data[i].description+"<br/>"+data[i].telephone+"<br/>"+data[i].address
-							+"</td></tr>"
-					}
-	    			$("#sch").empty();
-	    			$("#sch").append(mydata);
-	    		}
-	    	});
-	    });
-	}
+	
 	
 	
 	
@@ -251,21 +233,30 @@
 		<%
 			for (int i = 0; i < list_reply.size(); i++) {
 				replyBoardVO repl = list_reply.get(i);
+				
 		%>
 		<div
 			style="border: 1px solid gray; width: 600px; padding: 5px; margin-top: 5px; 
-					margin-left: <%=20 * repl.getGroupdepth()%>px;">
+					margin-left: <%=30 * repl.getGroupdepth()%>px;">
 			<%=repl.getReplywriter()%>
 			<%=repl.getReplydate()%>
-			<a onclick="fn_replyDelete(<%=repl.getReplyno()%>)">삭제</a> <a
-				onclick="fn_replyReply(<%=repl.getReplyno()%>)">댓글</a> <br />
+			<a onclick="fn_replyDelete(<%=repl.getReplyno()%>)">삭제</a>
+			<a onclick="fn_replyReply(<%=repl.getReplyno()%>)">댓글</a> <br />
 			<div class="contentDelete" id="reply<%=repl.getReplyno()%>"><%=repl.getReplytitle()%></div>
 		</div>
 		
 		<script type="text/javascript">
-		function fn_replyDelete(replyno){
-			document.getElementById("reply"+replyno).innerHtml = "삭제되었습니다."
+		
+		
+		function fn_replyDelete(getreplynumber){
+			
+			var replyno = "reply"+getreplynumber;
+			$("#" + replyno).text("(**원글이 삭제되었습니다**)");
 		}
+
+	
+		
+		
 		</script>
 		
 		<br />
