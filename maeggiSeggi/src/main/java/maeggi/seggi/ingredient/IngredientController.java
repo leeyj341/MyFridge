@@ -14,8 +14,8 @@ public class IngredientController {
 	IngredientService service;
 	
 	@RequestMapping(value="/ajax_ingredient.do", method=RequestMethod.GET, produces="application/json;charset=UTF-8")
-	public @ResponseBody ArrayList<IngredientVO> selectAllIngredient() {
-		ArrayList<IngredientVO> list = (ArrayList<IngredientVO>)service.selectAll();
+	public @ResponseBody ArrayList<IngredientVO> selectAllIngredientByCategory(String category) {
+		ArrayList<IngredientVO> list = (ArrayList<IngredientVO>)service.selectAllByCategory(category);
 		return list;
 	}
 }

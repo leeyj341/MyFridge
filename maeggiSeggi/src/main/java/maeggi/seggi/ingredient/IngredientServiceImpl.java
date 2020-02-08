@@ -11,8 +11,8 @@ public class IngredientServiceImpl implements IngredientService {
 	IngredientDAO dao;
 	
 	@Override
-	public List<IngredientVO> selectAll() {
-		return dao.selectAll();
+	public List<IngredientVO> selectAllByCategory(String category) {
+		return dao.selectAllByCategory(category);
 	}
 
 }
