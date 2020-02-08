@@ -61,6 +61,7 @@
                                 <a href="/maeggiSeggi/loginandcustomer/login.do" >sign in</a>
                             </div>
                             <% } else { 
+                            	//session.setAttribute("id", loginuser.getMember_id());
                             	session.setAttribute("id", loginuser.getMember_id());
                             %>
                             <div class="login">

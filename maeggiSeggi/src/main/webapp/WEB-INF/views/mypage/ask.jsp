@@ -40,7 +40,18 @@
 	%>
 	<%
 		memberVO loginuser = (memberVO) session.getAttribute("loginuser");
+	
 	%>
+	 <% if(session.getAttribute("id")!= null){ %>
+	<!--  <script type="text/javascript">
+	 var sessionid = session.getAttribute("id");
+	 document.write(sessionid);
+	 </script>
+		  -->
+	 
+	
+	
+	
 	<!-- ****** Breadcumb Area Start ****** -->
 	<div class="breadcumb-area"
 		style="background-image: url(/maeggiSeggi/images/bg-img/breadcumb.jpg); z-index: 0">
@@ -152,5 +163,13 @@
 			</nav>
 		</div>
 	</div>
+ <% } else{ %>
+	
+		<script type="text/javascript">
+		alert("로그인이 필요한 기능입니다!");
+		document.location.href="/maeggiSeggi/loginandcustomer/login.do";
+		</script>
+		<% }%>
+	 
 </body>
 </html>

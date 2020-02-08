@@ -23,7 +23,6 @@ public class BoardController {
 
 	@RequestMapping("/board/list.do")
 	public ModelAndView listall() {
-
 		ModelAndView mav = new ModelAndView();
 		List<BoardVO> list = service.listall();
 		System.out.println(list);
