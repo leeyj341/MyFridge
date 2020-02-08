@@ -2,28 +2,38 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <!-- mapper가 너무 많으니까 namespace로 구분지어주기 -->
+<!-- mapper가 너무 많으니까 namespace로 구분지어주기 -->
 <mapper namespace="maeggi.seggi.mypage">
 	<select id="listall" resultType="board">
 		select * from ask_board
 	</select>
- 	<insert id="insert" parameterType="board">
-		insert into ask_board values(ask_board_seq.nextval,'seong', #{ask_title},#{ask_content},sysdate)	
+	
+	<select id="updatelist" resultType="board">
+		select askno ,ask_title, ask_content, member_id from ask_board where askno = #{askno}
+	</select>
+	
+	<insert id="insert" parameterType="board">
+		insert into ask_board
+		values(ask_board_seq.nextval,'seong',
+		#{ask_title},#{ask_content},sysdate)
 
 	</insert>
 	<select id="read" parameterType="int" resultType="board">
-		select * from ask_board where askno = #{askno}
+		select * from
+		ask_board where askno = #{askno}
 	</select>
-	
-	<!-- <update id="update" parameterType="board">
-		update ask set ask_title = #{ask_title}, ask_content = #{ask_content} where ask_id = #{ask_id}
-	</update> -->
-	
+
+	<update id="update" >
+		update ask_board 
+		set ask_title = #{ask_title}, ask_content = #{ask_content} where askno = #{askno}
+	</update>
+
 	<delete id="delete" parameterType="int">
-		delete from ask_board where askno = #{askno}
+		delete from ask_board where
+		askno = #{askno}
 	</delete>
-	
-	
+
+
 </mapper>
 
 
