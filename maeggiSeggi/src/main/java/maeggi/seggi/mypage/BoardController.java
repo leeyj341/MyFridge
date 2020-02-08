@@ -4,14 +4,20 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import maeggi.seggi.reply.replyBoardVO;
+import maeggi.seggi.reply.replyService;
 
 @Controller
 public class BoardController {
 	@Autowired
 	BoardService service;
+	@Autowired
+	replyService replyService;
 	
 	@RequestMapping("/board/list.do")
 	public ModelAndView listall(){
@@ -39,15 +45,38 @@ public class BoardController {
 		
 	}
 	
-	//제목 눌러서 글 상세보기
-	@RequestMapping("/board/read.do")
-	public ModelAndView read(int askno){
-		ModelAndView mav = new ModelAndView();
-		BoardVO read = service.read(askno);
-		mav.addObject("read", read);
-		mav.setViewName("mypage/ask/title");
-		return mav;
+	@RequestMapping(value = "/board/read.do", method = RequestMethod.GET)
+	public String read(BoardVO boardVO, Model model){
+		model.addAttribute("read", service.read(boardVO.getAskno()));
+		model.addAttribute("list_reply", replyService.list_reply());
+		return "mypage/ask/title";
 	}
+	
+	
+	/*@RequestMapping(value= "/emp/login.do", method = RequestMethod.POST)
+	public ModelAndView login(MemberVO loginUserInfo, HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		
+		MemberVO user= service.login(loginUserInfo);
+		
+		String viewName="";
+		if(user!=null) {			
+			HttpSession ses = request.getSession();			
+			ses.setAttribute("user", user);
+			viewName = "login/ok";
+		}else {			
+			viewName = "login";
+		}
+		mav.setViewName(viewName);
+		return mav;
+	}*/
+	
+	
+	
+	
+	
+	
+	
 	
 	//글 수정
 	@RequestMapping(value = "/board/update.do" ,method = RequestMethod.POST)

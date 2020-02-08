@@ -99,7 +99,7 @@
 				%>
 				<tr>
 					<td><%=row.getAskno()%></td>
-					<td><a href="/maeggiSeggi/board/read.do?board_no=<%=row.getAskno()%>"><%=row.getAsk_title()%></a></td>
+					<td><a href="/maeggiSeggi/board/read.do?askno=<%=row.getAskno()%>"><%=row.getAsk_title()%></a></td>
 					<td><%=row.getAsk_regdate()%></td>
 				</tr>
 				<%

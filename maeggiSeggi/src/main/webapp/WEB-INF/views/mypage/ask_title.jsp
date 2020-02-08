@@ -85,8 +85,9 @@
 <body>
 	<%
 		ArrayList<replyBoardVO> list_reply = (ArrayList<replyBoardVO>) request.getAttribute("list_reply");
+		BoardVO read = (BoardVO) request.getAttribute("read");
 	%>
-	
+
 
 	<!-- ****** Breadcumb Area Start ****** -->
 	<div>
@@ -131,36 +132,27 @@
 				<div class="row">
 					<div class="col-12" id="mypage_asklist_customview">
 
-					
-						<%-- <tr>
-							<td></td>
-							<td><a
-								href="/maeggiSeggi/board/read.do?board_no=<%=row.getAskno()%>"><%=row.getAsk_title()%></a></td>
-							<td><%=row.getAsk_regdate()%></td>
-						</tr> --%>
-					
-
 						<div id="mypage_AskUserForm">
-							<table class="mypage_askboard" id="mypage_askboard_detail"
+					 		<table class="mypage_askboard" id="mypage_askboard_detail"
 								border="1">
 								<tr>
 									<td>작성자</td>
-									<td>gggg</td>
+									<td><%=read.getMember_id()%></td>
 								</tr>
 
 								<tr>
 									<td>작성일</td>
-									<td>2020-01-15</td>
+									<td><%=read.getAsk_regdate()%></td>
 								</tr>
 
 								<tr>
 									<td>제목</td>
-									<td>레시피 글에 오타가 잇어여</td>
+									<td><%=read.getAsk_title()%></td>
 								</tr>
 
 								<tr>
 									<td>content</td>
-									<td>레시피에 오타가있어요. 빨리 수정해주세요 .</td>
+									<td><%=read.getAsk_content()%></td>
 								</tr>
 							</table>
 						</div>
@@ -195,43 +187,6 @@
 				<%
 					}
 				%>
-
-				<!-- <div id="mypage_AskUserForm">
-				<div>
-					<h3>댓글</h3>
-				</div>
-				<table  class="mypage_askboard" id="mypage_askboard_detail" border="1">
-					<tr>
-						<td>관리자</td>
-						<td>수정해 드렸습니다~</td>
-						<td>2020-01-18</td>
-					</tr>
-
-					<tr>
-						<td>홍길동</td>
-						<td>감사합니다~</td>
-						<td>2020-01-19</td>					
-					</tr>
-				</table>
-				<div style="text-align: center;">
-					<form>
-						<input type="button" id="mypage_ask_reply_send" value="목록 보기"
-								onclick="location.href='ask.do'" style="color:white; background-color: #fc6c3f; width: 100px">
-						<input type="button" id="mypage_ask_reply_send" value="댓글  달기"
-								onclick="alert('댓글이 저장되었습니다.')" style="color:white; background-color: #fc6c3f; width: 100px"> 
-						<input type="button"
-								id="mypage_ask_reply_pause" value="댓글지우기" onclick="alert('댓글이 삭제되었습니다.')" style="color:white; background-color: #fc6c3f; width: 100px"style="color:white; background-color: #fc6c3f; width: 100px">
-					</form>
-				</div>
-			</div> -->
-
-			</div>
-		</div>
-		<!-- ****** Breadcumb Area End ****** -->
-
-
-
-
 
 		<!-- ****** Archive Area Start ****** -->
 		<section class="archive-area section_padding_80">

@@ -15,16 +15,8 @@ public class replyController {
 
 	// ======================= 답변형 게시판 =========================
 	// 댓글 전체보기
-	@RequestMapping("/board/list_reply.do")
-	public ModelAndView list_reply() {
-		ModelAndView mav = new ModelAndView();
-		List<replyBoardVO> list_reply = service.list_reply();
-		mav.addObject("list_reply", list_reply);
-		mav.setViewName("mypage/ask/title");
-		return mav;
-	}
 
-	@RequestMapping(value = "/board/title.do", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/board/title.do", method = RequestMethod.GET)
 	public String preUpdate(replyBoardVO replyno) {
 		service.update(replyno);
 		return "redirect:/board/title.do";
@@ -34,7 +26,7 @@ public class replyController {
 	public String updateGrpord(replyBoardVO replyno) {
 		service.reply(replyno);
 		return "redirect:/board/title.do";
-	}
+	}*/
 	
 	/*// 댓글 삭제 GET
 	@RequestMapping(value = "/reply/delete.do", method = RequestMethod.GET)
