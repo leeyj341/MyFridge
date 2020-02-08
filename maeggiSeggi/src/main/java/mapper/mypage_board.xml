@@ -5,14 +5,14 @@
   <!-- mapper가 너무 많으니까 namespace로 구분지어주기 -->
 <mapper namespace="maeggi.seggi.mypage">
 	<select id="listall" resultType="board">
-		select * from ask
+		select * from ask_board where member_id=#{member_id}
 	</select>
  	<insert id="insert" parameterType="board">
-		insert into ask values(ask_seq.nextval,'seong', #{ask_title},#{ask_content},sysdate,'답변 대기중')	
+		insert into ask_board values(ask_board_seq.nextval,'seong', #{ask_title},#{ask_content},sysdate)	
 
 	</insert>
-	<select id="read" parameterType="String" resultType="board">
-		select * from ask where ask_id = #{ask_id}
+	<select id="read" parameterType="int" resultType="board">
+		select * from ask_board where askno = #{askno}
 	</select>
 	
 	<!-- <update id="update" parameterType="board">
@@ -20,7 +20,7 @@
 	</update> -->
 	
 	<delete id="delete" parameterType="int">
-		delete from ask where ask_id = #{ask_id}
+		delete from ask_board where askno = #{askno}
 	</delete>
 	
 	

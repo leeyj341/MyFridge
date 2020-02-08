@@ -31,11 +31,9 @@
     <script src="/maeggiSeggi/common/js/active.js"></script>
 </head>
 <body>
-
-
-	 <% 
-		memberVO loginuser = (memberVO)session.getAttribute("loginuser"); 	
- 	%> 
+	<% 
+		memberVO loginuser = (memberVO)session.getAttribute("loginuser"); 
+	%>
 	<!-- Preloader Start -->
 	<div id="preloader">
 		<div class="yummy-load"></div>
@@ -58,20 +56,21 @@
                 <div class="col-7 col-sm-6">
                     <div class="signup-search-area d-flex align-items-center justify-content-end">
                         <div class="login_register_area d-flex">
-                             <% if(loginuser==null){ %> 
+                            <% if(loginuser == null){ %>
                             <div class="login">
                                 <a href="/maeggiSeggi/loginandcustomer/login.do" >sign in</a>
                             </div>
-                             <% }else{ %> 
+                            <% } else { 
+                            	session.setAttribute("id", loginuser.getMember_id());
+                            %>
                             <div class="login">
                                 <a href="/maeggiSeggi/loginandcustomer/logout.do" >sign out</a>
                             </div>
-                             <% session.setAttribute("id", loginuser.getMember_id());} %> 
+                            <% } %>
                             <div class="register">
                                 <a href="/maeggiSeggi/loginandcustomer/join.do">sign up</a>
                             </div>
                         </div>
-                        <% %>
                         <!-- Search Button Area -->
                        <!-- <div class="search_button">
                             <a class="searchBtn" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
@@ -90,6 +89,7 @@
         </div>
     </div>
     <!-- ****** Top Header Area End ****** -->
+
     <!-- ****** Header Area Start ****** -->
     <header class="header_area">
         <div class="container">
@@ -120,7 +120,6 @@
                                         <a class="dropdown-item" href="/maeggiSeggi/sub/grade.do">GRADE</a>
                                         <a class="dropdown-item" href="/maeggiSeggi/sub/QnA.do">QnA</a>
                                         <a class="dropdown-item" href="/maeggiSeggi/loginandcustomer/noticelist.do">NOTICE</a>
-                                        <a class="dropdown-item" href="contact.html">CONTACT</a>
                                     </div>
                                 </li>
                         		<li class="nav-item dropdown">
@@ -147,8 +146,8 @@
                                     	<a class="dropdown-item" href="#"></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/mypage_main.do"><b>식단 관리</b></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/mypage/information_update.do"><b>회원 정보 조회</b></a>
-                                        <a class="dropdown-item" href="/maeggiSeggi/mypage/ask.do"><b>1:1 문의 사항</b></a>
-                                        <a class="dropdown-item" href="/maeggiSeggi/mypage/mypoint.do"><b>My Point</b></a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/board/list.do"><b>1:1 문의 사항</b></a>
+                                        <a class="dropdown-item" href="/maeggiSeggi//mypage/mypoint.do"><b>My Point</b></a>
                                     </div>
                                 </li>
                                 <li class="nav-item">

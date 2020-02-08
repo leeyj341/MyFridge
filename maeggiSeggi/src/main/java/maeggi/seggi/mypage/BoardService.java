@@ -10,4 +10,5 @@ public interface BoardService {
 	int update(BoardVO board);
 	int delete(String board_no);
 	void reply(BoardVO board);
+	BoardVO read(int askno); //문의 글 상세보기 
 }

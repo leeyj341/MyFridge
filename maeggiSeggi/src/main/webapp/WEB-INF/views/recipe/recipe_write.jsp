@@ -126,7 +126,7 @@ display: inline;
 	<br>
 	
 	
-		<form class="form-horizontal" action=""	method="POST" enctype="multipart/form-data"	name="myform">
+		<form class="form-horizontal" action="/maeggiSeggi/recipe/upload.do" method="POST" enctype="multipart/form-data" name="myform">
 			<p><b>제목  </b></p>
 			<input type="text" id="name" style="width: 80%;" placeholde="레시피 제목을 입력해주세요" />
 			
@@ -257,13 +257,13 @@ display: inline;
   			
   			<p><b>요리 사진</b></p>
   			
- 			<div class="jumbotron">
+ 			<!-- <div class="jumbotron">
 	  			<input type="file" id="real-input" class="image_inputType_file" accept="img/*" required multiple><br/>
 	  			<input type="file" id="real-input" class="image_inputType_file" accept="img/*" required multiple><br/>
 	  			<input type="file" id="real-input" class="image_inputType_file" accept="img/*" required multiple><br/>
 	  			<input type="file" id="real-input" class="image_inputType_file" accept="img/*" required multiple><br/>
 	  			<input type="file" id="real-input" class="image_inputType_file" accept="img/*" required multiple><br/>
-	  		</div>
+	  		</div> -->
   			
 		<input id="register" type="submit" value="레시피 등록">
 		</form>

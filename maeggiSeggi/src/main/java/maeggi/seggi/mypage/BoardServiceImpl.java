@@ -23,8 +23,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public BoardVO read(String board_no) {
-		return dao.read(board_no);
+	public BoardVO read(int askno) {
+		return dao.read(askno);
 	}
 
 	@Override
@@ -48,6 +48,12 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public List<BoardVO> list_reply() {
 		return dao.list_reply();
+	}
+
+	@Override
+	public BoardVO read(String board_no) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

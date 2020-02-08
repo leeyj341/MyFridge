@@ -15,12 +15,15 @@ public class BoardController {
 	
 	@RequestMapping("/board/list.do")
 	public ModelAndView listall(){
+		
 		ModelAndView mav = new ModelAndView();
 		List<BoardVO> list = service.listall();
+		System.out.println(list);
 		mav.addObject("list", list);
 		mav.setViewName("mypage/ask");
 		return mav;
 	}
+	
 	
 	//게시글을 작성하기 위한 뷰를 response할 메소드 
 	@RequestMapping(value="/board/insert.do",method=RequestMethod.GET)
@@ -28,7 +31,7 @@ public class BoardController {
 		return "mypage/ask/write";
 	}
 	
-	//입력한 글을 실제 db에 넣는 메소드
+	//입력한 글을 실제 db에 넣는 메소드. form에서 action을 수행했을 때 POST를 쓴다. 
 	@RequestMapping(value = "/board/insert.do" ,method = RequestMethod.POST)
 	public String insert(BoardVO board) {
 		service.insert(board);
@@ -38,9 +41,9 @@ public class BoardController {
 	
 	//제목 눌러서 글 상세보기
 	@RequestMapping("/board/read.do")
-	public ModelAndView read(String board_no){
+	public ModelAndView read(int askno){
 		ModelAndView mav = new ModelAndView();
-		BoardVO read = service.read(board_no);
+		BoardVO read = service.read(askno);
 		mav.addObject("read", read);
 		mav.setViewName("mypage/ask/title");
 		return mav;
@@ -56,7 +59,7 @@ public class BoardController {
 	public String delete(BoardVO board) {
 		return "redirect:/board/list.do";		
 	}
-	/*//======================= 답변형 게시판 =========================
+	/*//======================= 답변형 게시판 =========================//
 	//댓글 전체보기
 	@RequestMapping("/board/list_reply.do")
 	public ModelAndView list_reply(){

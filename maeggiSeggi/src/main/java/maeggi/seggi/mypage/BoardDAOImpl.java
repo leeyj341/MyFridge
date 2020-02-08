@@ -22,8 +22,8 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public BoardVO read(String board_no) {
-		return sqlSession.selectOne("maeggi.seggi.mypage.read", board_no);
+	public BoardVO read(int askno) {
+		return sqlSession.selectOne("maeggi.seggi.mypage.read", askno);
 	}
 
 	@Override
