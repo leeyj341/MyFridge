@@ -1,6 +1,7 @@
 package maeggi.seggi.recipe;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,16 +11,26 @@ public class RecipeDAOImpl implements RecipeDAO {
 	@Autowired
 	SqlSession sqlSession;
 	
+
 	@Override
-	public List<RecipeVO> recipeList() {
+	public List<RecipeVO> listall() {
 		return sqlSession.selectList("maeggi.seggi.recipe.listall");
 	}
 
 	@Override
-	public int insert(RecipeVO recipe) {
-		System.out.println(recipe);
-		return sqlSession.insert("maeggi.seggi.recipe.insert",recipe);
+	public void insert(RecipeVO recipe) {
+		sqlSession.insert("maeggi.seggi.recipe.insert",recipe);
 	}
+	
+	@Override
+	public void insertdetail(RecipeDetailVO detail) {
+		sqlSession.insert("maeggi.seggi.recipe.insertdetail",detail);
+	}
+	
+/*	@Override
+	public void insertigdetail(IngredientVO igdetail) {
+		sqlSession.insert("maeggi.seggi.recipe.insertigdetail",igdetail);
+	}*/
 
 	@Override
 	public List<RecipeVO> categorySearch(String category) {
@@ -35,6 +46,20 @@ public class RecipeDAOImpl implements RecipeDAO {
 		System.out.println("dao=>"+recipeList.size());
 		return recipeList;
 	}
+
+	@Override
+	public int updatehit(String recipe_id) {
+		return sqlSession.update("maeggi.seggi.recipe.updatehit",recipe_id);
+		
+	}
+
+	@Override
+	public List<Map<String, String>> detail(String recipe_id) {
+		List<Map<String, String>> list = sqlSession.selectList("maeggi.seggi.recipe.detail",recipe_id);
+		return list;
+	}
+
+
 
 
 }
