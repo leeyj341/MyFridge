@@ -1,8 +1,9 @@
+<%@page import="maeggi.seggi.mypage.BoardVO"%>
 <%@page import="maeggi.seggi.reply.replyBoardVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -82,103 +83,120 @@
 </head>
 
 <body>
-	<% ArrayList<replyBoardVO> list_reply = (ArrayList<replyBoardVO>)request.getAttribute("list_reply");%>
+	<%
+		ArrayList<replyBoardVO> list_reply = (ArrayList<replyBoardVO>) request.getAttribute("list_reply");
+	%>
+	
 
 	<!-- ****** Breadcumb Area Start ****** -->
-<div>	
-	<div class="breadcumb-area"
-		style="background-image: url(img/bg-img/breadcumb.jpg);">
-		<div class="container h-100">
-			<div class="row h-100 align-items-center">
-				<div class="col-12">
-					<div class="bradcumb-title text-center">
-						<h2>1:1문의사항</h2>
+	<div>
+		<div class="breadcumb-area"
+			style="background-image: url(img/bg-img/breadcumb.jpg);">
+			<div class="container h-100">
+				<div class="row h-100 align-items-center">
+					<div class="col-12">
+						<div class="bradcumb-title text-center">
+							<h2>1:1문의사항</h2>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="breadcumb-nav">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<nav aria-label="breadcrumb">
-						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a href="#"><i
-									class="fa fa-home" aria-hidden="true"></i>Home</a></li>
-							<li class="breadcrumb-item active" aria-current="page">MyPage</li>
-							<li class="breadcrumb-item active" aria-current="page">1:1 문의사항</li>
-							<li class="breadcrumb-item active" aria-current="page">1:1 문의사항 상세보기</li>
-						</ol>
-					</nav>
-				</div>
-			</div>
-
-			<div class="row">
-				<!-- row해야 그 집모양 아이콘 있는 곳부터 글자가 시작됨 -->
-				<div class="col-12" id="mypage_asklist_customview">
-					<h2>1:1 문의사항 상세보기</h2>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-12" id="mypage_asklist_customview">
-
-
-
-					<div id="mypage_AskUserForm">
-						<table class="mypage_askboard" id="mypage_askboard_detail" border="1">
-							<tr>
-								<td>작성자</td>
-								<td>debugger</td>
-							</tr>
-
-							<tr>
-								<td>작성일</td>
-								<td>2020-01-15</td>
-							</tr>
-
-							<tr>
-								<td>제목</td>
-								<td>레시피 글에 오타가 잇어여</td>
-							</tr>
-
-							<tr>
-								<td>content</td>
-								<td>레시피에 오타가있어요. 빨리 수정해주세요 .</td>
-							</tr>
-						</table>
+		<div class="breadcumb-nav">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i
+										class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+								<li class="breadcrumb-item active" aria-current="page">MyPage</li>
+								<li class="breadcrumb-item active" aria-current="page">1:1
+									문의사항</li>
+								<li class="breadcrumb-item active" aria-current="page">1:1
+									문의사항 상세보기</li>
+							</ol>
+						</nav>
 					</div>
 				</div>
-			</div>
-			
-			<%for(int i=0;i<list_reply.size();i++){ 
-				replyBoardVO repl = list_reply.get(i);
-			%>
-				<div style="border: 1px solid gray; width: 600px; padding: 5px; margin-top: 5px; 
-					margin-left: <%= 20 * repl.getGroupdepth()%>px;">
-					<%= repl.getReplywriter() %>
-					<%= repl.getReplydate() %>
-					<a onclick="fn_replyDelete(<%= repl.getReplyno()%>)">삭제</a>
-					<a onclick="fn_replyReply(<%= repl.getReplyno()%>)">댓글</a>
-				<br/>
-					<div id="reply<%= repl.getReplyno()%>"><%=repl.getReplytitle() %></div>
+
+				<div class="row">
+					<!-- row해야 그 집모양 아이콘 있는 곳부터 글자가 시작됨 -->
+					<div class="col-12" id="mypage_asklist_customview">
+						<h2>1:1 문의사항 상세보기</h2>
+					</div>
 				</div>
-				<br/>
+
+				<div class="row">
+					<div class="col-12" id="mypage_asklist_customview">
+
+					
+						<%-- <tr>
+							<td></td>
+							<td><a
+								href="/maeggiSeggi/board/read.do?board_no=<%=row.getAskno()%>"><%=row.getAsk_title()%></a></td>
+							<td><%=row.getAsk_regdate()%></td>
+						</tr> --%>
+					
+
+						<div id="mypage_AskUserForm">
+							<table class="mypage_askboard" id="mypage_askboard_detail"
+								border="1">
+								<tr>
+									<td>작성자</td>
+									<td>gggg</td>
+								</tr>
+
+								<tr>
+									<td>작성일</td>
+									<td>2020-01-15</td>
+								</tr>
+
+								<tr>
+									<td>제목</td>
+									<td>레시피 글에 오타가 잇어여</td>
+								</tr>
+
+								<tr>
+									<td>content</td>
+									<td>레시피에 오타가있어요. 빨리 수정해주세요 .</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<%
+					for (int i = 0; i < list_reply.size(); i++) {
+						replyBoardVO repl = list_reply.get(i);
+				%>
+				<div
+					style="border: 1px solid gray; width: 600px; padding: 5px; margin-top: 5px; 
+					margin-left: <%=20 * repl.getGroupdepth()%>px;">
+					<%=repl.getReplywriter()%>
+					<%=repl.getReplydate()%>
+					<a onclick="fn_replyDelete(<%=repl.getReplyno()%>)">삭제</a> <a
+						onclick="fn_replyReply(<%=repl.getReplyno()%>)">댓글</a> <br />
+					<div id="reply<%=repl.getReplyno()%>"><%=repl.getReplytitle()%></div>
+				</div>
+				<br />
 				<div id="replyDialog" style="width: 99%; display: none">
-					<form name="form3" action="/maeggiSeggi/board/reply.do" method="post">
-						<input type="hidden" name="replywriter">
-						<input type="hidden" name="replyno">
-						<input type="hidden" name="groupord">
+					<form name="form3" action="/maeggiSeggi/board/reply.do"
+						method="post">
+						<input type="hidden" name="replywriter"> <input
+							type="hidden" name="replyno"> <input type="hidden"
+							name="groupord">
 						<textarea rows="3" cols="60" name="ask_content" maxlength="500"></textarea>
-						<a href="#" onclick="fn_replyReplySave()">저장</a>
-						<a href="#" onclick="fn_replyReplyCancel()">취소</a>
+						<a href="#" onclick="fn_replyReplySave()">저장</a> <a href="#"
+							onclick="fn_replyReplyCancel()">취소</a>
 					</form>
 				</div>
-				<% } %>
-		
-			<!-- <div id="mypage_AskUserForm">
+				<%
+					}
+				%>
+
+				<!-- <div id="mypage_AskUserForm">
 				<div>
 					<h3>댓글</h3>
 				</div>
@@ -206,9 +224,9 @@
 					</form>
 				</div>
 			</div> -->
-	
+
+			</div>
 		</div>
-	</div>
 		<!-- ****** Breadcumb Area End ****** -->
 
 
@@ -453,19 +471,17 @@
 			</div>
 		</div>
 
-	<div class="col-12">
-		
-	</div>
-	<!-- ****** Footer Menu Area End ****** -->
+		<div class="col-12"></div>
+		<!-- ****** Footer Menu Area End ****** -->
 
-	<!-- Jquery-2.2.4 js -->
-	<script src="js/jquery/jquery-2.2.4.min.js"></script>
-	<!-- Popper js -->
-	<script src="js/bootstrap/popper.min.js"></script>
-	<!-- Bootstrap-4 js -->
-	<script src="js/bootstrap/bootstrap.min.js"></script>
-	<!-- All Plugins JS -->
-	<script src="js/others/plugins.js"></script>
-	<!-- Active JS -->
-	<script src="js/active.js"></script>
+		<!-- Jquery-2.2.4 js -->
+		<script src="js/jquery/jquery-2.2.4.min.js"></script>
+		<!-- Popper js -->
+		<script src="js/bootstrap/popper.min.js"></script>
+		<!-- Bootstrap-4 js -->
+		<script src="js/bootstrap/bootstrap.min.js"></script>
+		<!-- All Plugins JS -->
+		<script src="js/others/plugins.js"></script>
+		<!-- Active JS -->
+		<script src="js/active.js"></script>
 </body>
