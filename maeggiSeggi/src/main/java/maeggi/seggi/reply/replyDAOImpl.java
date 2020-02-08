@@ -33,31 +33,30 @@ public class replyDAOImpl implements replyDAO {
 	}
 
 	@Override
-	public int insert(replyBoardVO board) {
+	public int insert(replyBoardVO replyno) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public replyBoardVO read(String board_no) {
+	public replyBoardVO read(String replyno) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int update(replyBoardVO board) {
+	public int update(replyBoardVO replyno) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int delete(String board_no) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int delete(replyBoardVO replyno) {
+		return sqlSession.delete("maeggi.seggi.reply.delete_reply", replyno);
 	}
 
 	@Override
-	public void reply(replyBoardVO board) {
+	public void reply(replyBoardVO replyno) {
 		// TODO Auto-generated method stub
 		
 	}
