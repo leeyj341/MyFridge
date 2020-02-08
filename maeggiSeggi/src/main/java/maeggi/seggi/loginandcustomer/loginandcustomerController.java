@@ -28,7 +28,7 @@ public class loginandcustomerController {
 		String viewName="";
 		mav.addObject("loginuser", loginuser);
 		if(loginuser!=null) {
-			//로그인 성공시
+			//로그인 성공시.
 			HttpSession ses = request.getSession();
 			//2. 세션에 데이터 공유
 			ses.setAttribute("loginuser", loginuser);

@@ -22,8 +22,8 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public BoardVO read(String board_no) {
-		return sqlSession.selectOne("maeggi.seggi.mypage.read", board_no);
+	public BoardVO read(int askno) {
+		return sqlSession.selectOne("maeggi.seggi.mypage.read", askno);
 	}
 
 	@Override
@@ -38,8 +38,9 @@ public class BoardDAOImpl implements BoardDAO {
 	}*/
 	
 	@Override
-	public int delete(String board_no) {
-		return sqlSession.delete("maeggi.seggi.mypage.update",board_no);
+	public void delete(int askno) {
+		sqlSession.delete("maeggi.seggi.mypage.delete",askno);
+		System.out.println("==================================================daoimpl의 askno"+askno);
 	}
 
 	//============================= 답변형 게시판 ===========================
@@ -58,6 +59,13 @@ public class BoardDAOImpl implements BoardDAO {
 	public List<BoardVO> list_reply() {
 		return sqlSession.selectList("maeggi.seggi.mypage.list_reply");
 	}
+
+	@Override
+	public BoardVO updatelist(BoardVO board) {
+		return sqlSession.selectOne("maeggi.seggi.mypage.updatelist", board);
+	}
+
+	
 
 
 }

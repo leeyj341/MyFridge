@@ -23,8 +23,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public BoardVO read(String board_no) {
-		return dao.read(board_no);
+	public BoardVO read(int askno) {
+		return dao.read(askno);
 	}
 
 	@Override
@@ -33,8 +33,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int delete(String board_no) {
-		return dao.delete(board_no);
+	public void delete(int askno) {
+		dao.delete(askno);
+		System.out.println("==================================================serviceimpl의 askno"+askno);
 	}
 
 	
@@ -49,5 +50,17 @@ public class BoardServiceImpl implements BoardService {
 	public List<BoardVO> list_reply() {
 		return dao.list_reply();
 	}
+
+	@Override
+	public BoardVO read(String board_no) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BoardVO updatelist(BoardVO board) {
+		return dao.updatelist(board);
+	}
+
 
 }

@@ -18,30 +18,30 @@ public class replyServiceImpl implements replyService {
 	}
 
 	@Override
-	public int insert(replyBoardVO board) {
-		return dao.insert(board);
+	public int insert(replyBoardVO replyno) {
+		return dao.insert(replyno);
 	}
 
 	@Override
-	public replyBoardVO read(String board_no) {
-		return dao.read(board_no);
+	public replyBoardVO read(String replyno) {
+		return dao.read(replyno);
 	}
 
 	@Override
-	public int update(replyBoardVO board) {
-		return dao.update(board);
+	public int update(replyBoardVO replyno) {
+		return dao.update(replyno);
 	}
 
 	@Override
-	public int delete(String board_no) {
-		return dao.delete(board_no);
+	public int delete(replyBoardVO replyno) {
+		return dao.delete(replyno);
 	}
 
 	
-	//======================== 답변형 게시판 ========================
+	
 	@Override
-	public void reply(replyBoardVO board) {
-		dao.reply(board);
+	public void reply(replyBoardVO replyno) {
+		dao.reply(replyno);
 		
 	}
 
