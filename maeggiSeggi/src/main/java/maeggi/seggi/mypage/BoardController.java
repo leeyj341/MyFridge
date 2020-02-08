@@ -28,7 +28,7 @@ public class BoardController {
 		return "mypage/ask/write";
 	}
 	
-	//입력한 글을 실제 db에 넣는 메소드
+	//입력한 글을 실제 db에 넣는 메소드. form에서 action을 수행했을 때 POST를 쓴다. 
 	@RequestMapping(value = "/board/insert.do" ,method = RequestMethod.POST)
 	public String insert(BoardVO board) {
 		service.insert(board);
