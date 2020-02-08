@@ -1,5 +1,8 @@
+<%@page import="maeggi.seggi.recipe.RecipeVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -96,15 +99,15 @@ function popup(){
 				</div>
 			</div>
 		</div>
-	</div>
-
+	</div>	
+	<c:forEach items="${detail}" var="recipe" varStatus="status">
 	<div class="container" style="margin-top: 30px">
 		<div class="row">
 			<div class="col-sm-4">
 			<div class="single-post">
-				<h4>지글지글 맛있는 돼지구이</h4>
+				<h4></h4>
 				<div class="post-thumb">
-					<img src="../images/pork1.PNG" alt="">
+					<img src="${recipe.img_url_main}" alt="">
 				</div>
 				<!-- Post Content -->
 				<div class="post-content">
@@ -112,11 +115,11 @@ function popup(){
 						<div class="post-author-date-area d-flex">
 							<!-- Post Author -->
 							<div class="post-author">
-								<a href="#">By 융또융</a>
+								<a href="#">${recipe.member_id}</a>
 							</div>
 							<!-- Post Date -->
 							<div class="post-date">
-								<a href="#">May 19, 2017</a>
+								<a href="#">${recipe.register_date}</a>
 							</div>
 						</div>
 						<!-- Post Comment & Share Area -->
@@ -124,7 +127,7 @@ function popup(){
 							<!-- Post Favourite -->
 							<div class="post-favourite">
 								<a href="#"><i class="fas fa-heart" aria-hidden="true"></i>
-									10</a>
+									${recipe.like_num}</a>
 							</div>
 							<!-- Post Comments -->
 							<div class="post-comments">
@@ -149,7 +152,7 @@ function popup(){
 							<div style="font-family: PapyrusB; font-size: 15pt;">
 
 								<div>
-									<span>완전 짱짱 맛있는 돼지구이 입니다 강추강추!</span><br /> <span>칼로리 :</span> <strong>310</strong>
+									<span>${recipe.content_intro}</span><br /> <span>칼로리 :</span> <strong>${recipe.kcal}</strong>
 									<span>kcal</span>
 								</div>
 							</div>
@@ -169,11 +172,13 @@ function popup(){
 							</ul>
 						</div>
 					</div>
+					
 					<input type="button" id="add" value="식단에 추가하기" onclick="popup()">
 					<hr class="d-sm-none">
 					
 				</div>
 			</div>
+			
 			
 			<div class="col-sm-8">
 			 <div class="single-post">
@@ -191,6 +196,11 @@ function popup(){
 					</ul>
 				</div>
 			</div>
+			</div>
+			
+			</div>
+			</c:forEach>
+			
 				
 				<!-- Related Post Area -->
 				<div class="related-post-area section_padding_50">
@@ -407,6 +417,7 @@ function popup(){
 				<br />
 			</div>
 			</div>
-			</div>
+			
+			
 </body>
 </html>

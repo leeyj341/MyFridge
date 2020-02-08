@@ -12,6 +12,9 @@
 	<definition name="level" extends="maeggiTemplate">
 		<put-attribute name="content" value="/WEB-INF/views/recipe/level_recipe.jsp"/>
 	</definition>
+<!-- 	<definition name="listall" extends="maeggiTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/recipe/search_recipe.jsp"/>
+	</definition> -->
 	<definition name="search" extends="maeggiTemplate">
 		<put-attribute name="content" value="/WEB-INF/views/recipe/search_recipe.jsp"/>
 	</definition>
@@ -24,7 +27,7 @@
 	<definition name="recipe_write" extends="maeggiTemplate">
 		<put-attribute name="content" value="/WEB-INF/views/recipe/recipe_write.jsp"/>
 	</definition>
-	<definition name="recipe/upload" extends="maeggiTemplate">
+<definition name="recipe/upload" extends="maeggiTemplate">
 		<put-attribute name="content" value="/WEB-INF/views/recipe/sample.jsp"/>
 	</definition>
 	

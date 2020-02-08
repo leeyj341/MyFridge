@@ -1,6 +1,9 @@
 package maeggi.seggi.recipe;
 
 import java.sql.Date;
+import java.util.ArrayList;
+
+import maeggi.seggi.ingredient.IngredientVO;
 
 public class RecipeVO {
 	private String recipe_id;
@@ -20,14 +23,22 @@ public class RecipeVO {
 	private int like_num;
 	private Date register_date;
 	private String member_id;
+	private ArrayList<RecipeDetailVO> recipe_detail;
+	private ArrayList<IngredientVO> ig_detail;
 	
+	
+	//private ArrayList<HistoryVO> historys;
 	public RecipeVO() {
 		
 	}
 
+	
+	
+	
 	public RecipeVO(String recipe_id, String name, String content_intro, String recipe_code, String recipe_category,
 			int cook_time, int kcal, int amount_per_person, String cook_level, String ing_category, int price,
-			String img_url_main, String img_url_sub, int hit, int like_num, Date register_date, String member_id) {
+			String img_url_main, String img_url_sub, int hit, int like_num, Date register_date, String member_id,
+			ArrayList<RecipeDetailVO> recipe_detail, ArrayList<IngredientVO> ig_detail) {
 		super();
 		this.recipe_id = recipe_id;
 		this.name = name;
@@ -46,7 +57,12 @@ public class RecipeVO {
 		this.like_num = like_num;
 		this.register_date = register_date;
 		this.member_id = member_id;
+		this.recipe_detail = recipe_detail;
+		this.ig_detail = ig_detail;
 	}
+
+
+
 
 	@Override
 	public String toString() {
@@ -57,6 +73,34 @@ public class RecipeVO {
 				+ ", img_url_sub=" + img_url_sub + ", hit=" + hit + ", like_num=" + like_num + ", register_date="
 				+ register_date + ", member_id=" + member_id + "]";
 	}
+	
+	public ArrayList<RecipeDetailVO> getRecipe_detail() {
+		return recipe_detail;
+	}
+
+
+
+
+	public void setRecipe_detail(ArrayList<RecipeDetailVO> recipe_detail) {
+		this.recipe_detail = recipe_detail;
+	}
+
+
+
+
+	public ArrayList<IngredientVO> getIg_detail() {
+		return ig_detail;
+	}
+
+
+
+
+	public void setIg_detail(ArrayList<IngredientVO> ig_detail) {
+		this.ig_detail = ig_detail;
+	}
+
+
+
 
 	public String getRecipe_id() {
 		return recipe_id;
@@ -193,6 +237,8 @@ public class RecipeVO {
 	public void setMember_id(String member_id) {
 		this.member_id = member_id;
 	}
+
+	
 	
 	
 }
