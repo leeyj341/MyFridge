@@ -14,7 +14,7 @@
 	
 	<insert id="insert" parameterType="board">
 		insert into ask_board
-		values(ask_board_seq.nextval,'seong',
+		values(ask_board_seq.nextval,#{member_id},
 		#{ask_title},#{ask_content},sysdate)
 
 	</insert>

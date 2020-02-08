@@ -55,9 +55,6 @@
 		
 		location.href = "/board/list";
 	}) */
-})
- */
-
 
 
 	
@@ -128,7 +125,7 @@
 
 
 	<!-- ****** Breadcumb Area Start ****** -->
-	<div>
+
 		<div class="breadcumb-area"
 			style="background-image: url(img/bg-img/breadcumb.jpg);">
 			<div class="container h-100">
@@ -142,7 +139,6 @@
 			</div>
 		</div>
 
-		<div class="breadcumb-nav">
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
