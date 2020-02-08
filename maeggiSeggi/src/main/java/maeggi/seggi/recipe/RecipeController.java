@@ -2,6 +2,9 @@ package maeggi.seggi.recipe;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,10 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import maeggi.seggi.mypage.BoardVO;
-
 @Controller
 public class RecipeController {
+	
 	@Autowired
 	RecipeService service;
 	@RequestMapping("/recipe/main.do")
@@ -28,27 +30,45 @@ public class RecipeController {
 	public String level() {
 		return "level";
 	}
-/*	@RequestMapping("/recipe/searchRecipe.do")
-	public String search() {
+/*	@RequestMapping(value = "/recipe/searchRecipe.do",method=RequestMethod.GET)
+	public String search(String search) {
 		return "search";
-	}*/
-	@RequestMapping(value = "/recipe/searchRecipe.do")
-	public ModelAndView search(String tag, String search) {
-		ModelAndView mav = new ModelAndView();
-		List<RecipeVO> list = service.searchList(tag, search);
-		mav.addObject("recipeList", list);
-		mav.setViewName("search");
-		return mav;
 
-	}
+	}*/
 	@RequestMapping("/recipe/detailRecipe.do")
-	public String detail() {
-		return "detail";
+	public ModelAndView detail(HttpServletRequest req) {
+		ModelAndView mav = new ModelAndView();
+		System.out.println("====================================================================================");
+		String recipe_id = req.getParameter("id");
+		List<Map<String, String>> detail = service.detail(recipe_id);
+		mav.addObject("detail",detail);
+		mav.setViewName("detail");
+		return mav;
 	}
 	@RequestMapping("/recipe/addPlanner.do")
 	public String add() {
 		return "add";
 	}
+	@RequestMapping("/recipe/searchRecipe.do")
+	public ModelAndView recipeList() {
+		ModelAndView mav = new ModelAndView();
+		List<RecipeVO> list = service.listall();
+		mav.addObject("list",list);
+		mav.setViewName("search");
+		return mav;
+	}
+/*	@RequestMapping(value="/recipe/searchRecipe.do")
+	public ModelAndView searchList(String search) {
+		ModelAndView mav = new ModelAndView();
+		List<RecipeVO> recipeList = service.searchList(search);
+		mav.addObject("recipeList",recipeList);
+		mav.setViewName("search");
+		return mav;
+	}*/
+/*	삭제 
+	public String delete(RecipeVO recipe) {
+		return "redirect:/recipe/list.do";
+	}*/
 	// 레시피을 작성하기 위한 뷰를 response할 메소드
 	@RequestMapping(value="/recipe/recipe_write.do",method=RequestMethod.GET)
 	public String write() {
@@ -58,28 +78,15 @@ public class RecipeController {
 	@RequestMapping(value="/recipe/recipe_write.do",method=RequestMethod.POST)
 	public String insert(RecipeVO recipe) {
 		System.out.println("***"+recipe);
-		int result = service.insert(recipe);
-		System.out.println("###"+result);
-		return "sample";
+		service.insert(recipe);
+		return "redirect:/recipe/searchRecipe.do";
 	}
-/*	@RequestMapping("/recipe/searchRecipe.do")
-	public ModelAndView recipeList(String category) {
-		System.out.println("category=>"+category);
-		ModelAndView mav = new ModelAndView();
-		List<RecipeVO> list = service.recipeList(category);
-		System.out.println(list);
-		mav.addObject("recipeList",list);
-		mav.addObject("category",category);
-		mav.setViewName("search");
-		
-		return mav;
-		
-	}*/
-	@RequestMapping(value="/recipe/ajax_searchRecipe.do",method=RequestMethod.GET,
-			produces="application/json;charset=utf-8")	//ajax로 통신하면서 클라이언트에게 명시해줄 데이터를 produces에 붙인다.
-			public @ResponseBody ArrayList<RecipeVO> categoryList(String category) {
-			ArrayList<RecipeVO> recipeList = (ArrayList<RecipeVO>)service.recipeList(category);
-			System.out.println("ajax 통신"+recipeList.size());
-			return recipeList;
-			}
+
+	@RequestMapping(value="/recipe/ajax_searchRecipe.do",method=RequestMethod.GET,produces="application/json;charset=utf-8")	
+	//ajax로 통신하면서 클라이언트에게 명시해줄 데이터를 produces에 붙인다.
+	public @ResponseBody ArrayList<RecipeVO> categoryList(String category) {
+		ArrayList<RecipeVO> recipeList = (ArrayList<RecipeVO>)service.recipeList(category);
+		System.out.println("ajax 통신"+recipeList.size());
+		return recipeList;
+	}
 }

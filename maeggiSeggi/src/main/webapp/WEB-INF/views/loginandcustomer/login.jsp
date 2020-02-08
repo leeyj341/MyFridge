@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
-
 <!DOCTYPE html>
+<%@ page import="java.net.URLEncoder" %>
+<%@ page import="java.security.SecureRandom" %>
+<%@ page import="java.math.BigInteger" %>
 <html>
 
 <head>
@@ -31,13 +33,23 @@
 <link href="/maeggiSeggi/common/css/responsive/responsive.css"
 	rel="stylesheet">
 
-<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
 
 </head>
 
 <body>
-
-
+<%-- 	<%
+    String clientId = "UZclW6QXimKCZ91kF1ie";//애플리케이션 클라이언트 아이디값";
+    String redirectURI = URLEncoder.encode("http://localhost:8088/maeggiSeggi/callback", "UTF-8");
+    SecureRandom random = new SecureRandom();
+    String state = new BigInteger(130, random).toString();
+    String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
+    apiURL += "&client_id=" + clientId;
+    apiURL += "&redirect_uri=" + redirectURI;
+    apiURL += "&state=" + state;
+    session.setAttribute("state", state);
+ %> --%>
+ 
 	<div class="container">
 
 		<!-- 여기부터  로그인 컨텐츠-->
@@ -51,15 +63,13 @@
 						<ul id="input_button">
 							<li id="id_pass">
 								<ul>
-									<li class="logintext" id="member_id"><div
-											class="logintext_div">
-											<input type="text" class="input_logintext" placeholder=' 아이디'
-												name="member_id">
+									<li class="logintext" id="member_id"><div class="logintext_div">
+											<input type="text" class="input_logintext" placeholder=' 아이디' name ="member_id" >
 										</div></li>
 									<!-- id -->
 									<li class="logintext" id="pass"><div class="logintext_div">
-											<input type="password" class="input_logintext" name="pass"
-												placeholder=' 비밀번호'>
+											<input type="password" class="input_logintext" name ="pass"
+												placeholder=' 비밀번호' >
 										</div></li>
 									<!-- pass -->
 								</ul>
@@ -75,11 +85,11 @@
 					</div>
 					<!-- login_box -->
 					<div id="notmember_box">비회원으로 이용하기</div>
-
 					<div id="socialLogin_box">
 						소셜 로그인
 						<div id="socialList">
 							<ul>
+								
 								<li>
 									<div class="text-center">
 										<a href="${naver_url}"><img width="300" alt="Naver Login"
@@ -108,14 +118,14 @@
 									</script></li>
 
 
+								<li><input type="button" class="socialbutton" id="social2"
+									value="KAKAO로 로그인"></li>
 
 								<li><input type="button" class="socialbutton" id="social3"
 									value="Google로 로그인"></li>
 							</ul>
 						</div>
 					</div>
-
-
 				</form>
 			</div>
 

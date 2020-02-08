@@ -16,10 +16,15 @@
     <!-- CSS -->
     <link href="/maeggiSeggi/common/css/refrigerator.css" rel="stylesheet">
     <link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
+    <link rel="stylesheet" href="/maeggiSeggi/common/css/wow-alert.css">
+    
     
     <!-- JS -->
+    <script src="/maeggiSeggi/common/js/wow-alert.js"></script>
+    <script src="/maeggiSeggi/common/js/fridge.js"></script>
     <script type="text/javascript">
 	    $(document).ready(function() {
+	    	var list;
 	    	var memId = '<%= session.getAttribute("id") %>';
 	    	$.ajax({
 	    		url:"/maeggiSeggi/refrigerator/ajax_fridge.do",
@@ -37,23 +42,6 @@
 	    				}
 	    			}
 	    		}
-	    	});
-	    	
-	    	$(".fridge-btn").each(function() {
-	    		$(this).on("mouseover", function() {
-	    			if($(this).children("p").text() == "레시피") {
-	    				$(this).children("p").text("추천")
-	    			} else if($(this).children("p").text() == "냉장고") {
-	    				$(this).children("p").text("관리")
-	    			}
-	    		});
-	    		$(this).on("mouseout", function() {
-	    			if($(this).children("p").text() == "추천") {
-	    				$(this).children("p").text("레시피")
-	    			} else if($(this).children("p").text() == "관리") {
-	    				$(this).children("p").text("냉장고")
-	    			}
-	    		})
 	    	});
 	    });
     </script>
@@ -245,6 +233,10 @@
 						</li>
 					</ul>
 				</form>
+				<div id="input_search">
+					<input type="text" placeholder="재료명을 입력하세요.">
+					<a><i class="fa fa-search fa-2x" aria-hidden="true"></i></a>
+				</div>
 			</div>
 			<!-- ****** Ingredient Select Area End ****** -->
 

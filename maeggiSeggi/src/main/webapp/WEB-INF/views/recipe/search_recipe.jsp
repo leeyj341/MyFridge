@@ -1,5 +1,6 @@
 <%@page import="maeggi.seggi.recipe.RecipeVO"%>
 <%@page import="java.util.ArrayList"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -26,61 +27,8 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
-<style type="text/css">
-img {
-	width: 270px;
-	height: 250px;
-	object-fit: cover;
-}
+<link href="/maeggiSeggi/common/css/recipe_search.css" rel="stylesheet">
 
-h4 {
-	margin-left: 200px;
-	font-family: PapyrusM;
-	font-size: 30pt;
-	text-align: justify;
-	float: left;
-}
-
-#more {
-	width: 50px;
-	background-color: #f8585b;
-	border: none;
-	color: #fff;
-	/* padding: 10px 0; */
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 25px;
-	margin: 4px;
-	cursor: pointer;
-	float: right;
-	border-radius: 10px;
-}
-
-#underline {
-	color: red;
-}
-
-li {
-	display: inline;
-	font-size: 25px;
-}
-
-.checkbox-group {
-	font-size: 20pt;
-	float: left;
-}
-
-.single-post {
-	display: inline-block;
-}
-
-.single-post-line {
-	overflow-y: auto;
-	width: 100%;
-	max-width: 100%;
-}
-</style>
 </head>
 <body>
 	<div class="breadcumb-nav">
@@ -100,7 +48,6 @@ li {
 			</div>
 		</div>
 	</div>
-	<% ArrayList<RecipeVO> list = (ArrayList<RecipeVO>)request.getAttribute("recipeList"); %>
 	<br />
 	<div class="container" style="margin-top: 30px; font-family: PapyrusM;">
 		<div class="row">
@@ -109,15 +56,23 @@ li {
 				<form action="recipeSearch" method="get">
 					<div class="form-group">
 						<div class="input-group">
-						
-							<input type="text" name="search" class="form-control"
-								placeholder="매생이국"
+							<input type="text" name="recipe_search" class="form-control"
+								placeholder="검색어를 입력하세요."
 								style="font-size: 20pt;">
-							<div class="input-group-btn">
-								<input type="button" id="more" name="read" value="조회"> <i
-									class="ion-search"></i>
-							</div>
+							
+								<button id="search" name="read" value="검색">검색 <i
+									class="ion-search"></i></button>
+							
 						</div>
+<!-- 						<div class="input-group">
+							<input type="text" name="recipe_search" class="form-control"
+								placeholder="종류를 입력하세요 ex) 반찬 , 찌개"
+								style="font-size: 20pt;">
+							
+								<button id="next" name="read" value="검색"> 검색<i
+									class="ion-search"></i></button>
+							
+						</div> -->
 					</div>
 				</form>
 				<ul>
@@ -127,12 +82,12 @@ li {
 					<li><a href="#">Views</a></li>
 				</ul>
 
-				<div class="container">
-					<form class="checkbox-group">
+				<div class="optionbox">
+					<form class="checkbox-group" active="" >
 						<div id="check">
-						<div id="title">나라별</div>
+						<div id="title">테마별</div>
 						<div class="form-group">
-							<label><input type="radio" name="category" value="all" checked>All Countries</label>
+							<label><input type="radio" name="category" id="checkVal" value="all" checked>All</label>
 						</div>
 						<div class="form-group">
 							<label><input type="radio" name="category" value="한식">한식</label>
@@ -153,39 +108,14 @@ li {
 							<label><input type="radio" name="category" value="일본">
 								일본</label></div>
 							</div>	
-						
-						
 						<br>
-						<div id="title">종류별</div>
-						<div class="form-group">
-							<label><input type="checkbox" name="sort" checked>All
-								Categories</label>
-						</div>
-						<div class="form-group">
-							<label><input type="checkbox" name="sort">메인반찬</label>
-						</div>
-						<div class="form-group">
-							<label><input type="checkbox" name="sort">피자/디저트</label>
-						</div>
-						<div class="form-group">
-							<label><input type="checkbox" name="sort">찜/찌개/전골/국</label>
-						</div>
-						<div class="form-group">
-							<label><input type="checkbox" name="sort">밥</label>
-						</div>
-						<div class="form-group">
-							<label><input type="checkbox" name="sort">만두/면류</label>
-						</div>
-						<div class="form-group">
-							<label><input type="checkbox" name="sort">나물/생채/샐러드</label>
-						</div>
 					</form>
-				</div>
-
+				
+			</div>
 				<hr class="d-sm-none">
 			</div>
 			<div class="col-sm-8">
-				<div style="font-size: 20pt; float: right;">
+				<div style="font-size: 20pt; float:left;width=100%">
 					<div class="nav-tabs-right">
 						<select class="form-control">
 							<option>Limit</option>
@@ -196,217 +126,112 @@ li {
 						</select>
 					</div>
 					<div class="search-result">
-						<span id="underline">매생이국</span> 으로 조회된 결과는 5,200 개 입니다.
+						<span id="underline">김치</span>로 조회된 결과는 52 개 입니다.
 					</div>
-				</div>
-				<div class="single-post-line">
-					<div class="single-post">
-						<!-- Post Thumb -->
+					<span id="content" >
+       				 <c:forEach var="recipe" items="${list}">
+       				 <div class="single-post">
 						<div class="post-thumb">
-							<a href="/maeggiSeggi/recipe/detailRecipe.do"><img
-								src="/maeggiSeggi/images/jjigae.jpg" alt="" /></a>
+							<a href="/maeggiSeggi/recipe/detailRecipe.do?id=${recipe.recipe_id} ">
+								<img src="${recipe.img_url_main}"/>
+						    </a>
 						</div>
-						<!-- Post Content -->
+					</div>
 						<div class="post-content">
 							<div class="post-meta d-flex">
-								<div class="post-author-date-area d-flex">
-									<!-- Post Author -->
-									<div class="post-author">
-										<a href="#">By Marian</a>
-									</div>
-									<!-- Post Date -->
-									<div class="post-date">
-										<a href="#">May 19, 2017</a>
-									</div>
-								</div>
-							</div>
-							<a href="/maeggiSeggi/recipe/detailRecipe.do">
-								<h6>The Top Breakfast And Brunch Spots In Hove</h6>
-							</a>
-						</div>
-					</div>
-
-
-					<!-- Single Related Post-->
-					<div class="single-post">
-						<!-- Post Thumb -->
-						<div class="post-thumb">
-							<a href="/maeggiSeggi/recipe/detailRecipe.do"><img
-								src="/maeggiSeggi/images/pork2.PNG" alt="" /></a>
-						</div>
-						<!-- Post Content -->
-						<div class="post-content">
-							<div class="post-meta d-flex">
-								<div class="post-author-date-area d-flex">
-									<!-- Post Author -->
-									<div class="post-author">
-										<a href="#">By Marian</a>
-									</div>
-									<!-- Post Date -->
-									<div class="post-date">
-										<a href="#">May 19, 2017</a>
-									</div>
-								</div>
-							</div>
-							<a href="/maeggiSeggi/recipe/detailRecipe.do">
-								<h6>The Top Breakfast And Brunch Spots In Hove</h6>
-							</a>
-						</div>
-					</div>
+								<a hef="/maeggiSeggi/recipe/detailRecipe.do">
+	                       				<h6 style="font-family:nanumSquare_acEB;font:arial;">${recipe.name}</h6><br/>
+	                       		</a>
+					               <div class="post-author-date-area d-flex">
+					               		<div class="post-author">
+  	                       					<a href='#'>${recipe.member_id}</a>
+  	                       				</div>
+  	                       					<div class="post-date" >
+  	                       						<a href='#'>${recipe.register_date}</a>
+  	                       					</div>
+  	                       				</div>
+  	                       			</div>
+  	                       			</div>
+					
+							 </c:forEach>
+					</span>	
 				</div>
-				<!-- Single Related Post-->
-				<div class="single-post">
-					<!-- Post Thumb -->
-					<div class="post-thumb">
-						<a href="/maeggiSeggi/recipe/detailRecipe.do"><img
-							src="/maeggiSeggi/images/sandwitch.jpg" alt="" /></a>
-					</div>
-					<!-- Post Content -->
-					<div class="post-content">
-						<div class="post-meta d-flex">
-							<div class="post-author-date-area d-flex">
-								<!-- Post Author -->
-								<div class="post-author">
-									<a href="#">By Marian</a>
-								</div>
-								<!-- Post Date -->
-								<div class="post-date">
-									<a href="#">May 19, 2017</a>
-								</div>
-							</div>
-						</div>
-						<a href="/maeggiSeggi/recipe/detailRecipe.do">
-							<h6>The Top Breakfast And Brunch Spots In Hove</h6>
-						</a>
-					</div>
 				</div>
-				<!-- Single Related Post-->
-				<div class="single-post">
-					<!-- Post Thumb -->
-					<div class="post-thumb">
-						<a href="/maeggiSeggi/recipe/detailRecipe.do"><img
-							src="/maeggiSeggi/images/1.jpg" alt="" /></a>
-					</div>
-					<!-- Post Content -->
-					<div class="post-content">
-						<div class="post-meta d-flex">
-							<div class="post-author-date-area d-flex">
-								<!-- Post Author -->
-								<div class="post-author">
-									<a href="#">By Marian</a>
-								</div>
-								<!-- Post Date -->
-								<div class="post-date">
-									<a href="#">May 19, 2017</a>
-								</div>
-							</div>
-						</div>
-						<a href="/maeggiSeggi/recipe/detailRecipe.do">
-							<h6>The Top Breakfast And Brunch Spots In Hove</h6>
-						</a>
-					</div>
 				</div>
-				<div class="single-post">
-					<!-- Post Thumb -->
-					<div class="post-thumb">
-						<a href="/maeggiSeggi/recipe/detailRecipe.do"><img
-							src="/maeggiSeggi/images/2.jpg" alt="" /></a>
-					</div>
-					<!-- Post Content -->
-					<div class="post-content">
-						<div class="post-meta d-flex">
-							<div class="post-author-date-area d-flex">
-								<!-- Post Author -->
-								<div class="post-author">
-									<a href="#">By Marian</a>
-								</div>
-								<!-- Post Date -->
-								<div class="post-date">
-									<a href="#">May 19, 2017</a>
-								</div>
-							</div>
-						</div>
-						<a href="/maeggiSeggi/recipe/detailRecipe.do">
-							<h6>The Top Breakfast And Brunch Spots In Hove</h6>
-						</a>
-					</div>
-				</div>
-				<div class="single-post">
-					<!-- Post Thumb -->
-					<div class="post-thumb">
-						<a href="/maeggiSeggi/recipe/detailRecipe.do"><img
-							src="/maeggiSeggi/images/pork1.PNG" alt="" /></a>
-					</div>
-					<!-- Post Content -->
-					<div class="post-content">
-						<div class="post-meta d-flex">
-							<div class="post-author-date-area d-flex">
-								<!-- Post Author -->
-								<div class="post-author">
-									<a href="#">By Marian</a>
-								</div>
-								<!-- Post Date -->
-								<div class="post-date">
-									<a href="#">May 19, 2017</a>
-								</div>
-							</div>
-						</div>
-						<a href="/maeggiSeggi/recipe/detailRecipe.do">
-							<h6>The Top Breakfast And Brunch Spots In Hove</h6>
-						</a>
-					</div>
-				</div>
-			</div>
+			<hr class="d-sm-none">
 		</div>
-	</div>
-	<div class="col-12">
 
-		<nav style="float: right; margin-right: 200px;">
-			<ul class="pagination">
-				<li class="page-item active"><a class="page-link" href="#">1
-						<span class="sr-only">(current)</span>
-				</a></li>
-				<li class="page-item"><a class="page-link" href="#">2</a></li>
-				<li class="page-item"><a class="page-link" href="#">3</a></li>
-				<li class="page-item"><a class="page-link" href="#">4</a></li>
-				<li class="page-item"><a class="page-link" href="#">Next <i
-						class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-			</ul>
-			<div class="page-status">
-				<p>Page 1 of 60 results</p>
-			</div>
-			<div id="test"></div>
-		</nav>
-
-	</div>
-	<script type="text/javascript">
-	category="${category}";
-	$(document).ready(function(){
-	  	$("#check>input").each(function() {
-	  		$(this).on("click",function(){
-	  			category = $(this).text();
-	  			$.ajax({
-	  				url:"/recipe/ajax_searchRecipe.do",
-	  				type:"get",
-	  				data:{
-	  					"category":category},
-	  					
-	  					success:function(data){
-	  						
-	  						mydata="";
-	  						
-	  						for(i=0;i<data.length;i++){
-	  						mydata=mydata+data[i].name;
-	  					}
-	  					$("#test").append(mydata);
-	  				}
-	  			})
-	  		})
 			
-		})	
+<script type="text/javascript">
+	var serviceType;
+
+	$(document).ready(function(){
 		
+		category="${category}";
+		
+		recipeId="";
+  		$("#check input").each(function() {
+  			$(this).on("click",function(){
+  			
+  				category = $(this).val();
+  				$.ajax({
+  					url:"/maeggiSeggi/recipe/ajax_searchRecipe.do",
+  					type:"get",
+  					data:{
+  						"category":category
+  						},
+  					success:function(data){
+  						mydata ="";
+  
+  						for (var i = 0; i < data.length; i++) {
+  							mydata +=
+  								"<div class='single-post'>" +
+												"<div class='post-thumb'>" +
+													"<a href='/maeggiSeggi/recipe/detailRecipe.do?id=" + data[i].recipe_id + "'>" +
+														"<img src='" + data[i].img_url_main + "'/>" +
+													"</a>" +
+												"</div>" +
+											"</div>"+
+									"<div class='post-content'>"+
+										"<div class='post-meta d-flex'>"+
+										"<a hef='/maeggiSeggi/recipe/detailRecipe.do'>"+
+	                       					"<h6 style='font-family: nanumSquare_acEB;font:arial;'>"+data[i].name+"</h6><br/>"+
+	                       				"</a>"+
+					                		"<div class='post-author-date-area d-flex'>"+
+					               				"<div class='post-author'>"+
+  	                       							"<a href='#'>"+data[i].member_id+"</a>"+
+  	                       						"</div>"+
+  	                       						"<div class='post-date' >"+
+  	                       							"<a href='#'>"+data[i].register_date+"</a>"+
+  	                       						"</div>"+
+  	                       					"</div>"+
+  	                       				"</div>";
+  	                       				
+  					              
+						}
+  						$("#content").empty();
+  						$("#content").append(mydata);
+  					}
+  				});
+  			});
+  		});
 	});
+<%-- 	category="${category}"; //컨트롤러 요청하고 response될 때 값을 받아서 셋팅
+	category="<%= request.getAttribute("category")%>";
+	$(document).ready(function() {
+		//최초실행인 경우, category값이 없으니 all로 셋팅 
+		if(category==""){
+			category="all";
+		}
+		$("#category").val(category).attr("selected","selected") //들어갔다가 나올 때 보여지고 실행되는 것.
+		$("#category").change(function(){ //누를 때 실행되는 것.
+			location.href="/erp/board/list.do?category="+encodeURI($(this).val());
+			//this.val()이 되돌아오면서 찍히도록 
+		});
+	}); --%>
 	
-	</script>
+</script>
+
+
 </body>
 </html>

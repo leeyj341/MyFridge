@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans:beans
-	xmlns="http://www.springframework.org/schema/mvc"
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
@@ -69,7 +68,8 @@
 	</beans:bean>
 	<!-- 3. mybatis의 핵심클래스를 등록 -->
 	<beans:bean id="sqlSession"
-		class="org.mybatis.spring.SqlSessionTemplate">
+		class="org.mybatis.spring.SqlSessionTemplate"
+		destroy-method="clearCache">
 		<beans:constructor-arg ref="sqlSessionFactory" />
 	</beans:bean>
 	<!-- =================================== mybatis 끝 ============================================= -->
@@ -80,6 +80,7 @@
 		<beans:property value="5000000" name="maxUploadSize" />
 		<beans:property value="UTF-8" name="defaultEncoding" />
 	</beans:bean>
+	
 	<context:component-scan
 		base-package="maeggi.seggi" />
 

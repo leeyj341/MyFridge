@@ -1,5 +1,5 @@
 package maeggi.seggi.recipe;
-
+//history 
 public class RecipeDetailVO {
 	private String recipe_id;            
     private int recipe_order_num;    

@@ -56,15 +56,17 @@
                 <div class="col-7 col-sm-6">
                     <div class="signup-search-area d-flex align-items-center justify-content-end">
                         <div class="login_register_area d-flex">
-                            <% if(loginuser==null){ %>
+                            <% if(loginuser == null){ %>
                             <div class="login">
                                 <a href="/maeggiSeggi/loginandcustomer/login.do" >sign in</a>
                             </div>
-                            <% }else{ %>
+                            <% } else { 
+                            	session.setAttribute("id", loginuser.getMember_id());
+                            %>
                             <div class="login">
                                 <a href="/maeggiSeggi/loginandcustomer/logout.do" >sign out</a>
                             </div>
-                            <%session.setAttribute("id", loginuser.getMember_id()); } %>
+                            <% } %>
                             <div class="register">
                                 <a href="/maeggiSeggi/loginandcustomer/join.do">sign up</a>
                             </div>
@@ -142,10 +144,10 @@
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MY PAGE</a>
                                     <div class="dropdown-menu" aria-labelledby="yummyDropdown">
                                     	<a class="dropdown-item" href="#"></a>
-                                        <a class="dropdown-item" href="/maeggiSeggi/mypage_main.do"><b>식단 관리</b></a>
-                                        <a class="dropdown-item" href="/maeggiSeggi/mypage/information_update.do"><b>회원 정보 조회</b></a>
-                                        <a class="dropdown-item" href="/maeggiSeggi/mypage/ask.do"><b>1:1 문의 사항</b></a>
-                                        <a class="dropdown-item" href="/maeggiSeggi//mypage/mypoint.do"><b>My Point</b></a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/board/main.do"><b>식단 관리</b></a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/board/information_update.do"><b>회원 정보 조회</b></a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/board/list.do"><b>1:1 문의 사항</b></a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/board/mypoint.do"><b>My Point</b></a>
                                     </div>
                                 </li>
                                 <li class="nav-item">

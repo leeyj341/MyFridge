@@ -4,19 +4,46 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="maeggi.seggi.recipe">
  	<select id="listall" resultType="recipe">
-  			select r.name,r.content_intro,r.register_date,m.name
-  			from recipe r,ingredients i,member m
+  			select *
+  			from recipe
+  	</select>
+  	<select id="categoryRecipe" resultType="recipe" parameterType="String">
+  			select *
+  			from recipe 
+  			where recipe_category = #{category}
   	</select>
  	<select id="recipeSearch" resultType="recipe" parameterType="String">
-  			select r.name,r.content_intro,r.register_date,m.name
-  			from recipe r,ingredients i,member m
-  			where	r.recipe_id=i.recipe_id	and r.member_id=m.member_id
-  			  		and name like '%' || #{name} || '%' or '%' || #{ingredient} || '%'
+  			select distinct r.recipe_id, r.name,r.content_intro,r.register_date,r.member_id,r.img_url_main
+  			from recipe r,ingredients i
+			where r.recipe_id=i.recipe_id	
+  			  		and (r.name like '%' || #{search} || '%' 
+  			  		or i.name like'%' || #{search} || '%')
   	</select>
   	<insert id="insert" parameterType="recipe">
   	insert into recipe values(#{recipe_id},#{name},#{content_intro},#{recipe_code},#{recipe_category},#{cook_time},
 		#{kcal},#{amount_per_person},#{cook_level},#{ing_category},#{price},
 		#{img_url_main},#{img_url_sub},0,0,sysdate,#{member_id}
-		
   	</insert>
+  	<insert id="ig_insert" parameterType="recipe">
+  	insert into recipeDetail values(#{recipe_id},#{recipe_order_num},#{recipe_describe},#{img_url},#{tip})
+  	</insert>
+  	<update id="updatehit" parameterType="String">
+		update recipe
+		set hit = hit +1
+		where recipe_id=#{recipe_id}
+	</update>
+	<select id="detail" parameterType="String" resultType="Map">
+		select r.*, d.*
+		from recipe r,recipe_detail d
+		where r.recipe_id=d.recipe_id and r.recipe_id=#{recipe_id}
+        order by d.recipe_order_num
+	</select>
+	
+	<resultMap type="Map" id="detailMap">
+		<!-- <result column="recipe_id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="recipe_order_num" property="order"/>
+		<result column="recipe_describe" property="content"/> -->
+	</resultMap>
+	
  </mapper> 

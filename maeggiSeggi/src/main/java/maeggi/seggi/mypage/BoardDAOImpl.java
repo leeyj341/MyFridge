@@ -22,18 +22,50 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public BoardVO read(String board_no) {
-		return sqlSession.selectOne("maeggi.seggi.mypage.read", board_no);
+	public BoardVO read(int askno) {
+		return sqlSession.selectOne("maeggi.seggi.mypage.read", askno);
 	}
 
 	@Override
 	public int update(BoardVO board) {
 		return sqlSession.update("maeggi.seggi.mypage.update", board);
 	}
+	
+	/*//답변형 게시판
+	@Override
+	public BoardVO update_board(BoardVO board) {
+		return sqlSession.update(statement, parameter)
+	}*/
+	
+	@Override
+	public void delete(int askno) {
+		sqlSession.delete("maeggi.seggi.mypage.delete",askno);
+		System.out.println("==================================================daoimpl의 askno"+askno);
+	}
+
+	//============================= 답변형 게시판 ===========================
+	@Override
+	public void reply(BoardVO board) {
+		//transaction처리
+		//update
+		sqlSession.update("maeggi.seggi.mypage.updateGrpord_board", board);
+		//insert
+		sqlSession.insert("maeggi.seggi.mypage.reply", board);
+		
+		
+	}
+	//댓글 전체 목록
+	@Override
+	public List<BoardVO> list_reply() {
+		return sqlSession.selectList("maeggi.seggi.mypage.list_reply");
+	}
 
 	@Override
-	public int delete(String board_no) {
-		return sqlSession.delete("maeggi.seggi.mypage.update",board_no);
+	public BoardVO updatelist(BoardVO board) {
+		return sqlSession.selectOne("maeggi.seggi.mypage.updatelist", board);
 	}
+
+	
+
 
 }
