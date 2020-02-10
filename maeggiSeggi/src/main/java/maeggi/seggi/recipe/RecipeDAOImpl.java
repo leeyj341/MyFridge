@@ -2,6 +2,7 @@ package maeggi.seggi.recipe;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +67,10 @@ public class RecipeDAOImpl implements RecipeDAO {
 		return mapSearch;
 	}
 
+	@Override
+	public List<RecipeVO> levellist(String cook_level) {
+		return sqlSession.selectList("maeggi.seggi.recipe.levelRecipe", cook_level);
+	}
 
 
 

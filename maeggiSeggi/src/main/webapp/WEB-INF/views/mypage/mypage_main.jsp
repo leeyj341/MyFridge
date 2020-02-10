@@ -40,9 +40,9 @@
 		ArrayList<BoardVO> list = (ArrayList<BoardVO>) request.getAttribute("list");
 		memberVO loginuser = (memberVO) session.getAttribute("loginuser");
 	%>
-	<%
+	<%-- <%
 		if (session.getAttribute("id") != null) { //로그인 된 유저만 접근 가능
-	%>
+	%> --%>
 
 	<!-- ****** Breadcumb Area Start ****** -->
 	<div class="breadcumb-area"
@@ -170,7 +170,7 @@
 	<!-- mypage main area end -->
 	
 	<!-- 로그인 안 된 유저일 때 -->
-	<%
+	<%-- <%
 		} else {
 	%>
 
@@ -181,6 +181,6 @@
 	<%
 		}
 	%>
-
+ --%>
 
 </body>

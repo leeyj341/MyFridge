@@ -15,4 +15,5 @@ public interface RecipeDAO {
 	public List<HashMap<String, String>> detail(String recipe_id);
 	void insertdetail(RecipeDetailVO recipeDetailVO);
 	List<RecipeVO> readbyName(String name);
+	List<RecipeVO> levellist(String cook_level);
 }

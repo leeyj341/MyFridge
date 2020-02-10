@@ -1,3 +1,4 @@
+<%@page import="maeggi.seggi.loginandcustomer.memberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
@@ -19,6 +20,11 @@
     <link href="css/responsive/responsive.css" rel="stylesheet">
 </head>
 <body>
+<%
+		
+		memberVO loginuser = (memberVO) session.getAttribute("loginuser");
+	
+	%>
     <!-- ****** Breadcumb Area Start ****** -->
     <div class="breadcumb-area" style="background-image: url(img/bg-img/breadcumb.jpg);z-index: 0">
         <div class="container h-100">
@@ -56,7 +62,7 @@
             <div>
                 <div class="mypage_info_texts" style="width: 420px; margin-left: auto; margin-right: auto;">
                     <span>작성자</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input name="member_id" type="hidden" value="seong"/>
+                    <input name="member_id" type="hidden" value="<%=loginuser.getMember_id()%>"/>
                 </div>
                 <div style="width: 420px; margin-left: auto; margin-right: auto;">
                     <span>제목</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -5,7 +5,7 @@
 <!-- mapper가 너무 많으니까 namespace로 구분지어주기 -->
 <mapper namespace="maeggi.seggi.mypage">
 	<select id="listall" resultType="board">
-		select * from ask_board
+		select * from ask_board where member_id = #{member_id}
 	</select>
 	
 	<select id="updatelist" resultType="board">

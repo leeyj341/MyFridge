@@ -2,6 +2,7 @@ package maeggi.seggi.recipe;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -63,6 +64,12 @@ public class RecipeServiceImpl implements RecipeService {
 	@Override
 	public List<RecipeVO> readbyName(String name) {
 		return dao.readbyName(name);
+	}
+
+	@Override
+	public List<RecipeVO> levellist(String cook_level) {
+		List<RecipeVO> list = dao.levellist(cook_level);
+		return list;
 	}
 
 }
