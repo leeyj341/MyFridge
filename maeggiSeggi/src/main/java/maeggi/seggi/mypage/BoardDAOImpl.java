@@ -12,8 +12,8 @@ public class BoardDAOImpl implements BoardDAO {
 	SqlSession sqlSession;
 	
 	@Override
-	public List<BoardVO> listall() {
-		return sqlSession.selectList("maeggi.seggi.mypage.listall");
+	public List<BoardVO> listall(BoardVO board) {
+		return sqlSession.selectList("maeggi.seggi.mypage.listall",board);
 	}
 
 	@Override

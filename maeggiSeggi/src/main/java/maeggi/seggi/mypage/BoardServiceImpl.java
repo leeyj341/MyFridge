@@ -13,8 +13,8 @@ public class BoardServiceImpl implements BoardService {
 	BoardDAO dao;
 	
 	@Override
-	public List<BoardVO> listall() {
-		return dao.listall();
+	public List<BoardVO> listall(BoardVO board) {
+		return dao.listall(board);
 	}
 
 	@Override

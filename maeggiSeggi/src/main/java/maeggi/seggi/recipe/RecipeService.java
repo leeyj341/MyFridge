@@ -9,4 +9,6 @@ public interface RecipeService {
 	List<RecipeVO> searchList(String search);
 	List<RecipeVO> listall();
 	List<HashMap<String, String>> detail(String recipe_id);
+	List<RecipeVO> levellist(String cook_level);
+	List<RecipeVO> readbyName(String name);
 }

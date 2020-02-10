@@ -36,31 +36,24 @@ $(document).ready(function() {
 		node.setAttribute("name", "member_id");
 		node.setAttribute("value", memId);
 		$("#myform").append(node);
-		
-		/* checkboxValues = [];
-	    $("input[name='ingredient_id']:checked").each(function(i) {
-	        checkboxValues.push($(this).val());
-	    });
-	    
-	    selectValues = [];
-	    selectValues.push($("select[name=ig_amount]").val();
-	    
-	    allData = { "checkArray": checkboxValues, "selectArray": selectValues, "memId": memId }; */
-	    
-	    /* param = $('#myform').serializeArray(); */
 	    
 		$.ajax({
 			url:"/maeggiSeggi/restaurant/add.do",
 			type: "post",
 			traditional :true,
-			data:$("#myform").serializeArray() /* {arr : param} */,
+			data:$("#myform").serializeArray(),
 			success:function(data){
 				alert("데이터 넣기 성공");
+		//		$("#test").html("<h1>성공</h1>")
+				
 			}
 		});
-		
+		for (i = 0; i < 7; i++) {
+			if($('input:checkbox[name="addlist[+'+i+'+].ingredient_id"]').is(":checked") ==  true){
+				
+			}
+		}
 		$("#myform").children().last().remove();
-		/* } */
 	});
 })
 </script>
@@ -68,8 +61,8 @@ $(document).ready(function() {
 <body style="font-family: PapyrusB;">
 	<div class="row" style="margin-left: auto; margin-right: auto;">
 		<div class="col-sm-6"
-			style="background-color: lavender; margin-right: auto; padding: 0px">
-		<form id="myform" action="" method="post">
+			style="background-color: lavender; margin-right: auto; padding: 0px" id="test">
+		<form id="myform"  method="post">
 			<h4>나에게 없는 재료 체크하기</h4>
 			<fieldset style="text-align: center;">
 				<h4>재료확인</h4>
@@ -80,7 +73,6 @@ $(document).ready(function() {
 						<option value="2">2개</option>
 						<option value="3">3개</option>
 					</select>
-					<input type="hidden" name="addlist[0].member_id" value="<%= session.getAttribute("id") %>"">
 				<input type="checkbox" name="addlist[1].ingredient_id" value="195464">계란
 					<select name="addlist[1].ig_amount">
 						<option value="" disabled selected hidden>=== 선택 ===</option>
@@ -88,7 +80,6 @@ $(document).ready(function() {
 						<option value="2">2개</option>
 						<option value="3">3개</option>
 					</select>
-					<input type="hidden" name="addlist[1].member_id" value="<%= session.getAttribute("id") %>">
 				<input type="checkbox" name="addlist[2].ingredient_id" value="195463">오이
 					<select name="addlist[2].ig_amount">
 						<option value="" disabled selected hidden>=== 선택 ===</option>
@@ -96,7 +87,6 @@ $(document).ready(function() {
 						<option value="2">2개</option>
 						<option value="3">3개</option>
 					</select>
-					<input type="hidden" name="addlist[2].member_id" value="<%= session.getAttribute("id") %>">
 				<input type="checkbox" name="addlist[3].ingredient_id" value="195462">돼지고기
 					<select name="addlist[3].ig_unit">
 						<option value="" disabled selected hidden>=== 선택 ===</option>
@@ -104,7 +94,6 @@ $(document).ready(function() {
 						<option value="2">2근</option>
 						<option value="3">3근</option>
 					</select>
-					<input type="hidden" name="addlist[3].member_id" value="<%= session.getAttribute("id") %>"">
 				<input type="checkbox" name="addlist[4].ingredient_id" value="195461">치즈
 					<select name="addlist[4].ig_amount">
 						<option value="" disabled selected hidden>=== 선택 ===</option>
@@ -112,7 +101,6 @@ $(document).ready(function() {
 						<option value="2">2개</option>
 						<option value="3">3개</option>
 					</select>
-					<input type="hidden" name="addlist[4].member_id" value="<%= session.getAttribute("id") %>"">
 				<input type="checkbox" name="addlist[5].ingredient_id" value="195460">고추가루<br /> <br />
 					<select name="addlist[5].ig_unit">
 						<option value="" disabled selected hidden>=== 선택 ===</option>
@@ -120,45 +108,10 @@ $(document).ready(function() {
 						<option value="2">2통</option>
 						<option value="3">3통</option>
 					</select>
-					<input type="hidden" name="addlist[5].member_id" value="<%= session.getAttribute("id") %>"">
-				<br /> <br /> <button type="submit" id="submit">체크한 재료 모두 장바구니에 추가하기</button>
+				<br /> <br /> <button type="button" id="submit">체크한 재료 모두 장바구니에 추가하기</button>
 			</fieldset>
 			</form>
 		</div>
-				<script type="text/javascript">
-				<%-- $(document).ready(function() {
-					$("#submit").on("click",function(){
-						$("input[name=food]").each(function() {
-							if($(this).is(":checked") == true) {
-								var id_by_name = $('[value="양파"]').attr('id');
-								var id = $(this).attr("id");
-								var amount = $(this).children("select[name=ig_amount]").val();
-								var unit = $(this).children("select[name=ig_unit]").val();
-								var memId = "<%= session.getAttribute("id") %>"
-								var test = "<% RecipePlannerAddVO vo = new RecipePlannerAddVO(); %>";
-								return test;
-							}
-						});
-					});
-				}); --%>
-				<%-- ingredient_id = "${ingredient_id}";
-				ig_amount = "${ig_amount}";
-				ig_unit = "${ig_unit}";
-				member_id = "${member_id}";
-				$(document).ready(function() {
-					$("#submit").on("click",function(){
-						if($(this).is(":checked")) {
-							ingredient_id = $(this).attr("id");
-							ig_amount = $(this).children("select[name=ig_amount]").val();
-							ig_unit = $(this).children("select[name=ig_unit]").val();
-							member_id = "<%= session.getAttribute("id") %>";
-							test = "<% RecipePlannerAddVO vo = new RecipePlannerAddVO(%> ingredient_id, ig_amount, ig_unit, member_id<%); %>"
-							return test;
-						}
-					}
-				} --%>
-			</script>
-		
 		<div class="col-sm-5"
 			style="background-color: lavenderblush; height: 800px;">
 						<h4>주간 식단 추가</h4>
