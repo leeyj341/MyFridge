@@ -10,10 +10,10 @@ public class RecipeControllerT {
 	@Autowired
 	RestaurantService service;
 	@RequestMapping(value="/restaurant/add.do", method=RequestMethod.POST)
-	public String insert(RecipePlannerAddVO add) {
-		System.out.println(add);
-		int result = service.insert(add);
-		System.out.println("########################"+result);
+	public String insert(RecipePlannerAddTVO addlist) {
+		System.out.println(addlist);
+		/*int result = service.insert(add);
+		System.out.println("########################"+result);*/
 		return "redirect:/recipe/addPlanner.do";
 	}
 }

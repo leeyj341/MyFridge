@@ -31,7 +31,7 @@ $(document).ready(function() {
 		/* leng = $('input:checkbox[name="ingredient_id"]:checked').length
 		alert(leng)
 		for (i = 0; i < leng; i++) { */
-		memId = "test";<%-- <%= session.getAttribute("id") %> --%>
+		memId = "<%= session.getAttribute("id") %>";
 		node = document.createElement("Input");
 		node.setAttribute("name", "member_id");
 		node.setAttribute("value", memId);
@@ -73,48 +73,54 @@ $(document).ready(function() {
 			<h4>나에게 없는 재료 체크하기</h4>
 			<fieldset style="text-align: center;">
 				<h4>재료확인</h4>
-				<input type="checkbox" name="ingredient_id" value="195465">양파
-					<select name="ig_amount">
+				<input type="checkbox" name="addlist[0].ingredient_id" value="195465">양파
+					<select name="addlist[0].ig_amount">
 						<option value="" disabled selected hidden>=== 선택 ===</option>
 						<option value="1">1개</option>
 						<option value="2">2개</option>
 						<option value="3">3개</option>
 					</select>
-				<input type="checkbox" name="ingredient_id" value="195464">계란
-					<select name="ig_amount">
+					<input type="hidden" name="addlist[0].member_id" value="<%= session.getAttribute("id") %>"">
+				<input type="checkbox" name="addlist[1].ingredient_id" value="195464">계란
+					<select name="addlist[1].ig_amount">
 						<option value="" disabled selected hidden>=== 선택 ===</option>
 						<option value="1">1개</option>
 						<option value="2">2개</option>
 						<option value="3">3개</option>
 					</select>
-				<input type="checkbox" name="ingredient_id" value="195463">오이
-					<select name="ig_amount">
+					<input type="hidden" name="addlist[1].member_id" value="<%= session.getAttribute("id") %>">
+				<input type="checkbox" name="addlist[2].ingredient_id" value="195463">오이
+					<select name="addlist[2].ig_amount">
 						<option value="" disabled selected hidden>=== 선택 ===</option>
 						<option value="1">1개</option>
 						<option value="2">2개</option>
 						<option value="3">3개</option>
 					</select>
-				<input type="checkbox" name="ingredient_id" value="195462">돼지고기
-					<select name="ig_unit">
+					<input type="hidden" name="addlist[2].member_id" value="<%= session.getAttribute("id") %>">
+				<input type="checkbox" name="addlist[3].ingredient_id" value="195462">돼지고기
+					<select name="addlist[3].ig_unit">
 						<option value="" disabled selected hidden>=== 선택 ===</option>
 						<option value="1">1근</option>
 						<option value="2">2근</option>
 						<option value="3">3근</option>
 					</select>
-				<input type="checkbox" name="ingredient_id" value="195461">치즈
-					<select name="ig_amount">
+					<input type="hidden" name="addlist[3].member_id" value="<%= session.getAttribute("id") %>"">
+				<input type="checkbox" name="addlist[4].ingredient_id" value="195461">치즈
+					<select name="addlist[4].ig_amount">
 						<option value="" disabled selected hidden>=== 선택 ===</option>
 						<option value="1">1개</option>
 						<option value="2">2개</option>
 						<option value="3">3개</option>
 					</select>
-				<input type="checkbox" name="ingredient_id" value="195460">고추가루<br /> <br />
-					<select name="ig_unit">
+					<input type="hidden" name="addlist[4].member_id" value="<%= session.getAttribute("id") %>"">
+				<input type="checkbox" name="addlist[5].ingredient_id" value="195460">고추가루<br /> <br />
+					<select name="addlist[5].ig_unit">
 						<option value="" disabled selected hidden>=== 선택 ===</option>
 						<option value="1">1통</option>
 						<option value="2">2통</option>
 						<option value="3">3통</option>
 					</select>
+					<input type="hidden" name="addlist[5].member_id" value="<%= session.getAttribute("id") %>"">
 				<br /> <br /> <button type="submit" id="submit">체크한 재료 모두 장바구니에 추가하기</button>
 			</fieldset>
 			</form>
