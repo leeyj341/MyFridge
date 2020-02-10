@@ -2,7 +2,6 @@ package maeggi.seggi.recipe;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -58,6 +57,12 @@ public class RecipeServiceImpl implements RecipeService {
 		//조회수 업데이트
 		dao.updatehit(recipe_id);
 		return dao.detail(recipe_id);
+	}
+
+
+	@Override
+	public List<RecipeVO> readbyName(String name) {
+		return dao.readbyName(name);
 	}
 
 }

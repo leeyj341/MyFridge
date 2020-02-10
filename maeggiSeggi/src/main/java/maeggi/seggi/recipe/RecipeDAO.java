@@ -14,4 +14,5 @@ public interface RecipeDAO {
 	public int updatehit(String recipe_id);
 	public List<HashMap<String, String>> detail(String recipe_id);
 	void insertdetail(RecipeDetailVO recipeDetailVO);
+	List<RecipeVO> readbyName(String name);
 }

@@ -2,7 +2,6 @@ package maeggi.seggi.recipe;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +57,13 @@ public class RecipeDAOImpl implements RecipeDAO {
 	public List<HashMap<String, String>> detail(String recipe_id) {
 		List<HashMap<String, String>> list = sqlSession.selectList("maeggi.seggi.recipe.detail",recipe_id);
 		return list;
+	}
+
+	@Override
+	public List<RecipeVO> readbyName(String name) {
+		List<RecipeVO> mapSearch = sqlSession.selectList("maeggi.seggi.recipe.recipeSearch",name);
+		
+		return mapSearch;
 	}
 
 

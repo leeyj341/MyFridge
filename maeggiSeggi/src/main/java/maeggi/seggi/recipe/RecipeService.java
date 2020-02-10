@@ -9,4 +9,5 @@ public interface RecipeService {
 	List<RecipeVO> searchList(String search);
 	List<RecipeVO> listall();
 	List<HashMap<String, String>> detail(String recipe_id);
+	List<RecipeVO> readbyName(String name);
 }
