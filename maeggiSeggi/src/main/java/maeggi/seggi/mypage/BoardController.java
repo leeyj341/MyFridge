@@ -23,7 +23,6 @@ public class BoardController {
 
 	@RequestMapping("/board/list.do")
 	public ModelAndView listall() {
-
 		ModelAndView mav = new ModelAndView();
 		List<BoardVO> list = service.listall();
 		System.out.println(list);
@@ -86,6 +85,34 @@ public class BoardController {
 		return "redirect:/board/list.do";
 
 	}
+	
+	
+	@RequestMapping("/board/information_update.do")
+	public String information_update() {
+		return "mypage/information/update";
+	}
+	
+	@RequestMapping("/board/main.do")
+	public String mypage_main() {
+		return "mypage/main";
+	}
+	
+	@RequestMapping("/board/mypoint.do")
+	public String mypage_mypoint() {
+		return "mypage/mypoint";
+	}
+	
+	@RequestMapping("/board/recipe_favorite.do")
+	public String mypage_recipefavorite() {
+		return "mypage/recipe_favorite";
+	}
+	
+	
+	
+	
+	
+	
+	
 	/*
 	 * //======================= 답변형 게시판 =========================// //댓글 전체보기
 	 * 

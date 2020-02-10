@@ -55,6 +55,9 @@
 		location.href = "/board/list";
 	}) */
 
+
+
+
 	
 	function hideDiv(id){ //수정, 댓글 작성화면을 가진 DIV들을 숨기는 함수.
 	    var div = document.getElementById(id);

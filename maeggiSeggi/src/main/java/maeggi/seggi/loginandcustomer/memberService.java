@@ -10,8 +10,7 @@ public interface memberService {
 	ArrayList<memberVO> getMemberList();
 	int delete(String id);
 	memberVO read(String id);
-	ArrayList<memberVO> search(String column, String search
-					,String pass);
+	ArrayList<memberVO> search(String column, String search, String pass);
 	int update(memberVO user);
 	memberVO login(memberVO loginUser);
 }

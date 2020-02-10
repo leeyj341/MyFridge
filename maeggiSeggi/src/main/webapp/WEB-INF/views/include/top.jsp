@@ -20,7 +20,7 @@
     <link href="/maeggiSeggi/common/css/responsive/responsive.css" rel="stylesheet">
     
     <!-- Jquery-2.2.4 js -->
-    <script src="/maeggiSeggi/common/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <!-- Popper js -->
     <script src="/maeggiSeggi/common/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap-4 js -->
@@ -29,10 +29,12 @@
     <script src="/maeggiSeggi/common/js/others/plugins.js"></script>
     <!-- Active JS -->
     <script src="/maeggiSeggi/common/js/active.js"></script>
+    
 </head>
 <body>
 	<% 
-		memberVO loginuser = (memberVO)session.getAttribute("loginuser"); 
+		memberVO loginuser = (memberVO)session.getAttribute("loginuser");
+		
 	%>
 	<!-- Preloader Start -->
 	<div id="preloader">
@@ -61,9 +63,10 @@
                                 <a href="/maeggiSeggi/loginandcustomer/login.do" >sign in</a>
                             </div>
                             <% } else { 
+                            	session.setAttribute("member", loginuser);
                             	session.setAttribute("id", loginuser.getMember_id());
                             %>
-                            <div class="login">
+                            <div class="login"><span><%= session.getAttribute("id") %>님 환영합니다.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
                                 <a href="/maeggiSeggi/loginandcustomer/logout.do" >sign out</a>
                             </div>
                             <% } %>
@@ -144,10 +147,10 @@
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MY PAGE</a>
                                     <div class="dropdown-menu" aria-labelledby="yummyDropdown">
                                     	<a class="dropdown-item" href="#"></a>
-                                        <a class="dropdown-item" href="/maeggiSeggi/mypage_main.do"><b>식단 관리</b></a>
-                                        <a class="dropdown-item" href="/maeggiSeggi/mypage/information_update.do"><b>회원 정보 조회</b></a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/board/main.do"><b>식단 관리</b></a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/board/information_update.do"><b>회원 정보 조회</b></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/board/list.do"><b>1:1 문의 사항</b></a>
-                                        <a class="dropdown-item" href="/maeggiSeggi//mypage/mypoint.do"><b>My Point</b></a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/board/mypoint.do"><b>My Point</b></a>
                                     </div>
                                 </li>
                                 <li class="nav-item">
