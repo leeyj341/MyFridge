@@ -48,9 +48,9 @@ public class memberDAOImpl implements memberDAO {
 
 	@Override
 	public int update(memberVO user) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update("maeggi.seggi.loginandcustomer.update", user);
 	}
+
 
 	@Override
 	public memberVO login(memberVO loginUser) {
@@ -71,7 +71,6 @@ public class memberDAOImpl implements memberDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 	
 
 }

@@ -32,7 +32,8 @@
 </head>
 <body>
 	<% 
-		memberVO loginuser = (memberVO)session.getAttribute("loginuser"); 
+		memberVO loginuser = (memberVO)session.getAttribute("loginuser");
+		
 	%>
 	<!-- Preloader Start -->
 	<div id="preloader">
@@ -61,9 +62,10 @@
                                 <a href="/maeggiSeggi/loginandcustomer/login.do" >sign in</a>
                             </div>
                             <% } else { 
+                            	session.setAttribute("member", loginuser);
                             	session.setAttribute("id", loginuser.getMember_id());
                             %>
-                            <div class="login">
+                            <div class="login"><span><%= session.getAttribute("id") %>님 환영합니다.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
                                 <a href="/maeggiSeggi/loginandcustomer/logout.do" >sign out</a>
                             </div>
                             <% } %>
