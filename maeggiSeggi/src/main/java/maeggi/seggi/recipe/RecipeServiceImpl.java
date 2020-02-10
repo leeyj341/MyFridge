@@ -60,4 +60,16 @@ public class RecipeServiceImpl implements RecipeService {
 		return dao.detail(recipe_id);
 	}
 
+
+	@Override
+	public List<RecipeVO> readbyName(String name) {
+		return dao.readbyName(name);
+	}
+
+	@Override
+	public List<RecipeVO> levellist(String cook_level) {
+		List<RecipeVO> list = dao.levellist(cook_level);
+		return list;
+	}
+
 }

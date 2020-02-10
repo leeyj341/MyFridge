@@ -6,7 +6,17 @@ img {
 	float: left;
 	overflow: hidden;
 }
-
+strong{
+	color: #000088;
+}
+.single-post > img{
+	width: 300px;
+	height: 300px;
+	object-fit: cover;
+	overflow: hidden;
+	text-align: justify;
+	border-radius: 25px;
+}
 h4 {
 	font-family: PapyrusB;
 	font-size: 30pt;

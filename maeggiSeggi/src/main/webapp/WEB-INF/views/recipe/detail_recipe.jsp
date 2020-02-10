@@ -120,14 +120,15 @@
 					</div>
 
 					<div class="jumbotron">
-						<div>
+						<div style="font-family: nanumSquare_acEB; font-size: 12pt;text-align: justify;">
 							<h4>요리 간단 소개</h4>
-							<div style="font-family: PapyrusB; font-size: 15pt;">
+							<span>"<%=listMap.get(0).get("CONTENT_INTRO")%>"</span><br/><br/> 
+							<div>
 
 								<div>
-									<span><strong>THEME :</strong></span><span><%=listMap.get(0).get("RECIPE_CATEGORY")%></span>&ensp;
+									<span><strong>THEME :</strong></span><span><%=listMap.get(0).get("RECIPE_CATEGORY")%></span>&ensp;<br/>
 									<span><strong>CATEGORY :</strong></span><span><%=listMap.get(0).get("FOOD_CATEGORY")%></span><br/>
-									<span><%=listMap.get(0).get("CONTENT_INTRO")%></span><br /> 
+									
 									<span><strong>조리 시간 :</strong></span><span><%=String.valueOf(listMap.get(0).get("COOK_TIME"))%>분</span>&ensp;
 									<span><strong>칼로리:</strong></span> <%=String.valueOf(listMap.get(0).get("KCAL"))%> <span>kcal</span><br/>
 									<span><strong>인분 :</strong></span><span><%=String.valueOf(listMap.get(0).get("AMOUNT_PER_PERSON"))%>인분</span>&ensp;
@@ -137,7 +138,7 @@
 						</div>
 
 
-						<div style="font-family: PapyrusB; font-size: 15pt;">
+						<div style="font-family: nanumSquare_acEB; font-size: 12pt;">
 							<h4>재료</h4>
 							<ul>
 
@@ -160,7 +161,7 @@
 
 
 			<div class="col-sm-8">
-				<div class="single-post">
+				<div class="single-post" style="font-family: nanumSquare_acEB;">
 					<h4>요리 순서</h4>
 					<div>
 					<ul class="list-group list-group-flush">
@@ -174,49 +175,59 @@
 					</ul>
 					</div>
 				</div>
-				<!-- Related Post Area -->
-
-                  <div class="container"><h4 class="mb-30">조리 과정</h4>
+				<!--레시피 조리 과정  -->
+                  <div class="container">
+                  		<h4 class="col-sm-4">조리 과정</h4>
                        <div id="demo" class="carousel slide" data-ride="carousel">
                           <div class="carousel-inner"> <!-- 슬라이드 쇼 -->
                              
 							<% for(int i = 0; i < listMap.size(); i++) {
 								HashMap<String, String> map = listMap.get(i);
 									if(map.get("IMG_URL")!=null){
-										if(i==0){%>
-											<div class="carousel-item active">
-											<%}else{ %>
-												<div class="carousel-item">
-												<%}	%>
-		                                    <!-- Single Related Post-->
-		                                    <div class="single-post">
+										if(i==0){
+										%> <div class="carousel-item active">
+													 <div class="single-post">
+													  <!-- Post Thumb -->
+			                                            <img src="<%=map.get("IMG_URL")%>" alt="과정 없음">
+			                                           	</div>
+				                                        <div class="carousel-caption d-none d-md-block">
+				                                        	<h5><%=map.get("TIP") %></h5>
+													  </div>
+												
+											</div>
+										<%}else{ %> 
+											<div class="carousel-item">
+		                                    	<div class="single-post">
 		                                        <!-- Post Thumb -->
 		                                            <img src="<%=map.get("IMG_URL")%>" alt="과정 없음">
+		                                           </div> 
 			                                        <div class="carousel-caption d-none d-md-block">
 			                                        	<h5><%=map.get("TIP") %></h5>
 													</div>
 		                                    </div>
-		                                    </div> 
-		                                    <%}}%>
+		                                  
+		                                    <%
+		                                    }
+										}
+									}%>
                                  <!-- / 슬라이드 쇼 끝 -->
                                   <!-- 왼쪽 오른쪽 화살표 버튼 -->
-                                   <a class="carousel-control-prev" href="#demo" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span></a>
-                                    <a class="carousel-control-next" href="#demo" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span></a> 
+                                   <a class="carousel-control-prev" href="#demo" data-slide="prev"> 
+                                   		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                   	</a>
+                                    <a class="carousel-control-next" href="#demo" data-slide="next">
+										<span class="carousel-control-next-icon" aria-hidden="true"></span>
+									</a> 
                                     <!-- / 화살표 버튼 끝 --> 
                                     <!-- 인디케이터 --> 
                                     <ul class="carousel-indicators">
-                                     <li data-target="#demo" data-slide-to="0" class="active"></li> 
-                                     <!--0번부터시작--> <li data-target="#demo" data-slide-to="1"></li>
-                                      <li data-target="#demo" data-slide-to="2"></li> </ul> <!-- 인디케이터 끝 -->
-                                       </div>
-									</div>
-									</div>
-	
-		
-	
-
-		
-		
+                                    	 <li data-target="#demo" data-slide-to="0" class="active"></li> 
+                                    	 <li data-target="#demo" data-slide-to="1"></li>
+	                                      <li data-target="#demo" data-slide-to="2"></li>
+	                                </ul> <!-- 인디케이터 끝 -->
+	                       </div>
+					</div>
+			</div>
 		<!-- Comment Area Start -->
 
 		<div class="row">

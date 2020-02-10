@@ -6,9 +6,6 @@
 	<definition name="main" extends="maeggiTemplate">
 		<put-attribute name="content" value="/WEB-INF/views/recipe/main.jsp" />
 	</definition>
-	<definition name="theme" extends="maeggiTemplate">
-		<put-attribute name="content" value="/WEB-INF/views/recipe/theme_recipe.jsp"/>
-	</definition>
 	<definition name="level" extends="maeggiTemplate">
 		<put-attribute name="content" value="/WEB-INF/views/recipe/level_recipe.jsp"/>
 	</definition>

@@ -12,6 +12,12 @@ public class FridgeVO {
 	public FridgeVO() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public FridgeVO(String name, String member_id) {
+		super();
+		this.name = name;
+		this.member_id = member_id;
+	}
 
 	public FridgeVO(String refrigerator_id, String name, Date register_date, String member_id, char distinct_code) {
 		super();
