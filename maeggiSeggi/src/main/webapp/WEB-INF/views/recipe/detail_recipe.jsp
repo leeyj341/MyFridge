@@ -1,8 +1,12 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.text.DateFormat"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="maeggi.seggi.recipe.RecipeVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,64 +27,21 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-<style type="text/css">
-img {
-	width: 100%;
-	height: 80;
-	object-fit: cover;
-}
-
-h4 {
-	font-family: PapyrusB;
-	font-size: 30pt;
-	text-align: justify;
-}
-
-#add {
-	width:100%;
-	background-color: white;
-	border: solid 1px #fdd7c8;
-	color: #f8585b;
-	padding: 9px 10px;
-	text-align: center;
-	text-decoration: none;
-	font-size: 15px;
-	font-weight : bolder;
-	margin: 4px;
-	cursor: pointer;
-	/* margin-right: 10%; */
-	float: left;
-	border-radius: 10px;
-	
-}
-
-#underline {
-	color: orange;
-}
-
-li {
-	display: inline;
-	margin-right: 20px;
-}
-
-.jumbotron{
- padding: 30px 15px;
-  margin-bottom: 30px;
-  color: inherit;
-  background-color:#fdd7c8;
-}
-</style>
+<link href="/maeggiSeggi/common/css/recipe_detail.css" rel="stylesheet">
 
 <script type="text/javascript">
+	function popup() {
+		window
+				.open(
+						"/maeggiSeggi/recipe/addPlanner.do",
+						"식단 관리",
+						"top=100, left=450, width=700, height=450, status=no, menubar=no, toolbar=no, resizable=no");
 
-function popup(){
-	window.open("/maeggiSeggi/recipe/addPlanner.do","식단 관리","top=100, left=450, width=700, height=450, status=no, menubar=no, toolbar=no, resizable=no");
-
-}
+	}
 </script>
 </head>
 <body>
-	
+
 	<!-- ****** Header Area End ****** -->
 	<!-- ****** Breadcumb Area Start ****** -->
 	<div class="breadcumb-nav">
@@ -99,61 +60,78 @@ function popup(){
 				</div>
 			</div>
 		</div>
-	</div>	
-	<c:forEach items="${detail}" var="recipe" varStatus="status">
+	</div>
+	<%
+		ArrayList<HashMap<String, String>> listMap = (ArrayList<HashMap<String, String>>) request.getAttribute("detail");
+	%>
+
 	<div class="container" style="margin-top: 30px">
 		<div class="row">
 			<div class="col-sm-4">
-			<div class="single-post">
-				<h4></h4>
-				<div class="post-thumb">
-					<img src="${recipe.img_url_main}" alt="">
-				</div>
-				<!-- Post Content -->
-				<div class="post-content">
-					<div class="post-meta d-flex">
-						<div class="post-author-date-area d-flex">
-							<!-- Post Author -->
-							<div class="post-author">
-								<a href="#">${recipe.member_id}</a>
-							</div>
-							<!-- Post Date -->
-							<div class="post-date">
-								<a href="#">${recipe.register_date}</a>
-							</div>
-						</div>
-						<!-- Post Comment & Share Area -->
-						<div class="post-comment-share-area d-flex">
-							<!-- Post Favourite -->
-							<div class="post-favourite">
-								<a href="#"><i class="fas fa-heart" aria-hidden="true"></i>
-									${recipe.like_num}</a>
-							</div>
-							<!-- Post Comments -->
-							<div class="post-comments">
-								<a href="#"><i class="far fa-comment" aria-hidden="true"></i>
-									12</a>
-							</div>
-							<!-- Post Share -->
-							<div class="post-share">
-								<a href="#"><i class="far fa-smile" aria-hidden="true"></i>
-									250</a>
-							</div>
-							&nbsp;&nbsp;
-							<div class="post-share">
-								<a href="#"><i class="fas fa-share-alt" aria-hidden="true"></i>&nbsp;2</a>
-							</div>
-						</div>
-						</div>
+				<div>
+					<h4><%=listMap.get(0).get("NAME")%></h4>
+					<div class="post-thumb">
+						<img src="<%=listMap.get(0).get("IMG_URL_MAIN")%>" alt="">
 					</div>
+					<br/>
+					<!-- Post Content -->
+
+					<div class="post-content">
+						<div class="post-meta d-flex">
+							<div class="post-author-date-area d-flex">
+								<!-- Post Author -->
+								<div class="post-author">
+									<a href="#">작성자 : <%=listMap.get(0).get("MEMBER_ID")%></a>
+								</div>
+								<!-- Post Date -->
+								<div class="post-date"> 
+								<%!SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
+								
+								%>
+									<a href="#">REGISTER: <%=sdFormat.format(listMap.get(0).get("REGISTER_DATE"))%></a>
+								</div>
+								
+							</div>
+							</div>
+							<!-- Post Comment & Share Area -->
+							<div style="float:left;">
+								<!-- Post Favourite -->
+								<div class="post-favourite">
+									<a href="#"><i class="fas fa-heart" aria-hidden="true"></i>
+										<%=String.valueOf(listMap.get(0).get("LIKE_NUM"))%></a>
+								
+								<!-- Post Comments -->
+								
+									<a href="#"><i class="far fa-comment" aria-hidden="true"></i>
+										12</a>
+								
+								<!-- Post Share -->
+								
+									<a href="#"><i class="far fa-smile" aria-hidden="true"></i>
+										<%=String.valueOf(listMap.get(0).get("HIT"))%></a>
+								
+								&nbsp;&nbsp;
+								
+									<a href="#"><i class="fas fa-share-alt" aria-hidden="true"></i>&nbsp;2</a>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+
 					<div class="jumbotron">
 						<div>
 							<h4>요리 간단 소개</h4>
 							<div style="font-family: PapyrusB; font-size: 15pt;">
 
 								<div>
-									<span>${recipe.content_intro}</span><br /> <span>칼로리 :</span> <strong>${recipe.kcal}</strong>
-									<span>kcal</span>
+									<span><strong>THEME :</strong></span><span><%=listMap.get(0).get("RECIPE_CATEGORY")%></span>&ensp;
+									<span><strong>CATEGORY :</strong></span><span><%=listMap.get(0).get("FOOD_CATEGORY")%></span><br/>
+									<span><%=listMap.get(0).get("CONTENT_INTRO")%></span><br /> 
+									<span><strong>조리 시간 :</strong></span><span><%=String.valueOf(listMap.get(0).get("COOK_TIME"))%>분</span>&ensp;
+									<span><strong>칼로리:</strong></span> <%=String.valueOf(listMap.get(0).get("KCAL"))%> <span>kcal</span><br/>
+									<span><strong>인분 :</strong></span><span><%=String.valueOf(listMap.get(0).get("AMOUNT_PER_PERSON"))%>인분</span>&ensp;
+									<span><strong>예상 가격대 :</strong> </span><span><%=String.valueOf(listMap.get(0).get("PRICE"))%>원</span>&ensp;
 								</div>
 							</div>
 						</div>
@@ -162,6 +140,7 @@ function popup(){
 						<div style="font-family: PapyrusB; font-size: 15pt;">
 							<h4>재료</h4>
 							<ul>
+
 								<li>김치 <strong>0.5</strong> <span> 쪽</span>
 								</li>
 								<li>두부 <strong>1</strong> <span> 모</span>
@@ -172,252 +151,189 @@ function popup(){
 							</ul>
 						</div>
 					</div>
-					
+
 					<input type="button" id="add" value="식단에 추가하기" onclick="popup()">
 					<hr class="d-sm-none">
-					
+
 				</div>
-			</div>
 			
-			
+
+
 			<div class="col-sm-8">
-			 <div class="single-post">
-				<h4>요리 순서</h4>
-				<div>
-					
-					<ul class="list-group list-group-flush">
-						<li class="list-group-item">우선 냄비에 간장 반컵과 설탕 반컵을 넣고</li>
-						<li class="list-group-item">매실청 1/3컵, 물 2컵 넣어 팔팔 끓여준 후 불을 꺼서 완전히 식혀 줍니다.양념이 식는 동안,</li>
-						<li class="list-group-item">돼지목심에 칼집을 사선으로 내어 주세요. 앞뒤면 고루고루~</li>
-						<li class="list-group-item">그리고 아까 끓인 양념이 다식으면, 소주 1큰술, 다진마늘 2큰술과 양파 1/4를 갈아서 넣어주면 양념끝!ㅋ</li>
-						<li class="list-group-item">이제 칼집낸 돼지고기를 넣어 1일 재워주면 끝!</li>
-						<li class="list-group-item">가열된 팬에 앞뒤로 맛있게 구워주세요~ㅎ	</li>
-
-					</ul>
-				</div>
-			</div>
-			</div>
-			
-			</div>
-			</c:forEach>
-			
-				
-				<!-- Related Post Area -->
-				<div class="related-post-area section_padding_50">
-					<h4 class="mb-30">관련 레시피</h4>
-
-					<div class="related-post-slider owl-carousel">
-						<!-- Single Related Post-->
-						<div class="single-post">
-							<!-- Post Thumb -->
-							<div class="post-thumb">
-								<img src="/maeggiSeggi/images/blog-img/15.jpg" alt="">
-							</div>
-							<!-- Post Content -->
-							<div class="post-content">
-								<div class="post-meta d-flex">
-									<div class="post-author-date-area d-flex">
-										<!-- Post Author -->
-										<div class="post-author">
-											<a href="#">By Marian</a>
-										</div>
-										<!-- Post Date -->
-										<div class="post-date">
-											<a href="#">May 19, 2017</a>
-										</div>
-									</div>
-								</div>
-								<a href="#">
-									<h6>The Top Breakfast And Brunch Spots In Hove</h6>
-								</a>
-							</div>
-						</div>
-						
-						<!-- Single Related Post-->
-						<div class="single-post">
-							<!-- Post Thumb -->
-							<div class="post-thumb">
-								<img src="/maeggiSeggi/images/blog-img/5.jpg" alt="">
-							</div>
-							<!-- Post Content -->
-							<div class="post-content">
-								<div class="post-meta d-flex">
-									<div class="post-author-date-area d-flex">
-										<!-- Post Author -->
-										<div class="post-author">
-											<a href="#">By Marian</a>
-										</div>
-										<!-- Post Date -->
-										<div class="post-date">
-											<a href="#">May 19, 2017</a>
-										</div>
-									</div>
-								</div>
-								<a href="#">
-									<h6>The Top Breakfast And Brunch Spots In Hove</h6>
-								</a>
-							</div>
-						</div>
-						<!-- Single Related Post-->
-						<div class="single-post">
-							<!-- Post Thumb -->
-							<div class="post-thumb">
-								<img src="/maeggiSeggi/images/blog-img/16.jpg" alt="">
-							</div>
-							<!-- Post Content -->
-							<div class="post-content">
-								<div class="post-meta d-flex">
-									<div class="post-author-date-area d-flex">
-										<!-- Post Author -->
-										<div class="post-author">
-											<a href="#">By Marian</a>
-										</div>
-										<!-- Post Date -->
-										<div class="post-date">
-											<a href="#">May 19, 2017</a>
-										</div>
-									</div>
-								</div>
-								<a href="#">
-									<h6>The Top Breakfast And Brunch Spots In Hove</h6>
-								</a>
-							</div>
-						</div>
-						<!-- Single Related Post-->
-						<div class="single-post">
-							<!-- Post Thumb -->
-							<div class="post-thumb">
-								<img src="/maeggiSeggi/images/blog-img/5.jpg" alt="">
-							</div>
-							<!-- Post Content -->
-							<div class="post-content">
-								<div class="post-meta d-flex">
-									<div class="post-author-date-area d-flex">
-										<!-- Post Author -->
-										<div class="post-author">
-											<a href="#">By Marian</a>
-										</div>
-										<!-- Post Date -->
-										<div class="post-date">
-											<a href="#">May 19, 2017</a>
-										</div>
-									</div>
-								</div>
-								<a href="#">
-									<h6>The Top Breakfast And Brunch Spots In Hove</h6>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Comment Area Start -->
-				
-				<div class="row">
-				<div class="col-12 none" style="float : left;">
-					<h4><span id="underline">3</span> 댓글 </h4>
-
-					<ol>
-						<!-- Single Comment Area -->
-						<li class="single_comment_area">
-							<div class="comment-wrapper d-flex">
-								<!-- Comment Meta -->
-								<div class="comment-author">
-									<img src="/maeggiSeggi/images/blog-img/17.jpg" alt="">
-								</div>
-								<!-- Comment Content -->
-								<div class="comment-content">
-									<span class="comment-date text-muted">27 Aug 2018</span>
-									<h5>Brandon Kelley</h5>
-									<p>Neque porro qui squam est, qui dolorem ipsum quia dolor
-										sit amet, consectetur, adipisci velit, sed quia non numquam
-										eius modi tempora.</p>
-									<a href="#">Like</a> <a class="active" href="#">Reply</a>
-								</div>
-							</div>
-							<ol class="children">
-								<li class="single_comment_area">
-									<div class="comment-wrapper d-flex">
-										<!-- Comment Meta -->
-										<div class="comment-author">
-											<img src="/maeggiSeggi/images/blog-img/18.jpg" alt="">
-										</div>
-										<!-- Comment Content -->
-										<div class="comment-content">
-											<span class="comment-date text-muted">27 Aug 2018</span>
-											<h5>Brandon Kelley</h5>
-											<p>Neque porro qui squam est, qui dolorem ipsum quia
-												dolor sit amet, consectetur, adipisci velit, sed quia non
-												numquam eius modi tempora.</p>
-											<a href="#">Like</a> <a class="active" href="#">Reply</a>
-										</div>
-									</div>
-								</li>
-							</ol>
-						</li>
-						<li class="single_comment_area">
-							<div class="comment-wrapper d-flex">
-								<!-- Comment Meta -->
-								<div class="comment-author">
-									<img src="/maeggiSeggi/images/blog-img/19.jpg" alt="">
-								</div>
-								<!-- Comment Content -->
-								<div class="comment-content">
-									<span class="comment-date text-muted">27 Aug 2018</span>
-									<h5>Brandon Kelley</h5>
-									<p>Neque porro qui squam est, qui dolorem ipsum quia dolor
-										sit amet, consectetur, adipisci velit, sed quia non numquam
-										eius modi tempora.</p>
-									<a href="#">Like</a> <a class="active" href="#">Reply</a>
-								</div>
-							</div>
-						</li>
-					</ol>
-				</div>
-				</div>
-				
-				 <div class="single-post">
-				<fieldset>
-					<h4>
-						레시피 후기
-					</h4>
+				<div class="single-post">
+					<h4>요리 순서</h4>
 					<div>
-						<span>전체 </span> <strong>20</strong> <span>건</span> 
-						<button type="button" class="btn btn-outline-warning btn-sm" style="float:right;margin-bottom: 1%">후기 등록</button>
+					<ul class="list-group list-group-flush">
+					<% for(int i = 0; i < listMap.size(); i++) {
+						HashMap<String, String> map = listMap.get(i);
+						%>
+						
+							<li class="list-group-item"><strong><%=String.valueOf(map.get("RECIPE_ORDER_NUM"))%></strong>
+								<%=map.get("RECIPE_DESCRIBE") %>
+								</li><%} %>
+					</ul>
 					</div>
-				</fieldset>
-				<table class="table table-hover" summary="번호,내용,글쓴이,등록일로 구성된 게시판">
-					<thead>
-						<tr>
-							<th>번호</th>
-							<th>내용</th>
-							<th>글쓴이</th>
-							<th>등록일</th>
-						</tr>
-					</thead>
-					<tr>
-						<td>1</td>
-						<td>너무너무 맛있어요</td>
-						<td>요리지킴이</td>
-						<td>20-01-22</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>밥이랑 먹으니 요리가 일품</td>
-						<td>밥수니</td>
-						<td>20-01-18</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>혼자 먹기 아쉬운 요리 ㅜㅜ</td>
-						<td>자취생</td>
-						<td>20-01-14</td>
-					</tr>
-				</table>
-				<br />
+				</div>
+				<!-- Related Post Area -->
+
+                  <div class="container"><h4 class="mb-30">조리 과정</h4>
+                       <div id="demo" class="carousel slide" data-ride="carousel">
+                          <div class="carousel-inner"> <!-- 슬라이드 쇼 -->
+                             
+							<% for(int i = 0; i < listMap.size(); i++) {
+								HashMap<String, String> map = listMap.get(i);
+									if(map.get("IMG_URL")!=null){
+										if(i==0){%>
+											<div class="carousel-item active">
+											<%}else{ %>
+												<div class="carousel-item">
+												<%}	%>
+		                                    <!-- Single Related Post-->
+		                                    <div class="single-post">
+		                                        <!-- Post Thumb -->
+		                                            <img src="<%=map.get("IMG_URL")%>" alt="과정 없음">
+			                                        <div class="carousel-caption d-none d-md-block">
+			                                        	<h5><%=map.get("TIP") %></h5>
+													</div>
+		                                    </div>
+		                                    </div> 
+		                                    <%}}%>
+                                 <!-- / 슬라이드 쇼 끝 -->
+                                  <!-- 왼쪽 오른쪽 화살표 버튼 -->
+                                   <a class="carousel-control-prev" href="#demo" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span></a>
+                                    <a class="carousel-control-next" href="#demo" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span></a> 
+                                    <!-- / 화살표 버튼 끝 --> 
+                                    <!-- 인디케이터 --> 
+                                    <ul class="carousel-indicators">
+                                     <li data-target="#demo" data-slide-to="0" class="active"></li> 
+                                     <!--0번부터시작--> <li data-target="#demo" data-slide-to="1"></li>
+                                      <li data-target="#demo" data-slide-to="2"></li> </ul> <!-- 인디케이터 끝 -->
+                                       </div>
+									</div>
+									</div>
+	
+		
+	
+
+		
+		
+		<!-- Comment Area Start -->
+
+		<div class="row">
+			<div class="col-12 none" style="float: left;">
+				<h4>
+					<span id="underline">3</span> 댓글
+				</h4>
+
+				<ol>
+					<!-- Single Comment Area -->
+					<li class="single_comment_area">
+						<div class="comment-wrapper d-flex">
+							<!-- Comment Meta -->
+							<div class="comment-author">
+								<img src="/maeggiSeggi/images/blog-img/17.jpg" alt="">
+							</div>
+							<!-- Comment Content -->
+							<div class="comment-content">
+								<span class="comment-date text-muted">27 Aug 2018</span>
+								<h5>Brandon Kelley</h5>
+								<p>Neque porro qui squam est, qui dolorem ipsum quia dolor
+									sit amet, consectetur, adipisci velit, sed quia non numquam
+									eius modi tempora.</p>
+								<a href="#">Like</a> <a class="active" href="#">Reply</a>
+							</div>
+						</div>
+						<ol class="children">
+							<li class="single_comment_area">
+								<div class="comment-wrapper d-flex">
+									<!-- Comment Meta -->
+									<div class="comment-author">
+										<img src="/maeggiSeggi/images/blog-img/18.jpg" alt="">
+									</div>
+									<!-- Comment Content -->
+									<div class="comment-content">
+										<span class="comment-date text-muted">27 Aug 2018</span>
+										<h5>Brandon Kelley</h5>
+										<p>Neque porro qui squam est, qui dolorem ipsum quia dolor
+											sit amet, consectetur, adipisci velit, sed quia non numquam
+											eius modi tempora.</p>
+										<a href="#">Like</a> <a class="active" href="#">Reply</a>
+									</div>
+								</div>
+							</li>
+						</ol>
+					</li>
+					<li class="single_comment_area">
+						<div class="comment-wrapper d-flex">
+							<!-- Comment Meta -->
+							<div class="comment-author">
+								<img src="/maeggiSeggi/images/blog-img/19.jpg" alt="">
+							</div>
+							<!-- Comment Content -->
+							<div class="comment-content">
+								<span class="comment-date text-muted">27 Aug 2018</span>
+								<h5>Brandon Kelley</h5>
+								<p>Neque porro qui squam est, qui dolorem ipsum quia dolor
+									sit amet, consectetur, adipisci velit, sed quia non numquam
+									eius modi tempora.</p>
+								<a href="#">Like</a> <a class="active" href="#">Reply</a>
+							</div>
+						</div>
+					</li>
+				</ol>
 			</div>
-			</div>
-			
-			
+		</div>
+	</div>
+	</div>
+		<div class="single-post">
+			<fieldset>
+				<h4>레시피 후기</h4>
+				<div>
+					<span>전체 </span> <strong>20</strong> <span>건</span>
+					<button type="button" class="btn btn-outline-warning btn-sm"
+						style="float: right; margin-bottom: 1%">후기 등록</button>
+				</div>
+			</fieldset>
+			<table class="table table-hover" summary="번호,내용,글쓴이,등록일로 구성된 게시판">
+				<thead>
+					<tr>
+						<th>번호</th>
+						<th>내용</th>
+						<th>글쓴이</th>
+						<th>등록일</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>1</td>
+					<td>너무너무 맛있어요</td>
+					<td>요리지킴이</td>
+					<td>20-01-22</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>밥이랑 먹으니 요리가 일품</td>
+					<td>밥수니</td>
+					<td>20-01-18</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>혼자 먹기 아쉬운 요리 ㅜㅜ</td>
+					<td>자취생</td>
+					<td>20-01-14</td>
+				</tr>
+			</table>
+			<br />
+		</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script> 
+$('.carousel').carousel({
+	interval: 2000 
+	//기본 5초 
+	}) 
+</script>
+
+
+
 </body>
 </html>

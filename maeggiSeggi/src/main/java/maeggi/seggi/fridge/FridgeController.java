@@ -2,9 +2,6 @@ package maeggi.seggi.fridge;
 
 import java.util.ArrayList;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,10 +19,8 @@ public class FridgeController {
 	}
 	
 	@RequestMapping(value="/refrigerator/ajax_fridge.do", method=RequestMethod.GET, produces="application/json;charset=UTF-8")
-	public @ResponseBody ArrayList<FridgeVO> getUserFridge(HttpServletRequest req, String id) {
+	public @ResponseBody ArrayList<FridgeVO> getUserFridge(String id) {
 		ArrayList<FridgeVO> list =  (ArrayList<FridgeVO>)service.selectMyFridgeByName(id);
-		HttpSession ses = req.getSession();
-		ses.setAttribute("fridgeList", list);
 		return list;
 	}
 	
