@@ -37,18 +37,15 @@
 <body>
 	<%
 		ArrayList<BoardVO> list = (ArrayList<BoardVO>)request.getAttribute("list");
-	%>
-	<%
 		memberVO loginuser = (memberVO) session.getAttribute("loginuser");
 	
 	%>
-	 <% if(session.getAttribute("id")!= null){ %>
+	 <% if(session.getAttribute("id")!= null){ //로그인유저만 접근 가능 %>
 	<!--  <script type="text/javascript">
 	 var sessionid = session.getAttribute("id");
 	 document.write(sessionid);
 	 </script>
 		  -->
-	 
 	
 	
 	

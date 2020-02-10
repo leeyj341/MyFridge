@@ -1,3 +1,6 @@
+<%@page import="maeggi.seggi.mypage.BoardVO"%>
+<%@page import="maeggi.seggi.loginandcustomer.memberVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
@@ -26,6 +29,14 @@
 </head>
 
 <body>
+
+<%
+		ArrayList<BoardVO> list = (ArrayList<BoardVO>)request.getAttribute("list");
+		memberVO loginuser = (memberVO) session.getAttribute("loginuser");
+	
+	%>
+	 <% if(session.getAttribute("id")!= null){ //로그인 된 유저만 접근 가능 %>
+
     <!-- ****** Breadcumb Area Start ****** -->
     <div class="breadcumb-area" style="background-image: url(img/bg-img/breadcumb.jpg);z-index: 0">
         <div class="container h-100">
@@ -201,85 +212,7 @@
 			</fieldset>
 		</div>
 	<!-- information_update area end -->
-	
-    
 
-    <!-- ****** Footer Social Icon Area Start ****** -->
-    <div class="social_icon_area clearfix">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="footer-social-area d-flex">
-                        <div class="single-icon">
-                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i><span>facebook</span></a>
-                        </div>
-                        <div class="single-icon">
-                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
-                        </div>
-                        <div class="single-icon">
-                            <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i><span>GOOGLE+</span></a>
-                        </div>
-                        <div class="single-icon">
-                            <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i><span>linkedin</span></a>
-                        </div>
-                        <div class="single-icon">
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
-                        </div>
-                        <div class="single-icon">
-                            <a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i><span>VIMEO</span></a>
-                        </div>
-                        <div class="single-icon">
-                            <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i><span>YOUTUBE</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ****** Footer Social Icon Area End ****** -->
-
-<!-- ****** Footer Menu Area Start ****** -->
-    <footer class="footer_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="footer-content">
-                        <!-- Logo Area Start -->
-                        <div class="footer-logo-area text-center">
-                            <a href="index.html" class="yummy-logo">Maeggi Seggi</a>
-                        </div>
-                        <!-- Menu Area Start -->
-                        <nav class="navbar navbar-expand-lg">
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#yummyfood-footer-nav" aria-controls="yummyfood-footer-nav" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars" aria-hidden="true"></i> Menu</button>
-                            <!-- Menu Area Start -->
-                            <div class="collapse navbar-collapse justify-content-center" id="yummyfood-footer-nav">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="#">MY FRIDGE<span class="sr-only">(current)</span></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">ABOUT US</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">RECIPE</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">RESTAURANT</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="mypage_main.do">MY PAGE</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">MANAGE</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-	</footer>
     <!-- ****** Footer Menu Area End ****** -->
 
     <!-- Jquery-2.2.4 js -->
@@ -292,4 +225,12 @@
     <script src="js/others/plugins.js"></script>
     <!-- Active JS -->
     <script src="js/active.js"></script>
+    
+    <% } else{ %>
+	
+		<script type="text/javascript">
+		alert("로그인이 필요한 기능입니다!");
+		document.location.href="/maeggiSeggi/loginandcustomer/login.do";
+		</script>
+		<% }%>
 </body>
