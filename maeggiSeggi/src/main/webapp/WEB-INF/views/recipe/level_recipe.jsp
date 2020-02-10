@@ -1,3 +1,5 @@
+<%@page import="maeggi.seggi.recipe.RecipeVO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -79,8 +81,20 @@ section {
    clear: both;
 }
 </style>
+<script type="text/javascript">
+	cook_levelb = "초보";
+	cook_leveln = "보통";
+	cook_levelh = "어려움";
+</script>
 </head>
 <body>
+	<% List<RecipeVO> listb = (List<RecipeVO>)request.getAttribute("levellistb"); %>
+	<% List<RecipeVO> listn = (List<RecipeVO>)request.getAttribute("levellistn"); %>
+	<% List<RecipeVO> listh = (List<RecipeVO>)request.getAttribute("levellisth"); %>
+	<% for(int i=0; i<listb.size(); i++){
+		listb.get(0).getImg_url_main();
+	}
+	%>
    <!-- ****** Breadcumb Area Start ****** -->
    <div class="breadcumb-nav">
       <div class="container">
