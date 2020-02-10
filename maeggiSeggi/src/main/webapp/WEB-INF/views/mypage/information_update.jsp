@@ -1,4 +1,3 @@
-
 <%@page import="maeggi.seggi.mypage.BoardVO"%>
 <%@page import="maeggi.seggi.loginandcustomer.memberVO"%>
 <%@page import="java.util.ArrayList"%>
@@ -118,46 +117,46 @@
 				<div class="join_form">
 					<label for="id">아이디:</label> 
 					<input type="text"
-						class="form-control" placeholder =" <%= member.getMember_id() %> " disabled="disabled">
+						class="form-control" placeholder =" <%= loginuser.getMember_id() %> " disabled="disabled">
 					<span id="checkVal" style="color: red;"></span>
 				</div>												
 								
 				<div class="join_form">
 					<label for="pwd">비밀번호:</label> <input type="password"
-						class="form-control" id="pass" name="pass" value="<%= member.getPass()%>">
+						class="form-control" id="pass" name="pass" value="<%= loginuser.getPass()%>">
 ​					
 				</div>
 				<div class="join_form">
 					<label for="pwd">비밀번호 확인:</label> <input type="password"
-						class="form-control" id="pass_confirm" name="pass_cofirm" value="<%= member.getPass()%>">
+						class="form-control" id="pass_confirm" name="pass_cofirm" value="<%= loginuser.getPass()%>">
 					<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
 					<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
 				</div>
 				<div class="join_form">
 					<label for="pwd">이름:</label> <input type="text"
-						class="form-control" name="name" placeholder=" <%= member.getName() %> " disabled="disabled">
+						class="form-control" name="name" placeholder=" <%= loginuser.getName() %> " disabled="disabled">
 				</div>
 ​
 				<div class="join_form">
 					<label for="pwd"> 핸드폰 번호 : ( - 없이 11자리 숫자만 입력  )</label> <input type="text"
-						class="form-control" id="phonenum" name="phonenum" value=" <%= member.getPhonenum() %> ">
+						class="form-control" id="phonenum" name="phonenum" value=" <%= loginuser.getPhonenum() %> ">
 					<div id="result_phone" style="color: red;"></div>
 				</div>
 ​
 				<div class="join_form">
 					<label for="pwd"> 주민등록번호 : ( - 없이 13자리 숫자만 입력  )</label> <input type="text"
-						class="form-control" placeholder=" <%= member.getSsn() %> " disabled="disabled">
+						class="form-control" placeholder=" <%= loginuser.getSsn() %> " disabled="disabled">
 					<div id="result_ssn" style="color: red;"></div>
 				</div>
 				
 				<div class="join_form">
 					<label for="pwd"> 키 : (cm) </label><input type="text"
-						class="form-control" id="height" name="height" value=" <%= member.getHeight() %> ">
+						class="form-control" id="height" name="height" value=" <%= loginuser.getHeight() %> ">
 				</div>
 				
 				<div class="join_form">
 					<label for="pwd"> 몸무게 : (kg) </label><input type="text"
-						class="form-control" id="weight" name="weight" value=" <%= member.getWeight() %> ">				
+						class="form-control" id="weight" name="weight" value=" <%= loginuser.getWeight() %> ">				
 				</div>
 				
 				<button type="submit" onclick="alert('수정을 완료했습니다.')" class="btn btn-default" id="submit" style="color:white; background-color: #fc6c3f; width: 100px">Submit</button>
