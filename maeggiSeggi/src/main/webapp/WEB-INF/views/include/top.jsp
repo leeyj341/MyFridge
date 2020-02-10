@@ -9,16 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
 	 <!-- Favicon -->
     <link rel="icon" href="/maeggiSeggi/images/core-img/favicon.ico">
-    
     <!-- Core Stylesheet -->
     <link href="/maeggiSeggi/common/css/style.css" rel="stylesheet">
-    
     <!-- Responsive CSS -->
     <link href="/maeggiSeggi/common/css/responsive/responsive.css" rel="stylesheet">
-    
     <!-- Jquery-2.2.4 js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <!-- Popper js -->
@@ -29,12 +25,10 @@
     <script src="/maeggiSeggi/common/js/others/plugins.js"></script>
     <!-- Active JS -->
     <script src="/maeggiSeggi/common/js/active.js"></script>
-    
 </head>
 <body>
-	<% 
+	<%
 		memberVO loginuser = (memberVO)session.getAttribute("loginuser");
-		
 	%>
 	<!-- Preloader Start -->
 	<div id="preloader">
@@ -62,7 +56,7 @@
                             <div class="login">
                                 <a href="/maeggiSeggi/loginandcustomer/login.do" >sign in</a>
                             </div>
-                            <% } else { 
+                            <% } else {
                             	session.setAttribute("member", loginuser);
                             	session.setAttribute("id", loginuser.getMember_id());
                             %>
@@ -85,14 +79,13 @@
                                 <input type="submit" value="" class="d-none">
                                 <span class="searchBtn"><i class="fa fa-times" aria-hidden="true"></i></span>
                             </form>
-                        </div>--> 
+                        </div>-->
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- ****** Top Header Area End ****** -->
-
     <!-- ****** Header Area Start ****** -->
     <header class="header_area">
         <div class="container">
@@ -104,7 +97,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row" >
                 <div class="col-12">
                     <nav class="navbar navbar-expand-lg">
@@ -134,7 +126,6 @@
                                         <a class="dropdown-item" href="/maeggiSeggi/recipe/searchRecipe.do"><b>레시피 조회</b></a>
                                     </div>
                                 </li>
-                                
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">RESTAURANT</a>
                                     <div class="dropdown-menu" aria-labelledby="yummyDropdown">
@@ -143,16 +134,20 @@
                                         <a class="dropdown-item" href="/maeggiSeggi/map.do"><b>지도 조회</b></a>
                                     </div>
                                 </li>
+                                
+                                
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MY PAGE</a>
                                     <div class="dropdown-menu" aria-labelledby="yummyDropdown">
                                     	<a class="dropdown-item" href="#"></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/board/main.do"><b>식단 관리</b></a>
-                                        <a class="dropdown-item" href="/maeggiSeggi/board/information_update.do"><b>회원 정보 조회</b></a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/board/infoupdate.do"><b>회원 정보 조회</b></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/board/list.do"><b>1:1 문의 사항</b></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/board/mypoint.do"><b>My Point</b></a>
                                     </div>
                                 </li>
+                            
+                                
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">MANAGEMODE</a>
                                 </li>

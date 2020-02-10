@@ -81,6 +81,18 @@
 		<beans:property value="UTF-8" name="defaultEncoding" />
 	</beans:bean>
 	
+	
+	<!-- 인터셉터 등록: loginandcustomer의 LoginCheckInterceptor.java파일 등록 -->
+	<interceptors>
+		<interceptor>
+			
+			<mapping path="/board/**"/>
+			
+			<beans:bean class="maeggi.seggi.loginandcustomer.LoginCheckInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
+	
 	<context:component-scan
 		base-package="maeggi.seggi" />
 
