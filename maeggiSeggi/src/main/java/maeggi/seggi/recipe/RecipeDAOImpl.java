@@ -1,5 +1,6 @@
 package maeggi.seggi.recipe;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -54,8 +55,8 @@ public class RecipeDAOImpl implements RecipeDAO {
 	}
 
 	@Override
-	public List<Map<String, String>> detail(String recipe_id) {
-		List<Map<String, String>> list = sqlSession.selectList("maeggi.seggi.recipe.detail",recipe_id);
+	public List<HashMap<String, String>> detail(String recipe_id) {
+		List<HashMap<String, String>> list = sqlSession.selectList("maeggi.seggi.recipe.detail",recipe_id);
 		return list;
 	}
 

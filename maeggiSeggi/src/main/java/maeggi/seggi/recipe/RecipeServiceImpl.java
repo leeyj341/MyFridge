@@ -1,5 +1,6 @@
 package maeggi.seggi.recipe;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -52,10 +53,10 @@ public class RecipeServiceImpl implements RecipeService {
 
 
 	@Override
-	public List<Map<String, String>> detail(String recipe_id) {
+	public List<HashMap<String, String>> detail(String recipe_id) {
 		
 		//조회수 업데이트
-		//dao.updatehit(recipe_id);
+		dao.updatehit(recipe_id);
 		return dao.detail(recipe_id);
 	}
 

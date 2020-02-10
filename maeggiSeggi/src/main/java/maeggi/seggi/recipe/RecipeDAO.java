@@ -1,7 +1,7 @@
 package maeggi.seggi.recipe;
 
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 
@@ -12,7 +12,7 @@ public interface RecipeDAO {
 	List<RecipeVO> searchList(String search);
 	List<RecipeVO> listall();
 	public int updatehit(String recipe_id);
-	public List<Map<String, String>> detail(String recipe_id);
+	public List<HashMap<String, String>> detail(String recipe_id);
 	void insertdetail(RecipeDetailVO recipeDetailVO);
 	List<RecipeVO> levellist(String cook_level);
 }

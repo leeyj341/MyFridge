@@ -1,6 +1,7 @@
 package maeggi.seggi.recipe;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -40,7 +41,8 @@ public class RecipeController {
 		ModelAndView mav = new ModelAndView();
 		System.out.println("====================================================================================");
 		String recipe_id = req.getParameter("id");
-		List<Map<String, String>> detail = service.detail(recipe_id);
+		System.out.println(recipe_id);
+		ArrayList<HashMap<String, String>> detail = (ArrayList<HashMap<String, String>>)service.detail(recipe_id);
 		mav.addObject("detail",detail);
 		mav.setViewName("detail");
 		return mav;
@@ -57,14 +59,6 @@ public class RecipeController {
 		mav.setViewName("search");
 		return mav;
 	}
-/*	@RequestMapping(value="/recipe/searchRecipe.do")
-	public ModelAndView searchList(String search) {
-		ModelAndView mav = new ModelAndView();
-		List<RecipeVO> recipeList = service.searchList(search);
-		mav.addObject("recipeList",recipeList);
-		mav.setViewName("search");
-		return mav;
-	}*/
 /*	삭제 
 	public String delete(RecipeVO recipe) {
 		return "redirect:/recipe/list.do";

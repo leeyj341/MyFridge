@@ -40,7 +40,7 @@
 		memberVO loginuser = (memberVO) session.getAttribute("loginuser");
 	
 	%>
-	 <% if(session.getAttribute("id")!= null){ //로그인유저만 접근 가능 %>
+	<%--  <% if(session.getAttribute("id")!= null){ //로그인유저만 접근 가능 %> --%>
 	<!--  <script type="text/javascript">
 	 var sessionid = session.getAttribute("id");
 	 document.write(sessionid);
@@ -160,13 +160,13 @@
 			</nav>
 		</div>
 	</div>
- <% } else{ %>
+<%--  <% } else{ %>
 	
 		<script type="text/javascript">
 		alert("로그인이 필요한 기능입니다!");
 		document.location.href="/maeggiSeggi/loginandcustomer/login.do";
 		</script>
 		<% }%>
-	 
+	  --%>
 </body>
 </html>

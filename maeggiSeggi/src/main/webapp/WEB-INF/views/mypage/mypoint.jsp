@@ -35,9 +35,9 @@
 		ArrayList<BoardVO> list = (ArrayList<BoardVO>) request.getAttribute("list");
 		memberVO loginuser = (memberVO) session.getAttribute("loginuser");
 	%>
-	<%
+	<%-- <%
 		if (session.getAttribute("id") != null) {
-	%>
+	%> --%>
 
 	<!-- ****** Breadcumb Area Start ****** -->
 	<div class="breadcumb-area"
@@ -135,7 +135,7 @@
 	<p></p>
 	<!-- my point area end -->
 
-
+<%-- 
 	<%
 		} else {
 	%>
@@ -146,5 +146,5 @@
 	</script>
 	<%
 		}
-	%>
+	%> --%>
 </body>

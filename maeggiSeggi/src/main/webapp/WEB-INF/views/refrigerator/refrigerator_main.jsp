@@ -60,8 +60,6 @@
 	    			}
 	    		}
 	    	});
-	    	
-	    	alert(fridgeList.length);
 	    });
     </script>
     <script src="/maeggiSeggi/common/js/l_ingredients.js"></script>

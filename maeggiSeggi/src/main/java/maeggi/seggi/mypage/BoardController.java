@@ -2,16 +2,18 @@ package maeggi.seggi.mypage;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import maeggi.seggi.reply.replyBoardVO;
+import maeggi.seggi.loginandcustomer.memberService;
+import maeggi.seggi.loginandcustomer.memberVO;
 import maeggi.seggi.reply.replyService;
 
 @Controller
@@ -20,11 +22,21 @@ public class BoardController {
 	BoardService service;
 	@Autowired
 	replyService replyService;
+	@Autowired
+	memberService mservice;
 
-	@RequestMapping("/board/list.do")
-	public ModelAndView listall() {
+	// 게시글 전체 목록을 보여주는 기능
+	@RequestMapping(value = "/board/list.do")
+	public ModelAndView listall(BoardVO board,HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();
-		List<BoardVO> list = service.listall();
+		HttpSession ses = req.getSession(false);
+		if(ses!=null) {
+			memberVO user=(memberVO) ses.getAttribute("loginuser");
+			if(user!=null) {
+				board.setMember_id(user.getMember_id());
+			}
+		}
+		List<BoardVO> list = service.listall(board);
 		System.out.println(list);
 		mav.addObject("list", list);
 		mav.setViewName("mypage/ask");
@@ -87,23 +99,43 @@ public class BoardController {
 	}
 	
 	
-	@RequestMapping("/board/information_update.do")
-	public String information_update() {
-		return "mypage/information/update";
-	}
+	
+	
+	//회원정보 수정 View
+			@RequestMapping(value = "/board/infoupdate.do", method = RequestMethod.GET)
+			public String updateView(memberVO user) {
+				return "mypage/information/update";
+			}
+			//회원정보 수정 POST
+			@RequestMapping(value = "/board/infoupdate.do", method = RequestMethod.POST)
+			public String update(memberVO user, HttpSession session) {
+				System.out.println("유저:"+user);
+				mservice.update(user);
+				session.invalidate();
+				return "redirect:/loginandcustomer/login.do";
+			}
+	
+	
+	
+	
+	
+	
 	
 	@RequestMapping("/board/main.do")
 	public String mypage_main() {
+	
 		return "mypage/main";
 	}
 	
 	@RequestMapping("/board/mypoint.do")
 	public String mypage_mypoint() {
+
 		return "mypage/mypoint";
 	}
 	
 	@RequestMapping("/board/recipe_favorite.do")
 	public String mypage_recipefavorite() {
+		
 		return "mypage/recipe_favorite";
 	}
 	
