@@ -7,19 +7,19 @@ public class FridgeVO {
 	private String name;
 	private Date register_date;
 	private String member_id;
-	private char main_fridge;
+	private char distinct_code;
 	
 	public FridgeVO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public FridgeVO(String refrigerator_id, String name, Date register_date, String member_id, char main_fridge) {
+	public FridgeVO(String refrigerator_id, String name, Date register_date, String member_id, char distinct_code) {
 		super();
 		this.refrigerator_id = refrigerator_id;
 		this.name = name;
 		this.register_date = register_date;
 		this.member_id = member_id;
-		this.main_fridge = main_fridge;
+		this.distinct_code = distinct_code;
 	}
 
 	public String getRefrigerator_id() {
@@ -54,12 +54,12 @@ public class FridgeVO {
 		this.member_id = member_id;
 	}
 
-	public char getMain_fridge() {
-		return main_fridge;
+	public char getdistinct_code() {
+		return distinct_code;
 	}
 
-	public void setMain_fridge(char main_fridge) {
-		this.main_fridge = main_fridge;
+	public void setdistinct_code(char distinct_code) {
+		this.distinct_code = distinct_code;
 	}
 	
 	
