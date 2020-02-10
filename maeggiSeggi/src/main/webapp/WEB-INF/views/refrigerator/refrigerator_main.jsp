@@ -60,9 +60,29 @@
 	    			}
 	    		}
 	    	});
+	    	
+	    	//냉장고 관리 모달 창 열기
+	    	addDataToModal();
 	    });
+	    
+	    function addDataToModal() {
+			$(".modal-btn").on("click", function() {
+				$("#fridge_modal").modal({
+					escapeClose: false,
+					clickClose: false,
+					showClose: false
+				})
+				
+				for (var i = 0; i < fridgeList.length; i++) {
+					var fridge = fridgeList[i];
+					mydiv = "<div class='fridge-img-div'><img class='fridge-img-ico' src='/maeggiSeggi/images/refrigerator.png'><p>#" + fridge.name + "<br/>냉장고</p></div>";
+					$("#manage_fridge").empty();
+					$("#manage_fridge").append(mydiv);
+				}
+			})
+		}
     </script>
-    <script src="/maeggiSeggi/common/js/l_ingredients.js"></script>
+    <script src="/maeggiSeggi/common/js/l_fridge.js"></script>
 </head>
 
 <body class="bg-amond">
@@ -80,8 +100,8 @@
 				<button class="ig-btn fridge-btn btn-orange btn-fill-vert-o">
 					<p>양념</p>
 				</button>
-				<a class="modal-btn fridge-btn btn-orange btn-fill-vert-o" type="button">레시피</a>
-				<a class="modal-btn fridge-btn btn-orange btn-fill-vert-o" type="button" href="#manage_fridge" rel="modal:open">냉장고</a>
+				<!-- <a class="modal-btn fridge-btn btn-orange btn-fill-vert-o" type="button">레시피</a> -->
+				<a class="modal-btn fridge-btn btn-orange btn-fill-vert-o" href="#fridge_modal">냉장고</a>
 			</div>
 			<!-- ****** Theme Select Area End ****** -->
 			<!-- ****** Ingredient Select Area Start ****** -->
@@ -271,12 +291,19 @@
 	</div>
     
     <!-- 모달 창입니다 ---------------------------------------------------------------------- -->
-    <div id="manage_fridge" class="modal" role="dialog" aria-hidden="true">
-  		<div class="fridge-img-div">
-  			<img class="fridge-img-ico" src="">
-  			<p></p>
-  		</div>
-  		<a href="#" class="" rel="modal:close">Close</a>
+    <div id="fridge_modal" class="modal" role="dialog" aria-hidden="true">
+    	<div id="manage_fridge">
+    		<div class="fridge-img-div">
+  				<img class="fridge-img-ico" src="">
+  				<p></p>
+  			</div>
+    	</div>
+    	
+    	<div id="pm-btn">
+    		<button class="plus-btn" title="냉장고 추가"><i class="fas fa-plus-circle fa-2x" style="color:orange;"></i></button>
+    		<button class="plus-btn" title="냉장고 제거"><i class="fas fa-minus-circle fa-2x" style="color:gray;"></i></button>
+    	</div>
+  		<a href="#" class="" rel="modal:close" style="padding-left: 95%; position: static;">Close</a>
 	</div>
 </body>
 </html>
