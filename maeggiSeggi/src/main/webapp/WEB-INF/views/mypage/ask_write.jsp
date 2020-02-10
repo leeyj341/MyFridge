@@ -56,12 +56,12 @@
             <div>
                 <div class="mypage_info_texts" style="width: 420px; margin-left: auto; margin-right: auto;">
                     <span>작성자</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input name="id" type="hidden" value="seong"/>성민재
+                    <input name="member_id" type="hidden" value="seong"/>
                 </div>
                 <div style="width: 420px; margin-left: auto; margin-right: auto;">
                     <span>제목</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <span>
-                        <input name="title" type="text"/>
+                        <input name="ask_title" type="text"/>
                     </span>
                 </div>
                 <div style="width: 420px; margin-left: auto; margin-right: auto;">
@@ -72,13 +72,13 @@
                 </div>
                 <p></p>
                 <div style="width: 420px; margin-left: auto; margin-right: auto;">
-                    <textarea name="content" rows="10" cols="50"></textarea>
+                    <textarea name="ask_content" rows="10" cols="50"></textarea>
                 </div>
             </div>
         </fieldset>
         <div style="width: 210px; margin-left: auto; margin-right: auto;">
             <input type="submit" value="작성 완료" onclick="alert('작성을 완료했습니다.');" style="color:white; background-color: #fc6c3f; width: 100px"/>
-            <input type="reset" value="작성 취소" onclick="alert('작성을 취소했습니다.'); location.href='ask.do'" style="color:white; background-color: #fc6c3f; width: 100px"/>
+            <input type="reset" value="작성 취소" onclick="alert('작성을 취소했습니다.'); location.href='/maeggiSeggi/board/list.do'" style="color:white; background-color: #fc6c3f; width: 100px"/>
         </div>
         </form>
     </div>

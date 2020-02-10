@@ -1,16 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@page import="maeggi.seggi.loginandcustomer.memberVO"%>
+<%@page import="maeggi.seggi.restaurant.RecipePlannerAddVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
-
+<script src="/maeggiSeggi/common/js/jquery/jquery-2.2.4.min.js"></script>
 <style type="text/css">
 * {
   margin: 0;
@@ -20,38 +22,151 @@ h4 {
 	text-align: center;
 }
 </style>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#myform").submit( function(event){
+		event.preventDefault();
+	});
+	$("#submit").on("click", function() {
+		/* leng = $('input:checkbox[name="ingredient_id"]:checked').length
+		alert(leng)
+		for (i = 0; i < leng; i++) { */
+		memId = "test";<%-- <%= session.getAttribute("id") %> --%>
+		node = document.createElement("Input");
+		node.setAttribute("name", "member_id");
+		node.setAttribute("value", memId);
+		$("#myform").append(node);
+		
+		/* checkboxValues = [];
+	    $("input[name='ingredient_id']:checked").each(function(i) {
+	        checkboxValues.push($(this).val());
+	    });
+	    
+	    selectValues = [];
+	    selectValues.push($("select[name=ig_amount]").val();
+	    
+	    allData = { "checkArray": checkboxValues, "selectArray": selectValues, "memId": memId }; */
+	    
+	    /* param = $('#myform').serializeArray(); */
+	    
+		$.ajax({
+			url:"/maeggiSeggi/restaurant/add.do",
+			type: "post",
+			traditional :true,
+			data:$("#myform").serializeArray() /* {arr : param} */,
+			success:function(data){
+				alert("ë°ì´í„° ë„£ê¸° ì„±ê³µ");
+			}
+		});
+		
+		$("#myform").children().last().remove();
+		/* } */
+	});
+})
+</script>
 </head>
 <body style="font-family: PapyrusB;">
 	<div class="row" style="margin-left: auto; margin-right: auto;">
 		<div class="col-sm-6"
 			style="background-color: lavender; margin-right: auto; padding: 0px">
-
-			<h4>³ª¿¡°Ô ¾ø´Â Àç·á Ã¼Å©ÇÏ±â</h4>
+		<form id="myform" action="" method="post">
+			<h4>ë‚˜ì—ê²Œ ì—†ëŠ” ì¬ë£Œ ì²´í¬í•˜ê¸°</h4>
 			<fieldset style="text-align: center;">
-				<h4>Àç·áÈ®ÀÎ</h4>
-				<input type="checkbox" name="food" value="¾çÆÄ">¾çÆÄ <input
-					type="checkbox" name="food" value="°è¶õ">°è¶õ <input
-					type="checkbox" name="food" value="¿ÀÀÌ">¿ÀÀÌ <input
-					type="checkbox" name="food" value="µÅÁö°í±â">µÅÁö°í±â <input
-					type="checkbox" name="food" value="Ä¡Áî">Ä¡Áî <input
-					type="checkbox" name="food" value="°íÃß°¡·ç">°íÃß°¡·ç<br /> <br />
-				<br /> <br /> <input type="button" value="Ã¼Å©ÇÑ Àç·á ¸ğµÎ Àå¹Ù±¸´Ï¿¡ Ãß°¡ÇÏ±â">
+				<h4>ì¬ë£Œí™•ì¸</h4>
+				<input type="checkbox" name="ingredient_id" value="195465">ì–‘íŒŒ
+					<select name="ig_amount">
+						<option value="" disabled selected hidden>=== ì„ íƒ ===</option>
+						<option value="1">1ê°œ</option>
+						<option value="2">2ê°œ</option>
+						<option value="3">3ê°œ</option>
+					</select>
+				<input type="checkbox" name="ingredient_id" value="195464">ê³„ë€
+					<select name="ig_amount">
+						<option value="" disabled selected hidden>=== ì„ íƒ ===</option>
+						<option value="1">1ê°œ</option>
+						<option value="2">2ê°œ</option>
+						<option value="3">3ê°œ</option>
+					</select>
+				<input type="checkbox" name="ingredient_id" value="195463">ì˜¤ì´
+					<select name="ig_amount">
+						<option value="" disabled selected hidden>=== ì„ íƒ ===</option>
+						<option value="1">1ê°œ</option>
+						<option value="2">2ê°œ</option>
+						<option value="3">3ê°œ</option>
+					</select>
+				<input type="checkbox" name="ingredient_id" value="195462">ë¼ì§€ê³ ê¸°
+					<select name="ig_unit">
+						<option value="" disabled selected hidden>=== ì„ íƒ ===</option>
+						<option value="1">1ê·¼</option>
+						<option value="2">2ê·¼</option>
+						<option value="3">3ê·¼</option>
+					</select>
+				<input type="checkbox" name="ingredient_id" value="195461">ì¹˜ì¦ˆ
+					<select name="ig_amount">
+						<option value="" disabled selected hidden>=== ì„ íƒ ===</option>
+						<option value="1">1ê°œ</option>
+						<option value="2">2ê°œ</option>
+						<option value="3">3ê°œ</option>
+					</select>
+				<input type="checkbox" name="ingredient_id" value="195460">ê³ ì¶”ê°€ë£¨<br /> <br />
+					<select name="ig_unit">
+						<option value="" disabled selected hidden>=== ì„ íƒ ===</option>
+						<option value="1">1í†µ</option>
+						<option value="2">2í†µ</option>
+						<option value="3">3í†µ</option>
+					</select>
+				<br /> <br /> <button type="submit" id="submit">ì²´í¬í•œ ì¬ë£Œ ëª¨ë‘ ì¥ë°”êµ¬ë‹ˆì— ì¶”ê°€í•˜ê¸°</button>
 			</fieldset>
+			</form>
 		</div>
+				<script type="text/javascript">
+				<%-- $(document).ready(function() {
+					$("#submit").on("click",function(){
+						$("input[name=food]").each(function() {
+							if($(this).is(":checked") == true) {
+								var id_by_name = $('[value="ì–‘íŒŒ"]').attr('id');
+								var id = $(this).attr("id");
+								var amount = $(this).children("select[name=ig_amount]").val();
+								var unit = $(this).children("select[name=ig_unit]").val();
+								var memId = "<%= session.getAttribute("id") %>"
+								var test = "<% RecipePlannerAddVO vo = new RecipePlannerAddVO(); %>";
+								return test;
+							}
+						});
+					});
+				}); --%>
+				<%-- ingredient_id = "${ingredient_id}";
+				ig_amount = "${ig_amount}";
+				ig_unit = "${ig_unit}";
+				member_id = "${member_id}";
+				$(document).ready(function() {
+					$("#submit").on("click",function(){
+						if($(this).is(":checked")) {
+							ingredient_id = $(this).attr("id");
+							ig_amount = $(this).children("select[name=ig_amount]").val();
+							ig_unit = $(this).children("select[name=ig_unit]").val();
+							member_id = "<%= session.getAttribute("id") %>";
+							test = "<% RecipePlannerAddVO vo = new RecipePlannerAddVO(%> ingredient_id, ig_amount, ig_unit, member_id<%); %>"
+							return test;
+						}
+					}
+				} --%>
+			</script>
+		
 		<div class="col-sm-5"
 			style="background-color: lavenderblush; height: 800px;">
-						<h4>ÁÖ°£ ½Ä´Ü Ãß°¡</h4>
+						<h4>ì£¼ê°„ ì‹ë‹¨ ì¶”ê°€</h4>
 
 			<div>
-				<input type="radio" name="time" value="¾ÆÄ§">¾ÆÄ§ 
-				<input type="radio" name="time" value="Á¡½É">Á¡½É 
-				<input type="radio" name="time"	value="Àú³á">Àú³á
-				<br /> <input type="button" value="Ä®·Î¸® È®ÀÎÇÏ±â">
+				<input type="radio" name="time" value="ì•„ì¹¨">ì•„ì¹¨ 
+				<input type="radio" name="time" value="ì ì‹¬">ì ì‹¬ 
+				<input type="radio" name="time"	value="ì €ë…">ì €ë…
+				<br /> <input type="button" value="ì¹¼ë¡œë¦¬ í™•ì¸í•˜ê¸°">
 			</div>
 			<div>
-				<span>¿¹»óµÇ´Â Ä®·Î¸®</span> <strong>1200</strong> <span>kcal</span>
+				<span>ì˜ˆìƒë˜ëŠ” ì¹¼ë¡œë¦¬</span> <strong>1200</strong> <span>kcal</span>
 			</div>
-			<input type="submit" value="½Ä´Ü¿¡ Ãß°¡ÇÏ±â">
+			<input type="submit" value="ì‹ë‹¨ì— ì¶”ê°€í•˜ê¸°">
 		</div>
 	</div>
 	

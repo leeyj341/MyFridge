@@ -33,8 +33,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int delete(String board_no) {
-		return dao.delete(board_no);
+	public void delete(int askno) {
+		dao.delete(askno);
+		System.out.println("==================================================serviceimpl의 askno"+askno);
 	}
 
 	
@@ -55,5 +56,11 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public BoardVO updatelist(BoardVO board) {
+		return dao.updatelist(board);
+	}
+
 
 }

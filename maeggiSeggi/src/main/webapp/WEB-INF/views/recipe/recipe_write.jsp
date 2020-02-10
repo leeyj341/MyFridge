@@ -11,94 +11,7 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
-<style type="text/css">
-b {
-	text-align: justify;
-	font-size: 15pt;
-}
-.btn{
-padding: 0%;
-border: solid 1px transparent;
-background: white;
-}
-
-h1 {
-	text-align: center;
-	font-family: PapyrusB;
-}
-
-#register {
-	width: 10%;
-	background-color: white;
-	border: solid 1px gray;
-	color: #F8585B;
-	padding: 9px 10px;
-	text-align: center;
-	text-decoration: none;
-	font-size: 15px;
-	font-weight: bolder;
-	cursor: pointer;
-	border-radius: 10px;
-	margin-top: 10px;
-	margin-left: 80%;
-	float: left;
-}
-
-#cancle {
-	width: 10%;
-	background-color: white;
-	border: solid 1px gray;
-	color: #F8585B;
-	padding: 9px 10px;
-	text-align: center;
-	text-decoration: none;
-	font-size: 15px;
-	font-weight: bolder;
-	cursor: pointer;
-	float: left;
-	border-radius: 10px;
-	margin-top: 10px;
-}
-
-.selectbox {
-	display: inline-block;
-	
-}
-
-input[type=text] {
-	width: 40%;
-	padding: 7px 10px;
-	margin: 8px 2px;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-}
-
-select {
-	width: 100%;
-	padding: 7px 10px;
-	margin: 8px 2px;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-}
-
-#sort {
-	display: inline-block;
-	
-}
-#ig_side_Add{
-display: inline;
-}
-.jumbotron{
-  padding: 30px 15px;
-  margin-bottom: 30px;
-  color: inherit;
-  background-color:#fdd7c8;
-}
-</style>
+<link href="/maeggiSeggi/common/css/recipe_write.css" rel="stylesheet">
 
 </head>
 
@@ -126,7 +39,7 @@ display: inline;
 	<br>
 	
 	
-		<form class="form-horizontal" action="/maeggiSeggi/recipe/upload.do" method="POST" enctype="multipart/form-data" name="myform">
+		<form class="form-horizontal" action="/maeggiSeggi/recipe/upload.do" method="POST" enctype="multipart/form-data">
 			<p><b>제목  </b></p>
 			<input type="text" id="name" style="width: 80%;" placeholde="레시피 제목을 입력해주세요" />
 			
@@ -139,7 +52,7 @@ display: inline;
 				</p>
 				<div class="selectbox">
 					<select id="select_ctry">
-						<option selected>나라별</option>
+						<option selected>테마별</option>
 						<option>한식</option>
 						<option>퓨전</option>
 						<option>서양/이탈리아</option>
@@ -191,7 +104,7 @@ display: inline;
 			<div class="selectbox">
 				<select id="cook_level">
 					<option selected>난이도</option>
-					<option>초급</option>
+					<option>초보환영</option>
 					<option>중급</option>
 					<option>고급</option>
 				</select>
@@ -208,9 +121,9 @@ display: inline;
 				<div id="ig_content">
 				<div id="ig_main_Add" class="ig_main_Add">
 					<label for="ingredient">재료 이름:</label> 
-						<input type="text" id="ingredient"  placeholder="예)돼지고기">&ensp;&ensp;&ensp; 
+						<input type="text" id="ingredient" name="history[1].ingredient" placeholder="예)돼지고기">&ensp;&ensp;&ensp; 
 					<label for="ingredientAmount">계량 정보 :</label> 
-						<input type="text" id="ingredientAmount" placeholder="예)200g">
+						<input type="text" id="ingredientAmount" name="history[1].ig_Amount" placeholder="예)200g">
 					
 					<button type="button" class="btn btn-default" aria-label="Left Align" onclick="remove_div()">
   					<i class="fas fa-minus-circle fa-2x" style="color:gray;float:left;"></i></button>
@@ -218,10 +131,10 @@ display: inline;
 				
 				<div id="ig_side_Add" class="ig_side_Add">
 				<label for="ingredient">재료 이름:</label> 
-					<input type="text" id="side_ingredient" placeholder="예)고추장">&ensp;&ensp;&ensp; 
+					<input type="text" id="side_ingredient" name="history[1].ingredient" placeholder="예)고추장">&ensp;&ensp;&ensp; 
 				<label for="ingredientAmount">계량 정보 :</label>
 				 	<div class="selectbox">
-						<select id="select" >
+						<select id="select" name="history[1].ig_Amount" >
 							<option selected>양념</option>
 							<option>약간</option>
 							<option>적당량</option>
@@ -244,7 +157,7 @@ display: inline;
   			
   			<div class="form-group">
 			    <label for='ControlTextarea'>step1</label>
-			    <textarea class="form-control" id="ControlTextarea" rows="5"></textarea>
+			    <textarea class="form-control" id="ControlTextarea" name="history[1].content" rows="5"></textarea>
   			</div>
   			<div id="content"></div>
   			<div>
@@ -277,7 +190,7 @@ display: inline;
 	var mainNode;
 	var sideNode;
 	var serviceType;
-	var count=1;
+	
 	$(document).ready(function() {
 		$('#cancle').click(function() {
 			if (confirm('정말 취소하시겠습니까?') == true) {
@@ -291,15 +204,17 @@ display: inline;
             //라디오 버튼 값을 가져온다.
             serviceType = this.value;
 		});
-		
+		var count=1;
 		var main = document.getElementById("ig_main_Add");
 		var side = document.getElementById("ig_side_Add");
 		
 		mainNode = document.createElement("div");
 		mainNode.appendChild(main.cloneNode(true));
+		mainNode.setAttribute( "name", "history["+(++count)+"].ingredient"); 
 		
 		sideNode = document.createElement("div");
 		sideNode.appendChild(side.cloneNode(true));
+		sideNode.setAttribute( "name", "history["+(++count)+"].ig_Amount"); 
 		
 		$('input:radio[name="ig_option"][value="main"]').prop('checked', true);
 		if($('input:radio[name="ig_option"][value="main"]').prop('checked')) {
@@ -336,6 +251,7 @@ display: inline;
 		newdiv = document.getElementById("content");
 		newdiv.appendChild(newP);
 		newcontent = document.querySelector("#ControlTextarea").cloneNode(true);
+		newcontent.setAttribute( "name", "history["+count+"].content"); 
 		newdiv.appendChild(newcontent);
 
 		

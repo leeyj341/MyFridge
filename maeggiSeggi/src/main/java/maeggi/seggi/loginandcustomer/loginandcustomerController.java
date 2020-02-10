@@ -23,8 +23,7 @@ public class loginandcustomerController {
 	public ModelAndView login(memberVO loginUserInfo,HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		memberVO loginuser = service.login(loginUserInfo);
-		System.out.println(loginUserInfo+"=================================================");
-		System.out.println(loginuser+"=================================================");
+		System.out.println("로그인성공! 로그인된 회원정보: "+ loginuser);
 		String viewName="";
 		mav.addObject("loginuser", loginuser);
 		if(loginuser!=null) {
@@ -47,6 +46,20 @@ public class loginandcustomerController {
 		}
 		return "redirect:/recipe/main.do";
 	}
+	
+	//회원정보 수정 View
+		@RequestMapping(value = "/loginandcustomer/update.do", method = RequestMethod.GET)
+		public String updateView(memberVO user) {
+			return "mypage/information/update";
+		}
+		
+		//회원정보 수정 POST
+		@RequestMapping(value = "/loginandcustomer/update.do", method = RequestMethod.POST)
+		public String update(memberVO user, HttpSession session) {
+			service.update(user);
+			session.invalidate();
+			return "redirect:/loginandcustomer/login.do";
+		}
 /*	@RequestMapping(value = "/kakaoOauth.do")
 	public String getKakaoSignIn(ModelMap model,@RequestParam("code") String code, HttpSession session) throws Exception {
 	  JsonNode userInfo = kakaoLogin.getKakaoUserInfo(code);

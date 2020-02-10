@@ -1,3 +1,7 @@
+
+<%@page import="maeggi.seggi.mypage.BoardVO"%>
+<%@page import="maeggi.seggi.loginandcustomer.memberVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
@@ -12,20 +16,74 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Yummy Blog - Food Blog Template</title>
+    <title>회원 정보수정</title>
 
-    <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico">
+ <!-- Favicon -->
+<link rel="icon" href="/maeggiSeggi/images/core-img/favicon.ico">
+​
+<!-- font -->
+<link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
+​
+<!-- Core Stylesheet -->
+<link href="/maeggiSeggi/common/css/style.css" rel="stylesheet">
+<link href="/maeggiSeggi/common/css/k_join.css" rel="stylesheet">
+​
+​
+<!-- Responsive CSS -->
+<link href="/maeggiSeggi/common/css/responsive/responsive.css"
+	rel="stylesheet">
 
-    <!-- Core Stylesheet -->
-    <link href="/maeggiSeggi/common/css/minjae.css" rel="stylesheet">
-
-    <!-- Responsive CSS -->
-    <link href="css/responsive/responsive.css" rel="stylesheet">
+	<script type="text/javascript">
+		$(function() {
+			$("#alert-success").hide();
+			$("#alert-danger").hide();
+			$("input").keyup(function() {
+				var pass = $("#pass").val();
+				var pass_confirm = $("#pass_confirm").val();
+				if (pass != "" || pass_confirm != "") {
+					if (pass == pass_confirm) {
+						$("#alert-success").show();
+						$("#alert-danger").hide();
+						$("#submit").removeAttr("disabled");
+					} else {
+						$("#alert-success").hide();
+						$("#alert-danger").show();
+						$("#submit").attr("disabled", "disabled");
+					}
+				}
+			});
+		});
+			
+			//핸드폰 번호 수
+			$("#phonenum").on("keyup",function(){
+				myphone = $("#phonenum").val();
+				resultStr ="";//결과 문자열을 저장할 변수
+				colour = ""; 
+				if(myphone.length != 11){
+					resultStr = "핸드폰 번호는 11자리로 입력해야 합니다.";
+					colour = "red";
+				}else{
+					resultStr = "핸드폰 번호 입력완료.";					
+					colour = "green";
+				}
+				//웹페이지에 div태그 내부에 문자열을 추가 -> html()을 이용해도 좋다.
+				$("#result_phone").text(resultStr);
+				$("#result_phone").css("color",colour);
+			});
+		</script>
 
 </head>
 
 <body>
+
+
+<%
+		ArrayList<BoardVO> list = (ArrayList<BoardVO>)request.getAttribute("list");
+		memberVO loginuser = (memberVO) session.getAttribute("loginuser");
+	
+	%>
+	 <% if(session.getAttribute("id")!= null){ //로그인 된 유저만 접근 가능 %>
+
     <!-- ****** Breadcumb Area Start ****** -->
     <div class="breadcumb-area" style="background-image: url(img/bg-img/breadcumb.jpg);z-index: 0">
         <div class="container h-100">
@@ -55,241 +113,63 @@
     </div>
     <!-- ****** Breadcumb Area End ****** -->
 	
-	<!-- information_update area start -->
-	<div style="margin-left: auto; margin-right: auto; width: 60%; position: relative; left: 20%">
-			<fieldset >
-				<div class="">
-					<div class="">
-						<div class="">
-							<div class="">
+	<div class="container">
+			<form action="/maeggiSeggi/loginandcustomer/update.do" method="POST">
+				<div class="join_form">
+					<label for="id">아이디:</label> 
+					<input type="text"
+						class="form-control" placeholder =" <%= member.getMember_id() %> " disabled="disabled">
+					<span id="checkVal" style="color: red;"></span>
+				</div>												
 								
-								<div class="mypage_info_texts">
-									<input name="member_id" class="" type="text" disabled="disabled" placeholder="아이디"/>
-								</div>
-							</div>
-							<p class="" style="display: none;"></p>
-						</div>
-						<div class="">
-							<div class="">
-								
-								<div class="mypage_info_texts">
-									<input name="pass" class="" type="password" placeholder="비밀번호">
-									<span class="" style="display: none;"></span>
-								</div>
-							</div>
-							<p class="" style="display: none;"></p>
-						</div>
-						<div class="">
-							<div class="">
-								
-								<div class="mypage_info_texts">
-									<input name="pass" class="" type="password" placeholder="비밀번호 확인"/>
-									<span class=""></span>
-								</div>
-							</div>
-						</div>
-					</div>
+				<div class="join_form">
+					<label for="pwd">비밀번호:</label> <input type="password"
+						class="form-control" id="pass" name="pass" value="<%= member.getPass()%>">
+​					
 				</div>
-				<div class="">
-					<div class="">
-						<div class="">
-							<div class="">
-								
-								<div class="mypage_info_texts">
-									<input name="name" class="" type="text" disabled="disabled" placeholder="이름"/>
-								</div>
-							</div>
-						</div>
-						<div class="mypage_info_texts">
-							<div class="">
-								<div class="year">
-									<div class="">
-										
-										<div>
-											<span class="">
-												<input name="identi" class="" type="text" maxlength="6" disabled="disabled" placeholder="주민번호 앞자리"/>
-											</span>										
-										</div>
-									</div>
-								</div>
-								<p></p>
-							</div>
-						</div>
-					</div>
+				<div class="join_form">
+					<label for="pwd">비밀번호 확인:</label> <input type="password"
+						class="form-control" id="pass_confirm" name="pass_cofirm" value="<%= member.getPass()%>">
+					<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
+					<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
 				</div>
-				<div class="">
-					<div class="">
-						<input name="gender" class="" type="radio" value="male"/>
-						<label>남자</label>
-					</div>
-					<div class="">
-						<input name="gender" class="" type="radio" value="female"/>
-						<label>여자</label>
-					</div>
-					<p></p>
+				<div class="join_form">
+					<label for="pwd">이름:</label> <input type="text"
+						class="form-control" name="name" placeholder=" <%= member.getName() %> " disabled="disabled">
 				</div>
-				<p class="" style="display: none;">필수정보입니다.</p>
-				<div class="">
-					<div class="">
-						<div class="">
-							<div class="mypage_info_texts">
-								
-								<div class="">
-									<span class="">
-										<select name="phonenum" title="휴대폰 앞 3자리" class="">
-											<option value="010">010</option>
-											<option value="011">011</option>
-											<option value="016">016</option>
-											<option value="017">017</option>
-											<option value="018">018</option>
-											<option value="019">019</option>
-										</select>
-									</span>
-									<span class="num">
-										<input name="phonenum" class="" type="tel" maxlength="8" placeholder="휴대폰 번호 (숫자만)"/>
-									</span>
-								</div>
-							</div>
-							<p class="" style="display: none;"></p>
-						</div>
-						<div class="mypage_info_texts">
-							<div class="">
-								<div class="">
-									<div class="">
-										
-									</div>
-									<span class="">
-										<input name="" class="" type="text" placeholder="이메일"/>
-									</span>
-									<span class="">@</span>
-									<span class="">
-										<input name="" class="" type="text" placeholder="직접입력"/>
-									</span>
-									<select name="selectEmail" title="" class="">
-										<option value="naver.com">naver.com</option>
-										<option value="hanmail.net">hanmail.net</option>
-										<option value="nate.com">nate.com</option>
-										<option value="google.com">google.com</option>
-									</select>
-									
-								</div>
-							</div>
-						</div>
-						<div class="mypage_info_texts">
-							<div class="">
-								
-								<div class="">
-									<input name="height" class="" type="text" maxlength="3" placeholder="키(cm)"/>
-								</div>
-							</div>
-						</div>
-						<div class="mypage_info_texts">
-							<div class="">
-								
-								<div class="">
-									<input name="weight" class="" type="text" maxlength="3" placeholder="몸무게(kg)"/>
-								</div>
-							</div>
-						</div>
-						<p></p>
-						<div>
-							<input type="button" value="수정 완료" onclick="alert('수정을 완료했습니다.');location.href='mypage_main.do'" style="color:white; background-color: #fc6c3f; width: 100px"/>
-							<input type="button" value="수정 취소" onclick="alert('수정을 취소했습니다.');location.href='mypage_main.do'" style="color:white; background-color: #fc6c3f; width: 100px"/>
-						</div>
-					</div>
+​
+				<div class="join_form">
+					<label for="pwd"> 핸드폰 번호 : ( - 없이 11자리 숫자만 입력  )</label> <input type="text"
+						class="form-control" id="phonenum" name="phonenum" value=" <%= member.getPhonenum() %> ">
+					<div id="result_phone" style="color: red;"></div>
 				</div>
-			</fieldset>
+​
+				<div class="join_form">
+					<label for="pwd"> 주민등록번호 : ( - 없이 13자리 숫자만 입력  )</label> <input type="text"
+						class="form-control" placeholder=" <%= member.getSsn() %> " disabled="disabled">
+					<div id="result_ssn" style="color: red;"></div>
+				</div>
+				
+				<div class="join_form">
+					<label for="pwd"> 키 : (cm) </label><input type="text"
+						class="form-control" id="height" name="height" value=" <%= member.getHeight() %> ">
+				</div>
+				
+				<div class="join_form">
+					<label for="pwd"> 몸무게 : (kg) </label><input type="text"
+						class="form-control" id="weight" name="weight" value=" <%= member.getWeight() %> ">				
+				</div>
+				
+				<button type="submit" onclick="alert('수정을 완료했습니다.')" class="btn btn-default" id="submit" style="color:white; background-color: #fc6c3f; width: 100px">Submit</button>
+				<input type="button" value="수정 취소" onclick="alert('수정을 취소했습니다.');location.href='/maeggiSeggi/refrigerator/fridge.do'" style="color:white; background-color: #fc6c3f; width: 100px"/>
+			</form>
 		</div>
 	<!-- information_update area end -->
+	<% } else{ %>
 	
-    
-
-    <!-- ****** Footer Social Icon Area Start ****** -->
-    <div class="social_icon_area clearfix">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="footer-social-area d-flex">
-                        <div class="single-icon">
-                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i><span>facebook</span></a>
-                        </div>
-                        <div class="single-icon">
-                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
-                        </div>
-                        <div class="single-icon">
-                            <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i><span>GOOGLE+</span></a>
-                        </div>
-                        <div class="single-icon">
-                            <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i><span>linkedin</span></a>
-                        </div>
-                        <div class="single-icon">
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
-                        </div>
-                        <div class="single-icon">
-                            <a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i><span>VIMEO</span></a>
-                        </div>
-                        <div class="single-icon">
-                            <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i><span>YOUTUBE</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ****** Footer Social Icon Area End ****** -->
-
-<!-- ****** Footer Menu Area Start ****** -->
-    <footer class="footer_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="footer-content">
-                        <!-- Logo Area Start -->
-                        <div class="footer-logo-area text-center">
-                            <a href="index.html" class="yummy-logo">Maeggi Seggi</a>
-                        </div>
-                        <!-- Menu Area Start -->
-                        <nav class="navbar navbar-expand-lg">
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#yummyfood-footer-nav" aria-controls="yummyfood-footer-nav" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars" aria-hidden="true"></i> Menu</button>
-                            <!-- Menu Area Start -->
-                            <div class="collapse navbar-collapse justify-content-center" id="yummyfood-footer-nav">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="#">MY FRIDGE<span class="sr-only">(current)</span></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">ABOUT US</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">RECIPE</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">RESTAURANT</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="mypage_main.do">MY PAGE</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">MANAGE</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-	</footer>
-    <!-- ****** Footer Menu Area End ****** -->
-
-    <!-- Jquery-2.2.4 js -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
-    <script src="js/bootstrap/popper.min.js"></script>
-    <!-- Bootstrap-4 js -->
-    <script src="js/bootstrap/bootstrap.min.js"></script>
-    <!-- All Plugins JS -->
-    <script src="js/others/plugins.js"></script>
-    <!-- Active JS -->
-    <script src="js/active.js"></script>
+		<script type="text/javascript">
+		alert("로그인이 필요한 기능입니다!");
+		document.location.href="/maeggiSeggi/loginandcustomer/login.do";
+		</script>
+		<% }%>
 </body>

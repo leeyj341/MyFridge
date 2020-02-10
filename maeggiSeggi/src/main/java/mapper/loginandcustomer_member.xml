@@ -18,4 +18,11 @@
  	<select id="idCheck" resultType="member" parameterType="String" >
 		select * from member where member_id = #{member_id}
 	</select>
+	
+	<!-- 회원 정보 수정 -->
+	<update id="update">
+		update member
+		set pass = #{pass}, phonenum = #{phonenum}, height = #{height}, weight = #{weight}
+	</update>
+	
 </mapper>
