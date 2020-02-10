@@ -23,8 +23,7 @@ public class loginandcustomerController {
 	public ModelAndView login(memberVO loginUserInfo,HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		memberVO loginuser = service.login(loginUserInfo);
-		System.out.println(loginUserInfo+"=================================================");
-		System.out.println(loginuser+"=================================================");
+		System.out.println("로그인성공! 로그인된 회원정보: "+ loginuser);
 		String viewName="";
 		mav.addObject("loginuser", loginuser);
 		if(loginuser!=null) {

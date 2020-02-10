@@ -1,4 +1,7 @@
+
+<%@page import="maeggi.seggi.mypage.BoardVO"%>
 <%@page import="maeggi.seggi.loginandcustomer.memberVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
@@ -72,10 +75,15 @@
 </head>
 
 <body>
-	<% 
-	memberVO member = (memberVO)session.getAttribute("member");
+
+
+<%
+		ArrayList<BoardVO> list = (ArrayList<BoardVO>)request.getAttribute("list");
+		memberVO loginuser = (memberVO) session.getAttribute("loginuser");
 	
 	%>
+	 <% if(session.getAttribute("id")!= null){ //로그인 된 유저만 접근 가능 %>
+
     <!-- ****** Breadcumb Area Start ****** -->
     <div class="breadcumb-area" style="background-image: url(img/bg-img/breadcumb.jpg);z-index: 0">
         <div class="container h-100">
@@ -157,4 +165,11 @@
 			</form>
 		</div>
 	<!-- information_update area end -->
+	<% } else{ %>
+	
+		<script type="text/javascript">
+		alert("로그인이 필요한 기능입니다!");
+		document.location.href="/maeggiSeggi/loginandcustomer/login.do";
+		</script>
+		<% }%>
 </body>

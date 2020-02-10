@@ -1,3 +1,4 @@
+<%@page import="maeggi.seggi.loginandcustomer.memberVO"%>
 <%@page import="maeggi.seggi.mypage.BoardVO"%>
 <%@page import="maeggi.seggi.reply.replyBoardVO"%>
 <%@page import="java.util.ArrayList"%>
@@ -132,4 +133,6 @@
 		
 		</div>
 	</div>
+
+	
 </body>
