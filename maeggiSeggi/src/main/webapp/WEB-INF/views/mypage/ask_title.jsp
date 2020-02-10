@@ -31,7 +31,6 @@
 <script src="js/jquery/jquery-2.2.4.min.js"></script>
 
 <script type="text/javascript">
-
 //수정, 삭제 버튼 구현
 /* $(document).ready(function(){
 	var formObj = $("form[name='deleteupdate']");
@@ -55,10 +54,6 @@
 		
 		location.href = "/board/list";
 	}) */
-})
- */
-
-
 
 	
 	function hideDiv(id){ //수정, 댓글 작성화면을 가진 DIV들을 숨기는 함수.

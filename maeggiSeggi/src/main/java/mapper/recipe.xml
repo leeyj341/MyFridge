@@ -4,14 +4,17 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="maeggi.seggi.recipe">
  	<select id="listall" resultType="recipe">
-  			select *
-  			from recipe
+  			select * from
+  			(select * from recipe
+  				order by dbms_random.random())
   	</select>
+<!-- radio 카테고리 조회 -->
   	<select id="categoryRecipe" resultType="recipe" parameterType="String">
   			select *
   			from recipe 
-  			where recipe_category = #{category}
+  			where recipe_category like '%' || #{category} || '%'
   	</select>
+  	<!-- 검색어 조회 (미완성) -->
  	<select id="recipeSearch" resultType="recipe" parameterType="String">
   			select distinct r.recipe_id, r.name,r.content_intro,r.register_date,r.member_id,r.img_url_main
   			from recipe r,ingredients i
@@ -19,21 +22,32 @@
   			  		and (r.name like '%' || #{search} || '%' 
   			  		or i.name like'%' || #{search} || '%')
   	</select>
+  	<!-- 난이도별 조회 -->
+  	<select id="levelRecipe" resultType="recipe" parameterType="String">
+  		select * 
+  		from recipe 
+  		where cook_level=#{cook_level}
+  	</select>
+  	<!-- 레시피 등록 -->
   	<insert id="insert" parameterType="recipe">
   	insert into recipe values(#{recipe_id},#{name},#{content_intro},#{recipe_code},#{recipe_category},#{cook_time},
 		#{kcal},#{amount_per_person},#{cook_level},#{ing_category},#{price},
 		#{img_url_main},#{img_url_sub},0,0,sysdate,#{member_id}
   	</insert>
+  	<!-- 재료 등록 (미완성) -->
   	<insert id="ig_insert" parameterType="recipe">
   	insert into recipeDetail values(#{recipe_id},#{recipe_order_num},#{recipe_describe},#{img_url},#{tip})
   	</insert>
+  	<!-- 조회수 증가  -->
   	<update id="updatehit" parameterType="String">
 		update recipe
 		set hit = hit +1
 		where recipe_id=#{recipe_id}
 	</update>
+	<!-- 레시피 상세보기 -->
 	<select id="detail" parameterType="String" resultType="Map">
-		select r.*, d.*
+		select r.recipe_id,r.name,r.img_url_main,r.register_date,r.like_num,r.content_intro,d.recipe_order_num,d.recipe_describe,r.member_id,r.hit,r.kcal
+			,r.img_url_sub,r.recipe_category,r.food_category,r.cook_time,r.amount_per_person,r.price,d.img_url,d.tip
 		from recipe r,recipe_detail d
 		where r.recipe_id=d.recipe_id and r.recipe_id=#{recipe_id}
         order by d.recipe_order_num
