@@ -5,8 +5,13 @@
   
   <mapper namespace="maeggi.seggi.ingredient">
   	<select id="selectAllByCategory" resultType="ingredients" parameterType="String">
-  		select * 
+  		select ingredient_id, name, ig_type_name
   		from ingredients 
   		where ingredient_id in (select min(ingredient_id) from ingredients group by name) and ig_type_name=#{category}
+  	</select>
+  	<select id="selectAllByName" resultType="ingredients" parameterType="Map">
+  		select ingredient_id, name, ig_type_name
+  		from ingredients 
+  		where ingredient_id in (select min(ingredient_id) from ingredients group by name) and ig_type_name=#{category} and name like '%' || #{name} || '%'
   	</select>
   </mapper>

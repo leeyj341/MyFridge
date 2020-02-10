@@ -50,8 +50,7 @@ public class memberServiceImpl implements memberService {
 
 	@Override
 	public int update(memberVO user) {
-		// TODO Auto-generated method stub
-		return 0;
+		return dao.update(user);
 	}
 
 	@Override
@@ -63,4 +62,5 @@ public class memberServiceImpl implements memberService {
 	public int insert(memberVO user) {
 		return dao.insert(user);
 	}
+	
 }
