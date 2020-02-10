@@ -18,4 +18,10 @@ public class IngredientController {
 		ArrayList<IngredientVO> list = (ArrayList<IngredientVO>)service.selectAllByCategory(category);
 		return list;
 	}
+	
+	@RequestMapping(value="/ajax_ingredientbyname.do", method=RequestMethod.GET, produces="application/json;charset=UTF-8")
+	public @ResponseBody ArrayList<IngredientVO> selectAllIngredientByName(String category, String name) {
+		ArrayList<IngredientVO> list = (ArrayList<IngredientVO>)service.selectAllByName(category, name);
+		return list;
+	}
 }
