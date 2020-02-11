@@ -1,6 +1,6 @@
 package maeggi.seggi.loginandcustomer;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;//
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -22,5 +22,6 @@ public class LoginCheckInterceptor extends HandlerInterceptorAdapter{
 		}
 		return true;
 	}
+	
 	
 }

@@ -4,9 +4,12 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="maeggi.seggi.recipe">
  	<select id="listall" resultType="recipe">
-  			select * from
-  			(select * from recipe
-  				order by dbms_random.random())
+		SELECT * FROM (
+	   		 SELECT r.*, ROW_NUMBER() OVER(ORDER BY recipe_id DESC) AS RNUM
+	  		 FROM recipe r
+	)
+	WHERE RNUM BETWEEN 1 AND 9
+  	order by dbms_random.random()
   	</select>
 <!-- radio 카테고리 조회 -->
   	<select id="categoryRecipe" resultType="recipe" parameterType="String">
@@ -22,6 +25,12 @@
   			  		and (r.name like '%' || #{search} || '%' 
   			  		or i.name like'%' || #{search} || '%')
   	</select>
+  	
+  	<!-- 레시피 조회에서 팝업창으로 데이터 전송. -->
+  	<select id="moveTopopup" resultType="recipe" parameterType="String">
+  		select recipe_id, name, kcal from recipe where recipe_id = #{recipe_id}
+  	</select>
+  	
   	<!-- 난이도별 조회 -->
   	<!-- <select id="levelRecipe" resultType="recipe" parameterType="String">
   		select * 
@@ -62,10 +71,20 @@
   	</select>
 	
 	<resultMap type="Map" id="detailMap">
-		<!-- <result column="recipe_id" property="id"/>
+		<result column="recipe_id" property="id"/>
 		<result column="name" property="name"/>
 		<result column="recipe_order_num" property="order"/>
-		<result column="recipe_describe" property="content"/> -->
+		<result column="recipe_describe" property="content"/>
 	</resultMap>
+<!-- 	<select id="testlist" resultType="recipe">
+		SELECT * FROM (
+	   		 SELECT r.*, ROW_NUMBER() OVER(ORDER BY recipe_id DESC) AS RNUM
+	  		 FROM recipe r
+	)
+	WHERE RNUM BETWEEN 1 AND 9
+	</select> -->
+	<select id="testcount" resultType="int">
+		select count(*) from recipe
+	</select>
 	
  </mapper> 

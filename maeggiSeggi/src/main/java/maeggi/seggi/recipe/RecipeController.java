@@ -3,6 +3,7 @@ package maeggi.seggi.recipe;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -46,10 +47,15 @@ public class RecipeController {
 		mav.setViewName("detail");
 		return mav;
 	}
-	@RequestMapping("/recipe/addPlanner.do")
+	
+	
+/*	@RequestMapping("/recipe/addPlanner.do")
 	public String add() {
 		return "add";
-	}
+	}*/
+	
+	
+	
 	@RequestMapping("/recipe/searchRecipe.do")
 	public ModelAndView recipeList() {
 		ModelAndView mav = new ModelAndView();
@@ -105,4 +111,16 @@ public class RecipeController {
 		System.out.println("----------------------"+recipelist.size());
 		return recipelist;
 	}
+	
+	@RequestMapping(value ="/recipe/addPlanner.do" , method=RequestMethod.POST)
+	public ModelAndView moveTopopup(RecipeVO recipe_id) {
+		System.out.println("recipe_id"+ recipe_id);
+		ModelAndView mav = new ModelAndView();
+		RecipeVO sda = service.moveTopopup(recipe_id);
+		mav.addObject("sda", sda);
+		mav.setViewName("add");
+		return mav;
+		
+	}
+	
 }
