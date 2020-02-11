@@ -11,6 +11,14 @@ public class IngredientVO {
 	public IngredientVO() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public IngredientVO(String ingredient_id, String name, String ig_type_name) {
+		super();
+		this.ingredient_id = ingredient_id;
+		this.name = name;
+		this.ig_type_name = ig_type_name;
+	}
+
 	public IngredientVO(String recipe_id, String ingredient_id, String name, String volume, String ig_type_code,
 			String ig_type_name) {
 		super();

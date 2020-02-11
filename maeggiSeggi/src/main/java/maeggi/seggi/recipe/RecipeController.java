@@ -87,4 +87,20 @@ public class RecipeController {
 		System.out.println("ajax 통신"+recipeList.size());
 		return recipeList;
 	}
+	
+	public ModelAndView levelView(String cook_levelb, String cook_leveln, String cook_levelh) {
+		System.out.println(cook_levelb+"////////////////"+cook_leveln+"//////////////"+cook_levelh);
+		ModelAndView mav = new ModelAndView();
+		List<RecipeVO> listb = service.levellist(cook_levelb);
+		List<RecipeVO> listn = service.levellist(cook_leveln);
+		List<RecipeVO> listh = service.levellist(cook_levelh);
+		System.out.println(listb);
+		System.out.println(listn);
+		System.out.println(listh);
+		mav.addObject("levellistb", listb);
+		mav.addObject("levellistn", listn);
+		mav.addObject("levellisth", listh);
+		mav.setViewName("/recipe/levelRecipe.do");
+		return mav;
+	}
 }

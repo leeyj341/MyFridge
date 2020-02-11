@@ -60,6 +60,17 @@ public class RecipeDAOImpl implements RecipeDAO {
 		return list;
 	}
 
+	@Override
+	public List<RecipeVO> readbyName(String name) {
+		List<RecipeVO> mapSearch = sqlSession.selectList("maeggi.seggi.recipe.recipeSearch",name);
+		
+		return mapSearch;
+	}
+
+	@Override
+	public List<RecipeVO> levellist(String cook_level) {
+		return sqlSession.selectList("maeggi.seggi.recipe.levelRecipe", cook_level);
+	}
 
 
 

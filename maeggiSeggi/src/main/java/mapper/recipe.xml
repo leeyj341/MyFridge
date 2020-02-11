@@ -53,6 +53,13 @@
         order by d.recipe_order_num
 	</select>
 	
+	<!-- 난이도별 조회 -->
+  	<select id="levelRecipe" resultType="recipe" parameterType="String">
+  		select *
+  		from recipe
+  		where cook_level=#{cook_level}
+  	</select>
+	
 	<resultMap type="Map" id="detailMap">
 		<!-- <result column="recipe_id" property="id"/>
 		<result column="name" property="name"/>

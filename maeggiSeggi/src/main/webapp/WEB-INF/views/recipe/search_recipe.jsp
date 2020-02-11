@@ -54,20 +54,20 @@
 		<div class="row">
 			<div class="col-sm-3">
 				<h2 class="aside-title">Recipe Search</h2>
-				<form action="recipeSearch" method="get">
+
 					<div class="form-group">
 						<div class="input-group">
-							<input type="text" name="recipe_search" class="form-control"
+							<input type="text" name="recipe_search" id="recipe_search" class="form-control"
 								placeholder="검색어를 입력하세요." style="font-size: 20pt;">
 
-							<button id="search" name="read" value="검색">
-								검색 <i class="ion-search"></i>
-							</button>
+							<input type="button" id="search" class="ion-search" name="read" value="검색" onclick="getbyname()">
+							<!-- 	검색 <i class="ion-search"></i> -->
+							
 
 						</div>
 
 					</div>
-				</form>
+	
 				<ul>
 					<li class="active"><a href="#">All</a></li>
 					<li><a href="#">Latest</a></li>
@@ -119,7 +119,7 @@
 						</select>
 					</div>
 					<div class="search-result">
-						<span id="underline">김치</span>로 조회된 결과는 52 개 입니다.
+						<span id="underline">검색어</span>(으)로 조회된 결과는 <span id="Scount">0</span> 개 입니다.
 					</div>
 
 
@@ -167,9 +167,7 @@
 	<script type="text/javascript">
 		var serviceType;
 
-		$(document)
-				.ready(
-						function() {
+		$(document).ready(function() {
 
 							category = "${category}";
 
@@ -224,12 +222,72 @@
 																					}
 																					$("#main").empty();
 																					$("#main").append(mydata);
+																					
 																				}
+																				
+
+																			
 																			});
 																});
 											});
 						});
+		
+		 function getbyname(){
+			var search = $("#recipe_search").val();
+			if(search!=''){
+					$.ajax({
+						url: "/maeggiSeggi/recipe/ajax_SearchName.do",
+						type: "get",
+						data: {
+							"name":search
+						},
+						success:function(data){
+							mydata = "";
+							for (var i = 0; i < data.length; i++) {
+								mydata += "<div id='content'><div class='grid'>"+
+								"<div class='single-post'>"
+										+ "<div class='post-thumb'>"
+										+ "<a href='/maeggiSeggi/recipe/detailRecipe.do?id="
+										+ data[i].recipe_id
+										+ "'>"
+										+ "<img src='" + data[i].img_url_main + "' style='width:248px;height:248px;'/>"
+										+ "</a>"
+										+ "</div></div>"
+										+ "<div class='post-content'>"
+										+ "<div class='post-meta d-flex'>"
+										+ "<a hef='/maeggiSeggi/recipe/detailRecipe.do'>"
+										+ "<h6 style='font-family: nanumSquare_acEB;font:arial;'>"
+										+ data[i].name
+										+ "</h6><br/>"
+										+ "</a>"
+										+ "<div class='post-author-date-area d-flex'>"
+										+ "<div class='post-author'>"
+										+ "<a href='#'>"
+										+ data[i].member_id
+										+ "</a>"
+										+ "</div>"
+										+ "<div class='post-date' >"
+										+ "<a href='#'>"
+										+ data[i].register_date
+										+ "</a>"
+										+ "</div>"
+										+ "</div>"
+										+ "</div>"
+										+ "</div>"
+										+ "</div>"
+										+ "</div>";
 
+							}
+							$("#main").empty();
+							$("#main").append(mydata);
+							$("#underline").html(search);
+							$("#Scount").html(data.length);
+					}
+				});
+			}
+		}
+
+		
 	</script>
 
 

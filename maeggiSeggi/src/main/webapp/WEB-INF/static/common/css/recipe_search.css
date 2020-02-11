@@ -32,7 +32,7 @@ h4 {
 .post-author,.post-date{
 font-size: 20pt;
 }
-button {
+#search {
 	width: 50px;
 	background-color: #f8585b;
 	border: none;
