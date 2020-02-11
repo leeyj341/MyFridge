@@ -28,9 +28,6 @@ $(document).ready(function() {
 		event.preventDefault();
 	});
 	$("#submit").on("click", function() {
-		/* leng = $('input:checkbox[name="ingredient_id"]:checked').length
-		alert(leng)
-		for (i = 0; i < leng; i++) { */
 		memId = "<%= session.getAttribute("id") %>";
 		node = document.createElement("Input");
 		node.setAttribute("name", "member_id");
@@ -39,20 +36,13 @@ $(document).ready(function() {
 	    
 		$.ajax({
 			url:"/maeggiSeggi/restaurant/add.do",
-			type: "post",
+			type: "get",
 			traditional :true,
 			data:$("#myform").serializeArray(),
 			success:function(data){
-				alert("데이터 넣기 성공");
-		//		$("#test").html("<h1>성공</h1>")
-				
+				alert("장바구니 담기 성공");
 			}
 		});
-		for (i = 0; i < 7; i++) {
-			if($('input:checkbox[name="addlist[+'+i+'+].ingredient_id"]').is(":checked") ==  true){
-				
-			}
-		}
 		$("#myform").children().last().remove();
 	});
 })

@@ -9,6 +9,6 @@ public interface RecipeService {
 	void insert(RecipeVO recipe);
 	List<RecipeVO> searchList(String search);
 	List<RecipeVO> listall();
-	List<Map<String, String>> detail(String recipe_id);
+	List<HashMap<String, String>> detail(String recipe_id);
 	List<RecipeVO> levellist(String cook_level);
 }
