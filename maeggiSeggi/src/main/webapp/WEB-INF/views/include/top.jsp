@@ -123,7 +123,7 @@
                                     	<a class="dropdown-item" href="#"></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/recipe/main.do"><b>테마별 레시피</b></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/recipe/levelRecipe.do"><b>난이도별 레시피</b></a>
-                                        <a class="dropdown-item" href="/maeggiSeggi/recipe/searchRecipe.do"><b>레시피 조회</b></a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/recipe/searchRecipe.do?pagenum=1&contentnum=9"><b>레시피 조회</b></a>
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">

@@ -3,6 +3,8 @@ package maeggi.seggi.recipe;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import maeggi.seggi.ingredient.IngredientVO;
 
 public class RecipeVO {
@@ -25,20 +27,19 @@ public class RecipeVO {
 	private String member_id;
 	private ArrayList<RecipeDetailVO> recipe_detail;
 	private ArrayList<IngredientVO> ig_detail;
+	MultipartFile myphoto;
 	
 	
-	//private ArrayList<HistoryVO> historys;
 	public RecipeVO() {
 		
 	}
 
 	
-	
-	
+
 	public RecipeVO(String recipe_id, String name, String content_intro, String recipe_code, String recipe_category,
 			int cook_time, int kcal, int amount_per_person, String cook_level, String ing_category, int price,
 			String img_url_main, String img_url_sub, int hit, int like_num, Date register_date, String member_id,
-			ArrayList<RecipeDetailVO> recipe_detail, ArrayList<IngredientVO> ig_detail) {
+			ArrayList<RecipeDetailVO> recipe_detail, ArrayList<IngredientVO> ig_detail, MultipartFile myphoto) {
 		super();
 		this.recipe_id = recipe_id;
 		this.name = name;
@@ -59,7 +60,10 @@ public class RecipeVO {
 		this.member_id = member_id;
 		this.recipe_detail = recipe_detail;
 		this.ig_detail = ig_detail;
+		this.myphoto = myphoto;
 	}
+
+
 
 
 
@@ -99,6 +103,18 @@ public class RecipeVO {
 		this.ig_detail = ig_detail;
 	}
 
+	
+
+
+	public MultipartFile getMyphoto() {
+		return myphoto;
+	}
+
+
+
+	public void setMyphoto(MultipartFile myphoto) {
+		this.myphoto = myphoto;
+	}
 
 
 
