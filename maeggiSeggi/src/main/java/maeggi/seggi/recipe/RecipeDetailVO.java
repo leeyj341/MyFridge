@@ -1,4 +1,5 @@
 package maeggi.seggi.recipe;
+
 //history 
 public class RecipeDetailVO { ////
 	private String recipe_id;            
@@ -6,6 +7,7 @@ public class RecipeDetailVO { ////
     private String recipe_describe;
     private String img_url;
     private String tip;
+    
     
     public RecipeDetailVO() {
     	
@@ -19,6 +21,9 @@ public class RecipeDetailVO { ////
 		this.img_url = img_url;
 		this.tip = tip;
 	}
+
+	
+	
 
 	@Override
 	public String toString() {
@@ -65,6 +70,8 @@ public class RecipeDetailVO { ////
 	public void setTip(String tip) {
 		this.tip = tip;
 	}
+
+	
     
     
 }

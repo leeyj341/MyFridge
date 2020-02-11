@@ -33,7 +33,10 @@
 		askno = #{askno}
 	</delete>
 
-
+	<!-- mypoint꺼 listall-->
+	<select id="pointListall" resultType="board">
+		select * from point_rule where member_id = #{member_id}
+	</select>
 </mapper>
 
 

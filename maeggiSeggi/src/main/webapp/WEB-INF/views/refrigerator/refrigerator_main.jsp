@@ -100,8 +100,8 @@
 				<button class="ig-btn fridge-btn btn-orange btn-fill-vert-o">
 					<p>양념</p>
 				</button>
-				<!-- <a class="modal-btn fridge-btn btn-orange btn-fill-vert-o" type="button">레시피</a> -->
-				<a class="modal-btn fridge-btn btn-orange btn-fill-vert-o" href="#fridge_modal">냉장고</a>
+				<a class="modal-btn fridge-btn btn-orange btn-fill-vert-o" type="button">레시피</a>
+				<a class="modal-btn fridge-btn btn-orange btn-fill-vert-o" type="button" href="#manage_fridge" rel="modal:open">냉장고</a>
 			</div>
 			<!-- ****** Theme Select Area End ****** -->
 			<!-- ****** Ingredient Select Area Start ****** -->

@@ -110,12 +110,12 @@
 			<div class="col-sm-9">
 				<div style="font-size: 20pt; float: left;width=100%">
 					<div class="nav-tabs-right">
-						<select class="form-control">
+						<select class="form-control" id="contentnum" name="contentnum">
 							<option>Limit</option>
-							<option>10</option>
-							<option>20</option>
-							<option>50</option>
-							<option>100</option>
+							<option value="10">10</option>
+							<option value="20">20</option>
+							<option value="50">50</option>
+							<option value="100">100</option>
 						</select>
 					</div>
 					<div class="search-result">
@@ -156,8 +156,16 @@
 						</div>
 					</c:forEach>
 					</div>
-
-
+	
+				<c:if test="${page.prev}">
+					<a style="text-decoration: none;" href="javascript:page(${page.getStartPage()-1});">&laquo;</a>
+				</c:if>
+				<c:forEach begin="${page.getStartPage()}" end="${page.getEndPage()}" var="idx">
+					<a style="text-decoration: none;" href="javascript:page(${idx})"></a>
+				</c:forEach>
+				<c:if test="${page.next}">
+					<a style="text-decoration: none;" href="javascript:page(${page.getEndPage()-1});">&raquo;</a>
+				</c:if>
 				</div>
 			</div>
 			<hr class="d-sm-none">
@@ -165,6 +173,12 @@
 	</div>
 
 	<script type="text/javascript">
+	function page(idx){
+		var pagenum = idx;
+		alert(pagenum)
+		var contentnum =$("#contentnum option:selected").val();
+		location.href="/maeggiSeggi/recipe/search.do?pagenum="+pagenum+"&contentnum="+contentnum;
+	}
 		var serviceType;
 
 		$(document).ready(function() {

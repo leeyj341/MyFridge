@@ -1,4 +1,6 @@
+<%@page import="maeggi.seggi.mealPlanner.mealPlannerVO"%>
 <%@page import="maeggi.seggi.loginandcustomer.memberVO"%>
+<%@ page import="java.util.*, java.text.*"  %>
 <%@page import="maeggi.seggi.mypage.BoardVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -28,7 +30,7 @@
 <link href="css/responsive/responsive.css" rel="stylesheet">
 <script type="text/javascript">
 	function popup() {
-		pop = window.open('mypage_search.jsp', 'search',
+		pop = window.open('maeggiSeggi.mypage_search.jsp', 'search',
 				'width=400,height=400,location=no,status=no,scrollbars=yes');
 	}
 </script>
@@ -37,7 +39,7 @@
 <body>
 
 	<%
-		ArrayList<BoardVO> list = (ArrayList<BoardVO>) request.getAttribute("list");
+		mealPlannerVO meal = (mealPlannerVO)request.getAttribute("meal");
 		memberVO loginuser = (memberVO) session.getAttribute("loginuser");
 	%>
 	<%-- <%
@@ -83,18 +85,20 @@
 
 		</div>
 		<p></p>
+		
+	<% 
+		Calendar today = Calendar.getInstance();
+		int month = today.get(Calendar.MONTH)+1;
+		int date = today.get(Calendar.DATE);
+	%>
 		<div>
 			<table border="1" class="mypage_table">
-				<tr align="center">
-					<td></td>
-					<td>일요일</td>
-					<td>월요일</td>
-					<td>화요일</td>
-					<td>수요일</td>
-					<td>목요일</td>
-					<td>금요일</td>
-					<td>토요일</td>
-				</tr>
+				<% for(int k = 0; k<7;k++){
+					int aa = date+k;
+				%>
+					<td align="center"><%= month %>월 <%= aa %> 일</td>	
+				<% }%>
+				
 				<tr align="center">
 					<td scope="row">아침</td>
 					<td class="search" onclick="popup()">김치</td>
@@ -141,10 +145,6 @@
 				<div class="col-lg-4">
 					<input type="text" value="" />
 				</div>
-				<div class="col-lg-2">
-					<input type="button" id="towrite" value="계산하기" onclick=""
-						style="color: white; background-color: #fc6c3f; width: 100px;">
-				</div>
 			</div>
 			<div class="row">
 				<div class="col-lg-3" style="text-align: center;">걷기</div>
@@ -166,44 +166,31 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript">
-		today = new Date();
-		mon = (today.getMonth() + 1) + "월"; /* 월은 0부터 시작이라서 더하기 1을 해줘야함. */
-		//str = str + today.getDate() + " 일";
-
-		document.write("<table border = '1'>");
-		
-		document.write("<th>")
-		
-		for (i = 0; i < 7; i++) {
-
-				str = mon + (today.getDate() + i) + "일"
-
-				document.write("<td>" + str + "</td>");
-
-			}
-		
-		document.write("</th>")
-		
+	<p></p>
 	
-		
-		for (j = 0; j < 4; j++) {
-			document.write("<tr>");
-			
-			for (i = 0; i < 7; i++) {
-				document.write("<td>d</td>");
-			}
-
-			document.write("</tr>");
-		}
-		document.write("</table>");
-	</script>
 
 
 
+<%-- <table border=1 align="center">
+<%
 
+	"<th>"
+	for(int k = 0; k<7;k++){
+	}
+    for(int i=0; i<=2; i++) {
+%>
+    <%= ""<tr> %>
+    <%= "<th></th>" %>
+    <% for(int j=0; j<=6; j++) { %>
+        <%= "<td align=center>" + j + "x" + i + "=" + j*i + "</td>" %>
+        <%  
+        }
+    %>
+    <%= "</tr>" %>
+<% } %>
+</table> --%>
 	<!-- mypage main area end -->
-
+	
 	<!-- 로그인 안 된 유저일 때 -->
 	<%-- <%
 		} else {

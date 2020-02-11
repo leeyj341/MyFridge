@@ -93,7 +93,7 @@
 			<beans:bean class="maeggi.seggi.loginandcustomer.LoginCheckInterceptor"/>
 		</interceptor>
 	</interceptors>
-	
+	<!-- 인터셉터 등록: loginandcustomer의 LoginCheckInterceptor.java파일 등록 끝-->
 	
 	<context:component-scan
 		base-package="maeggi.seggi" />

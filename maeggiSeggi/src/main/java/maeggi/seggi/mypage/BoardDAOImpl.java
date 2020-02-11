@@ -64,6 +64,12 @@ public class BoardDAOImpl implements BoardDAO {
 	public BoardVO updatelist(BoardVO board) {
 		return sqlSession.selectOne("maeggi.seggi.mypage.updatelist", board);
 	}
+	
+	//mypoint 전체보기
+	@Override
+	public List<PointVO> pointListall(PointVO point) {
+		return sqlSession.selectOne("maeggi.seggi.mypage.pointListall", point);
+	}
 
 	
 
