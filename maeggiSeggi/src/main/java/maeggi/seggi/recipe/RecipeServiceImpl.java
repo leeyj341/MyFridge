@@ -72,4 +72,10 @@ public class RecipeServiceImpl implements RecipeService {
 		return list;
 	}
 
+
+	@Override
+	public RecipeVO moveTopopup(RecipeVO recipe_id) {
+		return dao.moveTopopup(recipe_id);
+	}
+
 }

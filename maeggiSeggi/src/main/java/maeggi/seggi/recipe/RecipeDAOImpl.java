@@ -72,6 +72,11 @@ public class RecipeDAOImpl implements RecipeDAO {
 		return sqlSession.selectList("maeggi.seggi.recipe.levelRecipe", cook_level);
 	}
 
+	@Override
+	public RecipeVO moveTopopup(RecipeVO recipe_id) {
+		return sqlSession.selectOne("maeggi.seggi.recipe.moveTopopup", recipe_id);
+	}
+
 
 
 }

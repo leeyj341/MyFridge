@@ -11,6 +11,7 @@ public interface RecipeDAO {
 	List<RecipeVO> categorySearch(String category);
 	List<RecipeVO> searchList(String search);
 	List<RecipeVO> listall();
+	RecipeVO moveTopopup(RecipeVO recipe_id);
 	public int updatehit(String recipe_id);
 	public List<HashMap<String, String>> detail(String recipe_id);
 	void insertdetail(RecipeDetailVO recipeDetailVO);

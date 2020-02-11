@@ -1,3 +1,4 @@
+<%@page import="maeggi.seggi.recipe.RecipeVO"%>
 <%@page import="maeggi.seggi.loginandcustomer.memberVO"%>
 <%@page import="maeggi.seggi.restaurant.RecipePlannerAddVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -56,9 +57,14 @@ $(document).ready(function() {
 		$("#myform").children().last().remove();
 	});
 })
-</script>
+
+
+</script>	
+
+
 </head>
-<body style="font-family: PapyrusB;">
+<body style="font-family: PapyrusB;" >
+	<% RecipeVO info = (RecipeVO)request.getAttribute("sda"); %>
 	<div class="row" style="margin-left: auto; margin-right: auto;">
 		<div class="col-sm-6"
 			style="background-color: lavender; margin-right: auto; padding: 0px" id="test">
@@ -122,9 +128,13 @@ $(document).ready(function() {
 				<input type="radio" name="time"	value="저녁">저녁
 				<br /> <input type="button" value="칼로리 확인하기">
 			</div>
+			<form action="" name="mypopup">		
 			<div>
-				<span>예상되는 칼로리</span> <strong>1200</strong> <span>kcal</span>
+				<span>예상되는 칼로리 </span><%= info.getKcal() %><span>kcal</span>
 			</div>
+			
+			</form>
+	
 			<input type="submit" value="식단에 추가하기">
 		</div>
 	</div>

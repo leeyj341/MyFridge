@@ -11,4 +11,5 @@ public interface RecipeService {
 	List<HashMap<String, String>> detail(String recipe_id);
 	List<RecipeVO> levellist(String cook_level);
 	List<RecipeVO> readbyName(String name);
+	RecipeVO moveTopopup(RecipeVO recipe_id);
 }

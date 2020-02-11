@@ -49,10 +49,11 @@ public class RecipeController {
 	}
 	
 	
-	@RequestMapping("/recipe/addPlanner.do")
+/*	@RequestMapping("/recipe/addPlanner.do")
 	public String add() {
 		return "add";
-	}
+	}*/
+	
 	
 	
 	@RequestMapping("/recipe/searchRecipe.do")
@@ -103,4 +104,16 @@ public class RecipeController {
 		mav.setViewName("/recipe/levelRecipe.do");
 		return mav;
 	}
+	
+	@RequestMapping(value ="/recipe/addPlanner.do" , method=RequestMethod.POST)
+	public ModelAndView moveTopopup(RecipeVO recipe_id) {
+		System.out.println("recipe_id"+ recipe_id);
+		ModelAndView mav = new ModelAndView();
+		RecipeVO sda = service.moveTopopup(recipe_id);
+		mav.addObject("sda", sda);
+		mav.setViewName("add");
+		return mav;
+		
+	}
+	
 }

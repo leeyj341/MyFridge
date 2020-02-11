@@ -130,13 +130,20 @@
 									<span><strong>CATEGORY :</strong></span><span><%=listMap.get(0).get("FOOD_CATEGORY")%></span><br/>
 									
 									<span><strong>조리 시간 :</strong></span><span><%=String.valueOf(listMap.get(0).get("COOK_TIME"))%>분</span>&ensp;
-									<span><strong>칼로리:</strong></span> <%=String.valueOf(listMap.get(0).get("KCAL"))%> <span>kcal</span><br/>
+								<form name="myform" >
+									<span><strong>칼로리:</strong></span> <%=String.valueOf(listMap.get(0).get("KCAL"))%><span>kcal</span><br/>
+									
+								</form>
 									<span><strong>인분 :</strong></span><span><%=String.valueOf(listMap.get(0).get("AMOUNT_PER_PERSON"))%>인분</span>&ensp;
 									<span><strong>예상 가격대 :</strong> </span><span><%=String.valueOf(listMap.get(0).get("PRICE"))%>원</span>&ensp;
 								</div>
 							</div>
 						</div>
-
+						<form action="/maeggiSeggi/recipe/addPlanner.do" method="POST">
+	
+							<input type="hidden" name="recipe_id" value="<%=String.valueOf(listMap.get(0).get("recipe_id"))%>"/>
+							
+						</form>
 
 						<div style="font-family: nanumSquare_acEB; font-size: 12pt;">
 							<h4>재료</h4>
@@ -152,17 +159,26 @@
 							</ul>
 						</div>
 					</div>
-			<form action="">
+			<!-- <form id="myform" method="post" action="/maeggiSeggi/recipe/addPlanner.do" target="popup_window" > -->
 		<% if(session.getAttribute("id")!=null){ %>
 					<input type="button" id="add" value="식단에 추가하기" onclick="popup()">
 		<% }else{ %>
-			<input type="button" id="add" value="식단에 추가하기" onclick="alert('로그인이 필요한 기능입니다.')">
+					<input type="button" id="add" value="식단에 추가하기" onclick="alert('로그인이 필요한 기능입니다.')">
 		<% } %>
-			</form>
+			<!-- </form> -->
 					<hr class="d-sm-none">
 
 				</div>
-			
+				
+<!-- 	<script type="text/javascript">
+		$(document).ready(function(){
+		  $("#add").on("click", function(){
+		    window.open("", "popup_window", "top=100, left=450, width=700, height=450, status=no, menubar=no, toolbar=no, resizable=no");
+		    $("#myform").submit();
+		  });
+		});
+	</script> -->
+
 
 
 			<div class="col-sm-8">
