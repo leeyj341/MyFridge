@@ -23,11 +23,11 @@
   			  		or i.name like'%' || #{search} || '%')
   	</select>
   	<!-- 난이도별 조회 -->
-  	<select id="levelRecipe" resultType="recipe" parameterType="String">
+  	<!-- <select id="levelRecipe" resultType="recipe" parameterType="String">
   		select * 
   		from recipe 
   		where cook_level=#{cook_level}
-  	</select>
+  	</select> -->
   	<!-- 레시피 등록 -->
   	<insert id="insert" parameterType="recipe">
   	insert into recipe values(#{recipe_id},#{name},#{content_intro},#{recipe_code},#{recipe_category},#{cook_time},
@@ -61,10 +61,10 @@
   	</select>
 	
 	<resultMap type="Map" id="detailMap">
-		<!-- <result column="recipe_id" property="id"/>
+		<result column="recipe_id" property="id"/>
 		<result column="name" property="name"/>
 		<result column="recipe_order_num" property="order"/>
-		<result column="recipe_describe" property="content"/> -->
+		<result column="recipe_describe" property="content"/>
 	</resultMap>
 	
- </mapper> 
+ </mapper>  

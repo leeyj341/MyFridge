@@ -47,6 +47,7 @@ public class RecipeController {
 		mav.setViewName("detail");
 		return mav;
 	}
+	
 	@RequestMapping("/recipe/addPlanner.do")
 	public String add() {
 		return "add";
@@ -83,7 +84,7 @@ public class RecipeController {
 		System.out.println("ajax 통신"+recipeList.size());
 		return recipeList;
 	}
-	
+	/*
 	public ModelAndView levelView(String cook_levelb, String cook_leveln, String cook_levelh) {
 		System.out.println(cook_levelb+"////////////////"+cook_leveln+"//////////////"+cook_levelh);
 		ModelAndView mav = new ModelAndView();
@@ -98,5 +99,5 @@ public class RecipeController {
 		mav.addObject("levellisth", listh);
 		mav.setViewName("/recipe/levelRecipe.do");
 		return mav;
-	}
+	}*/
 }

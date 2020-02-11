@@ -166,9 +166,44 @@
 			</div>
 		</div>
 	</div>
-	<p></p>
-	<!-- mypage main area end -->
+	<script type="text/javascript">
+		today = new Date();
+		mon = (today.getMonth() + 1) + "월"; /* 월은 0부터 시작이라서 더하기 1을 해줘야함. */
+		//str = str + today.getDate() + " 일";
+
+		document.write("<table border = '1'>");
+		
+		document.write("<th>")
+		
+		for (i = 0; i < 7; i++) {
+
+				str = mon + (today.getDate() + i) + "일"
+
+				document.write("<td>" + str + "</td>");
+
+			}
+		
+		document.write("</th>")
+		
 	
+		
+		for (j = 0; j < 4; j++) {
+			document.write("<tr>");
+			
+			for (i = 0; i < 7; i++) {
+				document.write("<td>d</td>");
+			}
+
+			document.write("</tr>");
+		}
+		document.write("</table>");
+	</script>
+
+
+
+
+	<!-- mypage main area end -->
+
 	<!-- 로그인 안 된 유저일 때 -->
 	<%-- <%
 		} else {
