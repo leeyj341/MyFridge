@@ -111,6 +111,20 @@
 				<td>10</td>
 				<td>2020-01-16</td>
 			</tr>
+			<tbody>
+				<%
+					for (int i = 0; i < list.size(); i++) {
+						BoardVO row = list.get(i);
+				%>
+				<tr>
+					<td><%=row.getAskno()%></td>
+					<td><a href="/maeggiSeggi/board/read.do?askno=<%=row.getAskno()%>"><%=row.getAsk_title()%></a></td>
+					<td><%=row.getAsk_regdate()%></td>
+				</tr>
+				<%
+					}
+				%>
+			</tbody>
 		</table>
 		<div>
 			<div class="pagination-area d-sm-flex mt-15"

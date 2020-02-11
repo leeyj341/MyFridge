@@ -47,10 +47,14 @@ public class RecipeController {
 		mav.setViewName("detail");
 		return mav;
 	}
+	
+	
 	@RequestMapping("/recipe/addPlanner.do")
 	public String add() {
 		return "add";
 	}
+	
+	
 	@RequestMapping("/recipe/searchRecipe.do")
 	public ModelAndView recipeList() {
 		ModelAndView mav = new ModelAndView();

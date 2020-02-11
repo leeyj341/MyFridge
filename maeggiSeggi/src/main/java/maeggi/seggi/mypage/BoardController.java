@@ -116,6 +116,27 @@ public class BoardController {
 			}
 	
 	
+			
+			
+			
+	/*// 게시글 전체 목록을 보여주는 기능
+	@RequestMapping(value = "board/mypoint.do")
+	public ModelAndView mypage_mypoint(BoardVO board,HttpServletRequest req, PointVO point) {
+		ModelAndView mav = new ModelAndView();
+		HttpSession ses = req.getSession(false);
+		if(ses!=null) {
+			memberVO user=(memberVO) ses.getAttribute("loginuser");
+			if(user!=null) {
+				board.setMember_id(user.getMember_id());
+			}
+		}
+		List<PointVO> point= service.pointListall(point);
+		System.out.println(list);
+		mav.addObject("list", list);
+		mav.setViewName("mypage/ask");
+		return mav;
+	}*/
+
 	
 	
 	
@@ -125,12 +146,6 @@ public class BoardController {
 	public String mypage_main() {
 	
 		return "mypage/main";
-	}
-	
-	@RequestMapping("/board/mypoint.do")
-	public String mypage_mypoint() {
-
-		return "mypage/mypoint";
 	}
 	
 	@RequestMapping("/board/recipe_favorite.do")

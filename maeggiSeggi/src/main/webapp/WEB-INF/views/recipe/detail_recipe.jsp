@@ -151,8 +151,13 @@
 							</ul>
 						</div>
 					</div>
-
+			<form action="">
+		<% if(session.getAttribute("id")!=null){ %>
 					<input type="button" id="add" value="식단에 추가하기" onclick="popup()">
+		<% }else{ %>
+			<input type="button" id="add" value="식단에 추가하기" onclick="alert('로그인이 필요한 기능입니다.')">
+		<% } %>
+			</form>
 					<hr class="d-sm-none">
 
 				</div>

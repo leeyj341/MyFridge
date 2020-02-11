@@ -229,9 +229,13 @@
 					for (int i = 0; i < list_reply.size(); i++) {
 						replyBoardVO repl = list_reply.get(i);
 				%>
+		
 				<div
 					style="border: 1px solid gray; width: 600px; padding: 5px; margin-top: 5px; 
-					margin-left: <%=20 * repl.getGroupdepth()%>px;">
+					margin-left: <%=30 * repl.getGroupdepth()%>px;">
+					<% if(repl.getGroupord() != 0){ %>
+					<img alt="댓글" src="/maeggiSeggi/images/reply.png">
+					<% } %>
 					<%=repl.getReplywriter()%>
 					<%=repl.getReplydate()%>
 					<a onclick="fn_replyDelete(<%=repl.getReplyno()%>)">삭제</a> <a
