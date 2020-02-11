@@ -1,7 +1,5 @@
 package maeggi.seggi.recipe;
 
-import org.springframework.web.multipart.MultipartFile;
-
 //history 
 public class RecipeDetailVO {
 	private String recipe_id;            

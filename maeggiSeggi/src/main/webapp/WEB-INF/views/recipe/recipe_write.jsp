@@ -191,7 +191,7 @@
 	var mainNode;
 	var sideNode;
 	var serviceType;
-	var number=0;
+	
 	
 	$(document).ready(function() {
 		$('#cancle').click(function() {
@@ -223,14 +223,20 @@
 		
 		
 	});
-	
+	var number=1;	
 	function add_div(){
 		number++;
 	    if(serviceType == "side") {
 	    	
 	    	document.getElementById('group').append(sideNode.cloneNode(true));
-	    	sideNode.children("input").first().attr("name", "ig_detaill[" + number + "].name");
-	    	sideNode.children("input").last().attr("name", "ig_detaill[" + number + "].volume");
+	    	ig_side_name = document.createElement("input");
+	    	//ig_side_name = document.querySelector('side_ingredient');
+	    	ig_side_name.setAttribute("name","ig_detaill[" + number + "].name");
+	    	sideNode.appendChild(ig_side_name);
+	    	ig_side_volume = document.createElement("input");
+	    //	ig_side_volume = document.querySelector('select');
+	    	ig_side_volume.setAttribute("name","ig_detaill[" + number + "].volume");
+	    	sideNode.appendChild(ig_side_volume);
 	    	
 	    } else {
 	    	
@@ -243,7 +249,7 @@
 		parentNode = document.getElementById("group");
 		parentNode.removeChild(parentNode.lastChild);
 	}
-	var count=0;
+	var count=1;
 	function add_content(){
 		count++;
 		recipeContent = document.createTextNode("step"+count);
