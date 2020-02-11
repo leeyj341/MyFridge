@@ -20,6 +20,8 @@
 		<typeAlias type="maeggi.seggi.ingredient.IngredientVO" alias="ingredients"/>
 		<!-- reply -->
 		<typeAlias type="maeggi.seggi.reply.replyBoardVO" alias="reply"/>
+		<!-- meal_planner -->
+		<typeAlias type="maeggi.seggi.mealPlanner.mealPlannerVO" alias="meal"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/mypage_board.xml" />
@@ -33,5 +35,7 @@
 		<mapper resource="mapper/ingredient.xml"/>
 		<!-- reply -->
 		<mapper resource="mapper/reply.xml"/>
+		<!-- meal_planner -->
+		<mapper resource="mapper/meal_planner.xml"/>
 	</mappers>
 </configuration>
