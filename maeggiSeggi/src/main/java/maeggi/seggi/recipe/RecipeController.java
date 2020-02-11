@@ -1,22 +1,24 @@
 package maeggi.seggi.recipe;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.util.WebUtils;
+
 @Controller
 public class RecipeController {
+	
 	@Autowired
 	RecipeService service;
-	private RecipeDAO mapper;
 	@RequestMapping("/recipe/main.do")
 	public String recipe() {
 		return "main";
@@ -25,13 +27,14 @@ public class RecipeController {
 	public String theme() {
 		return "theme";
 	}
-	@RequestMapping("/recipe/levelRecipe.do")
+	/*@RequestMapping("/recipe/levelRecipe.do")
 	public String level() {
 		return "level";
-	}
+	}*/
 /*	@RequestMapping(value = "/recipe/searchRecipe.do",method=RequestMethod.GET)
 	public String search(String search) {
 		return "search";
+
 	}*/
 	@RequestMapping("/recipe/detailRecipe.do")
 	public ModelAndView detail(HttpServletRequest req) {
@@ -44,42 +47,24 @@ public class RecipeController {
 		mav.setViewName("detail");
 		return mav;
 	}
-	@RequestMapping("/recipe/addPlanner.do")
+	
+	
+/*	@RequestMapping("/recipe/addPlanner.do")
 	public String add() {
 		return "add";
-	}
+	}*/
+	
+	
+	
 	@RequestMapping("/recipe/searchRecipe.do")
-	public ModelAndView recipeList(HttpServletRequest request) {
+	public ModelAndView recipeList() {
 		ModelAndView mav = new ModelAndView();
 		List<RecipeVO> list = service.listall();
-		System.out.println(list);
 		mav.addObject("list",list);
-		int ccontentnum;
-		PageMaker pageMaker = new PageMaker();
-		String pagenum = request.getParameter("pagenum");
-		String contentnum = request.getParameter("contentnum");
-		System.out.println(contentnum);
-		System.out.println("test=>"+pagenum);
-		int cpagenum = Integer.parseInt(pagenum);
-		ccontentnum = Integer.parseInt(request.getParameter("contentnum"));
-		pageMaker.setTotalCount(mapper.testcount());//전체 게시글 갯수 지정
-		pageMaker.setPagenum(cpagenum-1);	//현재 페이지를 페이지 객체에 지정, -1을 해야 쿼리에서 사용 가능
-		pageMaker.setContentnum(ccontentnum); //한 페이지에 몇 개씩 게시글을 보여줄 것인
-		pageMaker.setCurrentblock(cpagenum); //현재 페이지 블록
-		pageMaker.setLastblock(pageMaker.getTotalCount()); // 마지막 블록 번호를 전체 게시글 수를 통해 정한다.
-		pageMaker.prevnext(cpagenum);//현재 페이지 번호로 화살표를 나타낼 지 정한다
-		pageMaker.setStartPage(pageMaker.getCurrentblock()); //시작 페이지를 페이지 블록번호로 정한다.
-		pageMaker.setEndPage(pageMaker.getLastblock(), pageMaker.getCurrentblock());
-		//List<RecipeVO> test = new ArrayList<RecipeVO>();
-		//System.out.println(test);
-		list = mapper.testlist(pageMaker.getPagenum()*9,pageMaker.getContentnum());
-		request.setAttribute("listall", list);
-		request.setAttribute("page", pageMaker);
-		//return "search";
 		mav.setViewName("search");
 		return mav;
 	}
-/*	삭제
+/*	삭제 
 	public String delete(RecipeVO recipe) {
 		return "redirect:/recipe/list.do";
 	}*/
@@ -90,15 +75,12 @@ public class RecipeController {
 	}
 	//입력한 레시피 실제 db에 저장하는 메소드
 	@RequestMapping(value="/recipe/recipe_write.do",method=RequestMethod.POST)
-	public String insert(RecipeVO recipe,HttpSession session) throws Exception {
+	public String insert(RecipeVO recipe) {
 		System.out.println("***"+recipe);
- 		MultipartFile file = recipe.getMyphoto();
- 		String path = WebUtils.getRealPath(session.getServletContext(), "/maeggiSeggi/WEB_INF/upload");
-	 		String fileName = file.getOriginalFilename();
-	 		service.insert(recipe);
-	 		service.upload(file, path, fileName);
+		service.insert(recipe);
 		return "redirect:/recipe/searchRecipe.do";
 	}
+
 	@RequestMapping(value="/recipe/ajax_searchRecipe.do",method=RequestMethod.GET,produces="application/json;charset=utf-8")	
 	//ajax로 통신하면서 클라이언트에게 명시해줄 데이터를 produces에 붙인다.
 	public @ResponseBody ArrayList<RecipeVO> categoryList(String category) {
@@ -106,19 +88,39 @@ public class RecipeController {
 		System.out.println("ajax 통신"+recipeList.size());
 		return recipeList;
 	}
+	@RequestMapping(value="/recipe/levelRecipe.do", method=RequestMethod.GET)
 	public ModelAndView levelView(String cook_levelb, String cook_leveln, String cook_levelh) {
 		System.out.println(cook_levelb+"////////////////"+cook_leveln+"//////////////"+cook_levelh);
+		System.out.println("====================================================================================");
 		ModelAndView mav = new ModelAndView();
 		List<RecipeVO> listb = service.levellist(cook_levelb);
 		List<RecipeVO> listn = service.levellist(cook_leveln);
 		List<RecipeVO> listh = service.levellist(cook_levelh);
-		System.out.println(listb);
-		System.out.println(listn);
-		System.out.println(listh);
+		System.out.println("b:"+listb);
+		System.out.println("n:"+listn);
+		System.out.println("h:"+listh);
 		mav.addObject("levellistb", listb);
 		mav.addObject("levellistn", listn);
 		mav.addObject("levellisth", listh);
-		mav.setViewName("/recipe/levelRecipe.do");
+		mav.setViewName("level");
 		return mav;
 	}
+	@RequestMapping(value="recipe/ajax_levellist.do",method=RequestMethod.GET,produces="application/json;charset=utf-8")
+	public @ResponseBody List<RecipeVO> recipeList(String cook_level){
+		List<RecipeVO> recipelist = service.levellist(cook_level);
+		System.out.println("----------------------"+recipelist.size());
+		return recipelist;
+	}
+	
+	@RequestMapping(value ="/recipe/addPlanner.do" , method=RequestMethod.POST)
+	public ModelAndView moveTopopup(RecipeVO recipe_id) {
+		System.out.println("recipe_id"+ recipe_id);
+		ModelAndView mav = new ModelAndView();
+		RecipeVO sda = service.moveTopopup(recipe_id);
+		mav.addObject("sda", sda);
+		mav.setViewName("add");
+		return mav;
+		
+	}
+	
 }

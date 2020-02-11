@@ -25,12 +25,18 @@
   			  		and (r.name like '%' || #{search} || '%' 
   			  		or i.name like'%' || #{search} || '%')
   	</select>
+  	
+  	<!-- 레시피 조회에서 팝업창으로 데이터 전송. -->
+  	<select id="moveTopopup" resultType="recipe" parameterType="String">
+  		select recipe_id, name, kcal from recipe where recipe_id = #{recipe_id}
+  	</select>
+  	
   	<!-- 난이도별 조회 -->
-  	<select id="levelRecipe" resultType="recipe" parameterType="String">
+  	<!-- <select id="levelRecipe" resultType="recipe" parameterType="String">
   		select * 
   		from recipe 
   		where cook_level=#{cook_level}
-  	</select>
+  	</select> -->
   	<!-- 레시피 등록 -->
   	<insert id="insert" parameterType="recipe">
   	insert into recipe values(#{recipe_id},#{name},#{content_intro},#{recipe_code},#{recipe_category},#{cook_time},
@@ -57,11 +63,12 @@
 	</select>
 	
 	<!-- 난이도별 조회 -->
-  	<--<select id="levelRecipe" resultType="recipe" parameterType="String">
-  		select *
-  		from recipe
+  	<select id="levelRecipe" resultType="recipe" parameterType="String">
+  		select * from	
+  		(select * from recipe
   		where cook_level=#{cook_level}
-  	</select>-->
+  		order by dbms_random.random())
+  	</select>
 	
 	<resultMap type="Map" id="detailMap">
 		<result column="recipe_id" property="id"/>
@@ -79,4 +86,5 @@
 	<select id="testcount" resultType="int">
 		select count(*) from recipe
 	</select>
- </mapper>  
+	
+ </mapper> 
