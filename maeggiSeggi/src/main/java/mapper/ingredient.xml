@@ -14,7 +14,11 @@
   		from ingredients 
   		where ingredient_id in (select min(ingredient_id) from ingredients group by name) and ig_type_name=#{category} and name like '%' || #{name} || '%'
   	</select>
-  	<insert id="insertigdetail" parameterType="ingredients">
-  		insert into ingredients values(#{recipe_id},#{ingredient_id},#{name},#{volume},0,#{ig_type_name})
+  	<insert id="insertigdetail" parameterType="Map">
+  		insert all
+  		<foreach collection="igdetail" item="ig" separator=" ">
+  			into ingredients values(#{recipe_id},#{ingredient_id},#{name},#{volume},0,#{ig_type_name})
+  		</foreach>	
+  		select * from dual
   	</insert>
   </mapper>

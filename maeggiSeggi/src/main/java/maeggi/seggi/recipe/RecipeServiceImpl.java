@@ -18,7 +18,11 @@ public class RecipeServiceImpl implements RecipeService {
 	@Autowired
 	@Qualifier("recipeDao")
 	RecipeDAO dao;
+	@Autowired
+	@Qualifier("ingredientDAO")
 	IngredientDAO daoig;
+	@Autowired
+	@Qualifier("recipeDetailDao")
 	RecipeDetailDAO daodt;
 	
 	FileOutputStream fos;
@@ -39,19 +43,21 @@ public class RecipeServiceImpl implements RecipeService {
 
 	@Override
 	public void insert(RecipeVO recipe) {
-		Random rand = new Random();
-		String id = "rec" + rand.nextInt(10000000);
 		
-		recipe.setRecipe_id(id);
-		dao.insert(recipe);												//insert into recipe values()
+		/*Random rand = new Random();
+		String recipe_id = "rec" + rand.nextInt(10000000);
+		recipe.setRecipe_id(recipe_id);*/
 		for (int i = 0; i < recipe.getRecipe_detail().size(); i++) {
-			recipe.getRecipe_detail().get(i).setRecipe_id(id); 
-			daodt.insertdetail(recipe.getRecipe_detail().get(i));			// insert into recipe_detail values(#{id}, #{dsd},..... )
+			recipe.getRecipe_detail().get(i);
 		}
 		for (int i = 0; i < recipe.getIg_detail().size(); i++) {
-			recipe.getIg_detail().get(i).setRecipe_id(id); 
-			daoig.insertigdetail(recipe.getIg_detail().get(i));			//insert into ingredients values(#{id}, #{dsd},..... )
+			recipe.getIg_detail().get(i);
 		}
+		System.out.println("id값 insert=>"+recipe);
+		dao.insert(recipe);												//insert into recipe values()
+		daodt.insertdetail(recipe.getRecipe_detail());			// insert into recipe_detail values(#{id}, #{dsd},..... )
+		daoig.insertigdetail(recipe.getIg_detail());			//insert into ingredients values(#{id}, #{dsd},..... )
+		
 	}
 
 	@Override

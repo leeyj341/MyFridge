@@ -21,13 +21,13 @@ var mainNode;
 		});
 		
 		var main = document.getElementById("ig_main_Add");
-		var side = document.getElementById("ig_side_Add");
+	//	var side = document.getElementById("ig_side_Add");
 		
 		mainNode = document.createElement("div");
 		mainNode.append(main.cloneNode(true));
 		
-		sideNode = document.createElement("div");
-		sideNode.appendChild(side.cloneNode(true));
+/*		sideNode = document.createElement("div");
+		sideNode.appendChild(side.cloneNode(true));*/
 		
 		$('input:radio[name="ig_option"][value="main"]').prop('checked', true);
 		if($('input:radio[name="ig_option"][value="main"]').prop('checked')) {

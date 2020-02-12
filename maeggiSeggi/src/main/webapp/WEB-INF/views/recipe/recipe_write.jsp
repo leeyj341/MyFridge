@@ -46,7 +46,8 @@
 	<br>
 	
 	
-		<form class="form-horizontal" action="/maeggiSeggi/recipe/recipe_write.do" method="POST" enctype="multipart/form-data">
+		<form id="myform" class="form-horizontal" action="/maeggiSeggi/recipe/recipe_write.do" method="POST" enctype="multipart/form-data">
+		
 			<p><b>제목  </b></p>
 			<input type="text" id="name" name="name" style="width: 80%;" placeholde="레시피 제목을 입력해주세요" />
 			
@@ -216,7 +217,15 @@
 	
 	<br />
 	<br />
+<script type="text/javascript">
+$(document).ready(function(){
+	var result = "rec" + Math.floor(Math.random() * 10000000);
+	
+	var input = $("<input name='recipe_id' value='" + result + "' style='display:none;'>");
+	$("#myform").append(input);
+})
 
+</script>
 
 </body>
 </html>
