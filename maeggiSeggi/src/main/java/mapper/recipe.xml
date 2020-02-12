@@ -32,7 +32,6 @@
   	</select>
   	
   	<!-- 난이도별 조회 -->
-<!--   	<select id="levelRecipe" resultType="recipe" parameterType="String">
   	<!-- <select id="levelRecipe" resultType="recipe" parameterType="String">
   		select * 
   		from recipe 

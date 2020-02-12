@@ -5,27 +5,18 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
-import maeggi.seggi.ingredient.IngredientDAO;
 @Service
 public class RecipeServiceImpl implements RecipeService {
 	@Autowired
 	@Qualifier("recipeDao")
 	RecipeDAO dao;
-<<<<<<< HEAD
 //	IngredientDAO daoig;
 //  RecipeDetailDAO daoDe;
-=======
-	IngredientDAO daoig;
-	RecipeDetailVO daodt;
->>>>>>> branch 'master' of https://github.com/leeyj341/MyFridge.git
-	
 	FileOutputStream fos;
 	@Override
 	public List<RecipeVO> recipeList(String category) {
