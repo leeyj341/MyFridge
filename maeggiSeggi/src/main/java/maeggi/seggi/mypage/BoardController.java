@@ -29,9 +29,9 @@ public class BoardController {
 	@RequestMapping(value = "/board/list.do")
 	public ModelAndView listall(BoardVO board,HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();
-		HttpSession ses = req.getSession(false);
+		HttpSession ses = req.getSession(false); //로그인이 안되어 있으면 NULL값 반환, 로그인이 되어있으면 ses에 로그인 세션을 발급.
 		if(ses!=null) {
-			memberVO user=(memberVO) ses.getAttribute("loginuser");
+			memberVO user=(memberVO) ses.getAttribute("loginuser"); //top.jsp에 올려놓은 로그인 세션을 loginuser로 받아서 user로 저장
 			if(user!=null) {
 				board.setMember_id(user.getMember_id());
 			}
@@ -102,20 +102,61 @@ public class BoardController {
 	
 	
 	//회원정보 수정 View
-			@RequestMapping(value = "/board/infoupdate.do", method = RequestMethod.GET)
-			public String updateView(memberVO user) {
-				return "mypage/information/update";
-			}
-			//회원정보 수정 POST
-			@RequestMapping(value = "/board/infoupdate.do", method = RequestMethod.POST)
-			public String update(memberVO user, HttpSession session) {
-				System.out.println("유저:"+user);
-				mservice.update(user);
-				session.invalidate();
-				return "redirect:/loginandcustomer/login.do";
-			}
+	@RequestMapping(value = "/board/infoupdate.do", method = RequestMethod.GET)
+	public String updateView(memberVO user) {
+		return "mypage/information/update";
+	}
+	//회원정보 수정 POST
+	@RequestMapping(value = "/board/infoupdate.do", method = RequestMethod.POST)
+	public String update(memberVO user, HttpSession session) {
+		System.out.println("유저:"+user);
+		mservice.update(user);
+		session.invalidate();
+		return "redirect:/loginandcustomer/login.do";
+	}
 	
-	
+			
+	//회원의 point, point내역 보여주기
+	@RequestMapping(value = "/board/mypoint.do")
+	public ModelAndView mypage_mypoint(PointVO point,HttpServletRequest req) {
+		ModelAndView mav = new ModelAndView();
+		HttpSession ses = req.getSession(false);
+		if(ses!=null) {
+			memberVO user=(memberVO) ses.getAttribute("loginuser");
+			if(user!=null) {
+				point.setMember_id((user.getMember_id()));//pointVO에 로그인한 회원의 id를 set.
+			}
+		}
+		List<PointVO> mypoint = service.pointListall(point);
+		int pointsum = service.pointsum(point);
+		System.out.println("mypoint"+mypoint);
+		System.out.println("pointsum"+pointsum);
+		mav.addObject("mypoint", mypoint);
+		mav.addObject("pointsum", pointsum);
+		mav.setViewName("mypage/mypoint");
+		return mav;
+	}
+			
+			
+			
+	/*// 게시글 전체 목록을 보여주는 기능
+	@RequestMapping(value = "board/mypoint.do")
+	public ModelAndView mypage_mypoint(BoardVO board,HttpServletRequest req, PointVO point) {
+		ModelAndView mav = new ModelAndView();
+		HttpSession ses = req.getSession(false);
+		if(ses!=null) {
+			memberVO user=(memberVO) ses.getAttribute("loginuser");
+			if(user!=null) {
+				board.setMember_id(user.getMember_id());
+			}
+		}
+		List<PointVO> point= service.pointListall(point);
+		System.out.println(list);
+		mav.addObject("list", list);
+		mav.setViewName("mypage/ask");
+		return mav;
+	}*/
+
 	
 	
 	
@@ -125,12 +166,6 @@ public class BoardController {
 	public String mypage_main() {
 	
 		return "mypage/main";
-	}
-	
-	@RequestMapping("/board/mypoint.do")
-	public String mypage_mypoint() {
-
-		return "mypage/mypoint";
 	}
 	
 	@RequestMapping("/board/recipe_favorite.do")

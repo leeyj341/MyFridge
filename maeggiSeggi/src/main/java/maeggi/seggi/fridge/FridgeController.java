@@ -47,12 +47,5 @@ public class FridgeController {
 		}
 		return message;
 	}
-	
-	@RequestMapping("/calendar.do")
-	public String calendar() {
-		return "calendar";
-	}
-	
-	
 
 }

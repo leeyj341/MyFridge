@@ -7,14 +7,14 @@ public class RecipeReplyVO {
 	 private String content;
 	 private String member_id;   
 	 private int like_num;
-	 private Date date;   
+	 private String date;   
 	 private String recipe_id;
 	 
 	 public RecipeReplyVO() {
 		 
 	 }
 
-	public RecipeReplyVO(String recipe_reply_id, String content, String member_id, int like_num, Date date,
+	public RecipeReplyVO(String recipe_reply_id, String content, String member_id, int like_num, String date,
 			String recipe_id) {
 		super();
 		this.recipe_reply_id = recipe_reply_id;
@@ -63,11 +63,11 @@ public class RecipeReplyVO {
 		this.like_num = like_num;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 

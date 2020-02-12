@@ -6,14 +6,14 @@ public class RecipefavoriteVO {
 	private String recipe_favorite_id;
 	private String recipe_id;
 	private String member_id;
-	private Date favorite_date;
+	private String favorite_date;
 	private String memo;
 	
 	public RecipefavoriteVO() {
 		
 	}
 	
-	public RecipefavoriteVO(String recipe_favorite_id, String recipe_id, String member_id, Date favorite_date,
+	public RecipefavoriteVO(String recipe_favorite_id, String recipe_id, String member_id, String favorite_date,
 			String memo) {
 		super();
 		this.recipe_favorite_id = recipe_favorite_id;
@@ -53,11 +53,11 @@ public class RecipefavoriteVO {
 		this.member_id = member_id;
 	}
 
-	public Date getFavorite_date() {
+	public String getFavorite_date() {
 		return favorite_date;
 	}
 
-	public void setFavorite_date(Date favorite_date) {
+	public void setFavorite_date(String favorite_date) {
 		this.favorite_date = favorite_date;
 	}
 

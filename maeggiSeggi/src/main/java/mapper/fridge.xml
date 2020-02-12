@@ -10,7 +10,4 @@
 	<insert id="insertFridge" parameterType="fridge">
 		insert into refrigerator values(concat('r',fridge_id_seq.nextval), #{name}, sysdate, #{member_id}, 0)
 	</insert>
-	<update id="updateMain" parameterType="fridge">
-		update refrigerator set distinct_code=#{distinct_code} where refrigerator_id=#{refrigerator_id}
-	</update>
 </mapper>

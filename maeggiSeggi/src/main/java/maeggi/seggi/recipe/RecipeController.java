@@ -27,10 +27,10 @@ public class RecipeController {
 	public String theme() {
 		return "theme";
 	}
-	@RequestMapping("/recipe/levelRecipe.do")
+	/*@RequestMapping("/recipe/levelRecipe.do")
 	public String level() {
 		return "level";
-	}
+	}*/
 /*	@RequestMapping(value = "/recipe/searchRecipe.do",method=RequestMethod.GET)
 	public String search(String search) {
 		return "search";
@@ -47,18 +47,15 @@ public class RecipeController {
 		mav.setViewName("detail");
 		return mav;
 	}
-	@RequestMapping("/recipe/addPlanner.do")
+	
+	
+/*	@RequestMapping("/recipe/addPlanner.do")
 	public String add() {
 		return "add";
-	}
+	}*/
 	
 	
-	//검색어로 찾기
-	@RequestMapping(value="/recipe/ajax_SearchName.do", method=RequestMethod.GET,produces="application/json;charset=utf-8")
-	public @ResponseBody ArrayList<RecipeVO> readbyName(String name){
-		ArrayList<RecipeVO> recipeSearch =(ArrayList<RecipeVO>)service.readbyName(name);
-		return recipeSearch;
-	}
+	
 	@RequestMapping("/recipe/searchRecipe.do")
 	public ModelAndView recipeList() {
 		ModelAndView mav = new ModelAndView();
@@ -91,20 +88,42 @@ public class RecipeController {
 		System.out.println("ajax 통신"+recipeList.size());
 		return recipeList;
 	}
-	
-	/*public ModelAndView levelView(String cook_levelb, String cook_leveln, String cook_levelh) {
+	@RequestMapping(value="/recipe/levelRecipe.do", method=RequestMethod.GET)
+	public ModelAndView levelView(String cook_levelb, String cook_leveln, String cook_levelh) {
 		System.out.println(cook_levelb+"////////////////"+cook_leveln+"//////////////"+cook_levelh);
+		System.out.println("====================================================================================");
 		ModelAndView mav = new ModelAndView();
 		List<RecipeVO> listb = service.levellist(cook_levelb);
 		List<RecipeVO> listn = service.levellist(cook_leveln);
 		List<RecipeVO> listh = service.levellist(cook_levelh);
-		System.out.println(listb);
-		System.out.println(listn);
-		System.out.println(listh);
+		System.out.println("b:"+listb);
+		System.out.println("n:"+listn);
+		System.out.println("h:"+listh);
 		mav.addObject("levellistb", listb);
 		mav.addObject("levellistn", listn);
 		mav.addObject("levellisth", listh);
-		mav.setViewName("/recipe/levelRecipe.do");
+		mav.setViewName("level");
 		return mav;
-	}*/
+	}
+	@RequestMapping(value="recipe/ajax_levellist.do",method=RequestMethod.GET,produces="application/json;charset=utf-8")
+	public @ResponseBody List<RecipeVO> recipeList(String cook_level){
+		List<RecipeVO> recipelist = service.levellist(cook_level);
+		System.out.println("----------------------"+recipelist.size());
+		return recipelist;
+	}
+	
+	@RequestMapping(value ="/recipe/addPlanner.do" , method=RequestMethod.GET)
+	public ModelAndView moveTopopup(HttpServletRequest req) {
+		ModelAndView mav = new ModelAndView();
+		String recipe_id = req.getParameter("id");
+		System.out.println("팝업창으로 전달하고 싶은 recipe_id: "+ recipe_id);
+		RecipeVO mealinfo = service.moveTopopup(recipe_id);
+		mav.addObject("mealinfo", mealinfo);
+		mav.setViewName("add");
+		System.out.println("컨트롤러를 거친 recipe_id: "+ mealinfo);
+		return mav;
+	}
+	
+	
+	
 }

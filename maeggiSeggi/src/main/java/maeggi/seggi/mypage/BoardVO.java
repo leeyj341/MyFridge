@@ -2,7 +2,7 @@ package maeggi.seggi.mypage;
 
 import java.sql.Date;
 
-public class BoardVO {////
+public class BoardVO {
 	int askno;
 	String member_id;
 	String ask_title;
