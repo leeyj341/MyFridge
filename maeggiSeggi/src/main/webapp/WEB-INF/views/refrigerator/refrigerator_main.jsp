@@ -158,11 +158,10 @@
 			$(document).on("change", "input[name=distinct_code]", function() {
 				if($(this).is(":checked")) {
 					$(this).val("1");
+					$("#check_box").find("input").not($(this)).val("0");
 				} else {
 					$(this).val("0");
 				}
-				
-				$()
 				
 				$.ajax({
 					url:"/maeggiSeggi/refrigerator/ajax_update_main.do",
