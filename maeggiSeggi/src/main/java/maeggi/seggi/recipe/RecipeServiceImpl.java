@@ -98,6 +98,6 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 @Override
 	public RecipeVO moveTopopup(String recipe_id) {
-		return dao.moveTopopup(recipe_id); //리턴의 타입얘가 RecipeVO가 아닌가?????
+		return dao.moveTopopup(recipe_id);
 	}
 }

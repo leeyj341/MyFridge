@@ -9,7 +9,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -22,7 +21,6 @@
 	padding: 0;
 	font-size: 30pt;
 }
-
 h4 {
 	text-align: center;
 }
@@ -33,13 +31,12 @@ $(document).ready(function() {
 		event.preventDefault();
 	});
 	$("#submit").on("click", function() {
-		memId = "<%=session.getAttribute("id")%>
-	";
+		memId = "<%=session.getAttribute("id")%>";
+		
 			node = document.createElement("Input");
 			node.setAttribute("name", "member_id");
 			node.setAttribute("value", memId);
 			$("#myform").append(node);
-
 			$.ajax({
 				url : "/maeggiSeggi/restaurant/add.do",
 				type : "get",
@@ -51,10 +48,10 @@ $(document).ready(function() {
 			});
 			$("#myform").children().last().remove();
 		});
-	})
+	
+	
+	});
 </script>
-
-
 </head>
 <body style="font-family: PapyrusB;">
 	<%
@@ -69,7 +66,7 @@ $(document).ready(function() {
 				<fieldset style="text-align: center;">
 					<h4>재료확인</h4>
 					<input type="checkbox" name="addlist[0].ingredient_id"
-						value="195465">양파 
+						value="195465">양파
 					<select name="addlist[0].ig_amount">
 						<option value="" disabled selected hidden>=== 선택 ===</option>
 						<option value="1">1개</option>
@@ -116,10 +113,7 @@ $(document).ready(function() {
 			style="background-color: lavenderblush; height: 800px;">
 			<h4>[주간 식단에 추가하기]</h4>
 			<h3><%=mealinfo.getName()%></h3>
-
-
-
-			<form action="컨트롤러 매핑 주소 썾기" name="mypopup" method="POST">
+			<form action="/maeggiSeggi/mealPlanner/insert.do" name="mypopup" method="POST">
 				<%
 					Calendar today = Calendar.getInstance();
 					int month = today.get(Calendar.MONTH) + 1;
@@ -138,7 +132,6 @@ $(document).ready(function() {
 						<option value="<%= month %>월 <%= date+6 %>일"><%= month %>월 <%= date+6 %>일</option>
 					</select>
 				</div>
-				
 				<!-- 식단추가 컨트롤러로 식단 아침,점심,저녁  전송 하는 곳  -->
 				<div>
 					<input type="radio" name="planner_code" value="1">아침
@@ -146,20 +139,16 @@ $(document).ready(function() {
 					 <input type="radio" name="planner_code" value="3">저녁
 					 <br />
 				</div>
-
 				<!-- 칼로리 출력 및 칼로리 컨트롤러로 전송 하는 곳  -->
 				<div>
 					<span><%=mealinfo.getName()%> 칼로리 : <%=mealinfo.getKcal()%></span><span>kcal</span>
 					<input type="hidden" name="kcal" value="<%=mealinfo.getKcal()%>" />
+					<input type="hidden" name="meal_name" value="<%=mealinfo.getName()%>" />
+					<input type="hidden" name="member_id" value="<%= session.getAttribute("id") %>" />
 				</div>
-
 				<input type="submit" value="식단에 추가하기" onclick="window.close()">
 			</form>
-
-
-
 		</div>
 	</div>
-
 </body>
 </html>

@@ -12,5 +12,10 @@ public class mealPlannerServiceImpl implements mealPlannerService{
 	public mealPlannerVO read(mealPlannerVO meal) {
 		return dao.read(meal);
 	}
+
+	@Override
+	public int insert(mealPlannerVO meal) {
+		return dao.insert(meal);
+	}
 	
 }

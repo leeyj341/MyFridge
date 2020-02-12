@@ -67,5 +67,10 @@ public class BoardServiceImpl implements BoardService {
 		return dao.pointListall(point);
 	}
 
+	@Override
+	public int pointsum(PointVO point) {
+		return dao.pointsum(point);
+	}
+
 
 }

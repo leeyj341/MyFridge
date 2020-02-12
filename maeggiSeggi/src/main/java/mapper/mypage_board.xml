@@ -33,9 +33,15 @@
 		askno = #{askno}
 	</delete>
 
-	<!-- mypoint꺼 listall-->
-	<select id="pointListall" resultType="board">
+	<!-- mypoint listall-->
+	<select id="pointListall" resultType="point">
 		select * from point_rule where member_id = #{member_id}
+	</select>
+	
+	<!-- mypoint point합산 -->
+	<select id="pointSum" resultType="int">
+		select sum(point) from point_rule where member_id = #{member_id}
+		group by member_id
 	</select>
 </mapper>
 

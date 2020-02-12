@@ -6,16 +6,19 @@ public class mealPlannerVO {
 	String meal_planner_id;
 	String meal_name;
 	Date planner_regdate;
-	Date planner_date;
+	String planner_date;
 	int planner_code;//1=아침, 2=점심, 3=저녁
 	String member_id;
+	int kcal;
 	
 	public mealPlannerVO() {
 		
 	}
 
-	public mealPlannerVO(String meal_planner_id, String meal_name, Date planner_regdate, Date planner_date,
-			int planner_code, String member_id) {
+	
+
+	public mealPlannerVO(String meal_planner_id, String meal_name, Date planner_regdate, String planner_date,
+			int planner_code, String member_id, int kcal) {
 		super();
 		this.meal_planner_id = meal_planner_id;
 		this.meal_name = meal_name;
@@ -23,7 +26,10 @@ public class mealPlannerVO {
 		this.planner_date = planner_date;
 		this.planner_code = planner_code;
 		this.member_id = member_id;
+		this.kcal = kcal;
 	}
+
+
 
 	public String getMeal_planner_id() {
 		return meal_planner_id;
@@ -49,11 +55,11 @@ public class mealPlannerVO {
 		this.planner_regdate = planner_regdate;
 	}
 
-	public Date getPlanner_date() {
+	public String getPlanner_date() {
 		return planner_date;
 	}
 
-	public void setPlanner_date(Date planner_date) {
+	public void setPlanner_date(String planner_date) {
 		this.planner_date = planner_date;
 	}
 
@@ -73,11 +79,23 @@ public class mealPlannerVO {
 		this.member_id = member_id;
 	}
 
+	public int getKcal() {
+		return kcal;
+	}
+
+	public void setKcal(int kcal) {
+		this.kcal = kcal;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "mealPlannerVO [meal_planner_id=" + meal_planner_id + ", meal_name=" + meal_name + ", planner_regdate="
 				+ planner_regdate + ", planner_date=" + planner_date + ", planner_code=" + planner_code + ", member_id="
-				+ member_id + "]";
+				+ member_id + ", kcal=" + kcal + "]";
 	}
+
+	
 
 }
