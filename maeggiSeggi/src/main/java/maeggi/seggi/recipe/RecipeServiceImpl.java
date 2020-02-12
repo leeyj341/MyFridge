@@ -1,10 +1,11 @@
-package maeggi.seggi.recipe;
+/*package maeggi.seggi.recipe;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,7 +19,7 @@ public class RecipeServiceImpl implements RecipeService {
 	@Qualifier("recipeDao")
 	RecipeDAO dao;
 	IngredientDAO daoig;
-	RecipeDetailVO daodt;
+	RecipeDetailDAO daodt;
 	
 	FileOutputStream fos;
 	@Override
@@ -38,13 +39,19 @@ public class RecipeServiceImpl implements RecipeService {
 
 	@Override
 	public void insert(RecipeVO recipe) {
+		Random rand = new Random();
+		String id = "rec" + rand.nextInt(10000000);
+		
+		recipe.setRecipe_id(id);
+		dao.insert(recipe);												//insert into recipe values()
 		for (int i = 0; i < recipe.getRecipe_detail().size(); i++) {
-			dao.insertdetail(recipe.getRecipe_detail().get(i));			// insert into recipe_detail values(#{id}, #{dsd},..... )
+			recipe.getRecipe_detail().get(i).setRecipe_id(id); 
+			daodt.insertdetail(recipe.getRecipe_detail().get(i));			// insert into recipe_detail values(#{id}, #{dsd},..... )
 		}
 		for (int i = 0; i < recipe.getIg_detail().size(); i++) {
-			dao.insertigdetail(recipe.getIg_detail().get(i));				//insert into ingredients values(#{id}, #{dsd},..... )
+			recipe.getIg_detail().get(i).setRecipe_id(id); 
+			daoig.insertigdetail(recipe.getIg_detail().get(i));			//insert into ingredients values(#{id}, #{dsd},..... )
 		}
-		dao.insert(recipe);											//insert into recipe values()
 	}
 
 	@Override
@@ -97,4 +104,12 @@ public class RecipeServiceImpl implements RecipeService {
 		}
 	}
 
+
+	@Override
+	public List<RecipeVO> testlist(int pagenum, int contentnum) {
+		// TODO Auto-generated method stub
+		return dao.testlist(pagenum, contentnum);
+	}
+
 }
+*/

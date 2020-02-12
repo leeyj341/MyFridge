@@ -60,40 +60,45 @@ public class RecipeController {
 	
 	@RequestMapping("/recipe/searchRecipe.do")
 	public ModelAndView recipeList(HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView();
-		List<RecipeVO> list = service.listall();
-		System.out.println(list);
-		mav.addObject("list",list);
-		int ccontentnum;
 		PageMaker pageMaker = new PageMaker();
-		String pagenum = request.getParameter("pagenum");
-		String contentnum = request.getParameter("contentnum");
-		System.out.println(contentnum);
-		System.out.println("test=>"+pagenum);
+		ModelAndView mav = new ModelAndView();
 		
-		int cpagenum = Integer.parseInt(pagenum);
-		ccontentnum = Integer.parseInt(request.getParameter("contentnum"));
-	      
+		int pagenum = Integer.parseInt(request.getParameter("pagenum"));
+		System.out.println("pagenum=>"+pagenum);
+		int contentnum = Integer.parseInt(request.getParameter("contentnum"));
+		System.out.println("contentnum=>"+contentnum);
+		
+		List<RecipeVO> list = service.listall();
+		System.out.println(list);  
+		mav.addObject("list",list);
 		pageMaker.setTotalCount(mapper.testcount());//전체 게시글 갯수 지정
-		pageMaker.setPagenum(cpagenum-1);	//현재 페이지를 페이지 객체에 지정, -1을 해야 쿼리에서 사용 가능
-		pageMaker.setContentnum(ccontentnum); //한 페이지에 몇 개씩 게시글을 보여줄 것인
-		pageMaker.setCurrentblock(cpagenum); //현재 페이지 블록
+		pageMaker.setPagenum(pagenum-1);	//현재 페이지를 페이지 객체에 지정, -1을 해야 쿼리에서 사용 가능
+		pageMaker.setContentnum(contentnum); //한 페이지에 몇 개씩 게시글을 보여줄 것인
+		pageMaker.setCurrentblock(pagenum); //현재 페이지 블록
 		pageMaker.setLastblock(pageMaker.getTotalCount()); // 마지막 블록 번호를 전체 게시글 수를 통해 정한다.
 		
-		pageMaker.prevnext(cpagenum);//현재 페이지 번호로 화살표를 나타낼 지 정한다
+		pageMaker.prevnext(pagenum);//현재 페이지 번호로 화살표를 나타낼 지 정한다
 		pageMaker.setStartPage(pageMaker.getCurrentblock()); //시작 페이지를 페이지 블록번호로 정한다.
 		pageMaker.setEndPage(pageMaker.getLastblock(), pageMaker.getCurrentblock()); 
-		
-		
+		System.out.println(pageMaker);
+		if(pageMaker.getPagenum()==1) {
+		List<RecipeVO> testlist = mapper.testlist(pageMaker.getPagenum()*9, pageMaker.getPagenum()*9+pageMaker.getContentnum());
 		//List<RecipeVO> test = new ArrayList<RecipeVO>();
-		//System.out.println(test);
-		list = mapper.testlist(pageMaker.getPagenum()*9,pageMaker.getContentnum());
-		request.setAttribute("listall", list);
-		request.setAttribute("page", pageMaker);
-		//return "search";
-		
+		System.out.println(testlist);
+		System.out.println(pageMaker.getContentnum());
+		mav.addObject("testlist",testlist);
+		mav.addObject("page",pageMaker);
 		mav.setViewName("search");
 		return mav;
+		}else {
+			List<RecipeVO> testlist = mapper.testlist((pageMaker.getPagenum()*10)+1, pageMaker.getPagenum()*10+pageMaker.getContentnum());	
+			System.out.println(testlist);
+			System.out.println(pageMaker.getContentnum());
+			mav.addObject("testlist",testlist);
+			mav.addObject("page",pageMaker);
+			mav.setViewName("search");
+			return mav;
+		}
 	}
 /*	삭제 
 	public String delete(RecipeVO recipe) {

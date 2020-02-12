@@ -1,6 +1,5 @@
 package maeggi.seggi.recipe;
 
-import java.sql.Date;
 import java.util.ArrayList;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -13,6 +12,8 @@ public class RecipeVO {
 	private String content_intro;
 	private String recipe_code;
 	private String recipe_category;
+	private String food_code;
+	private String food_category;
 	private String cook_time;
 	private String kcal;
 	private String amount_per_person;
@@ -34,18 +35,20 @@ public class RecipeVO {
 		
 	}
 
-	
+
 	public RecipeVO(String recipe_id, String name, String content_intro, String recipe_code, String recipe_category,
-			String cook_time, String kcal, String amount_per_person, String cook_level, String ing_category,
-			String price, String img_url_main, String img_url_sub, String hit, String like_num,String register_date,
-			String member_id, ArrayList<RecipeDetailVO> recipe_detail, ArrayList<IngredientVO> ig_detail,
-			MultipartFile myphoto) {
+			String food_code, String food_category, String cook_time, String kcal, String amount_per_person,
+			String cook_level, String ing_category, String price, String img_url_main, String img_url_sub, String hit,
+			String like_num, String register_date, String member_id, ArrayList<RecipeDetailVO> recipe_detail,
+			ArrayList<IngredientVO> ig_detail, MultipartFile myphoto) {
 		super();
 		this.recipe_id = recipe_id;
 		this.name = name;
 		this.content_intro = content_intro;
 		this.recipe_code = recipe_code;
 		this.recipe_category = recipe_category;
+		this.food_code = food_code;
+		this.food_category = food_category;
 		this.cook_time = cook_time;
 		this.kcal = kcal;
 		this.amount_per_person = amount_per_person;
@@ -63,17 +66,17 @@ public class RecipeVO {
 		this.myphoto = myphoto;
 	}
 
-	
-	
+
 	@Override
 	public String toString() {
 		return "RecipeVO [recipe_id=" + recipe_id + ", name=" + name + ", content_intro=" + content_intro
-				+ ", recipe_code=" + recipe_code + ", recipe_category=" + recipe_category + ", cook_time=" + cook_time
-				+ ", kcal=" + kcal + ", amount_per_person=" + amount_per_person + ", cook_level=" + cook_level
-				+ ", ing_category=" + ing_category + ", price=" + price + ", img_url_main=" + img_url_main
-				+ ", img_url_sub=" + img_url_sub + ", hit=" + hit + ", like_num=" + like_num + ", register_date="
-				+ register_date + ", member_id=" + member_id + ", recipe_detail=" + recipe_detail + ", ig_detail="
-				+ ig_detail + ", myphoto=" + myphoto + "]";
+				+ ", recipe_code=" + recipe_code + ", recipe_category=" + recipe_category + ", food_code=" + food_code
+				+ ", food_category=" + food_category + ", cook_time=" + cook_time + ", kcal=" + kcal
+				+ ", amount_per_person=" + amount_per_person + ", cook_level=" + cook_level + ", ing_category="
+				+ ing_category + ", price=" + price + ", img_url_main=" + img_url_main + ", img_url_sub=" + img_url_sub
+				+ ", hit=" + hit + ", like_num=" + like_num + ", register_date=" + register_date + ", member_id="
+				+ member_id + ", recipe_detail=" + recipe_detail + ", ig_detail=" + ig_detail + ", myphoto=" + myphoto
+				+ "]";
 	}
 
 
@@ -124,6 +127,26 @@ public class RecipeVO {
 
 	public void setRecipe_category(String recipe_category) {
 		this.recipe_category = recipe_category;
+	}
+
+
+	public String getFood_code() {
+		return food_code;
+	}
+
+
+	public void setFood_code(String food_code) {
+		this.food_code = food_code;
+	}
+
+
+	public String getFood_category() {
+		return food_category;
+	}
+
+
+	public void setFood_category(String food_category) {
+		this.food_category = food_category;
 	}
 
 
@@ -275,6 +298,6 @@ public class RecipeVO {
 	public void setMyphoto(MultipartFile myphoto) {
 		this.myphoto = myphoto;
 	}
-	
+
 	
 }

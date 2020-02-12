@@ -84,7 +84,7 @@
 									<a href="#">ÀÛ¼ºÀÚ : <%=listMap.get(0).get("MEMBER_ID")%></a>
 								</div>
 								<!-- Post Date -->
-								<div class="post-date"> 
+							<div class="post-date"> 
 								<%!SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
 								
 								%>
