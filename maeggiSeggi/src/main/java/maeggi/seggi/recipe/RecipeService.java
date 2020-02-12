@@ -15,5 +15,5 @@ public interface RecipeService {
 	List<RecipeVO> readbyName(String name);
 	//파일 업로드
 	void upload(MultipartFile file,String path,String fileName);
-	RecipeVO moveTopopup(RecipeVO recipe_id);
+	RecipeVO moveTopopup(String recipe_id);
 }

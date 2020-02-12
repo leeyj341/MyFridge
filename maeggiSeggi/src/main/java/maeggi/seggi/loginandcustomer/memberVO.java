@@ -2,7 +2,7 @@ package maeggi.seggi.loginandcustomer;
 
 import java.sql.Date;
 
-public class memberVO {//
+public class memberVO {////
 	private String member_id;
 	private String pass;
 	private String name;

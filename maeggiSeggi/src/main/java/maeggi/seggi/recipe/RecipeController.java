@@ -117,10 +117,10 @@ public class RecipeController {
 		ModelAndView mav = new ModelAndView();
 		String recipe_id = req.getParameter("id");
 		System.out.println("팝업창으로 전달하고 싶은 recipe_id: "+ recipe_id);
-		String sda = service.moveTopopup(recipe_id);
-		mav.addObject("sda", sda);
+		RecipeVO mealinfo = service.moveTopopup(recipe_id);
+		mav.addObject("mealinfo", mealinfo);
 		mav.setViewName("add");
-		System.out.println("컨트롤러를 거친 recipe_id: "+ sda);
+		System.out.println("컨트롤러를 거친 recipe_id: "+ mealinfo);
 		return mav;
 	}
 	
