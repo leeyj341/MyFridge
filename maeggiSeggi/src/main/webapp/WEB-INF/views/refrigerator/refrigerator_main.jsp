@@ -30,29 +30,43 @@
 	    $(document).ready(function() {
 	    	var memId = '<%= session.getAttribute("id") %>';
 	    	
+	    	//냉장고 정보 로드
+	    	loadFridge(memId);
+	    	
+	    	//냉장고 관리 모달 창 열기
+	    	addDataToModal(memId);
+	    	
+	    	//냉장고 추가
+	    	addFridge(memId);
+	    	
+	    	//메인 냉장고 설정
+	    	setMainFridge(memId);
+	    });
+	    
+	    function loadFridge(id) {
 	    	$.ajax({
 	    		url:"/maeggiSeggi/refrigerator/ajax_fridge.do",
 	    		async: false,
 	    		type:"get",
 	    		data: {
-	    			"id": memId
+	    			"id": id
 	    			},
 	    		success: function(data) {
 	    			fridgeList = data;
 	    			if(data.length < 1) $("#fridge_name").text("냉장고를 추가하세요!");
 	    			else if(data.length == 1) {
-	    				$("#fridge_name").html("<b>" + memId + "</b> 님의 " + "<b>#" + data[0].name + "</b> 냉장고");
+	    				$("#fridge_name").html("<b>" + id + "</b> 님의 " + "<b>#" + data[0].name + "</b> 냉장고");
 	    			}
 	    			else {
 	    				var flag = false;
 	    				for (var i = 0; i < data.length; i++) {
 	        				if(data[i].distinct_code == '1') {
-	        					$("#fridge_name").html("<b>" + memId + "</b> 님의 " + "<b>#" + data[i].name + "</b> 냉장고");
+	        					$("#fridge_name").html("<b>" + id + "</b> 님의 " + "<b>#" + data[i].name + "</b> 냉장고");
 	        					flag = true;
 	        					
 	        				} else {
 	        					if(flag == false) {
-	        						$("#fridge_name").html("<b>" + memId + "</b> 님의 " + "<b>#" + data[i].name + "</b> 냉장고");
+	        						$("#fridge_name").html("<b>" + id + "</b> 님의 " + "<b>#" + data[i].name + "</b> 냉장고");
 	        						flag = true;
 	        					}
 	        				}
@@ -60,12 +74,9 @@
 	    			}
 	    		}
 	    	});
-	    	
-	    	//냉장고 관리 모달 창 열기
-	    	addDataToModal();
-	    });
+	    }
 	    
-	    function addDataToModal() {
+	    function addDataToModal(id) {
 			$(".modal-btn").on("click", function() {
 				$("#fridge_modal").modal({
 					escapeClose: false,
@@ -73,13 +84,102 @@
 					showClose: false
 				})
 				
-				for (var i = 0; i < fridgeList.length; i++) {
-					var fridge = fridgeList[i];
-					mydiv = "<div class='fridge-img-div'><img class='fridge-img-ico' src='/maeggiSeggi/images/refrigerator.png'><p>#" + fridge.name + "<br/>냉장고</p></div>";
-					$("#manage_fridge").empty();
-					$("#manage_fridge").append(mydiv);
+				$.ajax({
+					url:"/maeggiSeggi/refrigerator/ajax_fridge.do",
+					async: false,
+		    		type:"get",
+		    		data: {
+		    			"id": id
+		    			},
+		    		success: function(data) {
+						fridgeList = data;
+					}
+				});
+
+				var div = $("<div id='check_box'></div>");
+				var radio = "";
+				var mydiv = "";
+				
+				if(fridgeList.length == 0) {
+					radio = "<input type='radio' name='distinct_code' id='' value='0'>";
+					mydiv = "<div class='fridge-img-div'><img class='fridge-img-ico' src='/maeggiSeggi/images/refrigerator.png'><input name='addF' type='text' maxlength='5' placeholder='냉장고 이름을 입력하세요.'></div>";
+				} else {
+					for (var i = 0; i < fridgeList.length; i++) {
+						radio += "<input type='radio' name='distinct_code' id='" + fridgeList[i].refrigerator_id + "' ";
+						if(fridgeList[i].distinct_code == '1') {
+							radio += "checked=true value='1'>";
+						}
+						else radio += "value='0'>";	
+						
+						mydiv += "<div class='fridge-img-div'><img class='fridge-img-ico' src='/maeggiSeggi/images/refrigerator.png'><p>#" + fridgeList[i].name + "<br/>냉장고</p></div>";
+					}
 				}
-			})
+				
+				div.append(radio);
+				$("#manage_fridge").empty();
+				$("#manage_fridge").append(div);
+				$("#manage_fridge").append(mydiv);
+			});
+		}
+	    
+	    function addFridge(id) {
+	    	$(document).on("keydown",$("input[name=addF]"),function(key){
+	    		if(key.keyCode == 13) {
+	    			var text = $("input[name=addF]").val();
+	    			var node = $("<p></p>");
+	    			node.html("#" + text + "<br/>냉장고");
+	    			$("#manage_fridge").children("div").last().append(node);
+	    			
+	    			//db저장
+	    			$.ajax({
+	    				url:"/maeggiSeggi/refrigerator/ajax_fridge_insert.do",
+	    				type:"post",
+	    				dataType:"text",
+	    				data: {
+	    					"member_id":id,
+	    					"name":text,
+	    					"distinct_code":0
+	    				},
+	    				success: function(data) {
+	    					alert(data);
+	    				},
+	    				fail: function(data) {
+							alert(data);
+						}
+	    			})
+	    			
+	    			//db 저장 끝난 후 지움
+	    			$("input[name=addF]").remove();
+	    		}
+	    	})
+	    }
+	    
+	    function setMainFridge(id) {
+			$(document).on("change", "input[name=distinct_code]", function() {
+				if($(this).is(":checked")) {
+					$(this).val("1");
+				} else {
+					$(this).val("0");
+				}
+				
+				$()
+				
+				$.ajax({
+					url:"/maeggiSeggi/refrigerator/ajax_update_main.do",
+					type:"post",
+					datatype:"text",
+					data: {
+						"refrigerator_id": $(this).attr('id'),
+						"distinct_code": $(this).val()
+					},
+					success:function(data) {
+						alert(data);
+					},
+					fail:function(data) {
+						alert(data);
+					}
+				});
+			});
 		}
     </script>
     <script src="/maeggiSeggi/common/js/l_fridge.js"></script>
@@ -293,6 +393,8 @@
     <!-- 모달 창입니다 ---------------------------------------------------------------------- -->
     <div id="fridge_modal" class="modal" role="dialog" aria-hidden="true">
     	<div id="manage_fridge">
+    		<div id="check_box">
+    		</div>
     		<div class="fridge-img-div">
   				<img class="fridge-img-ico" src="">
   				<p></p>

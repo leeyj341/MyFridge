@@ -69,7 +69,8 @@ public class RecipeDAOImpl implements RecipeDAO {
 
 	@Override
 	public List<RecipeVO> levellist(String cook_level) {
-		return sqlSession.selectList("maeggi.seggi.recipe.levelRecipe", cook_level);
+		//return sqlSession.selectList("maeggi.seggi.recipe.levelRecipe", cook_level);
+		return null;
 	}
 
 

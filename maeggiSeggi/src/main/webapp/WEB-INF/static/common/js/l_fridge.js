@@ -1,6 +1,7 @@
 /**
  * 
  */
+
 var category;
 var target_clone;
 
@@ -46,7 +47,6 @@ $(document).ready(function() {
 	
 	//냉장고 추가 제거
 	manageFridge();
-	addFridge();
 	
 	//재료를 냉장고 안으로 드래그 앤 드랍
 	$("#ig_list").on("dragstart", function(e) {
@@ -65,33 +65,23 @@ function wow_default_alert(msg) {
 function manageFridge() {
 	$(".plus-btn").each(function() {
 		$(this).on("click", function() {
+			if($("input[name=addF]").length) {
+				alert("아직 등록되지 않은 냉장고가 있습니다!");
+				return;
+			}
+			
 			if($(this).attr("title") == "냉장고 추가") {
-				mydiv = "<div class='fridge-img-div'><img class='fridge-img-ico' src='/maeggiSeggi/images/refrigerator.png'><form name'fridge_form'><input name='addF' type='text' maxlength='5' placeholder='냉장고 이름을 입력하세요.'></form></div>";
+				mycheck = "<input type='radio' name='distinct_code'>";
+				mydiv = "<div class='fridge-img-div'><img class='fridge-img-ico' src='/maeggiSeggi/images/refrigerator.png'><input name='addF' type='text' maxlength='5' placeholder='냉장고 이름을 입력하세요.'></div>";
+				$("#check_box").append(mycheck);
 				$("#manage_fridge").append(mydiv);
 			} else if($(this).attr("title") == "냉장고 제거") {
 				//서버에서도 지우고 여기서도 지우고...
+				if($("#manage_fridge").children("div").length == 1) return;
 				$("#manage_fridge").children("div").last().remove();
 			}
 		})
 	})
-}
-function addFridge() {
-	$("input[name=addF]").on({
-		"change":function() {
-			alert();
-		},
-		"submit":function() {
-			alert();
-		}
-	})
-		/*var text = $(this).val();
-		var node = $.createElement("p");
-		$(node).text("#" + text + "<br/>냉장고");
-		$("#manage_fridge").children("div").last().remove("input");
-		$("#manage_fridge").children("div").append(node);*/
-}
-function deleteFridge() {
-	
 }
 
 function chagneButton() {

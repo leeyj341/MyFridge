@@ -13,6 +13,7 @@ public class RecipeServiceImpl implements RecipeService {
 	@Qualifier("recipeDao")
 	RecipeDAO dao;
 //	IngredientDAO daoig;
+//  RecipeDetailDAO daoDe;
 	
 	@Override
 	public List<RecipeVO> recipeList(String category) {

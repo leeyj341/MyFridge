@@ -51,6 +51,14 @@ public class RecipeController {
 	public String add() {
 		return "add";
 	}
+	
+	
+	//검색어로 찾기
+	@RequestMapping(value="/recipe/ajax_SearchName.do", method=RequestMethod.GET,produces="application/json;charset=utf-8")
+	public @ResponseBody ArrayList<RecipeVO> readbyName(String name){
+		ArrayList<RecipeVO> recipeSearch =(ArrayList<RecipeVO>)service.readbyName(name);
+		return recipeSearch;
+	}
 	@RequestMapping("/recipe/searchRecipe.do")
 	public ModelAndView recipeList() {
 		ModelAndView mav = new ModelAndView();
@@ -84,7 +92,7 @@ public class RecipeController {
 		return recipeList;
 	}
 	
-	public ModelAndView levelView(String cook_levelb, String cook_leveln, String cook_levelh) {
+	/*public ModelAndView levelView(String cook_levelb, String cook_leveln, String cook_levelh) {
 		System.out.println(cook_levelb+"////////////////"+cook_leveln+"//////////////"+cook_levelh);
 		ModelAndView mav = new ModelAndView();
 		List<RecipeVO> listb = service.levellist(cook_levelb);
@@ -98,5 +106,5 @@ public class RecipeController {
 		mav.addObject("levellisth", listh);
 		mav.setViewName("/recipe/levelRecipe.do");
 		return mav;
-	}
+	}*/
 }
