@@ -41,7 +41,7 @@ h4 {
 }
 
 
-#more {
+#bmore,#nmore,#hmore {
 	width: 80px;
 	background-color: #f8585b;
 	border: none;
@@ -82,19 +82,33 @@ section {
 }
 </style>
 <script type="text/javascript">
-	cook_levelb = "초보";
-	cook_leveln = "보통";
-	cook_levelh = "어려움";
+	$(document).ready(function() {
+		$("#bmore").on("click", function() {
+			
+			$.ajax({
+				url : "/maeggiSeggi/recipe/ajax_levellist.do",
+				type : "get",
+				data : {
+					"cook_level" : "초보환영"
+				},
+				success : function(data) {
+					alert("데이터 넣기 성공");
+					mydata = "";
+					for (i = 0; i < array.length; i++) {
+						mydata = myadata + 
+							""
+					}
+					$("#bend").append(mydata);
+				}
+			});
+		})
+	});
 </script>
 </head>
 <body>
 	<% List<RecipeVO> listb = (List<RecipeVO>)request.getAttribute("levellistb"); %>
 	<% List<RecipeVO> listn = (List<RecipeVO>)request.getAttribute("levellistn"); %>
 	<% List<RecipeVO> listh = (List<RecipeVO>)request.getAttribute("levellisth"); %>
-	<% for(int i=0; i<listb.size(); i++){
-		listb.get(0).getImg_url_main();
-	}
-	%>
    <!-- ****** Breadcumb Area Start ****** -->
    <div class="breadcumb-nav">
       <div class="container">
@@ -117,7 +131,7 @@ section {
       <div id="headtitle">
          <h4>나는야 <span id="underline">초급 </span>요리사</h4>
          <a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="레시피 등록" ></a>
-			<input type="button" id="more" value="More">
+			<input type="button" id="bmore" value="More">
       </div>
    </div>
 
@@ -132,7 +146,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="/maeggiSeggi/images/jjigae.jpg" alt=""/></a>
+                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="<%= listb.get(0).getImg_url_main() %>" alt=""/></a>
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -166,7 +180,7 @@ section {
                         </div>
                      </div>
                      <a href="/maeggiSeggi/recipe/detailRecipe.do">
-                        <h4 class="post-headline">지글지글 맛있는 김치찌개</h4>
+                        <h4 class="post-headline"><%= listb.get(0).getName() %></h4>
                      </a>
                   </div>
                </div>
@@ -176,7 +190,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.3s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="../images/pork2.PNG" alt=""/></a>
+                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="<%= listb.get(1).getImg_url_main() %>" alt=""/></a>
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -210,7 +224,7 @@ section {
                         </div>
                      </div>
                      <a href="/maeggiSeggi/recipe/detailRecipe.do">
-                        <h4 class="post-headline">백종원의 만능고기양념으로 재운 단짠단짠 la 양념갈비</h4>
+                        <h4 class="post-headline"><%= listb.get(1).getName() %></h4>
                      </a>
                   </div>
                </div>
@@ -220,11 +234,11 @@ section {
 
 
             <!-- Single Post -->
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4" id="bend">
                <div class="single-post wow fadeInUp" data-wow-delay="0.4s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="../images/sandwitch.jpg" alt=""/></a>
+                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="<%= listb.get(2).getImg_url_main() %>" alt=""/></a>
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -258,8 +272,7 @@ section {
                         </div>
                      </div>
                      <a href="/maeggiSeggi/recipe/detailRecipe.do">
-                        <h4 class="post-headline">크리스마스&nbsp;&nbsp;
-                           파티음식으로&nbsp;&nbsp; 최고!몬테크리스토 샌드위치:)</h4>
+                        <h4 class="post-headline"><%= listb.get(2).getName() %></h4>
                      </a>
                   </div>
                </div>
@@ -273,7 +286,7 @@ section {
       <div id="headtitle">
          <h4>나는야 <span id="underline">중급</span>요리사</h4>
        <a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="레시피 등록" ></a>
-			<input type="button" id="more" value="More">
+			<input type="button" id="nmore" value="More">
       </div>
    </div>
 
@@ -288,7 +301,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="../images/pork1.PNG" alt=""/></a>
+                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="<%= listn.get(0).getImg_url_main() %>" alt=""/></a>
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -322,7 +335,7 @@ section {
                         </div>
                      </div>
                      <a href="/maeggiSeggi/recipe/detailRecipe.do">
-                        <h4 class="post-headline">지글지글 맛있는 김치찌개</h4>
+                        <h4 class="post-headline"><%= listn.get(0).getName() %></h4>
                      </a>
                   </div>
                </div>
@@ -332,7 +345,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.3s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="../images/pork2.PNG" alt=""/></a>
+                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="<%= listn.get(1).getImg_url_main() %>" alt=""/></a>
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -366,7 +379,7 @@ section {
                         </div>
                      </div>
                      <a href="/maeggiSeggi/recipe/detailRecipe.do">
-                        <h4 class="post-headline">백종원의 만능고기양념으로 재운 단짠단짠 la 양념갈비</h4>
+                        <h4 class="post-headline"><%= listn.get(1).getName() %></h4>
                      </a>
                   </div>
                </div>
@@ -380,7 +393,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.4s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="../images/sandwitch.jpg" alt=""/></a>
+                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="<%= listn.get(2).getImg_url_main() %>" alt=""/></a>
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -414,8 +427,7 @@ section {
                         </div>
                      </div>
                      <a href="/maeggiSeggi/recipe/detailRecipe.do">
-                        <h4 class="post-headline">크리스마스&nbsp;&nbsp;
-                           파티음식으로&nbsp;&nbsp; 최고!몬테크리스토 샌드위치:)</h4>
+                        <h4 class="post-headline"><%= listn.get(2).getName() %></h4>
                      </a>
                   </div>
                </div>
@@ -429,7 +441,7 @@ section {
       <div id="headtitle">
          <h4>나는야 <span id="underline"> 고급 </span>요리사</h4>
          <a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="레시피 등록" ></a>
-			<input type="button" id="more" value="More">
+			<input type="button" id="hmore" value="More">
       </div>
    </div>
 
@@ -444,7 +456,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="../images/pork1.PNG" alt=""/></a>
+                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="<%= listh.get(0).getImg_url_main() %>" alt=""/></a>
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -478,7 +490,7 @@ section {
                         </div>
                      </div>
                      <a href="/maeggiSeggi/recipe/detailRecipe.do">
-                        <h4 class="post-headline">지글지글 맛있는 김치찌개</h4>
+                        <h4 class="post-headline"><%= listh.get(0).getName() %></h4>
                      </a>
                   </div>
                </div>
@@ -488,7 +500,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.3s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="../images/pork2.PNG" alt=""/></a>
+                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="<%= listh.get(1).getImg_url_main() %>" alt=""/></a>
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -522,7 +534,7 @@ section {
                         </div>
                      </div>
                      <a href="/maeggiSeggi/recipe/detailRecipe.do">
-                        <h4 class="post-headline">백종원의 만능고기양념으로 재운 단짠단짠 la 양념갈비</h4>
+                        <h4 class="post-headline"><%= listh.get(1).getName() %></h4>
                      </a>
                   </div>
                </div>
@@ -536,7 +548,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.4s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="../images/sandwitch.jpg" alt=""></a>
+                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="<%= listh.get(2).getImg_url_main() %>" alt=""></a>
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -570,8 +582,7 @@ section {
                         </div>
                      </div>
                      <a href="/maeggiSeggi/recipe/detailRecipe.do">
-                        <h4 class="post-headline">크리스마스&nbsp;&nbsp;
-                           파티음식으로&nbsp;&nbsp; 최고!몬테크리스토 샌드위치:)</h4>
+                        <h4 class="post-headline"><%= listh.get(2).getName() %></h4>
                      </a>
                   </div>
                </div>

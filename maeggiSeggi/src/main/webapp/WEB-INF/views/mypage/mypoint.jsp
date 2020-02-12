@@ -1,3 +1,4 @@
+<%@page import="maeggi.seggi.mypage.PointVO"%>
 <%@page import="maeggi.seggi.loginandcustomer.memberVO"%>
 <%@page import="maeggi.seggi.mypage.BoardVO"%>
 <%@page import="java.util.ArrayList"%>
@@ -32,7 +33,7 @@
 <body>
 
 	<%
-		ArrayList<BoardVO> list = (ArrayList<BoardVO>) request.getAttribute("list");
+		ArrayList<PointVO> mypoint = (ArrayList<PointVO>)request.getAttribute("mypoint");
 		memberVO loginuser = (memberVO) session.getAttribute("loginuser");
 	%>
 	<%-- <%
@@ -81,7 +82,7 @@
 			<fieldset>
 				<div class="">
 					<div class="">
-						<span>내 포인트</span> <strong>10</strong> <span>점</span> <span>ⓘ</span>
+						<span>내 포인트</span> <strong><%= request.getAttribute("pointsum") %></strong> <span>점</span> <span>ⓘ</span>
 						<span class=""><a href="">적립조건</a></span> <span class=""> <input
 							type="button" id="towrite" value="포인트 전환" onclick=""
 							style="color: white; background-color: #fc6c3f; width: 100px;">
@@ -89,6 +90,19 @@
 					</div>
 				</div>
 			</fieldset>
+
+			<script type="text/javascript">
+				function popup(rere) {
+					
+					
+					  window
+						.open(
+								"/maeggiSeggi/recipe/addPlanner.do?id="+rere,
+								"식단 관리",
+								"top=100, left=450, width=700, height=450, status=no, menubar=no, toolbar=no, resizable=no"); 
+				
+				}
+			</script>
 		</div>
 		<p></p>
 		<table border="1"
@@ -99,27 +113,16 @@
 				<td>적립 포인트</td>
 				<td>적립날짜</td>
 			</tr>
-			<tr style="text-align: center;">
-				<td>1</td>
-				<td>asfsdfasfsdfasfsdfasfsdf</td>
-				<td>50</td>
-				<td>2020-01-14</td>
-			</tr>
-			<tr style="text-align: center;">
-				<td>2</td>
-				<td>asfsdfasfsdfasfsdfasfsdf</td>
-				<td>10</td>
-				<td>2020-01-16</td>
-			</tr>
 			<tbody>
 				<%
-					for (int i = 0; i < list.size(); i++) {
-						BoardVO row = list.get(i);
+					for (int i = 0; i < mypoint.size(); i++) {
+						PointVO row = mypoint.get(i);
 				%>
 				<tr>
-					<td><%=row.getAskno()%></td>
-					<td><a href="/maeggiSeggi/board/read.do?askno=<%=row.getAskno()%>"><%=row.getAsk_title()%></a></td>
-					<td><%=row.getAsk_regdate()%></td>
+					<td><%=row.getID()%></td>
+					<td><%=row.getRule_name()%></td>
+					<td><%=row.getPoint()%></td>
+					<td><%=row.getPoint_date()%></td>
 				</tr>
 				<%
 					}
@@ -149,16 +152,4 @@
 	<p></p>
 	<!-- my point area end -->
 
-<%-- 
-	<%
-		} else {
-	%>
-
-	<script type="text/javascript">
-		alert("로그인이 필요한 기능입니다!");
-		document.location.href = "/maeggiSeggi/loginandcustomer/login.do";
-	</script>
-	<%
-		}
-	%> --%>
 </body>

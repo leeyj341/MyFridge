@@ -23,6 +23,8 @@
 		<!-- meal_planner -->
 		<typeAlias type="maeggi.seggi.mealPlanner.mealPlannerVO" alias="meal"/>
 		<typeAlias type="maeggi.seggi.recipe.RecipeDetailVO" alias="recipeDetail"/>
+		<!-- MyPoint -->
+		<typeAlias type="maeggi.seggi.mypage.PointVO" alias="point"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/mypage_board.xml" />

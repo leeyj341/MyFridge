@@ -24,7 +24,7 @@ public class FridgeController {
 		return list;
 	}
 	
-	@RequestMapping(value="/refrigerator/ajax_fridge_insert.do", method=RequestMethod.GET, produces="application/json;charset=UTF-8")
+	@RequestMapping(value="/refrigerator/ajax_fridge_insert.do", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
 	public @ResponseBody String insertFridge(FridgeVO vo) {
 		int result = service.insertFridge(vo);
 		String message = "";
@@ -36,12 +36,16 @@ public class FridgeController {
 		return message;
 	}
 	
-	@RequestMapping("/calendar.do")
-	public String calendar() {
-		return "calendar";
+	@RequestMapping(value="/refrigerator/ajax_update_main.do", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
+	public @ResponseBody String updateMain(FridgeVO vo) {
+		int result = service.updateMain(vo);
+		String message = "";
+		if(result == 1) {
+			message = "메인 냉장고를 변경했습니다!";
+		} else {
+			message = "메인 냉장고 변경에 실패했습니다.";
+		}
+		return message;
 	}
-	
-	
 
 }
-

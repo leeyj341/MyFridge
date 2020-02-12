@@ -7,7 +7,7 @@
  	select * from recipe
 
   	</select>
-	<!-- radio 카테고리 조회 -->
+<!-- radio 카테고리 조회 -->
   	<select id="categoryRecipe" resultType="recipe" parameterType="String">
   			select *
   			from recipe 
@@ -21,12 +21,18 @@
   			  		and (r.name like '%' || #{search} || '%' 
   			  		or i.name like'%' || #{search} || '%')
   	</select>
+  	
+  	<!-- 레시피 조회에서 팝업창으로 데이터 전송. -->
+  	<select id="moveTopopup" resultType="recipe" parameterType="String">
+  		select * from recipe where recipe_id = #{recipe_id}
+  	</select>
+  	
   	<!-- 난이도별 조회 -->
-  	<select id="levelRecipe" resultType="recipe" parameterType="String">
+  	<!-- <select id="levelRecipe" resultType="recipe" parameterType="String">
   		select * 
   		from recipe 
   		where cook_level=#{cook_level}
-  	</select>
+  	</select> -->
   	<!-- 레시피 등록 -->
   	<insert id="insert" parameterType="recipe">
   	insert into recipe values(#{recipe_id},#{name},#{content_intro},0,#{recipe_category},0,#{food_category},#{cook_time},#{kcal},#{amount_per_person},#{cook_level},0,#{price},0,0,0,0,sysdate,#{member_id})
@@ -54,17 +60,18 @@
 	</select>
 	
 	<!-- 난이도별 조회 -->
-  	<!-- <select id="levelRecipe" resultType="recipe" parameterType="String">
-  		select *
-  		from recipe
+  	<select id="levelRecipe" resultType="recipe" parameterType="String">
+  		select * from	
+  		(select * from recipe
   		where cook_level=#{cook_level}
-  	</select> -->
+  		order by dbms_random.random())
+  	</select>
 	
 	<resultMap type="Map" id="detailMap">
-		<!-- <result column="recipe_id" property="id"/>
+		<result column="recipe_id" property="id"/>
 		<result column="name" property="name"/>
 		<result column="recipe_order_num" property="order"/>
-		<result column="recipe_describe" property="content"/> -->
+		<result column="recipe_describe" property="content"/>
 	</resultMap>
 	<select id="testlist" resultType="recipe">
 	select * from (select row_number() over (order by recipe_id DESC) num ,r.* 
@@ -76,4 +83,5 @@
 	<select id="testcount" resultType="int">
 		select count(*) from recipe
 	</select>
+	
  </mapper> 

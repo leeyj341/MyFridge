@@ -89,7 +89,6 @@
 			<mapping path="/board/**"/>
 			<mapping path="/refrigerator/**"/>
 			
-			
 			<beans:bean class="maeggi.seggi.loginandcustomer.LoginCheckInterceptor"/>
 		</interceptor>
 	</interceptors>

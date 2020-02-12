@@ -21,18 +21,22 @@ public class RecipeDAOImpl implements RecipeDAO {
 		return sqlSession.selectList("maeggi.seggi.recipe.listall");
 	}
 
+
+	@Override
+	public List<RecipeVO> testlist(int pagenum, int contentnum) {
+		return sqlSession.selectList("maeggi.seggi.recipe.listall");
+	}
+
 	@Override
 	public void insert(RecipeVO recipe) {
 		sqlSession.insert("maeggi.seggi.recipe.insert",recipe);
 	}
-	
 	@Override
 	public List<RecipeVO> categorySearch(String category) {
 		List<RecipeVO> list = sqlSession.selectList("maeggi.seggi.recipe.categoryRecipe", category);
 		System.out.println(category + list.size());
 		return list;
 	}
-
 	@Override
 	public List<RecipeVO> searchList(String search) {
 		System.out.println(search);
@@ -40,23 +44,18 @@ public class RecipeDAOImpl implements RecipeDAO {
 		System.out.println("dao=>"+recipeList.size());
 		return recipeList;
 	}
-
 	@Override
 	public int updatehit(String recipe_id) {
 		return sqlSession.update("maeggi.seggi.recipe.updatehit",recipe_id);
-		
 	}
-
 	@Override
 	public List<HashMap<String, String>> detail(String recipe_id) {
 		List<HashMap<String, String>> list = sqlSession.selectList("maeggi.seggi.recipe.detail",recipe_id);
 		return list;
 	}
-
 	@Override
 	public List<RecipeVO> readbyName(String name) {
 		List<RecipeVO> mapSearch = sqlSession.selectList("maeggi.seggi.recipe.recipeSearch",name);
-		
 		return mapSearch;
 	}
 
@@ -89,3 +88,11 @@ public class RecipeDAOImpl implements RecipeDAO {
 
 
 }
+=======
+	@Override
+	public RecipeVO moveTopopup(String recipe_id) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("maeggi.seggi.recipe.moveTopopup", recipe_id);
+	}
+}
+>>>>>>> refs/remotes/origin/master

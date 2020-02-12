@@ -16,12 +16,8 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>maeggi saeggi</title>
-
-
-
 <!-- Core Stylesheet -->
 <link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
-
 <!-- Responsive CSS -->
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <link rel="stylesheet"
@@ -29,19 +25,8 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <link href="/maeggiSeggi/common/css/recipe_detail.css" rel="stylesheet">
 
-<script type="text/javascript">
-	function popup() {
-		window
-				.open(
-						"/maeggiSeggi/recipe/addPlanner.do",
-						"식단 관리",
-						"top=100, left=450, width=700, height=450, status=no, menubar=no, toolbar=no, resizable=no");
-
-	}
-</script>
 </head>
 <body>
-
 	<!-- ****** Header Area End ****** -->
 	<!-- ****** Breadcumb Area Start ****** -->
 	<div class="breadcumb-nav">
@@ -64,7 +49,8 @@
 	<%
 		ArrayList<HashMap<String, String>> listMap = (ArrayList<HashMap<String, String>>) request.getAttribute("detail");
 	%>
-
+	
+	
 	<div class="container" style="margin-top: 30px">
 		<div class="row">
 			<div class="col-sm-4">
@@ -75,7 +61,6 @@
 					</div>
 					<br/>
 					<!-- Post Content -->
-
 					<div class="post-content">
 						<div class="post-meta d-flex">
 							<div class="post-author-date-area d-flex">
@@ -86,11 +71,9 @@
 								<!-- Post Date -->
 							<div class="post-date"> 
 								<%!SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
-								
 								%>
 									<a href="#">REGISTER: <%=sdFormat.format(listMap.get(0).get("REGISTER_DATE"))%></a>
 								</div>
-								
 							</div>
 							</div>
 							<!-- Post Comment & Share Area -->
@@ -210,7 +193,6 @@
 			                                        	<h5><%=map.get("TIP") %></h5>
 													</div>
 		                                    </div>
-		                                  
 		                                    <%
 		                                    }
 										}
@@ -234,13 +216,11 @@
 					</div>
 			</div>
 		<!-- Comment Area Start -->
-
 		<div class="row">
 			<div class="col-12 none" style="float: left;">
 				<h4>
 					<span id="underline">3</span> 댓글
 				</h4>
-
 				<ol>
 					<!-- Single Comment Area -->
 					<li class="single_comment_area">
@@ -348,8 +328,5 @@ $('.carousel').carousel({
 	//기본 5초 
 	}) 
 </script>
-
-
-
 </body>
 </html>

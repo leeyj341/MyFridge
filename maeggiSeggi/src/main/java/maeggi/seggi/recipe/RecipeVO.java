@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import maeggi.seggi.ingredient.IngredientVO;
 
-public class RecipeVO {
+public class RecipeVO {//////fd
 	private String recipe_id;
 	private String name;
 	private String content_intro;

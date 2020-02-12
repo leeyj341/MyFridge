@@ -1,4 +1,4 @@
-/*package maeggi.seggi.recipe;
+package maeggi.seggi.recipe;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -86,7 +86,6 @@ public class RecipeServiceImpl implements RecipeService {
 		return list;
 	}
 
-
 	@Override
 	public void upload(MultipartFile file, String path, String fileName) {
 		try {
@@ -103,7 +102,10 @@ public class RecipeServiceImpl implements RecipeService {
 			}
 		}
 	}
-
+@Override
+	public RecipeVO moveTopopup(String recipe_id) {
+		return dao.moveTopopup(recipe_id);
+	}
 
 	@Override
 	public List<RecipeVO> testlist(int pagenum, int contentnum) {

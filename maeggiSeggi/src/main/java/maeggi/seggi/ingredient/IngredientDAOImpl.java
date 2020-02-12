@@ -25,4 +25,9 @@ public class IngredientDAOImpl implements IngredientDAO {
 		map.put("category", category);
 		return session.selectList("maeggi.seggi.ingredient.selectAllByName", map);
 	}
+	
+	@Override
+	public void insertigdetail(IngredientVO igdetail) {
+		session.insert("maeggi.seggi.ingredient.insertigdetail",igdetail);
+	}
 }

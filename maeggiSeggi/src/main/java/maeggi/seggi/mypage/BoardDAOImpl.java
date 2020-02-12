@@ -68,7 +68,12 @@ public class BoardDAOImpl implements BoardDAO {
 	//mypoint 전체보기
 	@Override
 	public List<PointVO> pointListall(PointVO point) {
-		return sqlSession.selectOne("maeggi.seggi.mypage.pointListall", point);
+		return sqlSession.selectList("maeggi.seggi.mypage.pointListall", point);
+	}
+
+	@Override
+	public int pointsum(PointVO point) {
+		return sqlSession.selectOne("maeggi.seggi.mypage.pointSum", point);
 	}
 
 	
