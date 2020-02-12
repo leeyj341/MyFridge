@@ -24,15 +24,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <link href="/maeggiSeggi/common/css/recipe_detail.css" rel="stylesheet">
-<script type="text/javascript">
-	function popup() {
-		window
-				.open(
-						"/maeggiSeggi/recipe/addPlanner.do",
-						"식단 관리",
-						"top=100, left=450, width=700, height=450, status=no, menubar=no, toolbar=no, resizable=no");
-	}
-</script>
+
 </head>
 <body>
 	<!-- ****** Header Area End ****** -->
@@ -57,6 +49,8 @@
 	<%
 		ArrayList<HashMap<String, String>> listMap = (ArrayList<HashMap<String, String>>) request.getAttribute("detail");
 	%>
+	
+	
 	<div class="container" style="margin-top: 30px">
 		<div class="row">
 			<div class="col-sm-4">
@@ -131,10 +125,26 @@
 					</div>
 			<form action="">
 		<% if(session.getAttribute("id")!=null){ %>
-					<input type="button" id="add" value="식단에 추가하기" onclick="popup()">
+					<input type="button" id="add" value="식단에 추가하기" onclick="popup(<%=listMap.get(0).get("RECIPE_ID")%>)">
 		<% }else{ %>
 			<input type="button" id="add" value="식단에 추가하기" onclick="alert('로그인이 필요한 기능입니다.')">
 		<% } %>
+		
+		<script type="text/javascript">
+	
+	function popup(rere) {
+	
+		
+		  window
+			.open(
+					"/maeggiSeggi/recipe/addPlanner.do?id="+rere,
+					"식단 관리",
+					"top=100, left=450, width=700, height=450, status=no, menubar=no, toolbar=no, resizable=no"); 
+	
+	}
+
+
+</script>
 			</form>
 					<hr class="d-sm-none">
 				</div>

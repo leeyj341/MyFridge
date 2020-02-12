@@ -112,15 +112,16 @@ public class RecipeController {
 		return recipelist;
 	}
 	
-	@RequestMapping(value ="/recipe/addPlanner.do" , method=RequestMethod.POST)
-	public ModelAndView moveTopopup(RecipeVO recipe_id) {
-		System.out.println("recipe_id"+ recipe_id);
+	@RequestMapping(value ="/recipe/addPlanner.do" , method=RequestMethod.GET)
+	public ModelAndView moveTopopup(HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();
-		RecipeVO sda = service.moveTopopup(recipe_id);
+		String recipe_id = req.getParameter("id");
+		System.out.println("팝업창으로 전달하고 싶은 recipe_id: "+ recipe_id);
+		String sda = service.moveTopopup(recipe_id);
 		mav.addObject("sda", sda);
 		mav.setViewName("add");
+		System.out.println("컨트롤러를 거친 recipe_id: "+ sda);
 		return mav;
-		
 	}
 	
 }

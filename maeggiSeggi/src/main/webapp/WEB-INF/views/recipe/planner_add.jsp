@@ -54,7 +54,7 @@ $(document).ready(function() {
 
 </head>
 <body style="font-family: PapyrusB;" >
-	<% RecipeVO info = (RecipeVO)request.getAttribute("sda"); %>
+	
 	<div class="row" style="margin-left: auto; margin-right: auto;">
 		<div class="col-sm-6"
 			style="background-color: lavender; margin-right: auto; padding: 0px" id="test">
@@ -120,7 +120,7 @@ $(document).ready(function() {
 			</div>
 			<form action="" name="mypopup">		
 			<div>
-				<span>예상되는 칼로리 </span><%= info.getKcal() %><span>kcal</span>
+				<span>예상되는 칼로리 </span><span>kcal</span>
 			</div>
 			
 			</form>
