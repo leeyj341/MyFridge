@@ -28,7 +28,7 @@
   	
   	<!-- 레시피 조회에서 팝업창으로 데이터 전송. -->
   	<select id="moveTopopup" resultType="recipe" parameterType="String">
-  		select recipe_id, name, kcal from recipe where recipe_id = #{recipe_id}
+  		select * from recipe where recipe_id = #{recipe_id}
   	</select>
   	
   	<!-- 난이도별 조회 -->

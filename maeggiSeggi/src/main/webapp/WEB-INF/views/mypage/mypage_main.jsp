@@ -81,7 +81,7 @@
 		<div class="mypage_one">
 			<span style="float: left;">즐겨찾는 레시피:<strong>10</strong><span>개</span></span>
 
-			<span style="float: right;">point:<strong>50</strong><span>점</span></span>
+			<span style="float: right;">point:<strong><%= request.getAttribute("pointsum") %></strong><span>점</span></span>
 
 		</div>
 		<p></p>
@@ -93,6 +93,7 @@
 	%>
 		<div>
 			<table border="1" class="mypage_table">
+				<td></td>
 				<% for(int k = 0; k<7;k++){
 					int aa = date+k;
 				%>

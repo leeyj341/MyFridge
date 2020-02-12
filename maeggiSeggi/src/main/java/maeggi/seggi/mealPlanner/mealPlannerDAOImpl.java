@@ -13,6 +13,11 @@ public class mealPlannerDAOImpl implements mealPlannerDAO{
 	public mealPlannerVO read(mealPlannerVO meal) {
 		return SqlSession.selectOne("maeggi.seggi.reply.mealPlan", meal);
 	}
+
+	@Override
+	public int insert(mealPlannerVO meal) {
+		return SqlSession.insert("maeggi.seggi.reply.mealPlanInsert", meal);
+	}
 	
 	
 }

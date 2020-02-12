@@ -97,7 +97,7 @@ public class RecipeServiceImpl implements RecipeService {
 		}
 	}
 @Override
-	public RecipeVO moveTopopup(RecipeVO recipe_id) {
+	public RecipeVO moveTopopup(String recipe_id) {
 		return dao.moveTopopup(recipe_id);
 	}
 }

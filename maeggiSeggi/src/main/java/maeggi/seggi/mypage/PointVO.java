@@ -7,17 +7,19 @@ public class PointVO {
 	String rule_name;
 	int point;
 	Date point_date;
+	String member_id;
 	
 	public PointVO() {
 		
 	}
 
-	public PointVO(String iD, String rule_name, int point, Date point_date) {
+	public PointVO(String iD, String rule_name, int point, Date point_date, String member_id) {
 		super();
 		ID = iD;
 		this.rule_name = rule_name;
 		this.point = point;
 		this.point_date = point_date;
+		this.member_id = member_id;
 	}
 
 	public String getID() {
@@ -52,10 +54,18 @@ public class PointVO {
 		this.point_date = point_date;
 	}
 
+	public String getMember_id() {
+		return member_id;
+	}
+
+	public void setMember_id(String member_id) {
+		this.member_id = member_id;
+	}
+
 	@Override
 	public String toString() {
 		return "PointVO [ID=" + ID + ", rule_name=" + rule_name + ", point=" + point + ", point_date=" + point_date
-				+ "]";
+				+ ", member_id=" + member_id + "]";
 	}
-	
+
 }
