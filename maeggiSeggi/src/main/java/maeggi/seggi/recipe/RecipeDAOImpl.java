@@ -7,8 +7,6 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import maeggi.seggi.ingredient.IngredientVO;
 @Repository("recipeDao")
 
 public class RecipeDAOImpl implements RecipeDAO {
@@ -22,10 +20,10 @@ public class RecipeDAOImpl implements RecipeDAO {
 	}
 
 
-	@Override
+	/*@Override
 	public List<RecipeVO> testlist(int pagenum, int contentnum) {
 		return sqlSession.selectList("maeggi.seggi.recipe.listall");
-	}
+	}*/
 
 	@Override
 	public void insert(RecipeVO recipe) {
@@ -79,20 +77,10 @@ public class RecipeDAOImpl implements RecipeDAO {
 		return sqlSession.selectList("maeggi.seggi.recipe.testlist", map);
 	}
 
-
-
-	
-
-
-
-
-
-}
-=======
 	@Override
 	public RecipeVO moveTopopup(String recipe_id) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("maeggi.seggi.recipe.moveTopopup", recipe_id);
 	}
 }
->>>>>>> refs/remotes/origin/master
+
