@@ -1,33 +1,33 @@
 package maeggi.seggi.recipe;
+
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import maeggi.seggi.ingredient.IngredientVO;
 @Repository("recipeDao")
+
 public class RecipeDAOImpl implements RecipeDAO {
 	@Autowired
 	SqlSession sqlSession;
+	
+
 	@Override
 	public List<RecipeVO> listall() {
 		return sqlSession.selectList("maeggi.seggi.recipe.listall");
 	}
-	@Override
+
+
+	/*@Override
 	public List<RecipeVO> testlist(int pagenum, int contentnum) {
 		return sqlSession.selectList("maeggi.seggi.recipe.listall");
-	}
+	}*/
+
 	@Override
 	public void insert(RecipeVO recipe) {
 		sqlSession.insert("maeggi.seggi.recipe.insert",recipe);
-	}
-	@Override
-	public void insertdetail(RecipeDetailVO detail) {
-		sqlSession.insert("maeggi.seggi.recipe.insertdetail",detail);
-	}
-	@Override
-	public void insertigdetail(IngredientVO igdetail) {
-		sqlSession.insert("maeggi.seggi.recipe.insertigdetail",igdetail);
 	}
 	@Override
 	public List<RecipeVO> categorySearch(String category) {
@@ -56,19 +56,31 @@ public class RecipeDAOImpl implements RecipeDAO {
 		List<RecipeVO> mapSearch = sqlSession.selectList("maeggi.seggi.recipe.recipeSearch",name);
 		return mapSearch;
 	}
+
 	@Override
 	public List<RecipeVO> levellist(String cook_level) {
-		//return sqlSession.selectList("maeggi.seggi.recipe.levelRecipe", cook_level);
-		return null;
+		return sqlSession.selectList("maeggi.seggi.recipe.levelRecipe", cook_level);
 	}
+
 	@Override
 	public int testcount() {
 		int test = sqlSession.selectOne("maeggi.seggi.recipe.testcount");
 		return test;
 	}
+
+	@Override
+	public List<RecipeVO> testlist(int pagenum, int contentnum) {
+		Map<String,Integer> map = new HashMap<String,Integer>();
+		map.put("pagenum", pagenum);
+		map.put("contentnum", contentnum);
+		
+		return sqlSession.selectList("maeggi.seggi.recipe.testlist", map);
+	}
+
 	@Override
 	public RecipeVO moveTopopup(String recipe_id) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("maeggi.seggi.recipe.moveTopopup", recipe_id);
 	}
 }
+

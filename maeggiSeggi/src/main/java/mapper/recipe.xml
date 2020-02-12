@@ -4,12 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="maeggi.seggi.recipe">
  	<select id="listall" resultType="recipe">
-		SELECT * FROM (
-	   		 SELECT r.*, ROW_NUMBER() OVER(ORDER BY recipe_id DESC) AS RNUM
-	  		 FROM recipe r
-	)
-	WHERE RNUM BETWEEN 1 AND 9
-  	order by dbms_random.random()
+ 	select * from recipe
+
   	</select>
 <!-- radio 카테고리 조회 -->
   	<select id="categoryRecipe" resultType="recipe" parameterType="String">
@@ -39,13 +35,14 @@
   	</select> -->
   	<!-- 레시피 등록 -->
   	<insert id="insert" parameterType="recipe">
-  	insert into recipe values(#{recipe_id},#{name},#{content_intro},#{recipe_code},#{recipe_category},#{cook_time},
-		#{kcal},#{amount_per_person},#{cook_level},#{ing_category},#{price},
-		#{img_url_main},#{img_url_sub},0,0,sysdate,#{member_id}
+  	insert into recipe values(#{recipe_id},#{name},#{content_intro},0,#{recipe_category},0,#{food_category},#{cook_time},#{kcal},#{amount_per_person},#{cook_level},0,#{price},0,0,0,0,sysdate,#{member_id})
   	</insert>
   	<!-- 재료 등록 (미완성) -->
-  	<insert id="ig_insert" parameterType="recipe">
-  	insert into recipeDetail values(#{recipe_id},#{recipe_order_num},#{recipe_describe},#{img_url},#{tip})
+  	<insert id="insertigdetail" parameterType="ingredients">
+  	insert into ingredients values(#{recipe_id},#{ingredient_id},#{name},#{volume},0,#{ig_type_name})
+  	</insert>
+  	<insert id="insertdetail" parameterType="recipeDetail">
+  	insert into recipe_detail values(#{recipe_id},#{recipe_order_num},#{recipe_describe},#{img_url},#{tip})
   	</insert>
   	<!-- 조회수 증가  -->
   	<update id="updatehit" parameterType="String">
@@ -76,13 +73,13 @@
 		<result column="recipe_order_num" property="order"/>
 		<result column="recipe_describe" property="content"/>
 	</resultMap>
-<!-- 	<select id="testlist" resultType="recipe">
-		SELECT * FROM (
-	   		 SELECT r.*, ROW_NUMBER() OVER(ORDER BY recipe_id DESC) AS RNUM
-	  		 FROM recipe r
-	)
-	WHERE RNUM BETWEEN 1 AND 9
-	</select> -->
+	<select id="testlist" resultType="recipe">
+	select * from (select row_number() over (order by recipe_id DESC) num ,r.* 
+ 				   from recipe r 
+ 				   order by recipe_id DESC) 
+ 				   where num between #{pagenum} and #{contentnum} 
+ 				   order by dbms_random.random()
+	</select> 
 	<select id="testcount" resultType="int">
 		select count(*) from recipe
 	</select>
