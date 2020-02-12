@@ -77,6 +77,12 @@ public class IngredientVO {
 	public void setIg_type_name(String ig_type_name) {
 		this.ig_type_name = ig_type_name;
 	}
+
+	@Override
+	public String toString() {
+		return "IngredientVO [recipe_id=" + recipe_id + ", ingredient_id=" + ingredient_id + ", name=" + name
+				+ ", volume=" + volume + ", ig_type_code=" + ig_type_code + ", ig_type_name=" + ig_type_name + "]";
+	}
 	
 }
 

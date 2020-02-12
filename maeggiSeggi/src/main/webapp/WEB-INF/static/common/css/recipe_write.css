@@ -78,6 +78,7 @@ select {
 }
 #ig_side_Add{
 display: inline;
+width:auto;
 }
 .jumbotron{
   padding: 30px 15px;

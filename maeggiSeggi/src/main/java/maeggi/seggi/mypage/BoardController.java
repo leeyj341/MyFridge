@@ -37,7 +37,7 @@ public class BoardController {
 			}
 		}
 		List<BoardVO> list = service.listall(board);
-		System.out.println(list);
+		System.out.println("list==============="+list);
 		mav.addObject("list", list);
 		mav.setViewName("mypage/ask");
 		return mav;
@@ -130,7 +130,7 @@ public class BoardController {
 		List<PointVO> mypoint = service.pointListall(point);
 		int pointsum = service.pointsum(point);
 		System.out.println("mypoint"+mypoint);
-		System.out.println("pointsum"+pointsum);
+		System.out.println("pointsum============"+pointsum);
 		mav.addObject("mypoint", mypoint);
 		mav.addObject("pointsum", pointsum);
 		mav.setViewName("mypage/mypoint");

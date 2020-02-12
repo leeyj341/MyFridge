@@ -157,15 +157,15 @@
 					</c:forEach>
 					</div>
 	
-				<c:if test="${page.prev}">
-					<a style="text-decoration: none;" href="javascript:page(${page.getStartPage()-1});">&laquo;</a>
-				</c:if>
-				<c:forEach begin="${page.getStartPage()}" end="${page.getEndPage()}" var="idx">
-					<a style="text-decoration: none;" href="javascript:page(${idx})"></a>
-				</c:forEach>
-				<c:if test="${page.next}">
-					<a style="text-decoration: none;" href="javascript:page(${page.getEndPage()-1});">&raquo;</a>
-				</c:if>
+					<c:if test="${page.prev}">
+						<a style="text-decoration: none;" href="javascript:page(${page.getStartPage()-1 });">&laquo;</a>
+					</c:if>
+					<c:forEach begin="${page.getStartPage() }" end="${page.getEndPage() }" var="idx">
+						<a style="text-decoration:none;" href="javascript:page(${idx});">${idx}</a>
+					</c:forEach>
+					<c:if test="${page.next}">
+						<a style="text-decoration: none;" href="javascript:page(${page.getEndPage()+1 });">&raquo;</a>
+					</c:if>
 				</div>
 			</div>
 			<hr class="d-sm-none">
@@ -176,7 +176,7 @@
 	function page(idx){
 		var pagenum = idx;
 		alert(pagenum)
-		var contentnum =$("#contentnum option:selected").val();
+	//	var contentnum =$("#contentnum option:selected").val();
 		location.href="/maeggiSeggi/recipe/search.do?pagenum="+pagenum+"&contentnum="+contentnum;
 	}
 		var serviceType;
