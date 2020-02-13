@@ -9,9 +9,8 @@
   	</select>
 <!-- radio 카테고리 조회 -->
   	<select id="categoryRecipe" resultType="recipe" parameterType="String">
-  			select *
-  			from recipe 
-  			where recipe_category like '%' || #{category} || '%'
+  	SELECT recipe_id,name,register_date,member_id,img_url_main from(select recipe_id,name,register_date,member_id,img_url_main,ROW_NUMBER() OVER (ORDER BY recipe_id)r from recipe)
+  	 where (r between #{pagenum} and #{contentnum} and recipe_category like '%' || #{category} || '%')	
   	</select>
   	<!-- 검색어 조회 (미완성) -->
  	<select id="recipeSearch" resultType="recipe" parameterType="String">
@@ -35,14 +34,14 @@
   	</select> -->
   	<!-- 레시피 등록 -->
   	<insert id="insert" parameterType="recipe">
-  	insert into recipe values(#{recipe_id},#{name},#{content_intro},0,#{recipe_category},0,#{food_category},#{cook_time},#{kcal},#{amount_per_person},#{cook_level},0,#{price},#{img_url_main},0,0,0,sysdate,#{member_id})
+  		insert into recipe values(concat('rec', (recipe_id_seq.nextval + 90000)),#{name},#{content_intro},0,#{recipe_category},0,#{food_category},#{cook_time},#{kcal},#{amount_per_person},#{cook_level},0,#{price},#{img_url_main},0,0,0,sysdate,#{member_id})
   	</insert>
   	<insert id="insertdetail" parameterType="Map">
   		insert all
   		<foreach collection="detail" item="rd" separator=" ">
-  			into recipe_detail values(#{recipe_id},#{recipe_order_num},#{recipe_describe},#{img_url},#{tip})
+  			into recipe_detail values(concat('rec', (recipe_id_seq.currval + 90000)), #{rd.recipe_order_num},#{rd.recipe_describe},#{rd.img_url},#{rd.tip})
   		</foreach>	
-  		 select * from dual
+  		 select * from dual -->
   	</insert>
   	<!-- 조회수 증가  -->
   	<update id="updatehit" parameterType="String">
@@ -73,15 +72,18 @@
 		<result column="recipe_order_num" property="order"/>
 		<result column="recipe_describe" property="content"/>
 	</resultMap>
-	<select id="testlist" resultType="recipe">
-	select * from (select row_number() over (order by recipe_id DESC) num ,r.* 
- 				   from recipe r 
- 				   order by recipe_id DESC) 
- 				   where num between #{pagenum} and #{contentnum} 
- 				   order by dbms_random.random()
+	<select id="testlist" resultType="recipe" parameterType="Map">
+ SELECT recipe_id,name,register_date,member_id,img_url_main from(select recipe_id,name,register_date,member_id,img_url_main,ROW_NUMBER() OVER (ORDER BY recipe_id)r from recipe) where r between #{pagenum} and #{contentnum} 	
+<!-- 	select * from (select *,row_number() over (order by recipe_id) num from recipe) where num between #{pagenum} and #{contentnum}   -->
+ 	<!-- select * from(select row_number() over (order by recipe_id) num, r.* from recipe r order by recipe_id) where num between #{pagenum} and #{contentnum} 			 --> 
 	</select> 
 	<select id="testcount" resultType="int">
 		select count(*) from recipe
 	</select>
-	
+	<!-- 게시글 좋아요 관리 -->
+	<update id="like" parameterType="String">
+	update recipe
+	set like_num = like_num+1
+	where recipe_id=#{recipe_id}
+	</update>
  </mapper> 

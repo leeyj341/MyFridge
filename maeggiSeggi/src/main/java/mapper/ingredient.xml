@@ -17,7 +17,7 @@
   	<insert id="insertigdetail" parameterType="Map">
   		insert all
   		<foreach collection="igdetail" item="ig" separator=" ">
-  			into ingredients values(#{recipe_id},#{ingredient_id},#{name},#{volume},0,#{ig_type_name})
+  			into ingredients values(concat('rec', (recipe_id_seq.currval + 90000)) ,concat('ig',ig_id_seq.nextval + 1000000),#{ig.name},#{ig.volume},0,#{ig.ig_type_name})
   		</foreach>	
   		select * from dual
   	</insert>

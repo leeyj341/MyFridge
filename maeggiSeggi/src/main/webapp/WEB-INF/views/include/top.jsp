@@ -1,3 +1,4 @@
+<%@page import="java.util.Calendar"%>
 <%@page import="maeggi.seggi.loginandcustomer.memberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -12,13 +13,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	 <!-- Favicon -->
-    <link rel="icon" href="/maeggiSeggi/images/core-img/favicon.ico">
+    <link rel="icon" href="/maeggiSeggi/common/images/core-img/favicon.ico">
     <!-- Core Stylesheet -->
     <link href="/maeggiSeggi/common/css/style.css" rel="stylesheet">
     <!-- Responsive CSS -->
     <link href="/maeggiSeggi/common/css/responsive/responsive.css" rel="stylesheet">
     <!-- Jquery-2.2.4 js -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <!-- Popper js -->
     <script src="/maeggiSeggi/common/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap-4 js -->
@@ -32,6 +33,13 @@
 	<%
 		memberVO loginuser = (memberVO)session.getAttribute("loginuser");
 	%>
+	<%
+		Calendar today = Calendar.getInstance();
+		int year = today.get(Calendar.YEAR);
+		int month = today.get(Calendar.MONTH) + 1;
+		int date = today.get(Calendar.DATE);
+		String Dday = Integer.toString(year)+'-'+Integer.toString(month)+'-'+Integer.toString(date);
+	%>
 	<!-- Preloader Start -->
 	<div id="preloader">
 		<div class="yummy-load"></div>
@@ -41,14 +49,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-5 col-sm-6">
-                    <!--  Top Social bar start -->
-                    <div class="top_social_bar">
-                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                    </div>
+                     <!--  Top Social bar start -->
+                   <!-- <div class="top_social_bar">
+                        <a href="#"><i class="fas fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fas fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fas fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fas fa-skype" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fas-dribbble" aria-hidden="true"></i></a>
+                    </div> -->
                 </div>
                 
        
@@ -62,6 +70,7 @@
                             </div>
                             <% } else {
                             	session.setAttribute("member", loginuser);
+                            	session.setAttribute("today", Dday);
                             	session.setAttribute("id", loginuser.getMember_id());
                             %>
                             <div class="login"><span><%= session.getAttribute("id") %>님 환영합니다.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
@@ -141,7 +150,6 @@
                                     </div>
                                 </li>
                                 
-                                
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MY PAGE</a>
                                     <div class="dropdown-menu" aria-labelledby="yummyDropdown">
@@ -150,6 +158,7 @@
                                         <a class="dropdown-item" href="/maeggiSeggi/board/infoupdate.do"><b>회원 정보 조회</b></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/board/list.do"><b>1:1 문의 사항</b></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/board/mypoint.do"><b>My Point</b></a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/board/recipe_favorite.do"><b>즐겨찾은 레시피</b></a>
                                     </div>
                                 </li>
             
