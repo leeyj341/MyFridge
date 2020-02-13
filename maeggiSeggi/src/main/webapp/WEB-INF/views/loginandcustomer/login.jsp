@@ -41,8 +41,6 @@
 
 <%-- 카카오 디벨로퍼 api 받아오기 --%>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-<%-- JQUERY 추가하고 경로 써주세요  --%>
-<script src="jquery/jquery-2.2.4.min.js"></script>
 
 </head>
 

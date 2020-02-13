@@ -12,6 +12,13 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
 <link href="/maeggiSeggi/common/css/recipe_write.css" rel="stylesheet">
+<script type="text/javascript" src="/maeggiSeggi/common/js/recipe_write.js" ></script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 </head>
 
@@ -39,7 +46,7 @@
 	<br>
 	
 	
-		<form class="form-horizontal" action="/maeggiSeggi/recipe/recipe_write.do" method="POST" enctype="multipart/form-data">
+		<form id="myform" class="form-horizontal" action="/maeggiSeggi/recipe/recipe_write.do" method="POST" enctype="multipart/form-data">
 			<p><b>제목  </b></p>
 			<input type="text" id="name" name="name" style="width: 80%;" placeholde="레시피 제목을 입력해주세요" />
 			
@@ -79,11 +86,11 @@
 			<div class="selectbox">
 				<select id="amount_per_person" name="amount_per_person">
 					<option selected>인분</option>
-					<option>1인분</option>
-					<option>2인분</option>
-					<option>3인분</option>
-					<option>4인분</option>
-					<option>5인분 이상</option>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
 				</select>
 			</div>
 
@@ -92,12 +99,12 @@
 			<div class="selectbox">
 				<select id="cook_time" name="cook_time">
 					<option selected>분</option>
-					<option>10분</option>
-					<option>20분</option>
-					<option>30분</option>
-					<option>40분</option>
-					<option>50분</option>
-					<option>1시간이상</option>
+					<option>10</option>
+					<option>20</option>
+					<option>30</option>
+					<option>40</option>
+					<option>50</option>
+					<option>1</option>
 				</select>
 			</div>
 			<span>요리 난이도:</span>
@@ -109,45 +116,67 @@
 					<option>어려움</option>
 				</select>
 			</div>
+			<br/>
+			<span>예상 칼로리</span>
+			<div class="selectbox">
+				<select id="kcal" name="kcal">
+					<option selected>kcal</option>
+					<option>250</option>
+					<option>500</option>
+					<option>800</option>
+					<option>1000</option>
+				</select>
+			</div>
+			<span>예상 가격대</span>
+			<div class="selectbox">
+				<select id="price" name="price">
+					<option selected>가격(원)</option>
+					<option>5000</option>
+					<option>10000</option>
+					<option>30000</option>
+					<option>50000</option>
+				</select>
+			</div>
+			
 			<br />
 			<br />
 			
 				<p><b>재료</b></p>
-				<div id="sort">
-				  <input type="radio" name="ig_option" id="main" value="main"> 주재료
-				  <input type="radio" name="ig_option" id="sub" value="sub" > 부재료
-				  <input type="radio" name="ig_option" id="side" value="side" > 양념
+				<div id="sort" >
+				  <input type="radio" class="ig_option" name="ig_option" id="main" value="주재료"> 주재료
+				  <input type="radio" class="ig_option" name="ig_option" id="sub" value="부재료" > 부재료
+				  <input type="radio" class="ig_option" name="ig_option" id="side" value="양념" > 양념
 				</div>
 				<div id="ig_content">
 				<div id="ig_main_Add" class="ig_main_Add">
 					<label for="ingredient">재료 이름:</label> 
-						<input type="text" id="ingredient" name="ig_detaill[0].name" placeholder="예)돼지고기">&ensp;&ensp;&ensp; 
+						<input type="text" id="ingredient" name="ig_detail[0].name" placeholder="예)돼지고기">&ensp;&ensp;&ensp; 
 					<label for="ingredientAmount">계량 정보 :</label> 
-						<input type="text" id="ingredientAmount" name="ig_detaill[0].volume" placeholder="예)200g">
+						<input type="text" id="ingredientAmount" name="ig_detail[0].volume" placeholder="예)200 [모든 단위는 g 기준]">
 					
 					<button type="button" class="btn btn-default" aria-label="Left Align" onclick="remove_div()">
   					<i class="fas fa-minus-circle fa-2x" style="color:gray;float:left;"></i></button>
 				</div>
 				
-				<div id="ig_side_Add" class="ig_side_Add">
+<!-- 				<div id="ig_side_Add" class="ig_side_Add">
 				<label for="ingredient">재료 이름:</label> 
-					<input type="text" id="side_ingredient" name="ig_detaill[0].name" placeholder="예)고추장">&ensp;&ensp;&ensp; 
+					<input type="text" id="side_ingredient" name="ig_detail[0].name" placeholder="예)고추장">&ensp;&ensp;&ensp; 
 				<label for="ingredientAmount">계량 정보 :</label>
 				 	<div class="selectbox">
-						<select id="select" name="ig_detaill[0].volume" >
+						<select id="select" name="ig_detail[0].volume" >
 							<option selected>양념</option>
 							<option>약간</option>
 							<option>적당량</option>
 						</select>
-					</div>
+					</div> 
 					<button type="button" id="ig_option_minus"  class="btn btn-default" aria-label="Left Align" onclick="remove_div(this)">
   						<i class="fas fa-minus-circle fa-2x" style="color:gray;"></i></button>
-					</div>
+					</div> -->
 				</div>	
 				
 				<div id="group"></div>
 				
-				<div>
+				 <div>
 					<button type="button" id="ig_option_plus" class="btn btn-default" aria-label="Left Align" onclick="add_div()">
 	  					<i class="fas fa-plus-circle fa-2x" style="color:orange;"></i></button>
   				</div>
@@ -188,97 +217,14 @@
 	<br />
 	<br />
 <script type="text/javascript">
-	var mainNode;
-	var sideNode;
-	var serviceType;
+$(document).ready(function(){
+	var result = "rec" + Math.floor(Math.random() * 10000000);
 	
-	
-	$(document).ready(function() {
-		$('#cancle').click(function() {
-			if (confirm('정말 취소하시겠습니까?') == true) {
-				document.location.href = "main.do";
-			} else {
-				return;
-			}
-		});	
-		
-		$("input[name='ig_option']:radio").change(function () {
-            //라디오 버튼 값을 가져온다.
-            serviceType = this.value;
-		});
-		
-		var main = document.getElementById("ig_main_Add");
-		var side = document.getElementById("ig_side_Add");
-		
-		mainNode = document.createElement("div");
-		mainNode.append(main.cloneNode(true));
-		
-		sideNode = document.createElement("div");
-		sideNode.appendChild(side.cloneNode(true));
-		
-		$('input:radio[name="ig_option"][value="main"]').prop('checked', true);
-		if($('input:radio[name="ig_option"][value="main"]').prop('checked')) {
-            $("#ig_side_Add").css("display","none"); 
-		}
-		
-		
-	});
-	var number=1;	
-	function add_div(){
-		number++;
-	    if(serviceType == "side") {
-	    	
-	    	document.getElementById('group').append(sideNode.cloneNode(true));
-	    	ig_side_name = document.createElement("input");
-	    	//ig_side_name = document.querySelector('side_ingredient');
-	    	ig_side_name.setAttribute("name","ig_detaill[" + number + "].name");
-	    	sideNode.appendChild(ig_side_name);
-	    	ig_side_volume = document.createElement("input");
-	    //	ig_side_volume = document.querySelector('select');
-	    	ig_side_volume.setAttribute("name","ig_detaill[" + number + "].volume");
-	    	sideNode.appendChild(ig_side_volume);
-	    	
-	    } else {
-	    	
-	    	document.getElementById('group').append(mainNode.cloneNode(true));
-	    	mainNode.children("input").first().attr("name", "ig_detaill[" + number + "].name");
-	    	mainNode.children("input").last().attr("name", "ig_detaill[" + number + "].volume");
-	    }
-	}
-	function remove_div(){
-		parentNode = document.getElementById("group");
-		parentNode.removeChild(parentNode.lastChild);
-	}
-	var count=1;
-	function add_content(){
-		count++;
-		recipeContent = document.createTextNode("step"+count);
-		newP = document.createElement("p");
-		newP.appendChild(recipeContent);
-		newdiv = document.getElementById("content");
-		newdiv.appendChild(newP);
-		newcontent = document.querySelector("#ControlTextarea").cloneNode(true);
-		newcontent.setAttribute( "name", "recipe_detail["+count+"].recipe_describe"); 
-		newdiv.appendChild(newcontent);
+	var input = $("<input name='recipe_id' value='" + result + "' style='display:none;'>");
+	$("#myform").append(input);
+})
 
-		
-	}
-/* 	var imgnum=0;
-	function add_img(){
-		imgnum++;
-		imgContent = document.createTextNode("PHOTO "+imgnum);
-		newImg = document.createElement("p");
-		newImg.appendChild(imgContent);
-		newImgContent = document.getElementById("contentimg")
-		newImgContent.appendChild(newImg);
-		newimgtext = document.querySelector("real-input").cloneNode(true);
-		newimgtext.setAttribute("name","recipe_detail["+imgnum+"].myphoto");
-		newImgContent.appendChild(newimgtext);
-		 
-	}*/
+</script>
 
-	
- 
- </script>
 </body>
 </html>

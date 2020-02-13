@@ -103,6 +103,12 @@ public class PageMaker {
 			this.lastblock++;
 		}
 	}
+	@Override
+	public String toString() {
+		return "PageMaker [totalCount=" + totalCount + ", pagenum=" + pagenum + ", contentnum=" + contentnum
+				+ ", startPage=" + startPage + ", endPage=" + endPage + ", prev=" + prev + ", next=" + next
+				+ ", currentblock=" + currentblock + ", lastblock=" + lastblock + "]";
+	}
 	
 	
 	

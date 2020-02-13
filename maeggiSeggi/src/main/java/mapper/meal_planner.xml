@@ -5,8 +5,8 @@
   <!-- mapper가 너무 많으니까 namespace로 구분지어주기 -->
 <mapper namespace="maeggi.seggi.reply">
 	<select id="mealPlan" resultType="meal">
-		select * from meal_Planner where member_id = #{member_id} and
-		planner_date = #{planner_date} and PLANNER_CODE = #{PLANNER_CODE}
+		select * from meal_Planner where planner_date >= sysdate and member_id = #{member_id}
+		order by planner_date asc, PLANNER_CODE asc
 	</select>
 	
 	<insert id="mealPlanInsert" parameterType="meal">

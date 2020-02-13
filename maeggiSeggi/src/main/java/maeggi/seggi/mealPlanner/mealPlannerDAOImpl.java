@@ -1,5 +1,7 @@
 package maeggi.seggi.mealPlanner;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -10,8 +12,8 @@ public class mealPlannerDAOImpl implements mealPlannerDAO{
 	SqlSession SqlSession;
 	
 	@Override
-	public mealPlannerVO read(mealPlannerVO meal) {
-		return SqlSession.selectOne("maeggi.seggi.reply.mealPlan", meal);
+	public List<mealPlannerVO> mealSelect(mealPlannerVO meal) {
+		return SqlSession.selectList("maeggi.seggi.reply.mealPlan", meal);
 	}
 
 	@Override

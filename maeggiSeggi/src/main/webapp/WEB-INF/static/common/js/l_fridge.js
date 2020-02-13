@@ -1,6 +1,7 @@
 /**
  * 
  */
+
 var category;
 var target_clone;
 
@@ -15,8 +16,8 @@ $(document).ready(function() {
 		success: function(data) {
 			ingredients = "";
 			for (var i = 0; i < data.length; i++) {
-				ingredients = ingredients + "<li class='draggable' draggable='true'><div value=" + data[i].ingredient_id + ">" +
-								"<img src=/maeggiSeggi/images/l_dish.png><p>" + data[i].name + "</p></div></li>";
+				ingredients = ingredients + "<li class='draggable' draggable='true'><div value=" + data[i].ingredient_id + " draggable='false'>" +
+								"<img src='/maeggiSeggi/images/l_dish.png' draggable='false'><p draggable='false'>" + data[i].name + "</p></div></li>";
 			}
 			$("#ig_list").empty();
 			$("#ig_list").append(ingredients);
@@ -44,10 +45,6 @@ $(document).ready(function() {
 		}
 	});
 	
-	//냉장고 추가 제거
-	manageFridge();
-	addFridge();
-	
 	//재료를 냉장고 안으로 드래그 앤 드랍
 	$("#ig_list").on("dragstart", function(e) {
 		target_clone = $(e.target).clone(true);
@@ -60,38 +57,6 @@ $(document).ready(function() {
 
 function wow_default_alert(msg) {
 	  alert(msg);
-}
-
-function manageFridge() {
-	$(".plus-btn").each(function() {
-		$(this).on("click", function() {
-			if($(this).attr("title") == "냉장고 추가") {
-				mydiv = "<div class='fridge-img-div'><img class='fridge-img-ico' src='/maeggiSeggi/images/refrigerator.png'><form name'fridge_form'><input name='addF' type='text' maxlength='5' placeholder='냉장고 이름을 입력하세요.'></form></div>";
-				$("#manage_fridge").append(mydiv);
-			} else if($(this).attr("title") == "냉장고 제거") {
-				//서버에서도 지우고 여기서도 지우고...
-				$("#manage_fridge").children("div").last().remove();
-			}
-		})
-	})
-}
-function addFridge() {
-	$("input[name=addF]").on({
-		"change":function() {
-			alert();
-		},
-		"submit":function() {
-			alert();
-		}
-	})
-		/*var text = $(this).val();
-		var node = $.createElement("p");
-		$(node).text("#" + text + "<br/>냉장고");
-		$("#manage_fridge").children("div").last().remove("input");
-		$("#manage_fridge").children("div").append(node);*/
-}
-function deleteFridge() {
-	
 }
 
 function chagneButton() {
@@ -125,13 +90,13 @@ function getIngredientsByCategory() {
 		success: function(data) {
 			ingredients = "";
 			for (var i = 0; i < data.length; i++) {
-				ingredients = ingredients + "<li class='draggable' draggable='true'><div value=" + data[i].ingredient_id + ">";
+				ingredients = ingredients + "<li class='draggable' draggable='true'><div value=" + data[i].ingredient_id + " draggable='false'>";
 				if(category == "주재료") {
-					ingredients += "<img src=/maeggiSeggi/images/l_dish.png><p>" + data[i].name + "</p></div></li>";
+					ingredients += "<img src='/maeggiSeggi/images/l_dish.png' draggable='false'><p draggable='false'>" + data[i].name + "</p></div></li>";
 				} else if(category == "부재료") {
-					ingredients += "<img src=/maeggiSeggi/images/l_soup.png><p>" + data[i].name + "</p></div></li>";
+					ingredients += "<img src='/maeggiSeggi/images/l_soup.png' draggable='false'><p draggable='false'>" + data[i].name + "</p></div></li>";
 				} else {
-					ingredients += "<img src=/maeggiSeggi/images/l_chili-sauce.png><p>" + data[i].name + "</p></div></li>";
+					ingredients += "<img src='/maeggiSeggi/images/l_chili-sauce.png' draggable='false'><p draggable='false'>" + data[i].name + "</p></div></li>";
 				}
 			}
 			$("#ig_list").empty();
@@ -154,13 +119,13 @@ function getIngredientsByName() {
     		success: function(data) {
 				ingredients = "";
 				for (var i = 0; i < data.length; i++) {
-					ingredients = ingredients + "<li class='draggable' draggable='true'><div value=" + data[i].ingredient_id + ">";
+					ingredients = ingredients + "<li class='draggable' draggable='true'><div value=" + data[i].ingredient_id + " draggable='false'>";
 					if(category == "주재료") {
-						ingredients += "<img src=/maeggiSeggi/images/l_dish.png><p>" + data[i].name + "</p></div></li>";
+						ingredients += "<img src='/maeggiSeggi/images/l_dish.png' draggable='false'><p draggable='false'>" + data[i].name + "</p></div></li>";
 					} else if(category == "부재료") {
-						ingredients += "<img src=/maeggiSeggi/images/l_soup.png><p>" + data[i].name + "</p></div></li>";
+						ingredients += "<img src='/maeggiSeggi/images/l_soup.png' draggable='false'><p draggable='false'>" + data[i].name + "</p></div></li>";
 					} else {
-						ingredients += "<img src=/maeggiSeggi/images/l_chili-sauce.png><p>" + data[i].name + "</p></div></li>";
+						ingredients += "<img src='/maeggiSeggi/images/l_chili-sauce.png' draggable='false'><p draggable='false'>" + data[i].name + "</p></div></li>";
 					}
 				}
 				$("#ig_list").empty();
