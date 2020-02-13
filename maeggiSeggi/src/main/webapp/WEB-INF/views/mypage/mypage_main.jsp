@@ -114,13 +114,20 @@
 				style="color: white; background-color: #fc6c3f; width: 100px" />
 		</div>
 		<p></p>
-
-		<% mealPlannerVO todayKcal = mealplan.get(0); %>
+		
+		<% 
+			int kcal = 0;	
+			for(int i =0; i<3; i++){
+			mealPlannerVO todayKcal = mealplan.get(i); 
+			kcal = kcal + todayKcal.getKcal();
+			
+		}%>
+		
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3">오늘 섭취한 칼로리</div>
 				<div class="col-lg-4">
-					<input type="text" value="<%= todayKcal.getKcal() %>" />
+					<span> <%= request.getAttribute("kcalsum") %></span>
 				</div>
 			</div>
 			<div class="row">

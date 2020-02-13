@@ -1,3 +1,4 @@
+<%@page import="java.util.Calendar"%>
 <%@page import="maeggi.seggi.loginandcustomer.memberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -30,6 +31,13 @@
 	<%
 		memberVO loginuser = (memberVO)session.getAttribute("loginuser");
 	%>
+	<%
+		Calendar today = Calendar.getInstance();
+		int year = today.get(Calendar.YEAR);
+		int month = today.get(Calendar.MONTH) + 1;
+		int date = today.get(Calendar.DATE);
+		String Dday = Integer.toString(year)+'-'+Integer.toString(month)+'-'+Integer.toString(date);
+	%>
 	<!-- Preloader Start -->
 	<div id="preloader">
 		<div class="yummy-load"></div>
@@ -58,6 +66,7 @@
                             </div>
                             <% } else {
                             	session.setAttribute("member", loginuser);
+                            	session.setAttribute("today", Dday);
                             	session.setAttribute("id", loginuser.getMember_id());
                             %>
                             <div class="login"><span><%= session.getAttribute("id") %>님 환영합니다.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
@@ -134,7 +143,6 @@
                                         <a class="dropdown-item" href="/maeggiSeggi/map.do"><b>지도 조회</b></a>
                                     </div>
                                 </li>
-                                
                                 
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MY PAGE</a>
