@@ -12,15 +12,18 @@ public class FridgeDetailDAOImpl implements FridgeDetailDAO {
 	SqlSession session;
 	
 	@Override
-	public List<FridgeDetailVO> selectAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<FridgeDetailVO> selectAll(String refrigerator_id) {
+		return session.selectList("maeggi.seggi.fridge.selectAll", refrigerator_id);
 	}
 
 	@Override
 	public int insertFridge(FridgeDetailVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return session.insert("maeggi.seggi.fridge.insertFridgeDetail", vo);
+	}
+	
+	@Override
+	public int deleteFridge(FridgeDetailVO vo) {
+		return session.delete("maeggi.seggi.fridge.deleteFridgeDetail", vo);
 	}
 
 }

@@ -1,19 +1,17 @@
-package maeggi.seggi.recipe;
+package maeggi.seggi.recipeFavorite;
 
-import java.sql.Date;
-
-public class RecipefavoriteVO {
+public class RecipeFavoriteVO {
 	private String recipe_favorite_id;
 	private String recipe_id;
 	private String member_id;
 	private String favorite_date;
-	private String memo;
+	private String memo;//
 	
-	public RecipefavoriteVO() {
+	public RecipeFavoriteVO() {
 		
 	}
 	
-	public RecipefavoriteVO(String recipe_favorite_id, String recipe_id, String member_id, String favorite_date,
+	public RecipeFavoriteVO(String recipe_favorite_id, String recipe_id, String member_id, String favorite_date,
 			String memo) {
 		super();
 		this.recipe_favorite_id = recipe_favorite_id;

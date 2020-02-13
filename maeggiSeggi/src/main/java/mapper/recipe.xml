@@ -35,12 +35,12 @@
   	</select> -->
   	<!-- 레시피 등록 -->
   	<insert id="insert" parameterType="recipe">
-  	insert into recipe values(#{recipe_id},#{name},#{content_intro},0,#{recipe_category},0,#{food_category},#{cook_time},#{kcal},#{amount_per_person},#{cook_level},0,#{price},#{img_url_main},0,0,0,sysdate,#{member_id})
+  		insert into recipe values(concat('rec', (recipe_id_seq.nextval + 90000)),#{name},#{content_intro},0,#{recipe_category},0,#{food_category},#{cook_time},#{kcal},#{amount_per_person},#{cook_level},0,#{price},#{img_url_main},0,0,0,sysdate,#{member_id})
   	</insert>
   	<insert id="insertdetail" parameterType="Map">
   		insert all
   		<foreach collection="detail" item="rd" separator=" ">
-  			into recipe_detail values(#{recipe_id},#{recipe_order_num},#{recipe_describe},#{img_url},#{tip})
+  			into recipe_detail values(concat('rec', (recipe_id_seq.currval + 90000)), #{rd.recipe_order_num},#{rd.recipe_describe},#{rd.img_url},#{rd.tip})
   		</foreach>	
   		 select * from dual
   	</insert>

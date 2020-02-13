@@ -144,6 +144,7 @@
                                         <a class="dropdown-item" href="/maeggiSeggi/board/infoupdate.do"><b>회원 정보 조회</b></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/board/list.do"><b>1:1 문의 사항</b></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/board/mypoint.do"><b>My Point</b></a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/board/recipe_favorite.do"><b>즐겨찾은 레시피</b></a>
                                     </div>
                                 </li>
                             

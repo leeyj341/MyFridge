@@ -156,14 +156,15 @@
 	    					},
 	    					success:function(data) {
 	    						alert(data);
+	    						
+	    						if($("#manage_fridge").children("div").length == 1) return;
+	    	    				$("#manage_fridge").children("div").last().remove();
+	    	    				$("#check_box").children("input").last().remove();
 	    					},
 	    					fail:function(data) {
 	    						alert(data);
 	    					}
-	    				})
-	    				if($("#manage_fridge").children("div").length == 1) return;
-	    				$("#manage_fridge").children("div").last().remove();
-	    				$("#check_box").children("input").last().remove();
+	    				});
 	    			}
 	    		})
 	    	})
@@ -189,14 +190,13 @@
 	    				},
 	    				success: function(data) {
 	    					alert(data);
+	    					//db 저장 끝난 후 지움
+	    	    			$("input[name=addF]").remove();
 	    				},
 	    				fail: function(data) {
 							alert(data);
 						}
-	    			})
-	    			
-	    			//db 저장 끝난 후 지움
-	    			$("input[name=addF]").remove();
+	    			});
 	    		}
 	    	});
 	    }
@@ -249,9 +249,9 @@
 	    	$(document).on("drop",$("#fridge"),function(e) {
 	    		var amount = prompt("얼마나 저장하시겠습니까? ","재료의 양을 입력하세요. ex) 100g, 10개 등)");
 	    		//$("#fridge").children("li>div").find("#" + target_clone.find("div").attr("id")).
-	    		/* var p = $("<p draggable='false'>" + amount + "</p>");
+	    		var p = $("<p draggable='false'>" + amount + "</p>");
 	    		target_clone.append(p);
-	    		$("#fridge").append(target_clone); */
+	    		$("#fridge").append(target_clone);
 	    	})
 	    }
 	    
@@ -262,6 +262,9 @@
 <body class="bg-amond">
 	<!-- ******Refrigerator Area Start ****** -->
 	<div class="fridge-area">
+		<button class="save-btn fridge-btn btn-orange btn-fill-vert-o">
+			<p>저장</p>
+		</button>
 		<div class="col-12">
 			<!-- ****** Theme Select Area Start ****** -->
 			<div class="button-area col-1">

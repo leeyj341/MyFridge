@@ -3,7 +3,6 @@ package maeggi.seggi.recipe;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -114,7 +113,6 @@ public class RecipeController {
 	}
 	//입력한 레시피 실제 db에 저장하는 메소드
 	@RequestMapping(value="/recipe/recipe_write.do",method=RequestMethod.POST)
-	@ResponseBody
 	public String insert(RecipeVO recipe,HttpSession session) throws Exception {
 /*		Random rand = new Random();
 		String recipe_id = "rec" + rand.nextInt(10000000);
@@ -124,10 +122,11 @@ public class RecipeController {
 		System.out.println("***"+recipe);
  		
  		MultipartFile file = recipe.getMyphoto();
- 		String path = WebUtils.getRealPath(session.getServletContext(), "/maeggiSeggi/WEB_INF/upload");
-	 		String fileName = file.getOriginalFilename();
-	 		service.insert(recipe);
-	 		service.upload(file, path, fileName);
+ 		String path = WebUtils.getRealPath(session.getServletContext(), "/WEB-INF/upload");
+	 	String fileName = file.getOriginalFilename();
+	 	System.out.println("ddddddddd"+fileName);
+	 	service.upload(file, path, fileName);
+	 	service.insert(recipe);
 		return "redirect:/recipe/searchRecipe.do";
 	}
 

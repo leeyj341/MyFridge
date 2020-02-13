@@ -11,7 +11,7 @@
 
 .fridge-area > div {
 	text-align: center;
-	margin-top: 8%;
+	margin-top: 1%;
 	margin-bottom: 5%;
 }
 
@@ -334,6 +334,12 @@ a.modal-btn {
 	text-align: center;
 	margin: 0;
 	width: 100%;
+}
+
+.save-btn {
+	width: 5%;
+	margin-top: 7%;
+	left:78%;
 }
 
 .btn-fill-vert-o {
