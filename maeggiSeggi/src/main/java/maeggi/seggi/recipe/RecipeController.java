@@ -165,6 +165,4 @@ public class RecipeController {
 		return mav;
 	}
 	
-	
-	
 }

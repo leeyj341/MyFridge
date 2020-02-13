@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <meta name="description" content="">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -90,8 +90,8 @@ color: skyblue;
 	</div>
 		<div id="line">
 		<div id="headtitle">
-			<h4>Áö±Ý °¡Àå <span id="underline">HOT</span>ÇÑ ¿ä¸®</h4>
-			<a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="·¹½ÃÇÇ µî·Ï" ></a>
+			<h4>ì§€ê¸ˆ ê°€ìž¥ <span id="underline">HOT</span>í•œ ìš”ë¦¬</h4>
+			<a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="ë ˆì‹œí”¼ ë“±ë¡" ></a>
 			<input type="button" id="more" value="More">
 		</div>
 	</div>
@@ -113,7 +113,7 @@ color: skyblue;
 								<div class="post-author-date-area d-flex">
 									<!-- Post Author -->
 									<div class="post-author">
-										<a href="#">By À¶¶ÇÀ¶</a>
+										<a href="#">By ìœµë˜ìœµ</a>
 									</div>
 									<!-- Post Date -->
 									<div class="post-date">
@@ -139,7 +139,7 @@ color: skyblue;
 								</div>
 							</div>
 							<a href="#">
-								<h4 class="post-headline">Áö±ÛÁö±Û ¸ÀÀÖ´Â ±èÄ¡Âî°³</h4>
+								<h4 class="post-headline">ì§€ê¸€ì§€ê¸€ ë§›ìžˆëŠ” ê¹€ì¹˜ì°Œê°œ</h4>
 							</a>
 						</div>
 					</div>
@@ -157,7 +157,7 @@ color: skyblue;
 								<div class="post-author-date-area d-flex">
 									<!-- Post Author -->
 									<div class="post-author">
-										<a href="#">By ¿µÁÖ¿µÁÖ</a>
+										<a href="#">By ì˜ì£¼ì˜ì£¼</a>
 									</div>
 									<!-- Post Date -->
 									<div class="post-date">
@@ -183,7 +183,7 @@ color: skyblue;
 								</div>
 							</div>
 							<a href="#">
-								<h4 class="post-headline">¹éÁ¾¿øÀÇ ¸¸´É°í±â¾ç³äÀ¸·Î Àç¿î ´ÜÂ§´ÜÂ§ la ¾ç³ä°¥ºñ</h4>
+								<h4 class="post-headline">ë°±ì¢…ì›ì˜ ë§ŒëŠ¥ê³ ê¸°ì–‘ë…ìœ¼ë¡œ ìž¬ìš´ ë‹¨ì§ ë‹¨ì§  la ì–‘ë…ê°ˆë¹„</h4>
 							</a>
 						</div>
 					</div>
@@ -203,7 +203,7 @@ color: skyblue;
 								<div class="post-author-date-area d-flex">
 									<!-- Post Author -->
 									<div class="post-author">
-										<a href="#">By ¹ÎÁ¤¹ÎÁ¤</a>
+										<a href="#">By ë¯¼ì •ë¯¼ì •</a>
 									</div>
 									<!-- Post Date -->
 									<div class="post-date">
@@ -229,8 +229,8 @@ color: skyblue;
 								</div>
 							</div>
 							<a href="#">
-								<h4 class="post-headline">Å©¸®½º¸¶½º&nbsp;&nbsp;
-									ÆÄÆ¼À½½ÄÀ¸·Î&nbsp;&nbsp; ÃÖ°í!¸óÅ×Å©¸®½ºÅä »÷µåÀ§Ä¡:)</h4>
+								<h4 class="post-headline">í¬ë¦¬ìŠ¤ë§ˆìŠ¤&nbsp;&nbsp;
+									íŒŒí‹°ìŒì‹ìœ¼ë¡œ&nbsp;&nbsp; ìµœê³ !ëª¬í…Œí¬ë¦¬ìŠ¤í†  ìƒŒë“œìœ„ì¹˜:)</h4>
 							</a>
 						</div>
 					</div>
@@ -240,8 +240,8 @@ color: skyblue;
 		</section><br/><br/>
 	<div id="line">
 		<div id="headtitle">
-			<h4><span id="underline">ºñ¿À´Â ³¯</span> ÀÌ·± À½½Ä ¾î¶§¿ä?</h4>
-			<a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="·¹½ÃÇÇ µî·Ï" ></a>
+			<h4><span id="underline">ë¹„ì˜¤ëŠ” ë‚ </span> ì´ëŸ° ìŒì‹ ì–´ë•Œìš”?</h4>
+			<a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="ë ˆì‹œí”¼ ë“±ë¡" ></a>
 			<input type="button" id="more" value="More">
 		</div>
 	</div>
@@ -263,7 +263,7 @@ color: skyblue;
 								<div class="post-author-date-area d-flex">
 									<!-- Post Author -->
 									<div class="post-author">
-										<a href="#">By À¶¶ÇÀ¶</a>
+										<a href="#">By ìœµë˜ìœµ</a>
 									</div>
 									<!-- Post Date -->
 									<div class="post-date">
@@ -289,7 +289,7 @@ color: skyblue;
 								</div>
 							</div>
 							<a href="#">
-								<h4 class="post-headline">Áö±ÛÁö±Û ¸ÀÀÖ´Â ±èÄ¡Âî°³</h4>
+								<h4 class="post-headline">ì§€ê¸€ì§€ê¸€ ë§›ìžˆëŠ” ê¹€ì¹˜ì°Œê°œ</h4>
 							</a>
 						</div>
 					</div>
@@ -307,7 +307,7 @@ color: skyblue;
 								<div class="post-author-date-area d-flex">
 									<!-- Post Author -->
 									<div class="post-author">
-										<a href="#">By ¿µÁÖ¿µÁÖ</a>
+										<a href="#">By ì˜ì£¼ì˜ì£¼</a>
 									</div>
 									<!-- Post Date -->
 									<div class="post-date">
@@ -333,7 +333,7 @@ color: skyblue;
 								</div>
 							</div>
 							<a href="#">
-								<h4 class="post-headline">¹éÁ¾¿øÀÇ ¸¸´É°í±â¾ç³äÀ¸·Î Àç¿î ´ÜÂ§´ÜÂ§ la ¾ç³ä°¥ºñ</h4>
+								<h4 class="post-headline">ë°±ì¢…ì›ì˜ ë§ŒëŠ¥ê³ ê¸°ì–‘ë…ìœ¼ë¡œ ìž¬ìš´ ë‹¨ì§ ë‹¨ì§  la ì–‘ë…ê°ˆë¹„</h4>
 							</a>
 						</div>
 					</div>
@@ -353,7 +353,7 @@ color: skyblue;
 								<div class="post-author-date-area d-flex">
 									<!-- Post Author -->
 									<div class="post-author">
-										<a href="#">By ¹ÎÁ¤¹ÎÁ¤</a>
+										<a href="#">By ë¯¼ì •ë¯¼ì •</a>
 									</div>
 									<!-- Post Date -->
 									<div class="post-date">
@@ -379,8 +379,8 @@ color: skyblue;
 								</div>
 							</div>
 							<a href="#">
-								<h4 class="post-headline">Å©¸®½º¸¶½º&nbsp;&nbsp;
-									ÆÄÆ¼À½½ÄÀ¸·Î&nbsp;&nbsp; ÃÖ°í!¸óÅ×Å©¸®½ºÅä »÷µåÀ§Ä¡:)</h4>
+								<h4 class="post-headline">í¬ë¦¬ìŠ¤ë§ˆìŠ¤&nbsp;&nbsp;
+									íŒŒí‹°ìŒì‹ìœ¼ë¡œ&nbsp;&nbsp; ìµœê³ !ëª¬í…Œí¬ë¦¬ìŠ¤í†  ìƒŒë“œìœ„ì¹˜:)</h4>
 							</a>
 						</div>
 					</div>
@@ -390,8 +390,8 @@ color: skyblue;
 	</section><br/><br/>
 	<div id="line">
 		<div id="headtitle">
-			<h4><span id="underline">¼÷Ãë</span>¿¡´Â ÀÌ·± À½½Ä ¾î¶§¿ä?</h4>
-			<a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="·¹½ÃÇÇ µî·Ï" ></a>
+			<h4><span id="underline">ìˆ™ì·¨</span>ì—ëŠ” ì´ëŸ° ìŒì‹ ì–´ë•Œìš”?</h4>
+			<a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="ë ˆì‹œí”¼ ë“±ë¡" ></a>
 			<input type="button" id="more" value="More">
 		</div>
 	</div>
@@ -412,7 +412,7 @@ color: skyblue;
 								<div class="post-author-date-area d-flex">
 									<!-- Post Author -->
 									<div class="post-author">
-										<a href="#">By À¶¶ÇÀ¶</a>
+										<a href="#">By ìœµë˜ìœµ</a>
 									</div>
 									<!-- Post Date -->
 									<div class="post-date">
@@ -438,7 +438,7 @@ color: skyblue;
 								</div>
 							</div>
 							<a href="#">
-								<h4 class="post-headline">Áö±ÛÁö±Û ¸ÀÀÖ´Â ±èÄ¡Âî°³</h4>
+								<h4 class="post-headline">ì§€ê¸€ì§€ê¸€ ë§›ìžˆëŠ” ê¹€ì¹˜ì°Œê°œ</h4>
 							</a>
 						</div>
 					</div>
@@ -456,7 +456,7 @@ color: skyblue;
 								<div class="post-author-date-area d-flex">
 									<!-- Post Author -->
 									<div class="post-author">
-										<a href="#">By ¿µÁÖ¿µÁÖ</a>
+										<a href="#">By ì˜ì£¼ì˜ì£¼</a>
 									</div>
 									<!-- Post Date -->
 									<div class="post-date">
@@ -482,7 +482,7 @@ color: skyblue;
 								</div>
 							</div>
 							<a href="#">
-								<h4 class="post-headline">¹éÁ¾¿øÀÇ ¸¸´É°í±â¾ç³äÀ¸·Î Àç¿î ´ÜÂ§´ÜÂ§ la ¾ç³ä°¥ºñ</h4>
+								<h4 class="post-headline">ë°±ì¢…ì›ì˜ ë§ŒëŠ¥ê³ ê¸°ì–‘ë…ìœ¼ë¡œ ìž¬ìš´ ë‹¨ì§ ë‹¨ì§  la ì–‘ë…ê°ˆë¹„</h4>
 							</a>
 						</div>
 					</div>
@@ -502,7 +502,7 @@ color: skyblue;
 								<div class="post-author-date-area d-flex">
 									<!-- Post Author -->
 									<div class="post-author">
-										<a href="#">By ¹ÎÁ¤¹ÎÁ¤</a>
+										<a href="#">By ë¯¼ì •ë¯¼ì •</a>
 									</div>
 									<!-- Post Date -->
 									<div class="post-date">
@@ -528,8 +528,8 @@ color: skyblue;
 								</div>
 							</div>
 							<a href="#">
-								<h4 class="post-headline">Å©¸®½º¸¶½º&nbsp;&nbsp;
-									ÆÄÆ¼À½½ÄÀ¸·Î&nbsp;&nbsp; ÃÖ°í!¸óÅ×Å©¸®½ºÅä »÷µåÀ§Ä¡:)</h4>
+								<h4 class="post-headline">í¬ë¦¬ìŠ¤ë§ˆìŠ¤&nbsp;&nbsp;
+									íŒŒí‹°ìŒì‹ìœ¼ë¡œ&nbsp;&nbsp; ìµœê³ !ëª¬í…Œí¬ë¦¬ìŠ¤í†  ìƒŒë“œìœ„ì¹˜:)</h4>
 							</a>
 						</div>
 					</div>
@@ -541,8 +541,8 @@ color: skyblue;
 	<br />
 	<div id="line">
 		<div id="headtitle">
-			<h4><span id="underline">ÇÇ·Î¿¡ ÁöÄ£³¯</span> ÀÌ·± À½½Ä ¾î¶§¿ä?</h4>
-			<a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="·¹½ÃÇÇ µî·Ï" ></a>
+			<h4><span id="underline">í”¼ë¡œì— ì§€ì¹œë‚ </span> ì´ëŸ° ìŒì‹ ì–´ë•Œìš”?</h4>
+			<a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="ë ˆì‹œí”¼ ë“±ë¡" ></a>
 			<input type="button" id="more" value="More">
 		</div>
 	</div>
@@ -563,7 +563,7 @@ color: skyblue;
 								<div class="post-author-date-area d-flex">
 									<!-- Post Author -->
 									<div class="post-author">
-										<a href="#">By À¶¶ÇÀ¶</a>
+										<a href="#">By ìœµë˜ìœµ</a>
 									</div>
 									<!-- Post Date -->
 									<div class="post-date">
@@ -589,7 +589,7 @@ color: skyblue;
 								</div>
 							</div>
 							<a href="#">
-								<h4 class="post-headline">Áö±ÛÁö±Û ¸ÀÀÖ´Â ±èÄ¡Âî°³</h4>
+								<h4 class="post-headline">ì§€ê¸€ì§€ê¸€ ë§›ìžˆëŠ” ê¹€ì¹˜ì°Œê°œ</h4>
 							</a>
 						</div>
 					</div>
@@ -607,7 +607,7 @@ color: skyblue;
 								<div class="post-author-date-area d-flex">
 									<!-- Post Author -->
 									<div class="post-author">
-										<a href="#">By ¿µÁÖ¿µÁÖ</a>
+										<a href="#">By ì˜ì£¼ì˜ì£¼</a>
 									</div>
 									<!-- Post Date -->
 									<div class="post-date">
@@ -633,7 +633,7 @@ color: skyblue;
 								</div>
 							</div>
 							<a href="#">
-								<h4 class="post-headline">¹éÁ¾¿øÀÇ ¸¸´É°í±â¾ç³äÀ¸·Î Àç¿î ´ÜÂ§´ÜÂ§ la ¾ç³ä°¥ºñ</h4>
+								<h4 class="post-headline">ë°±ì¢…ì›ì˜ ë§ŒëŠ¥ê³ ê¸°ì–‘ë…ìœ¼ë¡œ ìž¬ìš´ ë‹¨ì§ ë‹¨ì§  la ì–‘ë…ê°ˆë¹„</h4>
 							</a>
 						</div>
 					</div>
@@ -651,7 +651,7 @@ color: skyblue;
 								<div class="post-author-date-area d-flex">
 									<!-- Post Author -->
 									<div class="post-author">
-										<a href="#">By ¹ÎÁ¤¹ÎÁ¤</a>
+										<a href="#">By ë¯¼ì •ë¯¼ì •</a>
 									</div>
 									<!-- Post Date -->
 									<div class="post-date">
@@ -677,8 +677,8 @@ color: skyblue;
 								</div>
 							</div>
 							<a href="#">
-								<h4 class="post-headline">Å©¸®½º¸¶½º&nbsp;&nbsp;
-									ÆÄÆ¼À½½ÄÀ¸·Î&nbsp;&nbsp; ÃÖ°í!¸óÅ×Å©¸®½ºÅä »÷µåÀ§Ä¡:)</h4>
+								<h4 class="post-headline">í¬ë¦¬ìŠ¤ë§ˆìŠ¤&nbsp;&nbsp;
+									íŒŒí‹°ìŒì‹ìœ¼ë¡œ&nbsp;&nbsp; ìµœê³ !ëª¬í…Œí¬ë¦¬ìŠ¤í†  ìƒŒë“œìœ„ì¹˜:)</h4>
 							</a>
 						</div>
 					</div>
@@ -691,8 +691,8 @@ color: skyblue;
 
 	<div id="line">
 		<div id="headtitle">
-			<h4>¿À·¡ ¾É¾ÆÀÖ´Â <span id="underline">¼öÇè»ý,Á÷ÀåÀÎµé</span> ÀÌ·± À½½Ä ¾î¶§¿ä?</h4>
-			<a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="·¹½ÃÇÇ µî·Ï" ></a>
+			<h4>ì˜¤ëž˜ ì•‰ì•„ìžˆëŠ” <span id="underline">ìˆ˜í—˜ìƒ,ì§ìž¥ì¸ë“¤</span> ì´ëŸ° ìŒì‹ ì–´ë•Œìš”?</h4>
+			<a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="ë ˆì‹œí”¼ ë“±ë¡" ></a>
 			<input type="button" id="more" value="More">
 		</div>
 	</div>
@@ -713,7 +713,7 @@ color: skyblue;
 								<div class="post-author-date-area d-flex">
 									<!-- Post Author -->
 									<div class="post-author">
-										<a href="#">By À¶¶ÇÀ¶</a>
+										<a href="#">By ìœµë˜ìœµ</a>
 									</div>
 									<!-- Post Date -->
 									<div class="post-date">
@@ -739,7 +739,7 @@ color: skyblue;
 								</div>
 							</div>
 							<a href="#">
-								<h4 class="post-headline">Áö±ÛÁö±Û ¸ÀÀÖ´Â ±èÄ¡Âî°³</h4>
+								<h4 class="post-headline">ì§€ê¸€ì§€ê¸€ ë§›ìžˆëŠ” ê¹€ì¹˜ì°Œê°œ</h4>
 							</a>
 						</div>
 					</div>
@@ -757,7 +757,7 @@ color: skyblue;
 								<div class="post-author-date-area d-flex">
 									<!-- Post Author -->
 									<div class="post-author">
-										<a href="#">By ¿µÁÖ¿µÁÖ</a>
+										<a href="#">By ì˜ì£¼ì˜ì£¼</a>
 									</div>
 									<!-- Post Date -->
 									<div class="post-date">
@@ -783,7 +783,7 @@ color: skyblue;
 								</div>
 							</div>
 							<a href="#">
-								<h4 class="post-headline">¹éÁ¾¿øÀÇ ¸¸´É°í±â¾ç³äÀ¸·Î Àç¿î ´ÜÂ§´ÜÂ§ la ¾ç³ä°¥ºñ</h4>
+								<h4 class="post-headline">ë°±ì¢…ì›ì˜ ë§ŒëŠ¥ê³ ê¸°ì–‘ë…ìœ¼ë¡œ ìž¬ìš´ ë‹¨ì§ ë‹¨ì§  la ì–‘ë…ê°ˆë¹„</h4>
 							</a>
 						</div>
 					</div>
@@ -803,7 +803,7 @@ color: skyblue;
 								<div class="post-author-date-area d-flex">
 									<!-- Post Author -->
 									<div class="post-author">
-										<a href="#">By ¹ÎÁ¤¹ÎÁ¤</a>
+										<a href="#">By ë¯¼ì •ë¯¼ì •</a>
 									</div>
 									<!-- Post Date -->
 									<div class="post-date">
@@ -829,8 +829,8 @@ color: skyblue;
 								</div>
 							</div>
 							<a href="#">
-								<h4 class="post-headline">Å©¸®½º¸¶½º&nbsp;&nbsp;
-									ÆÄÆ¼À½½ÄÀ¸·Î&nbsp;&nbsp; ÃÖ°í!¸óÅ×Å©¸®½ºÅä »÷µåÀ§Ä¡:)</h4>
+								<h4 class="post-headline">í¬ë¦¬ìŠ¤ë§ˆìŠ¤&nbsp;&nbsp;
+									íŒŒí‹°ìŒì‹ìœ¼ë¡œ&nbsp;&nbsp; ìµœê³ !ëª¬í…Œí¬ë¦¬ìŠ¤í†  ìƒŒë“œìœ„ì¹˜:)</h4>
 							</a>
 						</div>
 					</div>

@@ -79,7 +79,7 @@
 	<!-- mypage main area start -->
 	<div class="mypage_main">
 		<div class="mypage_one">
-			<span style="float: left;">즐겨찾는 레시피:<strong>10</strong><span>개</span></span>
+			<span style="float: left;">즐겨찾는 레시피:<strong>10</strong><span>개</span></span><br/>
 
 			<span style="float: right;">point:<strong><%= request.getAttribute("pointsum") %></strong><span>점</span></span>
 
@@ -115,12 +115,12 @@
 		</div>
 		<p></p>
 
-
+		<% mealPlannerVO todayKcal = mealplan.get(0); %>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3">오늘 섭취한 칼로리</div>
 				<div class="col-lg-4">
-					<input type="text" value="" />
+					<input type="text" value="<%= todayKcal.getKcal() %>" />
 				</div>
 			</div>
 			<div class="row">
