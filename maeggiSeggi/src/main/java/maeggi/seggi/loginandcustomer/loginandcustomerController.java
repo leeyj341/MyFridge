@@ -46,7 +46,6 @@ public class loginandcustomerController {
 		}
 		return "redirect:/recipe/main.do";
 	}
-	
 /*	@RequestMapping(value = "/kakaoOauth.do")
 	public String getKakaoSignIn(ModelMap model,@RequestParam("code") String code, HttpSession session) throws Exception {
 	  JsonNode userInfo = kakaoLogin.getKakaoUserInfo(code);
@@ -87,7 +86,7 @@ public class loginandcustomerController {
 		}
 		return result;
 	}
-	@RequestMapping("/testLogin")
+	/*@RequestMapping("/testLogin")
 	public String isComplete(HttpSession session) {
 		return "naver/naverlogin";
 	}
@@ -102,7 +101,7 @@ public class loginandcustomerController {
 	@RequestMapping(value="/callbackjs", method=RequestMethod.GET)
 	public String navLoginjs(HttpSession session) throws Exception{
 		return "naver/callbackjs";
-	}
+	}*/
 	@RequestMapping("/loginandcustomer/admin_askdetail.do")
 	public String admin_askdetail() {
 		return "loginandcustomer/admin_askdetail";
@@ -124,4 +123,3 @@ public class loginandcustomerController {
 		return "loginandcustomer/admin_notice_write";
 	}
 }
-

@@ -50,6 +50,8 @@
                         <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
                     </div>
                 </div>
+                
+       
                 <!--  Login Register Area -->
                 <div class="col-7 col-sm-6">
                     <div class="signup-search-area d-flex align-items-center justify-content-end">
@@ -89,6 +91,8 @@
     </div>
     <!-- ****** Top Header Area End ****** -->
     <!-- ****** Header Area Start ****** -->
+    
+    
     <header class="header_area">
         <div class="container">
             <div class="row">
@@ -148,21 +152,13 @@
                                         <a class="dropdown-item" href="/maeggiSeggi/board/mypoint.do"><b>My Point</b></a>
                                     </div>
                                 </li>
-                            
-                                
-                                    <!--  choose when otherwise 를 이용하여 아이디가 manager 일 경우 MANAGEMODE a태그를 생성한다. -->
-                       <%--      <c:set var = "loginid" value = "${session.getAttribute('id')}"/>
-                            <c:choose>
-							<c:when test= "${loginid == 'manager'}" >
+            
+							 <c:if test= "${loginuser.member_id == 'test'}">
 							  <li class="nav-item">
-                                    <a class="nav-link" href="#">MANAGEMODE</a>
+                                    <a class="nav-link" href="/maeggiSeggi/loginandcustomer/admin_asklist.do">MANAGEMODE</a>
                                 </li>
-							</c:when>
-							<!--  이 밑에는 로그인 된 아이디가 manager가 아닐때 나타날 것을 표시 -->
-							<c:otherwise>
-							<span></span>
-							</c:otherwise>
-							</c:choose> --%>
+	
+							</c:if> 
                             </ul>
                         </div>
                     </nav>
