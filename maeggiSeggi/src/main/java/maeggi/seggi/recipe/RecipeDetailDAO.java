@@ -1,5 +1,7 @@
 package maeggi.seggi.recipe;
 
+import java.util.ArrayList;
+
 public interface RecipeDetailDAO {
-	public void insertdetail(RecipeDetailVO detail);
+	public void insertdetail(ArrayList<RecipeDetailVO> detail);
 }

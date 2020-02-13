@@ -3,6 +3,7 @@ package maeggi.seggi.recipe;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -51,12 +52,12 @@ public class RecipeController {
 		return mav;
 	}
 	
-	
-/*	@RequestMapping("/recipe/addPlanner.do")
+/*	
+	@RequestMapping("/recipe/addPlanner.do")
 	public String add() {
 		return "add";
 	}
-	
+	*/
 	
 	@RequestMapping("/recipe/searchRecipe.do")
 	public ModelAndView recipeList(HttpServletRequest request) {
@@ -83,7 +84,7 @@ public class RecipeController {
 		System.out.println(pageMaker);
 		if(pageMaker.getPagenum()==1) {
 		List<RecipeVO> testlist = mapper.testlist(pageMaker.getPagenum()*9, pageMaker.getPagenum()*9+pageMaker.getContentnum());
-		//List<RecipeVO> test = new ArrayList<RecipeVO>();
+		List<RecipeVO> test = new ArrayList<RecipeVO>();
 		System.out.println(testlist);
 		System.out.println(pageMaker.getContentnum());
 		mav.addObject("testlist",testlist);
@@ -100,6 +101,8 @@ public class RecipeController {
 			return mav;
 		}
 	}
+	
+	
 /*	삭제 
 	public String delete(RecipeVO recipe) {
 		return "redirect:/recipe/list.do";
@@ -111,7 +114,13 @@ public class RecipeController {
 	}
 	//입력한 레시피 실제 db에 저장하는 메소드
 	@RequestMapping(value="/recipe/recipe_write.do",method=RequestMethod.POST)
+	@ResponseBody
 	public String insert(RecipeVO recipe,HttpSession session) throws Exception {
+/*		Random rand = new Random();
+		String recipe_id = "rec" + rand.nextInt(10000000);
+		recipe.setRecipe_id(recipe_id);
+		rd.setRecipe_id(recipe_id);*/
+
 		System.out.println("***"+recipe);
  		
  		MultipartFile file = recipe.getMyphoto();

@@ -1,4 +1,3 @@
-
 <%@page import="maeggi.seggi.fridge.FridgeVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="maeggi.seggi.loginandcustomer.memberVO"%>
@@ -37,11 +36,19 @@
 	    	//냉장고 관리 모달 창 열기
 	    	addDataToModal(memId);
 	    	
+	    	//냉장고 추가 제거
+	    	manageFridge(memId);
+	    	
 	    	//냉장고 추가
 	    	addFridge(memId);
 	    	
 	    	//메인 냉장고 설정
-	    	setMainFridge(memId);
+	    	setMainFridge();
+	    	
+	    	//드래그
+	    	drag();
+	    	//드랍
+	    	drop();
 	    });
 	    
 	    function loadFridge(id) {
@@ -123,6 +130,45 @@
 			});
 		}
 	    
+	    function manageFridge(id) {
+	    	$(".plus-btn").each(function() {
+	    		$(this).on("click", function() {
+	    			if($("input[name=addF]").length) {
+	    				alert("아직 등록되지 않은 냉장고가 있습니다!");
+	    				return;
+	    			}
+	    			
+	    			if($(this).attr("title") == "냉장고 추가") {
+	    				mycheck = "<input type='radio' name='distinct_code'>";
+	    				mydiv = "<div class='fridge-img-div'><img class='fridge-img-ico' src='/maeggiSeggi/images/refrigerator.png'><input name='addF' type='text' maxlength='5' placeholder='냉장고 이름을 입력하세요.'></div>";
+	    				$("#check_box").append(mycheck);
+	    				$("#manage_fridge").append(mydiv);
+	    			} else if($(this).attr("title") == "냉장고 제거") {
+	    				var name = prompt("어떤 냉장고를 삭제하시겠습니까?","냉장고의 이름을 입력하세요");
+	    				
+	    				$.ajax({
+	    					url:"/maeggiSeggi/refrigerator/ajax_fridge_delete.do",
+	    					type:"post",
+	    					dataType:"text",
+	    					data: {
+	    						"member_id":id,
+	    						"name":name
+	    					},
+	    					success:function(data) {
+	    						alert(data);
+	    					},
+	    					fail:function(data) {
+	    						alert(data);
+	    					}
+	    				})
+	    				if($("#manage_fridge").children("div").length == 1) return;
+	    				$("#manage_fridge").children("div").last().remove();
+	    				$("#check_box").children("input").last().remove();
+	    			}
+	    		})
+	    	})
+	    }
+	    
 	    function addFridge(id) {
 	    	$(document).on("keydown",$("input[name=addF]"),function(key){
 	    		if(key.keyCode == 13) {
@@ -152,35 +198,63 @@
 	    			//db 저장 끝난 후 지움
 	    			$("input[name=addF]").remove();
 	    		}
-	    	})
+	    	});
 	    }
 	    
-	    function setMainFridge(id) {
-			$(document).on("change", "input[name=distinct_code]", function() {
+	    function setMainFridge() {
+			$(document).on("click", "input[name=distinct_code]", function() {
+				$("#check_box").find("input").not($(this)).val("0");
 				if($(this).is(":checked")) {
 					$(this).val("1");
-					$("#check_box").find("input").not($(this)).val("0");
 				} else {
 					$(this).val("0");
 				}
 				
-				$.ajax({
-					url:"/maeggiSeggi/refrigerator/ajax_update_main.do",
-					type:"post",
-					datatype:"text",
-					data: {
-						"refrigerator_id": $(this).attr('id'),
-						"distinct_code": $(this).val()
-					},
-					success:function(data) {
-						alert(data);
-					},
-					fail:function(data) {
-						alert(data);
-					}
-				});
+				var inputList = $("#check_box").children("input");
+				var message ="";
+
+				for (var i = 0; i < inputList.length; i++) {
+					$.ajax({
+						url:"/maeggiSeggi/refrigerator/ajax_update_main.do",
+						async: false,
+						type:"post",
+						dataType:"text",
+						data: {
+							"refrigerator_id": $(inputList[i]).attr('id'),
+							"distinct_code": $(inputList[i]).val()
+						},
+						success:function(data) {
+							message = data;
+						},
+						fail:function(data) {
+							message = data;
+						}
+					});
+				}
+				alert(message);
 			});
 		}
+	    
+	    function drag() {
+	    	$(document).on("dragstart",$("#ig_list"),function(e) {
+	    		target_clone = $(e.target).clone();
+	    		$(target_clone).attr("draggable", "false");
+	    	});
+	    }
+	    function drop() {
+	    	$(document).on("dragover",$("#fridge"),function(e) {
+	    		e.preventDefault();
+	    	});
+	    	
+	    	$(document).on("drop",$("#fridge"),function(e) {
+	    		var amount = prompt("얼마나 저장하시겠습니까? ","재료의 양을 입력하세요. ex) 100g, 10개 등)");
+	    		//$("#fridge").children("li>div").find("#" + target_clone.find("div").attr("id")).
+	    		/* var p = $("<p draggable='false'>" + amount + "</p>");
+	    		target_clone.append(p);
+	    		$("#fridge").append(target_clone); */
+	    	})
+	    }
+	    
     </script>
     <script src="/maeggiSeggi/common/js/l_fridge.js"></script>
 </head>
@@ -408,4 +482,3 @@
   		<a href="#" class="" rel="modal:close" style="padding-left: 95%; position: static;">Close</a>
 	</div>
 </body>
-</html>

@@ -35,14 +35,14 @@
   	</select> -->
   	<!-- 레시피 등록 -->
   	<insert id="insert" parameterType="recipe">
-  	insert into recipe values(#{recipe_id},#{name},#{content_intro},0,#{recipe_category},0,#{food_category},#{cook_time},#{kcal},#{amount_per_person},#{cook_level},0,#{price},0,0,0,0,sysdate,#{member_id})
+  	insert into recipe values(#{recipe_id},#{name},#{content_intro},0,#{recipe_category},0,#{food_category},#{cook_time},#{kcal},#{amount_per_person},#{cook_level},0,#{price},#{img_url_main},0,0,0,sysdate,#{member_id})
   	</insert>
-  	<!-- 재료 등록 (미완성) -->
-  	<insert id="insertigdetail" parameterType="ingredients">
-  	insert into ingredients values(#{recipe_id},#{ingredient_id},#{name},#{volume},0,#{ig_type_name})
-  	</insert>
-  	<insert id="insertdetail" parameterType="recipeDetail">
-  	insert into recipe_detail values(#{recipe_id},#{recipe_order_num},#{recipe_describe},#{img_url},#{tip})
+  	<insert id="insertdetail" parameterType="Map">
+  		insert all
+  		<foreach collection="detail" item="rd" separator=" ">
+  			into recipe_detail values(#{recipe_id},#{recipe_order_num},#{recipe_describe},#{img_url},#{tip})
+  		</foreach>	
+  		 select * from dual
   	</insert>
   	<!-- 조회수 증가  -->
   	<update id="updatehit" parameterType="String">

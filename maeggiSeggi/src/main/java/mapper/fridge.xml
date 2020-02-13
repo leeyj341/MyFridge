@@ -10,4 +10,10 @@
 	<insert id="insertFridge" parameterType="fridge">
 		insert into refrigerator values(concat('r',fridge_id_seq.nextval), #{name}, sysdate, #{member_id}, 0)
 	</insert>
+	<delete id="deleteFridge" parameterType="fridge">
+		delete from refrigerator where member_id=#{member_id} and name=#{name}
+	</delete>
+	<update id="updateMain" parameterType="fridge">
+		update refrigerator set distinct_code=#{distinct_code} where refrigerator_id=#{refrigerator_id}
+	</update>
 </mapper>
