@@ -135,11 +135,18 @@
 							</ul>
 						</div>
 					</div>
-			<form action="">
+			<form name="favoriteForm" action="">
 		<% if(session.getAttribute("id")!=null){ %>
 					<input type="button" id="add" value="식단에 추가하기" onclick="popup(<%=listMap.get(0).get("RECIPE_ID")%>)">
+					<input type="button" name="favorite" value="즐겨찾기에 추가하기" onclick="addFavorite()">
+					<input type="hidden" name="member_id" >
+					<input type="hidden" name="recipe_id">
+					<input type="hidden" name="memo" >
+					
+					
 		<% }else{ %>
 			<input type="button" id="add" value="식단에 추가하기" onclick="alert('로그인이 필요한 기능입니다.')">
+			<input type="button" id="favorite" value="즐겨찾기에 추가하기" onclick="alert('로그인이 필요한 기능입니다.')">
 		<% } %>
 			</form>
 			
@@ -150,6 +157,16 @@
 					"/maeggiSeggi/recipe/addPlanner.do?id="+rere,
 					"식단 관리",
 					"top=100, left=450, width=700, height=450, status=no, menubar=no, toolbar=no, resizable=no");
+	}
+	function addFavorite() {
+		var memo = prompt("즐겨찾기에 함께 등록할 메모를 입력하세요.");
+		var form = document.favoriteForm;
+		form.member_id.value = "<%=session.getAttribute("id")%>";
+		form.recipe_id.value = "<%= listMap.get(0).get("RECIPE_ID")%>";
+		form.memo.value = memo;
+		form.action = "/maeggiSeggi/favorite/insert.do";
+		form.method = "post";
+		form.submit();
 	}
 		</script>
 					<hr class="d-sm-none">

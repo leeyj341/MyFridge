@@ -41,14 +41,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-5 col-sm-6">
-                    <!--  Top Social bar start -->
-                    <div class="top_social_bar">
-                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                    </div>
                 </div>
                 <!--  Login Register Area -->
                 <div class="col-7 col-sm-6">
@@ -171,5 +163,12 @@
             </div>
         </div>
     </header>
+    
+    <script type="text/javascript">
+    	$(".nav-item").on("click", function() {
+    		$(".nav-item").not($(this)).removeClass("active");
+    		$(this).addClass("active");
+		})
+    </script>
 </body>
 </html>
