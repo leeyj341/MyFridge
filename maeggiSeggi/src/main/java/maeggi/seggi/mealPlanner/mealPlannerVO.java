@@ -6,23 +6,25 @@ public class mealPlannerVO {
 	String meal_planner_id;
 	String meal_name;
 	Date planner_regdate;
-	Date planner_date;
-	int planner_code;//1=아침, 2=점심, 3=저녁
+	String planner_date;
+	int PLANNER_CODE;//1=아침, 2=점심, 3=저녁
 	String member_id;
+	int kcal;
 	
 	public mealPlannerVO() {
 		
 	}
 
-	public mealPlannerVO(String meal_planner_id, String meal_name, Date planner_regdate, Date planner_date,
-			int planner_code, String member_id) {
+	public mealPlannerVO(String meal_planner_id, String meal_name, Date planner_regdate, String planner_date,
+			int planner_code, String member_id, int kcal) {
 		super();
 		this.meal_planner_id = meal_planner_id;
 		this.meal_name = meal_name;
 		this.planner_regdate = planner_regdate;
 		this.planner_date = planner_date;
-		this.planner_code = planner_code;
+		this.PLANNER_CODE = planner_code;
 		this.member_id = member_id;
+		this.kcal = kcal;
 	}
 
 	public String getMeal_planner_id() {
@@ -49,20 +51,20 @@ public class mealPlannerVO {
 		this.planner_regdate = planner_regdate;
 	}
 
-	public Date getPlanner_date() {
+	public String getPlanner_date() {
 		return planner_date;
 	}
 
-	public void setPlanner_date(Date planner_date) {
+	public void setPlanner_date(String planner_date) {
 		this.planner_date = planner_date;
 	}
 
 	public int getPlanner_code() {
-		return planner_code;
+		return PLANNER_CODE;
 	}
 
 	public void setPlanner_code(int planner_code) {
-		this.planner_code = planner_code;
+		this.PLANNER_CODE = planner_code;
 	}
 
 	public String getMember_id() {
@@ -73,11 +75,22 @@ public class mealPlannerVO {
 		this.member_id = member_id;
 	}
 
+	public int getKcal() {
+		return kcal;
+	}
+
+	public void setKcal(int kcal) {
+		this.kcal = kcal;
+	}
+
 	@Override
 	public String toString() {
 		return "mealPlannerVO [meal_planner_id=" + meal_planner_id + ", meal_name=" + meal_name + ", planner_regdate="
-				+ planner_regdate + ", planner_date=" + planner_date + ", planner_code=" + planner_code + ", member_id="
-				+ member_id + "]";
+				+ planner_regdate + ", planner_date=" + planner_date + ", planner_code=" + PLANNER_CODE + ", member_id="
+				+ member_id + ", kcal=" + kcal + "]";
 	}
+
+	
+
 
 }

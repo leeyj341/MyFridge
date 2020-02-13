@@ -11,7 +11,7 @@
 
 .fridge-area > div {
 	text-align: center;
-	margin-top: 8%;
+	margin-top: 1%;
 	margin-bottom: 5%;
 }
 
@@ -235,12 +235,24 @@ a.modal-btn {
   	padding-top: 10%;
 }
 
+#check_box {
+	max-height: 30px;
+	max-width: 100%;
+}
+
+#check_box input {
+	width: 160px;
+	margin-bottom: 300px;
+	margin-right: 7.5%;
+}
+
 #manage_fridge {
 	max-height: 300px;
 	overflow-y: scroll;
 }
 
 .fridge-img-div {
+	margin-bottom: 5%;
 	margin-right: 5%;
 	display: inline-block;	
 	vertical-align: top;
@@ -324,6 +336,12 @@ a.modal-btn {
 	width: 100%;
 }
 
+.save-btn {
+	width: 5%;
+	margin-top: 7%;
+	left:78%;
+}
+
 .btn-fill-vert-o {
   background-color: transparent;
   color: #B8B8B8;
@@ -390,3 +408,6 @@ a.modal-btn {
 /* } */
 
 /* ****************** 여기까지 버튼 css ****************** */
+
+
+

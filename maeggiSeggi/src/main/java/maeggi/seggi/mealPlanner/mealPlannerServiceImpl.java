@@ -1,5 +1,7 @@
 package maeggi.seggi.mealPlanner;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -9,8 +11,18 @@ public class mealPlannerServiceImpl implements mealPlannerService{
 	mealPlannerDAO dao;
 
 	@Override
-	public mealPlannerVO read(mealPlannerVO meal) {
-		return dao.read(meal);
+	public List<mealPlannerVO> mealSelect(mealPlannerVO meal) {
+		return dao.mealSelect(meal);
+	}
+
+	@Override
+	public int insert(mealPlannerVO meal) {
+		return dao.insert(meal);
+	}
+
+	@Override
+	public int kcalsum(mealPlannerVO date) {
+		return dao.kcalsum(date);
 	}
 	
 }

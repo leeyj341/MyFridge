@@ -20,5 +20,15 @@ public class FridgeDAOImpl implements FridgeDAO {
 	public int insertFridge(FridgeVO vo) {
 		return session.insert("maeggi.seggi.fridge.insertFridge", vo);
 	}
+	
+	@Override
+	public int deleteFridge(FridgeVO vo) {
+		return session.delete("maeggi.seggi.fridge.deleteFridge", vo);
+	}
+	
+	@Override
+	public int updateMain(FridgeVO vo) {
+		return session.update("maeggi.seggi.fridge.updateMain", vo);
+	}
 
 }

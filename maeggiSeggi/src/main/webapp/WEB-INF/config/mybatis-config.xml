@@ -23,6 +23,11 @@
 		<typeAlias type="maeggi.seggi.reply.replyBoardVO" alias="reply"/>
 		<!-- meal_planner -->
 		<typeAlias type="maeggi.seggi.mealPlanner.mealPlannerVO" alias="meal"/>
+		<typeAlias type="maeggi.seggi.recipe.RecipeDetailVO" alias="recipeDetail"/>
+		<!-- MyPoint -->
+		<typeAlias type="maeggi.seggi.mypage.PointVO" alias="point"/>
+		<!-- favorite -->
+		<typeAlias type="maeggi.seggi.recipeFavorite.RecipeFavoriteVO" alias="favorite"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/mypage_board.xml" />
@@ -39,5 +44,6 @@
 		<mapper resource="mapper/reply.xml"/>
 		<!-- meal_planner -->
 		<mapper resource="mapper/meal_planner.xml"/>
+		<mapper resource="mapper/recipe_favorite.xml"/>
 	</mappers>
 </configuration>

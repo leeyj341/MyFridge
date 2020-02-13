@@ -5,7 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,19 +18,23 @@ public class RecipeServiceImpl implements RecipeService {
 	@Autowired
 	@Qualifier("recipeDao")
 	RecipeDAO dao;
+	@Autowired
+	@Qualifier("ingredientDAO")
 	IngredientDAO daoig;
-	RecipeDetailVO daodt;
+	@Autowired
+	@Qualifier("recipeDetailDao")
+	RecipeDetailDAO daodt;
 	
 	FileOutputStream fos;
 	@Override
-	public List<RecipeVO> recipeList(String category) {
+	public List<RecipeVO> recipeList(String category, int pagenum, int contentnum) {
 		List<RecipeVO> list = null;
 		System.out.println("category : " + category);
 		if(category!=null) {
 			if(category.equals("all")) {
-				list=dao.listall(); 			
+				list=dao.testlist(pagenum, contentnum);			
 			}else {
-				list=dao.categorySearch(category);
+				list=dao.categorySearch(category,pagenum,contentnum);
 			}
 		}
 		return list;
@@ -39,13 +43,21 @@ public class RecipeServiceImpl implements RecipeService {
 
 	@Override
 	public void insert(RecipeVO recipe) {
+		
+		/*Random rand = new Random();
+		String recipe_id = "rec" + rand.nextInt(10000000);
+		recipe.setRecipe_id(recipe_id);*/
 		for (int i = 0; i < recipe.getRecipe_detail().size(); i++) {
-			dao.insertdetail(recipe.getRecipe_detail().get(i));			// insert into recipe_detail values(#{id}, #{dsd},..... )
+			recipe.getRecipe_detail().get(i);
 		}
 		for (int i = 0; i < recipe.getIg_detail().size(); i++) {
-			dao.insertigdetail(recipe.getIg_detail().get(i));				//insert into ingredients values(#{id}, #{dsd},..... )
+			recipe.getIg_detail().get(i);
 		}
-		dao.insert(recipe);											//insert into recipe values()
+		System.out.println("id값 insert=>"+recipe);
+		dao.insert(recipe);												//insert into recipe values()
+		daodt.insertdetail(recipe.getRecipe_detail());			// insert into recipe_detail values(#{id}, #{dsd},..... )
+		daoig.insertigdetail(recipe.getIg_detail());			//insert into ingredients values(#{id}, #{dsd},..... )
+		
 	}
 
 	@Override
@@ -54,10 +66,10 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 
 
-	@Override
+/*	@Override
 	public List<RecipeVO> listall() {
 		return dao.listall();
-	}
+	}*/
 
 
 	@Override
@@ -82,6 +94,7 @@ public class RecipeServiceImpl implements RecipeService {
 
 	@Override
 	public void upload(MultipartFile file, String path, String fileName) {
+		System.out.println("path:"+path+":"+fileName);
 		try {
 			byte[] data = file.getBytes();
 			fos = new FileOutputStream(path+File.separator+fileName);
@@ -97,7 +110,24 @@ public class RecipeServiceImpl implements RecipeService {
 		}
 	}
 @Override
-	public RecipeVO moveTopopup(RecipeVO recipe_id) {
+	public RecipeVO moveTopopup(String recipe_id) {
 		return dao.moveTopopup(recipe_id);
 	}
+
+	@Override
+	public List<RecipeVO> testlist(int pagenum, int contentnum) {
+		// TODO Auto-generated method stub
+		return dao.testlist(pagenum, contentnum);
+	}
+	@Override
+	public int testcount() {
+		
+		return dao.testcount();
+	}
+
+	@Override
+	public void like(String recipe_id) throws Exception {
+		dao.like(recipe_id);
+	}
+
 }

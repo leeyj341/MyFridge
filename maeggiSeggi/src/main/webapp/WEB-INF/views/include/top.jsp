@@ -1,6 +1,9 @@
+<%@page import="java.util.Calendar"%>
 <%@page import="maeggi.seggi.loginandcustomer.memberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	 <!-- Favicon -->
-    <link rel="icon" href="/maeggiSeggi/images/core-img/favicon.ico">
+    <link rel="icon" href="/maeggiSeggi/common/images/core-img/favicon.ico">
     <!-- Core Stylesheet -->
     <link href="/maeggiSeggi/common/css/style.css" rel="stylesheet">
     <!-- Responsive CSS -->
@@ -30,6 +33,13 @@
 	<%
 		memberVO loginuser = (memberVO)session.getAttribute("loginuser");
 	%>
+	<%
+		Calendar today = Calendar.getInstance();
+		int year = today.get(Calendar.YEAR);
+		int month = today.get(Calendar.MONTH) + 1;
+		int date = today.get(Calendar.DATE);
+		String Dday = Integer.toString(year)+'-'+Integer.toString(month)+'-'+Integer.toString(date);
+	%>
 	<!-- Preloader Start -->
 	<div id="preloader">
 		<div class="yummy-load"></div>
@@ -39,14 +49,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-5 col-sm-6">
-                    <!--  Top Social bar start -->
-                    <div class="top_social_bar">
-                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                    </div>
                 </div>
                 <!--  Login Register Area -->
                 <div class="col-7 col-sm-6">
@@ -58,6 +60,7 @@
                             </div>
                             <% } else {
                             	session.setAttribute("member", loginuser);
+                            	session.setAttribute("today", Dday);
                             	session.setAttribute("id", loginuser.getMember_id());
                             %>
                             <div class="login"><span><%= session.getAttribute("id") %>님 환영합니다.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
@@ -140,17 +143,20 @@
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MY PAGE</a>
                                     <div class="dropdown-menu" aria-labelledby="yummyDropdown">
                                     	<a class="dropdown-item" href="#"></a>
-                                        <a class="dropdown-item" href="/maeggiSeggi/board/main.do"><b>식단 관리</b></a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/mealPlanner/select.do"><b>식단 관리</b></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/board/infoupdate.do"><b>회원 정보 조회</b></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/board/list.do"><b>1:1 문의 사항</b></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/board/mypoint.do"><b>My Point</b></a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/board/recipe_favorite.do"><b>즐겨찾은 레시피</b></a>
                                     </div>
                                 </li>
                             
-                                
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">MANAGEMODE</a>
+							 <c:if test= "${loginuser.member_id == 'test'}">
+							  <li class="nav-item">
+                                    <a class="nav-link" href="/maeggiSeggi/loginandcustomer/admin_asklist.do">MANAGEMODE</a>
                                 </li>
+	
+							</c:if> 
                             </ul>
                         </div>
                     </nav>
@@ -158,5 +164,12 @@
             </div>
         </div>
     </header>
+    
+    <script type="text/javascript">
+    	$(".nav-item").on("click", function() {
+    		$(".nav-item").not($(this)).removeClass("active");
+    		$(this).addClass("active");
+		})
+    </script>
 </body>
 </html>

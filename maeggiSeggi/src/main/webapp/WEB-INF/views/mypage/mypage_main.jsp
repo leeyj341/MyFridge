@@ -39,7 +39,7 @@
 <body>
 
 	<%
-		mealPlannerVO meal = (mealPlannerVO)request.getAttribute("meal");
+		List<mealPlannerVO> mealplan = (List<mealPlannerVO>)request.getAttribute("mealplan");
 		memberVO loginuser = (memberVO) session.getAttribute("loginuser");
 	%>
 	<%-- <%
@@ -79,9 +79,9 @@
 	<!-- mypage main area start -->
 	<div class="mypage_main">
 		<div class="mypage_one">
-			<span style="float: left;">즐겨찾는 레시피:<strong>10</strong><span>개</span></span>
+			<span style="float: left;">즐겨찾는 레시피:<strong>10</strong><span>개</span></span><br/>
 
-			<span style="float: right;">point:<strong>50</strong><span>점</span></span>
+			<span style="float: right;">point:<strong><%= request.getAttribute("pointsum") %></strong><span>점</span></span>
 
 		</div>
 		<p></p>
@@ -91,45 +91,22 @@
 		int month = today.get(Calendar.MONTH)+1;
 		int date = today.get(Calendar.DATE);
 	%>
+	
 		<div>
-			<table border="1" class="mypage_table">
+			<% for(int i = 0; i<mealplan.size(); i++){ 
+				mealPlannerVO meal = mealplan.get(i);
+			%>
+			<div> <%= meal.getPlanner_date() %> , <%= meal.getPlanner_code() %>,<%= meal.getMeal_name() %> , <%= meal.getKcal() %> </div>
+			<% } %>
+			<%-- <table border="1" class="mypage_table">
+				<td></td>
 				<% for(int k = 0; k<7;k++){
 					int aa = date+k;
 				%>
 					<td align="center"><%= month %>월 <%= aa %> 일</td>	
 				<% }%>
 				
-				<tr align="center">
-					<td scope="row">아침</td>
-					<td class="search" onclick="popup()">김치</td>
-					<td class="search" onclick="popup()"></td>
-					<td class="search" onclick="popup()"></td>
-					<td class="search" onclick="popup()"></td>
-					<td class="search" onclick="popup()"></td>
-					<td class="search" onclick="popup()"></td>
-					<td class="search" onclick="popup()"></td>
-				</tr>
-				<tr align="center">
-					<td scope="row">점심</td>
-					<td class="search" onclick="popup()"></td>
-					<td class="search" onclick="popup()"></td>
-					<td class="search" onclick="popup()"></td>
-					<td class="search" onclick="popup()">콩장</td>
-					<td class="search" onclick="popup()"></td>
-					<td class="search" onclick="popup()"></td>
-					<td class="search" onclick="popup()"></td>
-				</tr>
-				<tr align="center">
-					<td scope="row">저녁</td>
-					<td class="search" onclick="popup()"></td>
-					<td class="search" onclick="popup()"></td>
-					<td class="search" onclick="popup()"></td>
-					<td class="search" onclick="popup()"></td>
-					<td class="search" onclick="popup()"></td>
-					<td class="search" onclick="popup()"></td>
-					<td class="search" onclick="popup()">라면</td>
-				</tr>
-			</table>
+			</table> --%>
 		</div>
 		<div style="float: right">
 			<input type="button" value="월 전체보기"
@@ -137,13 +114,20 @@
 				style="color: white; background-color: #fc6c3f; width: 100px" />
 		</div>
 		<p></p>
-
-
+		
+		<% 
+			int kcal = 0;	
+			for(int i =0; i<3; i++){
+			mealPlannerVO todayKcal = mealplan.get(i); 
+			kcal = kcal + todayKcal.getKcal();
+			
+		}%>
+		
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3">오늘 섭취한 칼로리</div>
 				<div class="col-lg-4">
-					<input type="text" value="" />
+					<span> <%= request.getAttribute("kcalsum") %></span>
 				</div>
 			</div>
 			<div class="row">

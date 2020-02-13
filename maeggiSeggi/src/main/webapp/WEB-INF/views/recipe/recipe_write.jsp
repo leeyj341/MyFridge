@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
@@ -12,6 +12,13 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
 <link href="/maeggiSeggi/common/css/recipe_write.css" rel="stylesheet">
+<script type="text/javascript" src="/maeggiSeggi/common/js/recipe_write.js" ></script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 </head>
 
@@ -26,137 +33,162 @@
 						<li class="breadcrumb-item"><a href="#"><i
 								class="fa fa-home" aria-hidden="true"></i><b>Home</b></a></li>
 						<li class="breadcrumb-item active" aria-current="page"><b>RECIPE</b></li>
-						<li class="breadcrumb-item active" aria-current="page"><b>·¹½ÃÇÇ
-								µî·ÏÇÏ±â</b></li>
+						<li class="breadcrumb-item active" aria-current="page"><b>ë ˆì‹œí”¼
+								ë“±ë¡í•˜ê¸°</b></li>
 					</ol>
 					</nav>
 				</div>
 			</div>
 		</div>
 	</div>
-	<h1>·¹½ÃÇÇ ÀÛ¼º</h1>
+	<h1>ë ˆì‹œí”¼ ì‘ì„±</h1>
 	<br>
 	<br>
 	
 	
-		<form class="form-horizontal" action="/maeggiSeggi/recipe/recipe_write.do" method="POST" enctype="multipart/form-data">
-			<p><b>Á¦¸ñ  </b></p>
-			<input type="text" id="name" name="name" style="width: 80%;" placeholde="·¹½ÃÇÇ Á¦¸ñÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä" />
+		<form id="myform" class="form-horizontal" action="/maeggiSeggi/recipe/recipe_write.do" method="POST" enctype="multipart/form-data">
+			<p><b>ì œëª©  </b></p>
+			<input type="text" id="name" name="name" style="width: 80%;" placeholde="ë ˆì‹œí”¼ ì œëª©ì„ ì…ë ¥í•´ì£¼ì„¸ìš”" />
 			
-			<p><b>·¹½ÃÇÇ ¿ä¾à  </b></p>
-			<input type="text" id="content_intro" name="content_intro" style="width: 80%;" placeholde="º»ÀÎÀÇ ·¹½ÃÇÇ¸¦ °£´ÜÈ÷ Ç¥ÇöÇØ ÁÖ¼¼¿ä" />
+			<p><b>ë ˆì‹œí”¼ ìš”ì•½  </b></p>
+			<input type="text" id="content_intro" name="content_intro" style="width: 80%;" placeholde="ë³¸ì¸ì˜ ë ˆì‹œí”¼ë¥¼ ê°„ë‹¨íˆ í‘œí˜„í•´ ì£¼ì„¸ìš”" />
 			
 			<div>
 				<p>
-					<b>Ä«Å×°í¸®  </b>
+					<b>ì¹´í…Œê³ ë¦¬  </b>
 				</p>
 				<div class="selectbox">
 					<select id="select_ctry" name="recipe_category">
-						<option selected>Å×¸¶º°</option>
-						<option>ÇÑ½Ä</option>
-						<option>Ç»Àü</option>
-						<option>¼­¾ç/ÀÌÅ»¸®¾Æ</option>
-						<option>Áß±¹/µ¿³²¾Æ½Ã¾Æ</option>
-						<option>ÀÏº»</option>
+						<option selected>í…Œë§ˆë³„</option>
+						<option>í•œì‹</option>
+						<option>í“¨ì „</option>
+						<option>ì„œì–‘/ì´íƒˆë¦¬ì•„</option>
+						<option>ì¤‘êµ­/ë™ë‚¨ì•„ì‹œì•„</option>
+						<option>ì¼ë³¸</option>
 					</select>
 				</div>
 				<div class="selectbox" >
 					<select id="select_sort" name="food_category">
-						<option selected>Á¾·ùº°</option>
-						<option>¸ŞÀÎ ¹İÂù</option>
-						<option>ÇÇÀÚ/µğÀúÆ®</option>
-						<option>Âò/Âî°³/Àü°ñ/±¹</option>
-						<option>¹ä</option>
-						<option>¸¸µÎ/¸é·ù</option>
-						<option>³ª¹°/»ıÃ¤/»ø·¯µå</option>
+						<option selected>ì¢…ë¥˜ë³„</option>
+						<option>ë©”ì¸ ë°˜ì°¬</option>
+						<option>í”¼ì/ë””ì €íŠ¸</option>
+						<option>ì°œ/ì°Œê°œ/ì „ê³¨/êµ­</option>
+						<option>ë°¥</option>
+						<option>ë§Œë‘/ë©´ë¥˜</option>
+						<option>ë‚˜ë¬¼/ìƒì±„/ìƒëŸ¬ë“œ</option>
 					</select>
 				</div>
 			</div>
 			<p>
-				<b>¿ä¸® Á¤º¸</b>
+				<b>ìš”ë¦¬ ì •ë³´</b>
 			</p>
-			<span>ÀÎ¿ø :</span>
+			<span>ì¸ì› :</span>
 			<div class="selectbox">
 				<select id="amount_per_person" name="amount_per_person">
-					<option selected>ÀÎºĞ</option>
-					<option>1ÀÎºĞ</option>
-					<option>2ÀÎºĞ</option>
-					<option>3ÀÎºĞ</option>
-					<option>4ÀÎºĞ</option>
-					<option>5ÀÎºĞ ÀÌ»ó</option>
+					<option selected>ì¸ë¶„</option>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
 				</select>
 			</div>
 
 
-			<span>Á¶¸® ½Ã°£ :</span>
+			<span>ì¡°ë¦¬ ì‹œê°„ :</span>
 			<div class="selectbox">
 				<select id="cook_time" name="cook_time">
-					<option selected>ºĞ</option>
-					<option>10ºĞ</option>
-					<option>20ºĞ</option>
-					<option>30ºĞ</option>
-					<option>40ºĞ</option>
-					<option>50ºĞ</option>
-					<option>1½Ã°£ÀÌ»ó</option>
+					<option selected>ë¶„</option>
+					<option>10</option>
+					<option>20</option>
+					<option>30</option>
+					<option>40</option>
+					<option>50</option>
+					<option>1</option>
 				</select>
 			</div>
-			<span>¿ä¸® ³­ÀÌµµ:</span>
+			<span>ìš”ë¦¬ ë‚œì´ë„:</span>
 			<div class="selectbox">
 				<select id="cook_level" name="cook_level">
-					<option selected>³­ÀÌµµ</option>
-					<option>ÃÊº¸È¯¿µ</option>
-					<option>Áß±Ş</option>
-					<option>¾î·Á¿ò</option>
+					<option selected>ë‚œì´ë„</option>
+					<option>ì´ˆë³´í™˜ì˜</option>
+					<option>ì¤‘ê¸‰</option>
+					<option>ì–´ë ¤ì›€</option>
 				</select>
 			</div>
+			<br/>
+			<span>ì˜ˆìƒ ì¹¼ë¡œë¦¬</span>
+			<div class="selectbox">
+				<select id="kcal" name="kcal">
+					<option selected>kcal</option>
+					<option>250</option>
+					<option>500</option>
+					<option>800</option>
+					<option>1000</option>
+				</select>
+			</div>
+			<span>ì˜ˆìƒ ê°€ê²©ëŒ€</span>
+			<div class="selectbox">
+				<select id="price" name="price">
+					<option selected>ê°€ê²©(ì›)</option>
+					<option>5000</option>
+					<option>10000</option>
+					<option>30000</option>
+					<option>50000</option>
+				</select>
+			</div>
+			
 			<br />
 			<br />
 			
-				<p><b>Àç·á</b></p>
-				<div id="sort">
-				  <input type="radio" name="ig_option" id="main" value="main"> ÁÖÀç·á
-				  <input type="radio" name="ig_option" id="sub" value="sub" > ºÎÀç·á
-				  <input type="radio" name="ig_option" id="side" value="side" > ¾ç³ä
+				<p><b>ì¬ë£Œ</b></p>
+				<div id="sort" >
+				  <input type="radio" class="ig_option" name="ig_option" id="main" value="ì£¼ì¬ë£Œ"> ì£¼ì¬ë£Œ
+				  <input type="radio" class="ig_option" name="ig_option" id="sub" value="ë¶€ì¬ë£Œ" > ë¶€ì¬ë£Œ
+				  <input type="radio" class="ig_option" name="ig_option" id="side" value="ì–‘ë…" > ì–‘ë…
 				</div>
 				<div id="ig_content">
 				<div id="ig_main_Add" class="ig_main_Add">
-					<label for="ingredient">Àç·á ÀÌ¸§:</label> 
-						<input type="text" id="ingredient" name="ig_detaill[0].name" placeholder="¿¹)µÅÁö°í±â">&ensp;&ensp;&ensp; 
-					<label for="ingredientAmount">°è·® Á¤º¸ :</label> 
-						<input type="text" id="ingredientAmount" name="ig_detaill[0].volume" placeholder="¿¹)200g">
+					<label for="ingredient">ì¬ë£Œ ì´ë¦„:</label> 
+						<input type="text" id="ingredient" name="ig_detail[0].name" placeholder="ì˜ˆ)ë¼ì§€ê³ ê¸°">&ensp;&ensp;&ensp; 
+					<label for="ingredientAmount">ê³„ëŸ‰ ì •ë³´ :</label> 
+						<input type="text" id="ingredientAmount" name="ig_detail[0].volume" placeholder="ì˜ˆ)200 [ëª¨ë“  ë‹¨ìœ„ëŠ” g ê¸°ì¤€]">
+					<input name="ig_detail[0].ig_type_name" value="ì£¼ì¬ë£Œ" style="display:none;">
 					
 					<button type="button" class="btn btn-default" aria-label="Left Align" onclick="remove_div()">
   					<i class="fas fa-minus-circle fa-2x" style="color:gray;float:left;"></i></button>
 				</div>
 				
-				<div id="ig_side_Add" class="ig_side_Add">
-				<label for="ingredient">Àç·á ÀÌ¸§:</label> 
-					<input type="text" id="side_ingredient" name="ig_detaill[0].name" placeholder="¿¹)°íÃßÀå">&ensp;&ensp;&ensp; 
-				<label for="ingredientAmount">°è·® Á¤º¸ :</label>
+<!-- 				<div id="ig_side_Add" class="ig_side_Add">
+				<label for="ingredient">ì¬ë£Œ ì´ë¦„:</label> 
+					<input type="text" id="side_ingredient" name="ig_detail[0].name" placeholder="ì˜ˆ)ê³ ì¶”ì¥">&ensp;&ensp;&ensp; 
+				<label for="ingredientAmount">ê³„ëŸ‰ ì •ë³´ :</label>
 				 	<div class="selectbox">
-						<select id="select" name="ig_detaill[0].volume" >
-							<option selected>¾ç³ä</option>
-							<option>¾à°£</option>
-							<option>Àû´ç·®</option>
+						<select id="select" name="ig_detail[0].volume" >
+							<option selected>ì–‘ë…</option>
+							<option>ì•½ê°„</option>
+							<option>ì ë‹¹ëŸ‰</option>
 						</select>
-					</div>
+					</div> 
 					<button type="button" id="ig_option_minus"  class="btn btn-default" aria-label="Left Align" onclick="remove_div(this)">
   						<i class="fas fa-minus-circle fa-2x" style="color:gray;"></i></button>
-					</div>
+					</div> -->
 				</div>	
 				
 				<div id="group"></div>
 				
-				<div>
+				 <div>
 					<button type="button" id="ig_option_plus" class="btn btn-default" aria-label="Left Align" onclick="add_div()">
 	  					<i class="fas fa-plus-circle fa-2x" style="color:orange;"></i></button>
   				</div>
   				<br/>
   		
-  			<p><b>¿ä¸® ¼ø¼­</b></p>
+  			<p><b>ìš”ë¦¬ ìˆœì„œ</b></p>
   			
   			<div class="form-group">
-			    <label for='ControlTextarea'>step1</label>
+			    <label for='ControlTextarea'>step1
+			    	<input name="recipe_detail[0].recipe_order_num" value="1" style="display:none">
+			    </label>
 			    <textarea class="form-control" id="ControlTextarea" name="recipe_detail[0].recipe_describe" rows="5"></textarea>
   			</div>
   			<div id="content"></div>
@@ -168,117 +200,34 @@
   			
   			
   			
-  			<p><b>¿ä¸® »çÁø</b></p>
+  			<p><b>ìš”ë¦¬ ì‚¬ì§„</b></p>
   			
  			<div class="jumbotron">
 	 			<div id="imginsert">
-	 				<label style="color:gray";>´Ù¼öÀÇ ÆÄÀÏ ¾÷·Îµå°¡ °¡´ÉÇÕ´Ï´Ù.</label><br/>
-		  			<input type="file" id="real-input" name="myphoto" class="image_inputType_file" accept="img/*" required multiple><br/>
+	 				<label style="color:gray";>ë‹¤ìˆ˜ì˜ íŒŒì¼ ì—…ë¡œë“œê°€ ê°€ëŠ¥í•©ë‹ˆë‹¤.</label><br/>
+		  			<input type="file" id="real-input" name="myphoto" class="image_inputType_file" accept="image/*" required multiple><br/>
 		  		</div>
 	  		</div>
 
   			 
   			
-		<input id="register" type="submit" value="·¹½ÃÇÇ µî·Ï">
+		<input id="register" type="submit" value="ë ˆì‹œí”¼ ë“±ë¡">
 		</form>
 
-			<input id="cancle" type="button" value="µî·Ï Ãë¼Ò">
+			<input id="cancle" type="button" value="ë“±ë¡ ì·¨ì†Œ">
 		
 	
 	<br />
 	<br />
 <script type="text/javascript">
-	var mainNode;
-	var sideNode;
-	var serviceType;
+$(document).ready(function(){
+	var result = "rec" + Math.floor(Math.random() * 10000000);
 	
-	
-	$(document).ready(function() {
-		$('#cancle').click(function() {
-			if (confirm('Á¤¸» Ãë¼ÒÇÏ½Ã°Ú½À´Ï±î?') == true) {
-				document.location.href = "main.do";
-			} else {
-				return;
-			}
-		});	
-		
-		$("input[name='ig_option']:radio").change(function () {
-            //¶óµğ¿À ¹öÆ° °ªÀ» °¡Á®¿Â´Ù.
-            serviceType = this.value;
-		});
-		
-		var main = document.getElementById("ig_main_Add");
-		var side = document.getElementById("ig_side_Add");
-		
-		mainNode = document.createElement("div");
-		mainNode.append(main.cloneNode(true));
-		
-		sideNode = document.createElement("div");
-		sideNode.appendChild(side.cloneNode(true));
-		
-		$('input:radio[name="ig_option"][value="main"]').prop('checked', true);
-		if($('input:radio[name="ig_option"][value="main"]').prop('checked')) {
-            $("#ig_side_Add").css("display","none"); 
-		}
-		
-		
-	});
-	var number=1;	
-	function add_div(){
-		number++;
-	    if(serviceType == "side") {
-	    	
-	    	document.getElementById('group').append(sideNode.cloneNode(true));
-	    	ig_side_name = document.createElement("input");
-	    	//ig_side_name = document.querySelector('side_ingredient');
-	    	ig_side_name.setAttribute("name","ig_detaill[" + number + "].name");
-	    	sideNode.appendChild(ig_side_name);
-	    	ig_side_volume = document.createElement("input");
-	    //	ig_side_volume = document.querySelector('select');
-	    	ig_side_volume.setAttribute("name","ig_detaill[" + number + "].volume");
-	    	sideNode.appendChild(ig_side_volume);
-	    	
-	    } else {
-	    	
-	    	document.getElementById('group').append(mainNode.cloneNode(true));
-	    	mainNode.children("input").first().attr("name", "ig_detaill[" + number + "].name");
-	    	mainNode.children("input").last().attr("name", "ig_detaill[" + number + "].volume");
-	    }
-	}
-	function remove_div(){
-		parentNode = document.getElementById("group");
-		parentNode.removeChild(parentNode.lastChild);
-	}
-	var count=1;
-	function add_content(){
-		count++;
-		recipeContent = document.createTextNode("step"+count);
-		newP = document.createElement("p");
-		newP.appendChild(recipeContent);
-		newdiv = document.getElementById("content");
-		newdiv.appendChild(newP);
-		newcontent = document.querySelector("#ControlTextarea").cloneNode(true);
-		newcontent.setAttribute( "name", "recipe_detail["+count+"].recipe_describe"); 
-		newdiv.appendChild(newcontent);
+	var input = $("<input name='recipe_id' value='" + result + "' style='display:none;'>");
+	$("#myform").append(input);
+})
 
-		
-	}
-/* 	var imgnum=0;
-	function add_img(){
-		imgnum++;
-		imgContent = document.createTextNode("PHOTO "+imgnum);
-		newImg = document.createElement("p");
-		newImg.appendChild(imgContent);
-		newImgContent = document.getElementById("contentimg")
-		newImgContent.appendChild(newImg);
-		newimgtext = document.querySelector("real-input").cloneNode(true);
-		newimgtext.setAttribute("name","recipe_detail["+imgnum+"].myphoto");
-		newImgContent.appendChild(newimgtext);
-		 
-	}*/
+</script>
 
-	
- 
- </script>
 </body>
 </html>

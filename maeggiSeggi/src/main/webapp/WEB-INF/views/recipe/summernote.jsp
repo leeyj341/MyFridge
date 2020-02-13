@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <!-- include libraries(jQuery, bootstrap) -->
 <script
@@ -27,13 +27,13 @@
 	src="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-bs4.min.js"></script>
 <link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
 
-<!-- summer³ëÆ® jsÄÚµå  -->
+<!-- summerë…¸íŠ¸ jsì½”ë“œ  -->
 <script type="text/javascript"
 	src="/maeggiSeggi/common/js/summernote.js"></script>
 <!-- include summernote-ko-KR -->
 <script src="/maeggiSeggi/common/js/summernote-ko-KR.js"></script>
 </head>
 <body>
-	<div id="summernote">·¹½ÃÇÇ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä</div>
+	<div id="summernote">ë ˆì‹œí”¼ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”</div>
 </body>
 </html>

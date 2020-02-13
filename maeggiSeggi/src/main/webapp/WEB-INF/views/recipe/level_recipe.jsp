@@ -1,11 +1,11 @@
 <%@page import="maeggi.seggi.recipe.RecipeVO"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <meta name="description" content="">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -85,7 +85,7 @@ section {
 	$(document).ready(function() {
 		checkb = 0;
 		$("#bmore").on("click", function() {
-			cook_level = "√ ∫∏»Øøµ";
+			cook_level = "ÔøΩ ∫ÔøΩ»ØÔøΩÔøΩ";
 			if(checkb==0){
 				checkb = 1;
 			$.ajax({
@@ -108,7 +108,7 @@ section {
 				                        +"<div class='post-author-date-area d-flex'>"
 				                           <!-- Post Author -->
 				                           +"<div class='post-author'>"
-				                              +"<a href='#'>By ¿∂∂«¿∂</a>"
+				                              +"<a href='#'>By ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ</a>"
 				                           +"</div>"
 				                           <!-- Post Date -->
 				                           +"<div class='post-date'>"
@@ -153,7 +153,7 @@ section {
 		});
 		checkn = 0;
 		$("#nmore").on("click", function() {
-			cook_level = "∫∏≈Î";
+			cook_level = "ÔøΩÔøΩÔøΩÔøΩ";
 			if(checkn==0){
 				checkn = 1;
 			$.ajax({
@@ -176,7 +176,7 @@ section {
 				                        +"<div class='post-author-date-area d-flex'>"
 				                           <!-- Post Author -->
 				                           +"<div class='post-author'>"
-				                              +"<a href='#'>By ¿∂∂«¿∂</a>"
+				                              +"<a href='#'>By ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ</a>"
 				                           +"</div>"
 				                           <!-- Post Date -->
 				                           +"<div class='post-date'>"
@@ -221,7 +221,7 @@ section {
 		});
 		checkh = 0;
 		$("#hmore").on("click", function() {
-			cook_level = "æÓ∑¡øÚ";
+			cook_level = "ÔøΩÔøΩÔøΩÔøΩÔøΩ";
 			if(checkh==0){
 				checkh = 1;
 			$.ajax({
@@ -244,7 +244,7 @@ section {
 				                        +"<div class='post-author-date-area d-flex'>"
 				                           <!-- Post Author -->
 				                           +"<div class='post-author'>"
-				                              +"<a href='#'>By ¿∂∂«¿∂</a>"
+				                              +"<a href='#'>By ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ</a>"
 				                           +"</div>"
 				                           <!-- Post Date -->
 				                           +"<div class='post-date'>"
@@ -314,8 +314,8 @@ section {
    </div>
 <div id="line">
       <div id="headtitle">
-         <h4>≥™¥¬æﬂ <span id="underline">√ ±ﬁ </span>ø‰∏ÆªÁ</h4>
-         <a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="∑πΩ√«« µÓ∑œ" ></a>
+         <h4>ÎÇòÎäîÏïº <span id="underline">Ï¥àÍ∏â </span>ÏöîÎ¶¨ÏÇ¨</h4>
+         <a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="Î†àÏãúÌîº Îì±Î°ù" ></a>
 			<input type="button" id="bmore" value="More">
       </div>
    </div>
@@ -339,7 +339,7 @@ section {
                         <div class="post-author-date-area d-flex">
                            <!-- Post Author -->
                            <div class="post-author">
-                              <a href="#">By ¿∂∂«¿∂</a>
+                              <a href="#">By ÏúµÎòêÏúµ</a>
                            </div>
                            <!-- Post Date -->
                            <div class="post-date">
@@ -383,7 +383,7 @@ section {
                         <div class="post-author-date-area d-flex">
                            <!-- Post Author -->
                            <div class="post-author">
-                              <a href="#">By øµ¡÷øµ¡÷</a>
+                              <a href="#">By ÏòÅÏ£ºÏòÅÏ£º</a>
                            </div>
                            <!-- Post Date -->
                            <div class="post-date">
@@ -431,7 +431,7 @@ section {
                         <div class="post-author-date-area d-flex">
                            <!-- Post Author -->
                            <div class="post-author">
-                              <a href="#">By πŒ¡§πŒ¡§</a>
+                              <a href="#">By ÎØºÏ†ïÎØºÏ†ï</a>
                            </div>
                            <!-- Post Date -->
                            <div class="post-date">
@@ -469,8 +469,8 @@ section {
 
    <div id="line">
       <div id="headtitle">
-         <h4>≥™¥¬æﬂ <span id="underline">¡ﬂ±ﬁ</span>ø‰∏ÆªÁ</h4>
-       <a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="∑πΩ√«« µÓ∑œ" ></a>
+         <h4>ÎÇòÎäîÏïº <span id="underline">Ï§ëÍ∏â</span>ÏöîÎ¶¨ÏÇ¨</h4>
+       <a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="Î†àÏãúÌîº Îì±Î°ù" ></a>
 			<input type="button" id="nmore" value="More">
       </div>
    </div>
@@ -494,7 +494,7 @@ section {
                         <div class="post-author-date-area d-flex">
                            <!-- Post Author -->
                            <div class="post-author">
-                              <a href="#">By ¿∂∂«¿∂</a>
+                              <a href="#">By ÏúµÎòêÏúµ</a>
                            </div>
                            <!-- Post Date -->
                            <div class="post-date">
@@ -538,7 +538,7 @@ section {
                         <div class="post-author-date-area d-flex">
                            <!-- Post Author -->
                            <div class="post-author">
-                              <a href="#">By øµ¡÷øµ¡÷</a>
+                              <a href="#">By ÏòÅÏ£ºÏòÅÏ£º</a>
                            </div>
                            <!-- Post Date -->
                            <div class="post-date">
@@ -586,7 +586,7 @@ section {
                         <div class="post-author-date-area d-flex">
                            <!-- Post Author -->
                            <div class="post-author">
-                              <a href="#">By πŒ¡§πŒ¡§</a>
+                              <a href="#">By ÎØºÏ†ïÎØºÏ†ï</a>
                            </div>
                            <!-- Post Date -->
                            <div class="post-date">
@@ -624,8 +624,8 @@ section {
 
    <div id="line">
       <div id="headtitle">
-         <h4>≥™¥¬æﬂ <span id="underline"> ∞Ì±ﬁ </span>ø‰∏ÆªÁ</h4>
-         <a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="∑πΩ√«« µÓ∑œ" ></a>
+         <h4>ÎÇòÎäîÏïº <span id="underline"> Í≥†Í∏â </span>ÏöîÎ¶¨ÏÇ¨</h4>
+         <a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="Î†àÏãúÌîº Îì±Î°ù" ></a>
 			<input type="button" id="hmore" value="More">
       </div>
    </div>
@@ -649,7 +649,7 @@ section {
                         <div class="post-author-date-area d-flex">
                            <!-- Post Author -->
                            <div class="post-author">
-                              <a href="#">By ¿∂∂«¿∂</a>
+                              <a href="#">By ÏúµÎòêÏúµ</a>
                            </div>
                            <!-- Post Date -->
                            <div class="post-date">
@@ -693,7 +693,7 @@ section {
                         <div class="post-author-date-area d-flex">
                            <!-- Post Author -->
                            <div class="post-author">
-                              <a href="#">By øµ¡÷øµ¡÷</a>
+                              <a href="#">By ÏòÅÏ£ºÏòÅÏ£º</a>
                            </div>
                            <!-- Post Date -->
                            <div class="post-date">
@@ -741,7 +741,7 @@ section {
                         <div class="post-author-date-area d-flex">
                            <!-- Post Author -->
                            <div class="post-author">
-                              <a href="#">By πŒ¡§πŒ¡§</a>
+                              <a href="#">By ÎØºÏ†ïÎØºÏ†ï</a>
                            </div>
                            <!-- Post Date -->
                            <div class="post-date">

@@ -1,5 +1,6 @@
 package maeggi.seggi.ingredient;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,5 +25,13 @@ public class IngredientDAOImpl implements IngredientDAO {
 		map.put("name", name);
 		map.put("category", category);
 		return session.selectList("maeggi.seggi.ingredient.selectAllByName", map);
+	}
+	
+	@Override
+	public void insertigdetail(ArrayList<IngredientVO> igdetail) {
+		Map<String, Object> map = new HashMap<String,Object>();
+		map.put("igdetail", igdetail);
+		
+		session.insert("maeggi.seggi.ingredient.insertigdetail",map);
 	}
 }

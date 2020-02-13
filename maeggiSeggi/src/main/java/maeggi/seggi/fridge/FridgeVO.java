@@ -19,6 +19,12 @@ public class FridgeVO {
 		this.member_id = member_id;
 	}
 
+	public FridgeVO(String refrigerator_id, char distinct_code) {
+		super();
+		this.refrigerator_id = refrigerator_id;
+		this.distinct_code = distinct_code;
+	}
+
 	public FridgeVO(String refrigerator_id, String name, Date register_date, String member_id, char distinct_code) {
 		super();
 		this.refrigerator_id = refrigerator_id;
@@ -67,7 +73,12 @@ public class FridgeVO {
 	public void setdistinct_code(char distinct_code) {
 		this.distinct_code = distinct_code;
 	}
+
+	@Override
+	public String toString() {
+		return "FridgeVO [refrigerator_id=" + refrigerator_id + ", name=" + name + ", register_date=" + register_date
+				+ ", member_id=" + member_id + ", distinct_code=" + distinct_code + "]";
+	}
 	
 	
 }
-

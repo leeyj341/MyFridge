@@ -5,23 +5,20 @@
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="maeggi.seggi.recipe.RecipeVO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page import="java.net.URLEncoder" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <meta name="description" content="">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>maeggi saeggi</title>
-
-
-
 <!-- Core Stylesheet -->
 <link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
-
 <!-- Responsive CSS -->
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <link rel="stylesheet"
@@ -29,19 +26,8 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <link href="/maeggiSeggi/common/css/recipe_detail.css" rel="stylesheet">
 
-<script type="text/javascript">
-	function popup() {
-		window
-				.open(
-						"/maeggiSeggi/recipe/addPlanner.do",
-						"½Ä´Ü °ü¸®",
-						"top=100, left=450, width=700, height=450, status=no, menubar=no, toolbar=no, resizable=no");
-
-	}
-</script>
 </head>
 <body>
-
 	<!-- ****** Header Area End ****** -->
 	<!-- ****** Breadcumb Area Start ****** -->
 	<div class="breadcumb-nav">
@@ -63,8 +49,10 @@
 	</div>
 	<%
 		ArrayList<HashMap<String, String>> listMap = (ArrayList<HashMap<String, String>>) request.getAttribute("detail");
+	    System.out.println(listMap.get(0));
 	%>
-
+	
+	
 	<div class="container" style="margin-top: 30px">
 		<div class="row">
 			<div class="col-sm-4">
@@ -75,22 +63,18 @@
 					</div>
 					<br/>
 					<!-- Post Content -->
-
 					<div class="post-content">
 						<div class="post-meta d-flex">
 							<div class="post-author-date-area d-flex">
 								<!-- Post Author -->
 								<div class="post-author">
-									<a href="#">ÀÛ¼ºÀÚ : <%=listMap.get(0).get("MEMBER_ID")%></a>
+									<a href="#">ì‘ì„±ì : <%=listMap.get(0).get("MEMBER_ID")%></a>
 								</div>
 								<!-- Post Date -->
-								<div class="post-date"> 
-								<%!SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
-								
-								%>
+							<div class="post-date"> 
+									<%!SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");%>
 									<a href="#">REGISTER: <%=sdFormat.format(listMap.get(0).get("REGISTER_DATE"))%></a>
 								</div>
-								
 							</div>
 							</div>
 							<!-- Post Comment & Share Area -->
@@ -107,12 +91,17 @@
 								
 								<!-- Post Share -->
 								
-									<a href="#"><i class="far fa-smile" aria-hidden="true"></i>
-										<%=String.valueOf(listMap.get(0).get("HIT"))%></a>
+								<a href="#"><i class="far fa-smile" aria-hidden="true"></i><%=String.valueOf(listMap.get(0).get("HIT"))%></a> &nbsp;&nbsp;
+								 <a	href="#"><i class="fas fa-share-alt" aria-hidden="true"></i>&nbsp;2</a>
 								
-								&nbsp;&nbsp;
-								
-									<a href="#"><i class="fas fa-share-alt" aria-hidden="true"></i>&nbsp;2</a>
+								<%
+								if (session.getAttribute("id") != null) { %>
+							<%-- <button type="button" id="btnLike" onclick="confirm('ì¢‹ì•„ìš”ë¥¼ ëˆ„ë¥´ì‹œê² ìŠµë‹ˆê¹Œ?')?doCall('/maeggiSeggi/recipe/like.do?id=<%=listMap.get(0).get("RECIPE_ID")%>'):false;"><img src="/maeggiSeggi/images/love.png"/></button> --%>
+								<button type="button" id="btnLike" onclick="like('<%=listMap.get(0).get("RECIPE_ID")%>')"> <img src="/maeggiSeggi/images/love.png"/></button>
+								<%
+								} else {
+								%><button type="button" id="btnUnlike" onclick="alert('ë¡œê·¸ì¸ì´ í•„ìš”í•©ë‹ˆë‹¤')"><img src="/maeggiSeggi/images/dislike.png"></button>	
+									<%} %>
 								</div>
 							</div>
 						</div>
@@ -120,143 +109,164 @@
 					</div>
 
 					<div class="jumbotron">
-						<div style="font-family: nanumSquare_acEB; font-size: 12pt;text-align: justify;">
-							<h4>¿ä¸® °£´Ü ¼Ò°³</h4>
-							<span>"<%=listMap.get(0).get("CONTENT_INTRO")%>"</span><br/><br/> 
+					<div
+						style="font-family: nanumSquare_acEB; font-size: 12pt; text-align: justify;">
+							<h4>ìš”ë¦¬ ê°„ë‹¨ ì†Œê°œ</h4>
+						<span>"<%=listMap.get(0).get("CONTENT_INTRO")%>"
+						</span><br />
+						<br />
+						<div>
+
 							<div>
 
 								<div>
 									<span><strong>THEME :</strong></span><span><%=listMap.get(0).get("RECIPE_CATEGORY")%></span>&ensp;<br/>
 									<span><strong>CATEGORY :</strong></span><span><%=listMap.get(0).get("FOOD_CATEGORY")%></span><br/>
 									
-									<span><strong>Á¶¸® ½Ã°£ :</strong></span><span><%=String.valueOf(listMap.get(0).get("COOK_TIME"))%>ºĞ</span>&ensp;
-								<form name="myform" >
-									<span><strong>Ä®·Î¸®:</strong></span> <%=String.valueOf(listMap.get(0).get("KCAL"))%><span>kcal</span><br/>
-									
-								</form>
-									<span><strong>ÀÎºĞ :</strong></span><span><%=String.valueOf(listMap.get(0).get("AMOUNT_PER_PERSON"))%>ÀÎºĞ</span>&ensp;
-									<span><strong>¿¹»ó °¡°İ´ë :</strong> </span><span><%=String.valueOf(listMap.get(0).get("PRICE"))%>¿ø</span>&ensp;
+									<span><strong>ì¡°ë¦¬ ì‹œê°„ :</strong></span><span><%=String.valueOf(listMap.get(0).get("COOK_TIME"))%>ë¶„</span>&ensp;
+									<span><strong>ì¹¼ë¡œë¦¬:</strong></span> <%=String.valueOf(listMap.get(0).get("KCAL"))%> <span>kcal</span><br/>
+									<span><strong>ì¸ë¶„ :</strong></span><span><%=String.valueOf(listMap.get(0).get("AMOUNT_PER_PERSON"))%>ì¸ë¶„</span>&ensp;
+									<span><strong>ì˜ˆìƒ ê°€ê²©ëŒ€ :</strong> </span><span><%=String.valueOf(listMap.get(0).get("PRICE"))%>ì›</span>&ensp;
 								</div>
 							</div>
 						</div>
-						<form action="/maeggiSeggi/recipe/addPlanner.do" method="POST">
-	
-							<input type="hidden" name="recipe_id" value="<%=String.valueOf(listMap.get(0).get("recipe_id"))%>"/>
-							
-						</form>
+					</div>
+
 
 						<div style="font-family: nanumSquare_acEB; font-size: 12pt;">
-							<h4>Àç·á</h4>
+							<h4>ì¬ë£Œ</h4>
 							<ul>
 
-								<li>±èÄ¡ <strong>0.5</strong> <span> ÂÊ</span>
+								<li>ê¹€ì¹˜ <strong>0.5</strong> <span> ìª½</span>
 								</li>
-								<li>µÎºÎ <strong>1</strong> <span> ¸ğ</span>
+								<li>ë‘ë¶€ <strong>1</strong> <span> ëª¨</span>
 								</li>
-								<li><br /> ¾çÆÄ <strong>0.5</strong> <span> °³</span></li>
-								<li>°íÃß <strong>1</strong> <span> °³</span>
+								<li><br /> ì–‘íŒŒ <strong>0.5</strong> <span> ê°œ</span></li>
+								<li>ê³ ì¶” <strong>1</strong> <span> ê°œ</span>
 								</li>
 							</ul>
 						</div>
 					</div>
-			<!-- <form id="myform" method="post" action="/maeggiSeggi/recipe/addPlanner.do" target="popup_window" > -->
+			<form name="favoriteForm" action="">
 		<% if(session.getAttribute("id")!=null){ %>
-					<input type="button" id="add" value="½Ä´Ü¿¡ Ãß°¡ÇÏ±â" onclick="popup()">
+					<input type="button" id="add" value="ì‹ë‹¨ì— ì¶”ê°€í•˜ê¸°" onclick="popup(<%=listMap.get(0).get("RECIPE_ID")%>)">
+					<input type="button" name="favorite" value="ì¦ê²¨ì°¾ê¸°ì— ì¶”ê°€í•˜ê¸°" onclick="addFavorite()">
+					<input type="hidden" name="member_id" >
+					<input type="hidden" name="recipe_id">
+					<input type="hidden" name="memo" >
+					
+					
 		<% }else{ %>
-					<input type="button" id="add" value="½Ä´Ü¿¡ Ãß°¡ÇÏ±â" onclick="alert('·Î±×ÀÎÀÌ ÇÊ¿äÇÑ ±â´ÉÀÔ´Ï´Ù.')">
+			<input type="button" id="add" value="ì‹ë‹¨ì— ì¶”ê°€í•˜ê¸°" onclick="alert('ë¡œê·¸ì¸ì´ í•„ìš”í•œ ê¸°ëŠ¥ì…ë‹ˆë‹¤.')">
+			<input type="button" id="favorite" value="ì¦ê²¨ì°¾ê¸°ì— ì¶”ê°€í•˜ê¸°" onclick="alert('ë¡œê·¸ì¸ì´ í•„ìš”í•œ ê¸°ëŠ¥ì…ë‹ˆë‹¤.')">
 		<% } %>
-			<!-- </form> -->
+			</form>
+			
+			<script type="text/javascript">
+	function popup(rere) {
+		  window
+			.open(
+					"/maeggiSeggi/recipe/addPlanner.do?id="+rere,
+					"ì‹ë‹¨ ê´€ë¦¬",
+					"top=100, left=450, width=700, height=450, status=no, menubar=no, toolbar=no, resizable=no");
+	}
+	function addFavorite() {
+		var memo = prompt("ì¦ê²¨ì°¾ê¸°ì— í•¨ê»˜ ë“±ë¡í•  ë©”ëª¨ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
+		var form = document.favoriteForm;
+		form.member_id.value = "<%=session.getAttribute("id")%>";
+		form.recipe_id.value = "<%= listMap.get(0).get("RECIPE_ID")%>";
+		form.memo.value = memo;
+		form.action = "/maeggiSeggi/favorite/insert.do";
+		form.method = "post";
+		form.submit();
+	}
+		</script>
 					<hr class="d-sm-none">
-
-				</div>
-				
-<!-- 	<script type="text/javascript">
-		$(document).ready(function(){
-		  $("#add").on("click", function(){
-		    window.open("", "popup_window", "top=100, left=450, width=700, height=450, status=no, menubar=no, toolbar=no, resizable=no");
-		    $("#myform").submit();
-		  });
-		});
-	</script> -->
 
 
 
 			<div class="col-sm-8">
 				<div class="single-post" style="font-family: nanumSquare_acEB;">
-					<h4>¿ä¸® ¼ø¼­</h4>
+					<h4>ìš”ë¦¬ ìˆœì„œ</h4>
 					<div>
 					<ul class="list-group list-group-flush">
-					<% for(int i = 0; i < listMap.size(); i++) {
+							<%
+								for (int i = 0; i < listMap.size(); i++) {
 						HashMap<String, String> map = listMap.get(i);
 						%>
 						
 							<li class="list-group-item"><strong><%=String.valueOf(map.get("RECIPE_ORDER_NUM"))%></strong>
-								<%=map.get("RECIPE_DESCRIBE") %>
-								</li><%} %>
+								<%=map.get("RECIPE_DESCRIBE")%></li>
+							<%
+								}
+							%>
 					</ul>
 					</div>
 				</div>
-				<!--·¹½ÃÇÇ Á¶¸® °úÁ¤  -->
+				<!--ë ˆì‹œí”¼ ì¡°ë¦¬ ê³¼ì •  -->
                   <div class="container">
-                  		<h4 class="col-sm-4">Á¶¸® °úÁ¤</h4>
+                  		<h4 class="col-sm-4">ì¡°ë¦¬ ê³¼ì •</h4>
                        <div id="demo" class="carousel slide" data-ride="carousel">
-                          <div class="carousel-inner"> <!-- ½½¶óÀÌµå ¼î -->
+						<div class="carousel-inner">
+							<!-- ìŠ¬ë¼ì´ë“œ ì‡¼ -->
                              
-							<% for(int i = 0; i < listMap.size(); i++) {
+							<%
+								for (int i = 0; i < listMap.size(); i++) {
 								HashMap<String, String> map = listMap.get(i);
 									if(map.get("IMG_URL")!=null){
 										if(i==0){
-										%> <div class="carousel-item active">
+							%>
+							<div class="carousel-item active">
 													 <div class="single-post">
 													  <!-- Post Thumb -->
-			                                            <img src="<%=map.get("IMG_URL")%>" alt="°úÁ¤ ¾øÀ½">
+			                                            <img src="<%=map.get("IMG_URL")%>" alt="ê³¼ì • ì—†ìŒ">
 			                                           	</div>
 				                                        <div class="carousel-caption d-none d-md-block">
 				                                        	<h5><%=map.get("TIP") %></h5>
 													  </div>
 												
 											</div>
-										<%}else{ %> 
+							<%
+								} else {
+							%>
 											<div class="carousel-item">
 		                                    	<div class="single-post">
 		                                        <!-- Post Thumb -->
-		                                            <img src="<%=map.get("IMG_URL")%>" alt="°úÁ¤ ¾øÀ½">
+		                                            <img src="<%=map.get("IMG_URL")%>" alt="ê³¼ì • ì—†ìŒ">
 		                                           </div> 
 			                                        <div class="carousel-caption d-none d-md-block">
 			                                        	<h5><%=map.get("TIP") %></h5>
 													</div>
 		                                    </div>
-		                                  
 		                                    <%
 		                                    }
 										}
-									}%>
-                                 <!-- / ½½¶óÀÌµå ¼î ³¡ -->
-                                  <!-- ¿ŞÂÊ ¿À¸¥ÂÊ È­»ìÇ¥ ¹öÆ° -->
+								}
+							%>
+                                 <!-- / ìŠ¬ë¼ì´ë“œ ì‡¼ ë -->
+                                  <!-- ì™¼ìª½ ì˜¤ë¥¸ìª½ í™”ì‚´í‘œ ë²„íŠ¼ -->
                                    <a class="carousel-control-prev" href="#demo" data-slide="prev"> 
                                    		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                   	</a>
-                                    <a class="carousel-control-next" href="#demo" data-slide="next">
+							</a> <a class="carousel-control-next" href="#demo" data-slide="next">
 										<span class="carousel-control-next-icon" aria-hidden="true"></span>
 									</a> 
-                                    <!-- / È­»ìÇ¥ ¹öÆ° ³¡ --> 
-                                    <!-- ÀÎµğÄÉÀÌÅÍ --> 
+                                    <!-- / í™”ì‚´í‘œ ë²„íŠ¼ ë --> 
+                                    <!-- ì¸ë””ì¼€ì´í„° --> 
                                     <ul class="carousel-indicators">
                                     	 <li data-target="#demo" data-slide-to="0" class="active"></li> 
                                     	 <li data-target="#demo" data-slide-to="1"></li>
 	                                      <li data-target="#demo" data-slide-to="2"></li>
-	                                </ul> <!-- ÀÎµğÄÉÀÌÅÍ ³¡ -->
+							</ul>
+							<!-- ì¸ë””ì¼€ì´í„° ë -->
 	                       </div>
 					</div>
 			</div>
 		<!-- Comment Area Start -->
-
 		<div class="row">
 			<div class="col-12 none" style="float: left;">
 				<h4>
-					<span id="underline">3</span> ´ñ±Û
+					<span id="underline">3</span> ëŒ“ê¸€
 				</h4>
-
 				<ol>
 					<!-- Single Comment Area -->
 					<li class="single_comment_area">
@@ -286,9 +296,9 @@
 									<div class="comment-content">
 										<span class="comment-date text-muted">27 Aug 2018</span>
 										<h5>Brandon Kelley</h5>
-										<p>Neque porro qui squam est, qui dolorem ipsum quia dolor
-											sit amet, consectetur, adipisci velit, sed quia non numquam
-											eius modi tempora.</p>
+												<p>Neque porro qui squam est, qui dolorem ipsum quia
+													dolor sit amet, consectetur, adipisci velit, sed quia non
+													numquam eius modi tempora.</p>
 										<a href="#">Like</a> <a class="active" href="#">Reply</a>
 									</div>
 								</div>
@@ -319,53 +329,71 @@
 	</div>
 		<div class="single-post">
 			<fieldset>
-				<h4>·¹½ÃÇÇ ÈÄ±â</h4>
+				<h4>ë ˆì‹œí”¼ í›„ê¸°</h4>
 				<div>
-					<span>ÀüÃ¼ </span> <strong>20</strong> <span>°Ç</span>
+					<span>ì „ì²´ </span> <strong>20</strong> <span>ê±´</span>
 					<button type="button" class="btn btn-outline-warning btn-sm"
-						style="float: right; margin-bottom: 1%">ÈÄ±â µî·Ï</button>
+						style="float: right; margin-bottom: 1%">í›„ê¸° ë“±ë¡</button>
 				</div>
 			</fieldset>
-			<table class="table table-hover" summary="¹øÈ£,³»¿ë,±Û¾´ÀÌ,µî·ÏÀÏ·Î ±¸¼ºµÈ °Ô½ÃÆÇ">
+			<table class="table table-hover" summary="ë²ˆí˜¸,ë‚´ìš©,ê¸€ì“´ì´,ë“±ë¡ì¼ë¡œ êµ¬ì„±ëœ ê²Œì‹œíŒ">
 				<thead>
 					<tr>
-						<th>¹øÈ£</th>
-						<th>³»¿ë</th>
-						<th>±Û¾´ÀÌ</th>
-						<th>µî·ÏÀÏ</th>
+						<th>ë²ˆí˜¸</th>
+						<th>ë‚´ìš©</th>
+						<th>ê¸€ì“´ì´</th>
+						<th>ë“±ë¡ì¼</th>
 					</tr>
 				</thead>
 				<tr>
 					<td>1</td>
-					<td>³Ê¹«³Ê¹« ¸ÀÀÖ¾î¿ä</td>
-					<td>¿ä¸®ÁöÅ´ÀÌ</td>
+					<td>ë„ˆë¬´ë„ˆë¬´ ë§›ìˆì–´ìš”</td>
+					<td>ìš”ë¦¬ì§€í‚´ì´</td>
 					<td>20-01-22</td>
 				</tr>
 				<tr>
 					<td>2</td>
-					<td>¹äÀÌ¶û ¸ÔÀ¸´Ï ¿ä¸®°¡ ÀÏÇ°</td>
-					<td>¹ä¼ö´Ï</td>
+					<td>ë°¥ì´ë‘ ë¨¹ìœ¼ë‹ˆ ìš”ë¦¬ê°€ ì¼í’ˆ</td>
+					<td>ë°¥ìˆ˜ë‹ˆ</td>
 					<td>20-01-18</td>
 				</tr>
 				<tr>
 					<td>3</td>
-					<td>È¥ÀÚ ¸Ô±â ¾Æ½¬¿î ¿ä¸® ¤Ì¤Ì</td>
-					<td>ÀÚÃë»ı</td>
+					<td>í˜¼ì ë¨¹ê¸° ì•„ì‰¬ìš´ ìš”ë¦¬ ã…œã…œ</td>
+					<td>ìì·¨ìƒ</td>
 					<td>20-01-14</td>
 				</tr>
 			</table>
 			<br />
 		</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"></script>
 <script> 
 $('.carousel').carousel({
 	interval: 2000 
-	//±âº» 5ÃÊ 
+	//ê¸°ë³¸ 5ì´ˆ 
 	}) 
+			
+	/* 		$(document).ready(function(){
+			$("#btnLike").click( */
+				function like(id){ 
+				alert(id)
+				var result = confirm('í•´ë‹¹ ë ˆì‹œí”¼ë¥¼ ì¢‹ì•„ìš” ëˆ„ë¥´ì‹œê² ìŠµë‹ˆê¹Œ?');
+				if(result){
+						location.href= "/maeggiSeggi/recipe/like.do?id="+id;
+						//document.submit();
+				} else {
+					return;
+				}
+				
+			} ;
+		
 </script>
-
-
-
 </body>
 </html>
