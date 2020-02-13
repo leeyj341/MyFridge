@@ -138,7 +138,6 @@
                                     </div>
                                 </li>
                                 
-                                
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MY PAGE</a>
                                     <div class="dropdown-menu" aria-labelledby="yummyDropdown">
@@ -151,10 +150,10 @@
                                     </div>
                                 </li>
                             
+                            
 							 <c:if test= "${loginuser.member_id == 'test'}">
-							  <li class="nav-item">
                                     <a class="nav-link" href="/maeggiSeggi/loginandcustomer/admin_asklist.do">MANAGEMODE</a>
-                                </li>
+
 	
 							</c:if> 
                             </ul>
@@ -164,12 +163,5 @@
             </div>
         </div>
     </header>
-    
-    <script type="text/javascript">
-    	$(".nav-item").on("click", function() {
-    		$(".nav-item").not($(this)).removeClass("active");
-    		$(this).addClass("active");
-		})
-    </script>
 </body>
 </html>

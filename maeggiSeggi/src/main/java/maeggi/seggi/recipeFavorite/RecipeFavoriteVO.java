@@ -5,7 +5,7 @@ public class RecipeFavoriteVO {
 	private String recipe_id;
 	private String member_id;
 	private String favorite_date;
-	private String memo;//
+	private String memo;
 	
 	public RecipeFavoriteVO() {
 		
