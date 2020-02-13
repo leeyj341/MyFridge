@@ -21,6 +21,6 @@ public interface RecipeService {
 	RecipeVO moveTopopup(String recipe_id);
 	//좋아요
 	public void like(String recipe_id) throws Exception;
-	List<RecipeVO> recipeList(String category, int pagenum, int contentnum);
+	List<RecipeVO> recipeList(String recipe_category, int pagenum, int contentnum);
 
 }
