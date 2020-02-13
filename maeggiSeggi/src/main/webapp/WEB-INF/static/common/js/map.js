@@ -192,7 +192,7 @@ function getListItem(index, places) {
     			mydata="";
     			for (var i = 0; i < data.length; i++) {
 					mydata = mydata+
-						"<tr><td class='scon' style=''>"+data[i].title+"<br/>"+"<a href="+data[i].link+">"+data[i].link+"</a>"+"<br/>"+data[i].category+"<br/>"+data[i].description+"<br/>"+data[i].telephone+"<br/>"+data[i].address
+						"<tr><td class='side' style=''>"+data[i].title+"<br/>"+"<a href="+data[i].link+">"+data[i].link+"</a>"+"<br/>"+data[i].category+"<br/>"+data[i].description+"<br/>"+data[i].telephone+"<br/>"+data[i].address
 						+"</td></tr>"
 				}
     			$("#sch").empty();

@@ -85,7 +85,7 @@ section {
 	$(document).ready(function() {
 		checkb = 0;
 		$("#bmore").on("click", function() {
-			cook_level = "�ʺ�ȯ��";
+			cook_level = "초보환영";
 			if(checkb==0){
 				checkb = 1;
 			$.ajax({
@@ -108,7 +108,7 @@ section {
 				                        +"<div class='post-author-date-area d-flex'>"
 				                           <!-- Post Author -->
 				                           +"<div class='post-author'>"
-				                              +"<a href='#'>By ������</a>"
+				                              +"<a href='#'>By 융또융</a>"
 				                           +"</div>"
 				                           <!-- Post Date -->
 				                           +"<div class='post-date'>"
@@ -153,7 +153,7 @@ section {
 		});
 		checkn = 0;
 		$("#nmore").on("click", function() {
-			cook_level = "����";
+			cook_level = "보통";
 			if(checkn==0){
 				checkn = 1;
 			$.ajax({
@@ -176,7 +176,7 @@ section {
 				                        +"<div class='post-author-date-area d-flex'>"
 				                           <!-- Post Author -->
 				                           +"<div class='post-author'>"
-				                              +"<a href='#'>By ������</a>"
+				                              +"<a href='#'>By 융또융</a>"
 				                           +"</div>"
 				                           <!-- Post Date -->
 				                           +"<div class='post-date'>"
@@ -221,7 +221,7 @@ section {
 		});
 		checkh = 0;
 		$("#hmore").on("click", function() {
-			cook_level = "�����";
+			cook_level = "어려움";
 			if(checkh==0){
 				checkh = 1;
 			$.ajax({
@@ -244,7 +244,7 @@ section {
 				                        +"<div class='post-author-date-area d-flex'>"
 				                           <!-- Post Author -->
 				                           +"<div class='post-author'>"
-				                              +"<a href='#'>By ������</a>"
+				                              +"<a href='#'>By 융또융</a>"
 				                           +"</div>"
 				                           <!-- Post Date -->
 				                           +"<div class='post-date'>"

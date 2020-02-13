@@ -23,6 +23,7 @@
 
 <!-- 지도 css -->
 <link href="/maeggiSeggi/common/css/map.css" rel="stylesheet">
+<link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
 
 <!-- 지도 js -->
 <script src="/maeggiSeggi/common/js/map.js"></script>
@@ -67,6 +68,14 @@
     line-height: 50px;
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
+}
+.side {
+   font-family: PapyrusM;
+   font-size: 20pt;
+}
+#underline{
+	color: #FC6C3F;
+	font-size: 27pt;
 }
 </style>
 
@@ -175,9 +184,9 @@
 					<!-- Single Widget Area -->
 					<div class="single-widget-area about-me-widget text-center">
 						<div class="widget-title">
-							<table id="sch" width="370">
+							<table id="sch" width="370" style="word-break:break-all">
 								<tr>
-									<td class="scon" style="">식당정보</td>
+									<td class="side" style="">식당정보</td>
 								</tr>
 							</table>
 						</div>

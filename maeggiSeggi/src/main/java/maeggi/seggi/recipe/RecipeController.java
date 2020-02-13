@@ -3,14 +3,12 @@ package maeggi.seggi.recipe;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -196,9 +194,6 @@ public class RecipeController {
 		return recipelist;
 	}
 	
-	@RequestMapping(value ="/recipe/addPlanner.do" , method=RequestMethod.GET)
-	public ModelAndView moveTopopup(RecipeVO recipe_id) {
-		System.out.println("recipe_id"+ recipe_id);
 	@RequestMapping(value ="/recipe/addPlanner.do" , method=RequestMethod.GET)
 	public ModelAndView moveTopopup(HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();

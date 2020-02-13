@@ -13,7 +13,7 @@ public class RstDAOImpl implements RstDAO{
 	
 	@Override
 	public List<weatherVO> weathersearch(String today) {
-		return sqlSession.selectList("maeggi.seggi.restaurant.weather");
+		return sqlSession.selectList("maeggi.seggi.restaurant.weather", today);
 	}
 	
 }

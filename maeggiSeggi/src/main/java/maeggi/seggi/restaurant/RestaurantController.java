@@ -124,13 +124,17 @@ public class RestaurantController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		List<weatherVO> wlist = service.weathersearch(today);
+		System.out.println(wlist.get(0).food_keyword);
+		mav.addObject("food", wlist.get(0).food_keyword);
 		mav.addObject("today", today);
 		mav.setViewName("weather");
 		return mav;
 	}
 	
-	public List<weatherVO> weather(String today){
-	List<weatherVO> wlist = service.weathersearch(today);
+	/*public List<weatherVO> weather(String today){
+		List<weatherVO> wlist = service.weathersearch(today);
 	return wlist;
-	}
+	}*/
 }
