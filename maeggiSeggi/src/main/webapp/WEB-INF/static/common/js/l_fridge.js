@@ -45,14 +45,15 @@ $(document).ready(function() {
 		}
 	});
 	
-	//재료를 냉장고 안으로 드래그 앤 드랍
-	$("#ig_list").on("dragstart", function(e) {
-		target_clone = $(e.target).clone(true);
-	})
+	//냉장고 재료 등록
+	$(".save-btn").each(function() {
+		$(this).on("click", function() {
+			$.ajax({
+				//url:"/maeggiSeggi/"
+			})
+		})
+	});
 	
-	$("#fridge").on("drop", function() {
-		alert($(this));
-	})
 });
 
 function wow_default_alert(msg) {

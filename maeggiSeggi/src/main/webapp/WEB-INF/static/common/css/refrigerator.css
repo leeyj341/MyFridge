@@ -11,7 +11,7 @@
 
 .fridge-area > div {
 	text-align: center;
-	margin-top: 8%;
+	margin-top: 1%;
 	margin-bottom: 5%;
 }
 
@@ -336,6 +336,12 @@ a.modal-btn {
 	width: 100%;
 }
 
+.save-btn {
+	width: 5%;
+	margin-top: 7%;
+	left:78%;
+}
+
 .btn-fill-vert-o {
   background-color: transparent;
   color: #B8B8B8;
@@ -402,3 +408,6 @@ a.modal-btn {
 /* } */
 
 /* ****************** 여기까지 버튼 css ****************** */
+
+
+

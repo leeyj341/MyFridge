@@ -82,14 +82,19 @@ var mainNode;
 		parentNode = document.getElementById("group");
 		parentNode.removeChild(parentNode.lastChild);
 	}
-	var count=1;
+	var count=0;
 	function add_content(){
 		count++;
-		recipeContent = document.createTextNode("step"+count);
+		recipeContent = document.createTextNode("step"+(count+1));
 		newP = document.createElement("p");
+		newInput = document.createElement("input");
+		newInput.setAttribute("name", "recipe_detail[" + count + "].recipe_order_num");
+		newInput.setAttribute("value", count+1);
+		newInput.setAttribute("style", "display:none;");
 		newP.appendChild(recipeContent);
 		newdiv = document.getElementById("content");
 		newdiv.appendChild(newP);
+		newdiv.appendChild(newInput);
 		newcontent = document.querySelector("#ControlTextarea").cloneNode(true);
 		newcontent.setAttribute( "name", "recipe_detail["+count+"].recipe_describe"); 
 		newdiv.appendChild(newcontent);
@@ -115,15 +120,25 @@ var mainNode;
 								"<option>적당량</option>"+
 							"</select>"+
 						"</div>&ensp;"+
+						"<input name='ig_detail[" + num + "].ig_type_name' value='양념' style='display:none;'>" +
 						"<button type='button' class='btn btn-default' aria-label='Left Align' onclick='remove_div()'>"+
 	  					"<i class='fas fa-minus-circle fa-2x' style='color:gray;float:left;'></i></button><br/></div>";
 					 
 				}else {
+					var input;
+				 	if(selected == "주재료") {
+				 		input = "<input name='ig_detail[" + num + "].ig_type_name' value='주재료' style='display:none;'>";
+				 	}
+				 	else { 
+				 		input = "<input name='ig_detail[" + num + "].ig_type_name' value='부재료' style='display:none;'>";
+				 	}
+					
 					myingredient ="<div id='ig_main_Add' class='ig_main_Add'>"+
 						"<label for='ingredient'>재료 이름:</label>"+ 
 					"<input type='text' id='ingredient' name='ig_detail["+num+"].name' placeholder='예)돼지고기'>&ensp;&ensp;&ensp;&ensp;&ensp;"+ 
 					"<label for='ingredientAmount'>계량 정보 :</label>"+
 					 	"<input type='text' id='ingredientAmount' name='ig_detail["+num+"].volume' placeholder='예)200 [모든 단위는 g 기준]'>&ensp;"+
+					 		input +
 						 	"<button type='button' class='btn btn-default' aria-label='Left Align' onclick='remove_div()'>"+
 		  					"<i class='fas fa-minus-circle fa-2x' style='color:gray;float:left;'></i></button><br/></div>";
 					 

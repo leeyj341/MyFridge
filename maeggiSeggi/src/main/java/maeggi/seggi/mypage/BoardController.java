@@ -1,5 +1,6 @@
 package maeggi.seggi.mypage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import maeggi.seggi.loginandcustomer.memberService;
 import maeggi.seggi.loginandcustomer.memberVO;
+import maeggi.seggi.recipeFavorite.RecipeFavoriteService;
+import maeggi.seggi.recipeFavorite.RecipeFavoriteVO;
 import maeggi.seggi.reply.replyService;
 
 @Controller
@@ -24,6 +27,8 @@ public class BoardController {
 	replyService replyService;
 	@Autowired
 	memberService mservice;
+	@Autowired
+	RecipeFavoriteService recFavServive;
 
 	// 게시글 전체 목록을 보여주는 기능
 	@RequestMapping(value = "/board/list.do")
@@ -169,9 +174,15 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/board/recipe_favorite.do")
-	public String mypage_recipefavorite() {
+	public ModelAndView mypage_recipefavorite(HttpSession session) {
+		//즐겨찾기한 정보가 넘어가야 함.
+		String member_id = (String)session.getAttribute("id");
+		ArrayList<RecipeFavoriteVO> list = (ArrayList<RecipeFavoriteVO>)recFavServive.selectAllFavorites(member_id);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("favorites", list);
+		mav.setViewName("mypage/recipe_favorite");
 		
-		return "mypage/recipe_favorite";
+		return mav;
 	}
 	
 	

@@ -153,6 +153,7 @@
 						<input type="text" id="ingredient" name="ig_detail[0].name" placeholder="예)돼지고기">&ensp;&ensp;&ensp; 
 					<label for="ingredientAmount">계량 정보 :</label> 
 						<input type="text" id="ingredientAmount" name="ig_detail[0].volume" placeholder="예)200 [모든 단위는 g 기준]">
+					<input name="ig_detail[0].ig_type_name" value="주재료" style="display:none;">
 					
 					<button type="button" class="btn btn-default" aria-label="Left Align" onclick="remove_div()">
   					<i class="fas fa-minus-circle fa-2x" style="color:gray;float:left;"></i></button>
@@ -185,7 +186,9 @@
   			<p><b>요리 순서</b></p>
   			
   			<div class="form-group">
-			    <label for='ControlTextarea'>step1</label>
+			    <label for='ControlTextarea'>step1
+			    	<input name="recipe_detail[0].recipe_order_num" value="1" style="display:none">
+			    </label>
 			    <textarea class="form-control" id="ControlTextarea" name="recipe_detail[0].recipe_describe" rows="5"></textarea>
   			</div>
   			<div id="content"></div>
@@ -202,7 +205,7 @@
  			<div class="jumbotron">
 	 			<div id="imginsert">
 	 				<label style="color:gray";>다수의 파일 업로드가 가능합니다.</label><br/>
-		  			<input type="file" id="real-input" name="myphoto" class="image_inputType_file" accept="img/*" required multiple><br/>
+		  			<input type="file" id="real-input" name="myphoto" class="image_inputType_file" accept="image/*" required multiple><br/>
 		  		</div>
 	  		</div>
 

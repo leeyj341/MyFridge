@@ -7,3 +7,4 @@ public interface mealPlannerService {
 	int insert(mealPlannerVO meal);
 	int kcalsum(mealPlannerVO date);
 }
+
