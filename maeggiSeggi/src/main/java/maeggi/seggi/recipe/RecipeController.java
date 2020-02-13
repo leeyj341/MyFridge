@@ -107,12 +107,13 @@ public class RecipeController {
 	}
 	@RequestMapping(value="recipe/ajax_levellist.do",method=RequestMethod.GET,produces="application/json;charset=utf-8")
 	public @ResponseBody List<RecipeVO> recipeList(String cook_level){
+		System.out.println(cook_level);
 		List<RecipeVO> recipelist = service.levellist(cook_level);
 		System.out.println("----------------------"+recipelist.size());
 		return recipelist;
 	}
 	
-	@RequestMapping(value ="/recipe/addPlanner.do" , method=RequestMethod.POST)
+	@RequestMapping(value ="/recipe/addPlanner.do" , method=RequestMethod.GET)
 	public ModelAndView moveTopopup(RecipeVO recipe_id) {
 		System.out.println("recipe_id"+ recipe_id);
 		ModelAndView mav = new ModelAndView();

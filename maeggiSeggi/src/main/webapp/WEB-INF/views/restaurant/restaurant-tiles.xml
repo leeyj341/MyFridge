@@ -8,8 +8,8 @@
 		<put-attribute name="content" value="/WEB-INF/views/restaurant/restaurant_main.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="click" extends="maeggiTemplate">
-		<put-attribute name="content" value="/WEB-INF/views/restaurant/map1.jsp"></put-attribute>
+	<definition name="weather" extends="maeggiTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/restaurant/restaurant_main2.jsp"></put-attribute>
 	</definition>
 	
 </tiles-definitions>

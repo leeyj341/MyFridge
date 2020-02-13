@@ -27,6 +27,64 @@
 <!-- 지도 js -->
 <script src="/maeggiSeggi/common/js/map.js"></script>
 
+<style type="text/css">
+	.catagory-titler {
+    width: 200px;
+    height: 50px;
+    background-color: #fc6c3f;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    border-radius: 30px;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+.catagory-titler a > h5 {
+    margin-bottom: 0;
+    line-height: 50px;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+	.catagory-titlew {
+    width: 200px;
+    height: 50px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    border-radius: 30px;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+.catagory-titlew a > h5 {
+    margin-bottom: 0;
+    line-height: 50px;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+</style>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#www").on("click", function() {
+			$.ajax({
+				url:"/maeggiSeggi/restaurant/today.do",
+				type: "get",
+				success:function(data){
+					alert("날씨");
+					today = data;
+				}
+			});
+		});
+	});
+</script>
+
 </head>
 
 <body>
@@ -38,8 +96,8 @@
 				<div class="col-12 col-md-6 col-lg-6">
 					<div class="single_catagory wow fadeInUp" data-wow-delay=".6s">
 						<img src="/maeggiSeggi/images/2.jpg" alt="">
-						<div class="catagory-title">
-							<a href="restaurant_main2.jsp">
+						<div class="catagory-titler">
+							<a href="/maeggiSeggi/restaurant.do">
 								<h5>#레시피 관련 식당</h5>
 							</a>
 						</div>
@@ -48,9 +106,9 @@
 				<div class="col-12 col-md-6 col-lg-6">
 					<div class="single_catagory wow fadeInUp" data-wow-delay=".9s">
 						<img src="/maeggiSeggi/images/3.jpg" alt="">
-						<div class="catagory-title">
-							<a href="restaurant_main3.jsp">
-								<h5>#날씨 관련 식당</h5>
+						<div class="catagory-titlew">
+							<a href="/maeggiSeggi/weather.do">
+								<h5 id="www">#날씨 관련 식당</h5>
 							</a>
 						</div>
 					</div>
@@ -99,7 +157,7 @@
 									<div class="post-author-date-area d-flex">
 										<!-- Post Author -->
 										<div class="post-author">
-											<a href="#">역삼역 주변 맛집</a>
+											<a href="#">주변 맛집</a>
 										</div>
 										<!-- Post Date -->
 										<div class="post-date">
@@ -130,30 +188,6 @@
 			</div>
 		</div>
 	</div>
-					<div class="col-12">
-						<a href="#">
-									<h2 class="post-headline">식당 검색 API</h2>
-								</a>
-						<div class="container">
-							<div class="row">
-								<div class="col-12 col-lg-3">
-									<img src="/maeggiSeggi/images/map5.gif" alt="map1">
-								</div>
-								<div class="col-12 col-lg-9" id="sch">
-									<div class="contain">
-										<h1 align="center">Go on, click me!</h1>
-										<div class="search-box-container">
-											<button id="sendKey" class="submit">
-												<i class="fa fa-search"></i>
-											</button>
-											<input class="search-box" />
-										</div>
-										<h3 class="response"></h3>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>

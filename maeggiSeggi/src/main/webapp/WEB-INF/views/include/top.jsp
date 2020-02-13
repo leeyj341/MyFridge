@@ -131,7 +131,7 @@
                                     <div class="dropdown-menu" aria-labelledby="yummyDropdown">
                                     	<a class="dropdown-item" href="#"></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/restaurant.do"><b>식당 조회</b></a>
-                                        <a class="dropdown-item" href="/maeggiSeggi/map.do"><b>지도 조회</b></a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/weather.do"><b>날씨별 식당 추천</b></a>
                                     </div>
                                 </li>
                                 
