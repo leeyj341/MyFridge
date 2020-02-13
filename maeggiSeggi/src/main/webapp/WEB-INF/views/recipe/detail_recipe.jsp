@@ -5,6 +5,7 @@
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="maeggi.seggi.recipe.RecipeVO"%>
+<%@ page import="java.net.URLEncoder" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -48,6 +49,7 @@
 	</div>
 	<%
 		ArrayList<HashMap<String, String>> listMap = (ArrayList<HashMap<String, String>>) request.getAttribute("detail");
+	    System.out.println(listMap.get(0));
 	%>
 	
 	
@@ -70,8 +72,7 @@
 								</div>
 								<!-- Post Date -->
 							<div class="post-date"> 
-								<%!SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
-								%>
+									<%!SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");%>
 									<a href="#">REGISTER: <%=sdFormat.format(listMap.get(0).get("REGISTER_DATE"))%></a>
 								</div>
 							</div>
@@ -90,12 +91,17 @@
 								
 								<!-- Post Share -->
 								
-									<a href="#"><i class="far fa-smile" aria-hidden="true"></i>
-										<%=String.valueOf(listMap.get(0).get("HIT"))%></a>
+								<a href="#"><i class="far fa-smile" aria-hidden="true"></i><%=String.valueOf(listMap.get(0).get("HIT"))%></a> &nbsp;&nbsp;
+								 <a	href="#"><i class="fas fa-share-alt" aria-hidden="true"></i>&nbsp;2</a>
 								
-								&nbsp;&nbsp;
-								
-									<a href="#"><i class="fas fa-share-alt" aria-hidden="true"></i>&nbsp;2</a>
+								<%
+								if (session.getAttribute("id") != null) { %>
+							<%-- <button type="button" id="btnLike" onclick="confirm('좋아요를 누르시겠습니까?')?doCall('/maeggiSeggi/recipe/like.do?id=<%=listMap.get(0).get("RECIPE_ID")%>'):false;"><img src="/maeggiSeggi/images/love.png"/></button> --%>
+								<button type="button" id="btnLike" onclick="like('<%=listMap.get(0).get("RECIPE_ID")%>')"> <img src="/maeggiSeggi/images/love.png"/></button>
+								<%
+								} else {
+								%><button type="button" id="btnUnlike" onclick="alert('로그인이 필요합니다')"><img src="/maeggiSeggi/images/dislike.png"></button>	
+									<%} %>
 								</div>
 							</div>
 						</div>
@@ -103,9 +109,14 @@
 					</div>
 
 					<div class="jumbotron">
-						<div style="font-family: nanumSquare_acEB; font-size: 12pt;text-align: justify;">
+					<div
+						style="font-family: nanumSquare_acEB; font-size: 12pt; text-align: justify;">
 							<h4>요리 간단 소개</h4>
-							<span>"<%=listMap.get(0).get("CONTENT_INTRO")%>"</span><br/><br/> 
+						<span>"<%=listMap.get(0).get("CONTENT_INTRO")%>"
+						</span><br />
+						<br />
+						<div>
+
 							<div>
 
 								<div>
@@ -119,6 +130,7 @@
 								</div>
 							</div>
 						</div>
+					</div>
 
 
 						<div style="font-family: nanumSquare_acEB; font-size: 12pt;">
@@ -135,11 +147,18 @@
 							</ul>
 						</div>
 					</div>
-			<form action="">
+			<form name="favoriteForm" action="">
 		<% if(session.getAttribute("id")!=null){ %>
 					<input type="button" id="add" value="식단에 추가하기" onclick="popup(<%=listMap.get(0).get("RECIPE_ID")%>)">
+					<input type="button" name="favorite" value="즐겨찾기에 추가하기" onclick="addFavorite()">
+					<input type="hidden" name="member_id" >
+					<input type="hidden" name="recipe_id">
+					<input type="hidden" name="memo" >
+					
+					
 		<% }else{ %>
 			<input type="button" id="add" value="식단에 추가하기" onclick="alert('로그인이 필요한 기능입니다.')">
+			<input type="button" id="favorite" value="즐겨찾기에 추가하기" onclick="alert('로그인이 필요한 기능입니다.')">
 		<% } %>
 			</form>
 			
@@ -151,21 +170,36 @@
 					"식단 관리",
 					"top=100, left=450, width=700, height=450, status=no, menubar=no, toolbar=no, resizable=no");
 	}
+	function addFavorite() {
+		var memo = prompt("즐겨찾기에 함께 등록할 메모를 입력하세요.");
+		var form = document.favoriteForm;
+		form.member_id.value = "<%=session.getAttribute("id")%>";
+		form.recipe_id.value = "<%= listMap.get(0).get("RECIPE_ID")%>";
+		form.memo.value = memo;
+		form.action = "/maeggiSeggi/favorite/insert.do";
+		form.method = "post";
+		form.submit();
+	}
 		</script>
 					<hr class="d-sm-none">
-				</div>
+
+
+
 			<div class="col-sm-8">
 				<div class="single-post" style="font-family: nanumSquare_acEB;">
 					<h4>요리 순서</h4>
 					<div>
 					<ul class="list-group list-group-flush">
-					<% for(int i = 0; i < listMap.size(); i++) {
+							<%
+								for (int i = 0; i < listMap.size(); i++) {
 						HashMap<String, String> map = listMap.get(i);
 						%>
 						
 							<li class="list-group-item"><strong><%=String.valueOf(map.get("RECIPE_ORDER_NUM"))%></strong>
-								<%=map.get("RECIPE_DESCRIBE") %>
-								</li><%} %>
+								<%=map.get("RECIPE_DESCRIBE")%></li>
+							<%
+								}
+							%>
 					</ul>
 					</div>
 				</div>
@@ -173,13 +207,16 @@
                   <div class="container">
                   		<h4 class="col-sm-4">조리 과정</h4>
                        <div id="demo" class="carousel slide" data-ride="carousel">
-                          <div class="carousel-inner"> <!-- 슬라이드 쇼 -->
+						<div class="carousel-inner">
+							<!-- 슬라이드 쇼 -->
                              
-							<% for(int i = 0; i < listMap.size(); i++) {
+							<%
+								for (int i = 0; i < listMap.size(); i++) {
 								HashMap<String, String> map = listMap.get(i);
 									if(map.get("IMG_URL")!=null){
 										if(i==0){
-										%> <div class="carousel-item active">
+							%>
+							<div class="carousel-item active">
 													 <div class="single-post">
 													  <!-- Post Thumb -->
 			                                            <img src="<%=map.get("IMG_URL")%>" alt="과정 없음">
@@ -189,7 +226,9 @@
 													  </div>
 												
 											</div>
-										<%}else{ %> 
+							<%
+								} else {
+							%>
 											<div class="carousel-item">
 		                                    	<div class="single-post">
 		                                        <!-- Post Thumb -->
@@ -202,13 +241,13 @@
 		                                    <%
 		                                    }
 										}
-									}%>
+								}
+							%>
                                  <!-- / 슬라이드 쇼 끝 -->
                                   <!-- 왼쪽 오른쪽 화살표 버튼 -->
                                    <a class="carousel-control-prev" href="#demo" data-slide="prev"> 
                                    		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                   	</a>
-                                    <a class="carousel-control-next" href="#demo" data-slide="next">
+							</a> <a class="carousel-control-next" href="#demo" data-slide="next">
 										<span class="carousel-control-next-icon" aria-hidden="true"></span>
 									</a> 
                                     <!-- / 화살표 버튼 끝 --> 
@@ -217,7 +256,8 @@
                                     	 <li data-target="#demo" data-slide-to="0" class="active"></li> 
                                     	 <li data-target="#demo" data-slide-to="1"></li>
 	                                      <li data-target="#demo" data-slide-to="2"></li>
-	                                </ul> <!-- 인디케이터 끝 -->
+							</ul>
+							<!-- 인디케이터 끝 -->
 	                       </div>
 					</div>
 			</div>
@@ -256,9 +296,9 @@
 									<div class="comment-content">
 										<span class="comment-date text-muted">27 Aug 2018</span>
 										<h5>Brandon Kelley</h5>
-										<p>Neque porro qui squam est, qui dolorem ipsum quia dolor
-											sit amet, consectetur, adipisci velit, sed quia non numquam
-											eius modi tempora.</p>
+												<p>Neque porro qui squam est, qui dolorem ipsum quia
+													dolor sit amet, consectetur, adipisci velit, sed quia non
+													numquam eius modi tempora.</p>
 										<a href="#">Like</a> <a class="active" href="#">Reply</a>
 									</div>
 								</div>
@@ -326,13 +366,34 @@
 			</table>
 			<br />
 		</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"></script>
 <script> 
 $('.carousel').carousel({
 	interval: 2000 
 	//기본 5초 
 	}) 
+			
+	/* 		$(document).ready(function(){
+			$("#btnLike").click( */
+				function like(id){ 
+				alert(id)
+				var result = confirm('해당 레시피를 좋아요 누르시겠습니까?');
+				if(result){
+						location.href= "/maeggiSeggi/recipe/like.do?id="+id;
+						//document.submit();
+				} else {
+					return;
+				}
+				
+			} ;
+		
 </script>
 </body>
 </html>

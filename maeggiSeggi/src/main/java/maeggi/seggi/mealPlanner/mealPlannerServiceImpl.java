@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class mealPlannerServiceImpl implements mealPlannerService{
 	@Autowired
-	mealPlannerDAO dao;
+	mealPlannerDAO dao; 
 
 	@Override
 	public List<mealPlannerVO> mealSelect(mealPlannerVO meal) {
