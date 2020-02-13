@@ -5,12 +5,13 @@
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="maeggi.seggi.recipe.RecipeVO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page import="java.net.URLEncoder" %>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <meta name="description" content="">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -48,9 +49,10 @@
 	</div>
 	<%
 		ArrayList<HashMap<String, String>> listMap = (ArrayList<HashMap<String, String>>) request.getAttribute("detail");
+	    System.out.println(listMap.get(0));
 	%>
 	
-	
+
 	<div class="container" style="margin-top: 30px">
 		<div class="row">
 			<div class="col-sm-4">
@@ -59,192 +61,235 @@
 					<div class="post-thumb">
 						<img src="<%=listMap.get(0).get("IMG_URL_MAIN")%>" alt="">
 					</div>
-					<br/>
+					<br />
 					<!-- Post Content -->
 					<div class="post-content">
 						<div class="post-meta d-flex">
 							<div class="post-author-date-area d-flex">
 								<!-- Post Author -->
 								<div class="post-author">
-									<a href="#">¿€º∫¿⁄ : <%=listMap.get(0).get("MEMBER_ID")%></a>
+									<a href="#">ÏûëÏÑ±Ïûê : <%=listMap.get(0).get("MEMBER_ID")%></a>
 								</div>
 								<!-- Post Date -->
-							<div class="post-date"> 
-								<%!SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
-								%>
+								<div class="post-date">
+									<%!SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");%>
 									<a href="#">REGISTER: <%=sdFormat.format(listMap.get(0).get("REGISTER_DATE"))%></a>
 								</div>
 							</div>
-							</div>
-							<!-- Post Comment & Share Area -->
-							<div style="float:left;">
-								<!-- Post Favourite -->
-								<div class="post-favourite">
-									<a href="#"><i class="fas fa-heart" aria-hidden="true"></i>
-										<%=String.valueOf(listMap.get(0).get("LIKE_NUM"))%></a>
-								
+						</div>
+						<!-- Post Comment & Share Area -->
+						<div style="float: left;">
+							<!-- Post Favourite -->
+							<div class="post-favourite">
+								<a href="#"><i class="fas fa-heart" aria-hidden="true"></i>
+									<%=String.valueOf(listMap.get(0).get("LIKE_NUM"))%></a>
+
 								<!-- Post Comments -->
-								
-									<a href="#"><i class="far fa-comment" aria-hidden="true"></i>
-										12</a>
-								
+
+								<a href="#"><i class="far fa-comment" aria-hidden="true"></i>
+									12</a>
+
 								<!-- Post Share -->
+
+								<a href="#"><i class="far fa-smile" aria-hidden="true"></i><%=String.valueOf(listMap.get(0).get("HIT"))%></a> &nbsp;&nbsp;
+								 <a	href="#"><i class="fas fa-share-alt" aria-hidden="true"></i>&nbsp;2</a>
 								
-									<a href="#"><i class="far fa-smile" aria-hidden="true"></i>
-										<%=String.valueOf(listMap.get(0).get("HIT"))%></a>
-								
-								&nbsp;&nbsp;
-								
-									<a href="#"><i class="fas fa-share-alt" aria-hidden="true"></i>&nbsp;2</a>
-								</div>
+								<%
+								if (session.getAttribute("id") != null) { %>
+							<%-- <button type="button" id="btnLike" onclick="confirm('Ï¢ãÏïÑÏöîÎ•º ÎàÑÎ•¥ÏãúÍ≤†ÏäµÎãàÍπå?')?doCall('/maeggiSeggi/recipe/like.do?id=<%=listMap.get(0).get("RECIPE_ID")%>'):false;"><img src="/maeggiSeggi/images/love.png"/></button> --%>
+								<button type="button" id="btnLike" onclick="like('<%=listMap.get(0).get("RECIPE_ID")%>')"> <img src="/maeggiSeggi/images/love.png"/></button>
+								<%
+								} else {
+								%><button type="button" id="btnUnlike" onclick="alert('Î°úÍ∑∏Ïù∏Ïù¥ ÌïÑÏöîÌï©ÎãàÎã§')"><img src="/maeggiSeggi/images/dislike.png"></button>	
+									<%} %>
 							</div>
 						</div>
-						
 					</div>
-
-					<div class="jumbotron">
-						<div style="font-family: nanumSquare_acEB; font-size: 12pt;text-align: justify;">
-							<h4>ø‰∏Æ ∞£¥‹ º“∞≥</h4>
-							<span>"<%=listMap.get(0).get("CONTENT_INTRO")%>"</span><br/><br/> 
-							<div>
-
-								<div>
-									<span><strong>THEME :</strong></span><span><%=listMap.get(0).get("RECIPE_CATEGORY")%></span>&ensp;<br/>
-									<span><strong>CATEGORY :</strong></span><span><%=listMap.get(0).get("FOOD_CATEGORY")%></span><br/>
-									
-									<span><strong>¡∂∏Æ Ω√∞£ :</strong></span><span><%=String.valueOf(listMap.get(0).get("COOK_TIME"))%>∫–</span>&ensp;
-									<span><strong>ƒÆ∑Œ∏Æ:</strong></span> <%=String.valueOf(listMap.get(0).get("KCAL"))%> <span>kcal</span><br/>
-									<span><strong>¿Œ∫– :</strong></span><span><%=String.valueOf(listMap.get(0).get("AMOUNT_PER_PERSON"))%>¿Œ∫–</span>&ensp;
-									<span><strong>øπªÛ ∞°∞›¥Î :</strong> </span><span><%=String.valueOf(listMap.get(0).get("PRICE"))%>ø¯</span>&ensp;
-								</div>
-							</div>
-						</div>
-
-
-						<div style="font-family: nanumSquare_acEB; font-size: 12pt;">
-							<h4>¿Á∑·</h4>
-							<ul>
-
-								<li>±Ëƒ° <strong>0.5</strong> <span> ¬ </span>
-								</li>
-								<li>µŒ∫Œ <strong>1</strong> <span> ∏</span>
-								</li>
-								<li><br /> æÁ∆ƒ <strong>0.5</strong> <span> ∞≥</span></li>
-								<li>∞Ì√ﬂ <strong>1</strong> <span> ∞≥</span>
-								</li>
-							</ul>
-						</div>
-					</div>
-			<form action="">
-		<% if(session.getAttribute("id")!=null){ %>
-					<input type="button" id="add" value="Ωƒ¥‹ø° √ﬂ∞°«œ±‚" onclick="popup()">
-		<% }else{ %>
-			<input type="button" id="add" value="Ωƒ¥‹ø° √ﬂ∞°«œ±‚" onclick="alert('∑Œ±◊¿Œ¿Ã « ø‰«— ±‚¥…¿‘¥œ¥Ÿ.')">
-		<% } %>
-			</form>
-					<hr class="d-sm-none">
 
 				</div>
-			
+
+				<div class="jumbotron">
+					<div
+						style="font-family: nanumSquare_acEB; font-size: 12pt; text-align: justify;">
+						<h4>ÏöîÎ¶¨ Í∞ÑÎã® ÏÜåÍ∞ú</h4>
+						<span>"<%=listMap.get(0).get("CONTENT_INTRO")%>"
+						</span><br />
+						<br />
+						<div>
+
+							<div>
+								<span><strong>THEME :</strong></span><span><%=listMap.get(0).get("RECIPE_CATEGORY")%></span>&ensp;<br />
+								<span><strong>CATEGORY :</strong></span><span><%=listMap.get(0).get("FOOD_CATEGORY")%></span><br />
+
+								<span><strong>Ï°∞Î¶¨ ÏãúÍ∞Ñ :</strong></span><span><%=String.valueOf(listMap.get(0).get("COOK_TIME"))%>Î∂Ñ</span>&ensp;
+								<span><strong>ÏπºÎ°úÎ¶¨:</strong></span>
+								<%=String.valueOf(listMap.get(0).get("KCAL"))%>
+								<span>kcal</span><br /> <span><strong>Ïù∏Î∂Ñ :</strong></span><span><%=String.valueOf(listMap.get(0).get("AMOUNT_PER_PERSON"))%>Ïù∏Î∂Ñ</span>&ensp;
+								<span><strong>ÏòàÏÉÅ Í∞ÄÍ≤©ÎåÄ :</strong> </span><span><%=String.valueOf(listMap.get(0).get("PRICE"))%>Ïõê</span>&ensp;
+							</div>
+						</div>
+					</div>
+
+
+					<div style="font-family: nanumSquare_acEB; font-size: 12pt;">
+						<h4>Ïû¨Î£å</h4>
+						<ul>
+
+							<li>ÍπÄÏπò <strong>0.5</strong> <span> Ï™Ω</span>
+							</li>
+							<li>ÎëêÎ∂Ä <strong>1</strong> <span> Î™®</span>
+							</li>
+							<li><br /> ÏñëÌåå <strong>0.5</strong> <span> Í∞ú</span></li>
+							<li>Í≥†Ï∂î <strong>1</strong> <span> Í∞ú</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<form action="">
+					<%
+						if (session.getAttribute("id") != null) {
+					%>
+					<input type="button" id="add" value="ÏãùÎã®Ïóê Ï∂îÍ∞ÄÌïòÍ∏∞" onclick="popup()">
+					<%
+						} else {
+					%>
+					<input type="button" id="add" value="ÏãùÎã®Ïóê Ï∂îÍ∞ÄÌïòÍ∏∞"
+						onclick="alert('Î°úÍ∑∏Ïù∏Ïù¥ ÌïÑÏöîÌïú Í∏∞Îä•ÏûÖÎãàÎã§.')">
+					<%
+						}
+					%>
+				</form>
+				<hr class="d-sm-none">
+
+			</div>
+
 
 
 			<div class="col-sm-8">
 				<div class="single-post" style="font-family: nanumSquare_acEB;">
-					<h4>ø‰∏Æ º¯º≠</h4>
+					<h4>ÏöîÎ¶¨ ÏàúÏÑú</h4>
 					<div>
-					<ul class="list-group list-group-flush">
-					<% for(int i = 0; i < listMap.size(); i++) {
-						HashMap<String, String> map = listMap.get(i);
-						%>
-						
+						<ul class="list-group list-group-flush">
+							<%
+								for (int i = 0; i < listMap.size(); i++) {
+									HashMap<String, String> map = listMap.get(i);
+							%>
+
 							<li class="list-group-item"><strong><%=String.valueOf(map.get("RECIPE_ORDER_NUM"))%></strong>
-								<%=map.get("RECIPE_DESCRIBE") %>
-								</li><%} %>
-					</ul>
+								<%=map.get("RECIPE_DESCRIBE")%></li>
+							<%
+								}
+							%>
+						</ul>
 					</div>
 				</div>
-				<!--∑πΩ√«« ¡∂∏Æ ∞˙¡§  -->
-                  <div class="container">
-                  		<h4 class="col-sm-4">¡∂∏Æ ∞˙¡§</h4>
-                       <div id="demo" class="carousel slide" data-ride="carousel">
-                          <div class="carousel-inner"> <!-- ΩΩ∂Û¿ÃµÂ ºÓ -->
-                             
-							<% for(int i = 0; i < listMap.size(); i++) {
-								HashMap<String, String> map = listMap.get(i);
-									if(map.get("IMG_URL")!=null){
-										if(i==0){
-										%> <div class="carousel-item active">
-													 <div class="single-post">
-													  <!-- Post Thumb -->
-			                                            <img src="<%=map.get("IMG_URL")%>" alt="∞˙¡§ æ¯¿Ω">
-			                                           	</div>
-				                                        <div class="carousel-caption d-none d-md-block">
-				                                        	<h5><%=map.get("TIP") %></h5>
-													  </div>
-												
-											</div>
-										<%}else{ %> 
-											<div class="carousel-item">
-		                                    	<div class="single-post">
-		                                        <!-- Post Thumb -->
-		                                            <img src="<%=map.get("IMG_URL")%>" alt="∞˙¡§ æ¯¿Ω">
-		                                           </div> 
-			                                        <div class="carousel-caption d-none d-md-block">
-			                                        	<h5><%=map.get("TIP") %></h5>
-													</div>
-		                                    </div>
-		                                    <%
-		                                    }
-										}
-									}%>
-                                 <!-- / ΩΩ∂Û¿ÃµÂ ºÓ ≥° -->
-                                  <!-- øﬁ¬  ø¿∏•¬  »≠ªÏ«• πˆ∆∞ -->
-                                   <a class="carousel-control-prev" href="#demo" data-slide="prev"> 
-                                   		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                   	</a>
-                                    <a class="carousel-control-next" href="#demo" data-slide="next">
-										<span class="carousel-control-next-icon" aria-hidden="true"></span>
-									</a> 
-                                    <!-- / »≠ªÏ«• πˆ∆∞ ≥° --> 
-                                    <!-- ¿Œµƒ…¿Ã≈Õ --> 
-                                    <ul class="carousel-indicators">
-                                    	 <li data-target="#demo" data-slide-to="0" class="active"></li> 
-                                    	 <li data-target="#demo" data-slide-to="1"></li>
-	                                      <li data-target="#demo" data-slide-to="2"></li>
-	                                </ul> <!-- ¿Œµƒ…¿Ã≈Õ ≥° -->
-	                       </div>
-					</div>
-			</div>
-		<!-- Comment Area Start -->
-		<div class="row">
-			<div class="col-12 none" style="float: left;">
-				<h4>
-					<span id="underline">3</span> ¥Ò±€
-				</h4>
-				<ol>
-					<!-- Single Comment Area -->
-					<li class="single_comment_area">
-						<div class="comment-wrapper d-flex">
-							<!-- Comment Meta -->
-							<div class="comment-author">
-								<img src="/maeggiSeggi/images/blog-img/17.jpg" alt="">
+				<!--Î†àÏãúÌîº Ï°∞Î¶¨ Í≥ºÏ†ï  -->
+				<div class="container">
+					<h4 class="col-sm-4">Ï°∞Î¶¨ Í≥ºÏ†ï</h4>
+					<div id="demo" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner">
+							<!-- Ïä¨ÎùºÏù¥Îìú Ïáº -->
+
+							<%
+								for (int i = 0; i < listMap.size(); i++) {
+									HashMap<String, String> map = listMap.get(i);
+									if (map.get("IMG_URL") != null) {
+										if (i == 0) {
+							%>
+							<div class="carousel-item active">
+								<div class="single-post">
+									<!-- Post Thumb -->
+									<img src="<%=map.get("IMG_URL")%>" alt="Í≥ºÏ†ï ÏóÜÏùå">
+								</div>
+								<div class="carousel-caption d-none d-md-block">
+									<h5><%=map.get("TIP")%></h5>
+								</div>
+
 							</div>
-							<!-- Comment Content -->
-							<div class="comment-content">
-								<span class="comment-date text-muted">27 Aug 2018</span>
-								<h5>Brandon Kelley</h5>
-								<p>Neque porro qui squam est, qui dolorem ipsum quia dolor
-									sit amet, consectetur, adipisci velit, sed quia non numquam
-									eius modi tempora.</p>
-								<a href="#">Like</a> <a class="active" href="#">Reply</a>
+							<%
+								} else {
+							%>
+							<div class="carousel-item">
+								<div class="single-post">
+									<!-- Post Thumb -->
+									<img src="<%=map.get("IMG_URL")%>" alt="Í≥ºÏ†ï ÏóÜÏùå">
+								</div>
+								<div class="carousel-caption d-none d-md-block">
+									<h5><%=map.get("TIP")%></h5>
+								</div>
 							</div>
+							<%
+								}
+									}
+								}
+							%>
+							<!-- / Ïä¨ÎùºÏù¥Îìú Ïáº ÎÅù -->
+							<!-- ÏôºÏ™Ω Ïò§Î•∏Ï™Ω ÌôîÏÇ¥Ìëú Î≤ÑÌäº -->
+							<a class="carousel-control-prev" href="#demo" data-slide="prev">
+								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							</a> <a class="carousel-control-next" href="#demo" data-slide="next">
+								<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							</a>
+							<!-- / ÌôîÏÇ¥Ìëú Î≤ÑÌäº ÎÅù -->
+							<!-- Ïù∏ÎîîÏºÄÏù¥ÌÑ∞ -->
+							<ul class="carousel-indicators">
+								<li data-target="#demo" data-slide-to="0" class="active"></li>
+								<li data-target="#demo" data-slide-to="1"></li>
+								<li data-target="#demo" data-slide-to="2"></li>
+							</ul>
+							<!-- Ïù∏ÎîîÏºÄÏù¥ÌÑ∞ ÎÅù -->
 						</div>
-						<ol class="children">
+					</div>
+				</div>
+				<!-- Comment Area Start -->
+				<div class="row">
+					<div class="col-12 none" style="float: left;">
+						<h4>
+							<span id="underline">3</span> ÎåìÍ∏Ä
+						</h4>
+						<ol>
+							<!-- Single Comment Area -->
 							<li class="single_comment_area">
 								<div class="comment-wrapper d-flex">
 									<!-- Comment Meta -->
 									<div class="comment-author">
-										<img src="/maeggiSeggi/images/blog-img/18.jpg" alt="">
+										<img src="/maeggiSeggi/images/blog-img/17.jpg" alt="">
+									</div>
+									<!-- Comment Content -->
+									<div class="comment-content">
+										<span class="comment-date text-muted">27 Aug 2018</span>
+										<h5>Brandon Kelley</h5>
+										<p>Neque porro qui squam est, qui dolorem ipsum quia dolor
+											sit amet, consectetur, adipisci velit, sed quia non numquam
+											eius modi tempora.</p>
+										<a href="#">Like</a> <a class="active" href="#">Reply</a>
+									</div>
+								</div>
+								<ol class="children">
+									<li class="single_comment_area">
+										<div class="comment-wrapper d-flex">
+											<!-- Comment Meta -->
+											<div class="comment-author">
+												<img src="/maeggiSeggi/images/blog-img/18.jpg" alt="">
+											</div>
+											<!-- Comment Content -->
+											<div class="comment-content">
+												<span class="comment-date text-muted">27 Aug 2018</span>
+												<h5>Brandon Kelley</h5>
+												<p>Neque porro qui squam est, qui dolorem ipsum quia
+													dolor sit amet, consectetur, adipisci velit, sed quia non
+													numquam eius modi tempora.</p>
+												<a href="#">Like</a> <a class="active" href="#">Reply</a>
+											</div>
+										</div>
+									</li>
+								</ol>
+							</li>
+							<li class="single_comment_area">
+								<div class="comment-wrapper d-flex">
+									<!-- Comment Meta -->
+									<div class="comment-author">
+										<img src="/maeggiSeggi/images/blog-img/19.jpg" alt="">
 									</div>
 									<!-- Comment Content -->
 									<div class="comment-content">
@@ -258,75 +303,77 @@
 								</div>
 							</li>
 						</ol>
-					</li>
-					<li class="single_comment_area">
-						<div class="comment-wrapper d-flex">
-							<!-- Comment Meta -->
-							<div class="comment-author">
-								<img src="/maeggiSeggi/images/blog-img/19.jpg" alt="">
-							</div>
-							<!-- Comment Content -->
-							<div class="comment-content">
-								<span class="comment-date text-muted">27 Aug 2018</span>
-								<h5>Brandon Kelley</h5>
-								<p>Neque porro qui squam est, qui dolorem ipsum quia dolor
-									sit amet, consectetur, adipisci velit, sed quia non numquam
-									eius modi tempora.</p>
-								<a href="#">Like</a> <a class="active" href="#">Reply</a>
-							</div>
-						</div>
-					</li>
-				</ol>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-	</div>
 		<div class="single-post">
 			<fieldset>
-				<h4>∑πΩ√«« »ƒ±‚</h4>
+				<h4>Î†àÏãúÌîº ÌõÑÍ∏∞</h4>
 				<div>
-					<span>¿¸√º </span> <strong>20</strong> <span>∞«</span>
+					<span>Ï†ÑÏ≤¥ </span> <strong>20</strong> <span>Í±¥</span>
 					<button type="button" class="btn btn-outline-warning btn-sm"
-						style="float: right; margin-bottom: 1%">»ƒ±‚ µÓ∑œ</button>
+						style="float: right; margin-bottom: 1%">ÌõÑÍ∏∞ Îì±Î°ù</button>
 				</div>
 			</fieldset>
-			<table class="table table-hover" summary="π¯»£,≥ªøÎ,±€æ¥¿Ã,µÓ∑œ¿œ∑Œ ±∏º∫µ» ∞‘Ω√∆«">
+			<table class="table table-hover" summary="Î≤àÌò∏,ÎÇ¥Ïö©,Í∏ÄÏì¥Ïù¥,Îì±Î°ùÏùºÎ°ú Íµ¨ÏÑ±Îêú Í≤åÏãúÌåê">
 				<thead>
 					<tr>
-						<th>π¯»£</th>
-						<th>≥ªøÎ</th>
-						<th>±€æ¥¿Ã</th>
-						<th>µÓ∑œ¿œ</th>
+						<th>Î≤àÌò∏</th>
+						<th>ÎÇ¥Ïö©</th>
+						<th>Í∏ÄÏì¥Ïù¥</th>
+						<th>Îì±Î°ùÏùº</th>
 					</tr>
 				</thead>
 				<tr>
 					<td>1</td>
-					<td>≥ π´≥ π´ ∏¿¿÷æÓø‰</td>
-					<td>ø‰∏Æ¡ˆ≈¥¿Ã</td>
+					<td>ÎÑàÎ¨¥ÎÑàÎ¨¥ ÎßõÏûàÏñ¥Ïöî</td>
+					<td>ÏöîÎ¶¨ÏßÄÌÇ¥Ïù¥</td>
 					<td>20-01-22</td>
 				</tr>
 				<tr>
 					<td>2</td>
-					<td>π‰¿Ã∂˚ ∏‘¿∏¥œ ø‰∏Æ∞° ¿œ«∞</td>
-					<td>π‰ºˆ¥œ</td>
+					<td>Î∞•Ïù¥Îûë Î®πÏúºÎãà ÏöîÎ¶¨Í∞Ä ÏùºÌíà</td>
+					<td>Î∞•ÏàòÎãà</td>
 					<td>20-01-18</td>
 				</tr>
 				<tr>
 					<td>3</td>
-					<td>»•¿⁄ ∏‘±‚ æ∆Ω¨øÓ ø‰∏Æ §Ã§Ã</td>
-					<td>¿⁄√Îª˝</td>
+					<td>ÌòºÏûê Î®πÍ∏∞ ÏïÑÏâ¨Ïö¥ ÏöîÎ¶¨ „Öú„Öú</td>
+					<td>ÏûêÏ∑®ÏÉù</td>
 					<td>20-01-14</td>
 				</tr>
 			</table>
 			<br />
 		</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script> 
-$('.carousel').carousel({
-	interval: 2000 
-	//±‚∫ª 5√  
-	}) 
-</script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"></script>
+		<script>
+			$('.carousel').carousel({
+				interval : 2000
+			//Í∏∞Î≥∏ 5Ï¥à 
+			})
+			
+	/* 		$(document).ready(function(){
+			$("#btnLike").click( */
+				function like(id){ 
+				alert(id)
+				var result = confirm('Ìï¥Îãπ Î†àÏãúÌîºÎ•º Ï¢ãÏïÑÏöî ÎàÑÎ•¥ÏãúÍ≤†ÏäµÎãàÍπå?');
+				if(result){
+						location.href= "/maeggiSeggi/recipe/like.do?id="+id;
+						//document.submit();
+				} else {
+					return;
+				}
+				
+			} ;
+		
+		</script>
 </body>
 </html>

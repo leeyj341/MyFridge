@@ -1,12 +1,12 @@
 <%@page import="maeggi.seggi.recipe.RecipeVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <meta name="description" content="">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -58,10 +58,10 @@
 					<div class="form-group">
 						<div class="input-group">
 							<input type="text" name="recipe_search" id="recipe_search" class="form-control"
-								placeholder="°Ë»ö¾î¸¦ ÀÔ·ÂÇÏ¼¼¿ä." style="font-size: 20pt;">
+								placeholder="ê²€ìƒ‰ì–´ë¥¼ ì…ë ¥í•˜ì„¸ìš”." style="font-size: 20pt;">
 
-							<input type="button" id="search" class="ion-search" name="read" value="°Ë»ö" onclick="getbyname()">
-							<!-- 	°Ë»ö <i class="ion-search"></i> -->
+							<input type="button" id="search" class="ion-search" name="read" value="ê²€ìƒ‰" onclick="getbyname()">
+							<!-- 	ê²€ìƒ‰ <i class="ion-search"></i> -->
 							
 
 						</div>
@@ -78,27 +78,27 @@
 				<div class="optionbox">
 					<form class="checkbox-group" active="">
 						<div id="check">
-							<div id="title">Å×¸¶º°</div>
+							<div id="title">í…Œë§ˆë³„</div>
 							<div class="form-group">
 								<label><input type="radio" name="category" id="checkVal"
 									value="all" checked>All</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="category" value="ÇÑ½Ä">ÇÑ½Ä</label>
+								<label><input type="radio" name="category" value="í•œì‹">í•œì‹</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="category" value="Ç»Àü">
-									Ç»Àü</label>
+								<label><input type="radio" name="category" value="í“¨ì „">
+									í“¨ì „</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="category" value="¼­¾çÀÌÅ»¸®¾Æ"> ¼­¾çÀÌÅ»¸®¾Æ</label>
+								<label><input type="radio" name="category" value="ì„œì–‘ì´íƒˆë¦¬ì•„"> ì„œì–‘ì´íƒˆë¦¬ì•„</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="category" value="Áß±¹/µ¿³²¾Æ½Ã¾Æ"> Áß±¹ /µ¿³²¾Æ½Ã¾Æ</label>
+								<label><input type="radio" name="category" value="ì¤‘êµ­/ë™ë‚¨ì•„ì‹œì•„"> ì¤‘êµ­ /ë™ë‚¨ì•„ì‹œì•„</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="category" value="ÀÏº»">
-									ÀÏº»</label>
+								<label><input type="radio" name="category" value="ì¼ë³¸">
+									ì¼ë³¸</label>
 							</div>
 						</div>
 						<br>
@@ -109,7 +109,7 @@
 			</div>
 			<div class="col-sm-9">
 				<div style="font-size: 20pt; float: left;width=100%">
-					<div class="nav-tabs-right">
+<!-- 					<div class="nav-tabs-right">
 						<select class="form-control" id="contentnum" name="contentnum">
 							<option>Limit</option>
 							<option value="10">10</option>
@@ -117,9 +117,9 @@
 							<option value="50">50</option>
 							<option value="100">100</option>
 						</select>
-					</div>
+					</div> -->
 					<div class="search-result">
-						<span id="underline">°Ë»ö¾î</span>(À¸)·Î Á¶È¸µÈ °á°ú´Â <span id="Scount">0</span> °³ ÀÔ´Ï´Ù.
+						<span id="underline">ê²€ìƒ‰ì–´</span>(ìœ¼)ë¡œ ì¡°íšŒëœ ê²°ê³¼ëŠ” <span id="Scount">0</span> ê°œ ì…ë‹ˆë‹¤.
 					</div>
 
 
@@ -156,7 +156,7 @@
 						</div>
 					</c:forEach>
 					</div>
-	
+				<div style="text-align: center;">
 					<c:if test="${page.prev}">
 						<a style="text-decoration: none;" href="javascript:page(${page.getStartPage()-1 });">&laquo;</a>
 					</c:if>
@@ -166,6 +166,7 @@
 					<c:if test="${page.next}">
 						<a style="text-decoration: none;" href="javascript:page(${page.getEndPage()+1 });">&raquo;</a>
 					</c:if>
+					</div>
 				</div>
 			</div>
 			<hr class="d-sm-none">
@@ -175,9 +176,9 @@
 	<script type="text/javascript">
 	function page(idx){
 		var pagenum = idx;
-		alert(pagenum)
-	//	var contentnum =$("#contentnum option:selected").val();
-		location.href="/maeggiSeggi/recipe/search.do?pagenum="+pagenum+"&contentnum="+contentnum;
+		//alert(pagenum)
+		//var contentnum =$("#contentnum option").is(":selected").val();
+		location.href="/maeggiSeggi/recipe/searchRecipe.do?pagenum="+pagenum+"&contentnum=9";
 	}
 		var serviceType;
 
@@ -234,6 +235,7 @@
 																								
 
 																					}
+																					
 																					$("#main").empty();
 																					$("#main").append(mydata);
 																					

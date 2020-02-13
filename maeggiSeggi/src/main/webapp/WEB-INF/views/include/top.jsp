@@ -10,13 +10,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	 <!-- Favicon -->
-    <link rel="icon" href="/maeggiSeggi/images/core-img/favicon.ico">
+    <link rel="icon" href="/maeggiSeggi/common/images/core-img/favicon.ico">
     <!-- Core Stylesheet -->
     <link href="/maeggiSeggi/common/css/style.css" rel="stylesheet">
     <!-- Responsive CSS -->
     <link href="/maeggiSeggi/common/css/responsive/responsive.css" rel="stylesheet">
     <!-- Jquery-2.2.4 js -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <!-- Popper js -->
     <script src="/maeggiSeggi/common/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap-4 js -->
@@ -39,14 +39,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-5 col-sm-6">
-                    <!--  Top Social bar start -->
-                    <div class="top_social_bar">
-                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                    </div>
+                     <!--  Top Social bar start -->
+                   <!-- <div class="top_social_bar">
+                        <a href="#"><i class="fas fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fas fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fas fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fas fa-skype" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fas-dribbble" aria-hidden="true"></i></a>
+                    </div> -->
                 </div>
                 <!--  Login Register Area -->
                 <div class="col-7 col-sm-6">
