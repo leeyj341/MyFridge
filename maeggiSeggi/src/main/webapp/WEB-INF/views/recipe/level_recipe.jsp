@@ -108,7 +108,7 @@ section {
 				                        +"<div class='post-author-date-area d-flex'>"
 				                           <!-- Post Author -->
 				                           +"<div class='post-author'>"
-				                              +"<a href='#'>By ������</a>"
+				                              +"<a href='#'>By 융또융</a>"
 				                           +"</div>"
 				                           <!-- Post Date -->
 				                           +"<div class='post-date'>"
@@ -176,7 +176,7 @@ section {
 				                        +"<div class='post-author-date-area d-flex'>"
 				                           <!-- Post Author -->
 				                           +"<div class='post-author'>"
-				                              +"<a href='#'>By ������</a>"
+				                              +"<a href='#'>By 융또융</a>"
 				                           +"</div>"
 				                           <!-- Post Date -->
 				                           +"<div class='post-date'>"
@@ -244,7 +244,7 @@ section {
 				                        +"<div class='post-author-date-area d-flex'>"
 				                           <!-- Post Author -->
 				                           +"<div class='post-author'>"
-				                              +"<a href='#'>By ������</a>"
+				                              +"<a href='#'>By 융또융</a>"
 				                           +"</div>"
 				                           <!-- Post Date -->
 				                           +"<div class='post-date'>"

@@ -8,7 +8,7 @@ window.onload = function() {
 	//현재 위치 기반 지도 생성
 	createMap();
 	// 키워드로 장소를 검색합니다
-	document.getElementById("sendkey").onclick = searchPlaces;
+	searchPlaces();
 }
 
 
@@ -192,7 +192,7 @@ function getListItem(index, places) {
     			mydata="";
     			for (var i = 0; i < data.length; i++) {
 					mydata = mydata+
-						"<tr><td class='scon' style=''>"+data[i].title+"<br/>"+"<a href="+data[i].link+">"+data[i].link+"</a>"+"<br/>"+data[i].category+"<br/>"+data[i].description+"<br/>"+data[i].telephone+"<br/>"+data[i].address
+						"<tr><td class='side' style=''>"+data[i].title+"<br/>"+"<a href="+data[i].link+">"+data[i].link+"</a>"+"<br/>"+data[i].category+"<br/>"+data[i].description+"<br/>"+data[i].telephone+"<br/>"+data[i].address
 						+"</td></tr>"
 				}
     			$("#sch").empty();

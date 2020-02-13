@@ -23,6 +23,7 @@
 
 <!-- 지도 css -->
 <link href="/maeggiSeggi/common/css/map.css" rel="stylesheet">
+<link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
 
 <!-- 지도 js -->
 <script src="/maeggiSeggi/common/js/map2.js"></script>
@@ -68,12 +69,21 @@
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
 }
+.side {
+   font-family: PapyrusM;
+   font-size: 20pt;
+}
+#underline{
+	color: #FC6C3F;
+	font-size: 27pt;
+}
 </style>
 
 </head>
 
 <body>
 	<% String today = (String)request.getAttribute("today"); %>
+	<% String food = (String)request.getAttribute("food"); %>
 	<!-- ****** Categories Area Start ****** -->
 	<section class="categories_area clearfix" id="about">
 		<div class="container">
@@ -124,7 +134,7 @@
 											<div class="option">
 												<div>
 													<form onsubmit="; return false;">
-														키워드 : <input type="text" value="<%= today %>" id="keyword"
+														키워드 : <input type="text" value="<%= food %>" id="keyword"
 															size="15">
 														<button id="sendkey" type="submit">검색</button>
 													</form>
@@ -160,9 +170,12 @@
 					<!-- Single Widget Area -->
 					<div class="single-widget-area about-me-widget text-center">
 						<div class="widget-title">
-							<table id="sch" width="370">
+							<table id="sch" width="370" style="word-break:break-all">
 								<tr>
-									<td class="scon" style="">식당정보</td>
+									<td class="side" style="">식당정보</td>
+								</tr>
+								<tr>
+									<td class="side" style="">현재 날씨에 맞는 추천 메뉴는 <span id="underline"><%= food %></span>입니다.</td>
 								</tr>
 							</table>
 						</div>
