@@ -1,6 +1,8 @@
 <%@page import="maeggi.seggi.loginandcustomer.memberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -148,9 +150,19 @@
                                 </li>
                             
                                 
-                                <li class="nav-item">
+                                    <!--  choose when otherwise 를 이용하여 아이디가 manager 일 경우 MANAGEMODE a태그를 생성한다. -->
+                       <%--      <c:set var = "loginid" value = "${session.getAttribute('id')}"/>
+                            <c:choose>
+							<c:when test= "${loginid == 'manager'}" >
+							  <li class="nav-item">
                                     <a class="nav-link" href="#">MANAGEMODE</a>
                                 </li>
+							</c:when>
+							<!--  이 밑에는 로그인 된 아이디가 manager가 아닐때 나타날 것을 표시 -->
+							<c:otherwise>
+							<span></span>
+							</c:otherwise>
+							</c:choose> --%>
                             </ul>
                         </div>
                     </nav>

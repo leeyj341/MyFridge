@@ -14,7 +14,6 @@ public class mealPlannerVO {
 	public mealPlannerVO() {
 		
 	}
-
 	
 
 	public mealPlannerVO(String meal_planner_id, String meal_name, Date planner_regdate, String planner_date,

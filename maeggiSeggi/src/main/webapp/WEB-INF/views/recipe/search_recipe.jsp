@@ -1,12 +1,12 @@
 <%@page import="maeggi.seggi.recipe.RecipeVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <meta name="description" content="">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -58,10 +58,10 @@
 					<div class="form-group">
 						<div class="input-group">
 							<input type="text" name="recipe_search" id="recipe_search" class="form-control"
-								placeholder="�˻�� �Է��ϼ���." style="font-size: 20pt;">
+								placeholder="검색어를 입력하세요." style="font-size: 20pt;">
 
-							<input type="button" id="search" class="ion-search" name="read" value="�˻�" onclick="getbyname()">
-							<!-- 	�˻� <i class="ion-search"></i> -->
+							<input type="button" id="search" class="ion-search" name="read" value="검색" onclick="getbyname()">
+							<!-- 	검색 <i class="ion-search"></i> -->
 							
 
 						</div>
@@ -78,27 +78,27 @@
 				<div class="optionbox">
 					<form class="checkbox-group" active="">
 						<div id="check">
-							<div id="title">�׸���</div>
+							<div id="title">테마별</div>
 							<div class="form-group">
 								<label><input type="radio" name="category" id="checkVal"
 									value="all" checked>All</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="category" value="�ѽ�">�ѽ�</label>
+								<label><input type="radio" name="category" value="한식">한식</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="category" value="ǻ��">
-									ǻ��</label>
+								<label><input type="radio" name="category" value="퓨전">
+									퓨전</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="category" value="������Ż����"> ������Ż����</label>
+								<label><input type="radio" name="category" value="서양이탈리아"> 서양이탈리아</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="category" value="�߱�/�����ƽþ�"> �߱� /�����ƽþ�</label>
+								<label><input type="radio" name="category" value="중국/동남아시아"> 중국 /동남아시아</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="category" value="�Ϻ�">
-									�Ϻ�</label>
+								<label><input type="radio" name="category" value="일본">
+									일본</label>
 							</div>
 						</div>
 						<br>
@@ -119,7 +119,7 @@
 						</select>
 					</div>
 					<div class="search-result">
-						<span id="underline">�˻���</span>(��)�� ��ȸ�� ����� <span id="Scount">0</span> �� �Դϴ�.
+						<span id="underline">검색어</span>(으)로 조회된 결과는 <span id="Scount">0</span> 개 입니다.
 					</div>
 
 

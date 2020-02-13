@@ -36,5 +36,9 @@
 		<put-attribute name="content" value="/WEB-INF/views/mypage/ask_modify.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="mypage/example" extends="maeggiTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/mypage/.jsp"></put-attribute>
+	</definition>
+	
 	
 </tiles-definitions>   
