@@ -113,9 +113,10 @@ $(document).ready(function() {
 			style="background-color: lavenderblush; height: 800px;">
 			<h4>[주간 식단에 추가하기]</h4>
 			<h3><%=mealinfo.getName()%></h3>
-			<form action="/maeggiSeggi/mealPlanner/insert.do" name="mypopup" method="POST">
+			<form action="/maeggiSeggi/mealPlanner/insert.do" name="mypopup" method="POST" accept-charset="UTF-8">
 				<%
 					Calendar today = Calendar.getInstance();
+					int year = today.get(Calendar.YEAR);
 					int month = today.get(Calendar.MONTH) + 1;
 					int date = today.get(Calendar.DATE);
 				%>
@@ -123,13 +124,13 @@ $(document).ready(function() {
 				<div>
 					<select name="planner_date">
 						<option value="" disabled selected>=== 등록할 날짜 선택 ===</option>
-						<option value="<%= month %>월 <%= date+0 %>일"><%= month %>월 <%= date+0 %>일</option>
-						<option value="<%= month %>월 <%= date+1 %>일"><%= month %>월 <%= date+1 %>일</option>
-						<option value="<%= month %>월 <%= date+2 %>일"><%= month %>월 <%= date+2 %>일</option>
-						<option value="<%= month %>월 <%= date+3 %>일"><%= month %>월 <%= date+3 %>일</option>
-						<option value="<%= month %>월 <%= date+4 %>일"><%= month %>월 <%= date+4 %>일</option>
-						<option value="<%= month %>월 <%= date+5 %>일"><%= month %>월 <%= date+5 %>일</option>
-						<option value="<%= month %>월 <%= date+6 %>일"><%= month %>월 <%= date+6 %>일</option>
+						<option value="<%= year %>-<%= month %>-<%= date+0 %>"><%= year %>-<%= month %>월 <%= date+0 %>일</option>
+						<option value="<%= year %>-<%= month %>-<%= date+1 %>"><%= year %>-<%= month %>월 <%= date+1 %>일</option>
+						<option value="<%= year %>-<%= month %>-<%= date+2 %>"><%= year %>-<%= month %>월 <%= date+2 %>일</option>
+						<option value="<%= year %>-<%= month %>-<%= date+3 %>"><%= year %>-<%= month %>월 <%= date+3 %>일</option>
+						<option value="<%= year %>-<%= month %>-<%= date+4 %>"><%= year %>-<%= month %>월 <%= date+4 %>일</option>
+						<option value="<%= year %>-<%= month %>-<%= date+5 %>"><%= year %>-<%= month %>월 <%= date+5 %>일</option>
+						<option value="<%= year %>-<%= month %>-<%= date+6 %>"><%= year %>-<%= month %>월 <%= date+6 %>일</option>
 					</select>
 				</div>
 				<!-- 식단추가 컨트롤러로 식단 아침,점심,저녁  전송 하는 곳  -->

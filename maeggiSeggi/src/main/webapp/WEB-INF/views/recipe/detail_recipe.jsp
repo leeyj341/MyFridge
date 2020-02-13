@@ -5,12 +5,12 @@
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="maeggi.seggi.recipe.RecipeVO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <meta name="description" content="">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -66,7 +66,7 @@
 							<div class="post-author-date-area d-flex">
 								<!-- Post Author -->
 								<div class="post-author">
-									<a href="#">ÀÛ¼ºÀÚ : <%=listMap.get(0).get("MEMBER_ID")%></a>
+									<a href="#">ìž‘ì„±ìž : <%=listMap.get(0).get("MEMBER_ID")%></a>
 								</div>
 								<!-- Post Date -->
 							<div class="post-date"> 
@@ -104,7 +104,7 @@
 
 					<div class="jumbotron">
 						<div style="font-family: nanumSquare_acEB; font-size: 12pt;text-align: justify;">
-							<h4>¿ä¸® °£´Ü ¼Ò°³</h4>
+							<h4>ìš”ë¦¬ ê°„ë‹¨ ì†Œê°œ</h4>
 							<span>"<%=listMap.get(0).get("CONTENT_INTRO")%>"</span><br/><br/> 
 							<div>
 
@@ -112,45 +112,51 @@
 									<span><strong>THEME :</strong></span><span><%=listMap.get(0).get("RECIPE_CATEGORY")%></span>&ensp;<br/>
 									<span><strong>CATEGORY :</strong></span><span><%=listMap.get(0).get("FOOD_CATEGORY")%></span><br/>
 									
-									<span><strong>Á¶¸® ½Ã°£ :</strong></span><span><%=String.valueOf(listMap.get(0).get("COOK_TIME"))%>ºÐ</span>&ensp;
-									<span><strong>Ä®·Î¸®:</strong></span> <%=String.valueOf(listMap.get(0).get("KCAL"))%> <span>kcal</span><br/>
-									<span><strong>ÀÎºÐ :</strong></span><span><%=String.valueOf(listMap.get(0).get("AMOUNT_PER_PERSON"))%>ÀÎºÐ</span>&ensp;
-									<span><strong>¿¹»ó °¡°Ý´ë :</strong> </span><span><%=String.valueOf(listMap.get(0).get("PRICE"))%>¿ø</span>&ensp;
+									<span><strong>ì¡°ë¦¬ ì‹œê°„ :</strong></span><span><%=String.valueOf(listMap.get(0).get("COOK_TIME"))%>ë¶„</span>&ensp;
+									<span><strong>ì¹¼ë¡œë¦¬:</strong></span> <%=String.valueOf(listMap.get(0).get("KCAL"))%> <span>kcal</span><br/>
+									<span><strong>ì¸ë¶„ :</strong></span><span><%=String.valueOf(listMap.get(0).get("AMOUNT_PER_PERSON"))%>ì¸ë¶„</span>&ensp;
+									<span><strong>ì˜ˆìƒ ê°€ê²©ëŒ€ :</strong> </span><span><%=String.valueOf(listMap.get(0).get("PRICE"))%>ì›</span>&ensp;
 								</div>
 							</div>
 						</div>
 
 
 						<div style="font-family: nanumSquare_acEB; font-size: 12pt;">
-							<h4>Àç·á</h4>
+							<h4>ìž¬ë£Œ</h4>
 							<ul>
 
-								<li>±èÄ¡ <strong>0.5</strong> <span> ÂÊ</span>
+								<li>ê¹€ì¹˜ <strong>0.5</strong> <span> ìª½</span>
 								</li>
-								<li>µÎºÎ <strong>1</strong> <span> ¸ð</span>
+								<li>ë‘ë¶€ <strong>1</strong> <span> ëª¨</span>
 								</li>
-								<li><br /> ¾çÆÄ <strong>0.5</strong> <span> °³</span></li>
-								<li>°íÃß <strong>1</strong> <span> °³</span>
+								<li><br /> ì–‘íŒŒ <strong>0.5</strong> <span> ê°œ</span></li>
+								<li>ê³ ì¶” <strong>1</strong> <span> ê°œ</span>
 								</li>
 							</ul>
 						</div>
 					</div>
 			<form action="">
 		<% if(session.getAttribute("id")!=null){ %>
-					<input type="button" id="add" value="½Ä´Ü¿¡ Ãß°¡ÇÏ±â" onclick="popup()">
+					<input type="button" id="add" value="ì‹ë‹¨ì— ì¶”ê°€í•˜ê¸°" onclick="popup(<%=listMap.get(0).get("RECIPE_ID")%>)">
 		<% }else{ %>
-			<input type="button" id="add" value="½Ä´Ü¿¡ Ãß°¡ÇÏ±â" onclick="alert('·Î±×ÀÎÀÌ ÇÊ¿äÇÑ ±â´ÉÀÔ´Ï´Ù.')">
+			<input type="button" id="add" value="ì‹ë‹¨ì— ì¶”ê°€í•˜ê¸°" onclick="alert('ë¡œê·¸ì¸ì´ í•„ìš”í•œ ê¸°ëŠ¥ìž…ë‹ˆë‹¤.')">
 		<% } %>
 			</form>
-					<hr class="d-sm-none">
-
-				</div>
 			
-
-
+			<script type="text/javascript">
+	function popup(rere) {
+		  window
+			.open(
+					"/maeggiSeggi/recipe/addPlanner.do?id="+rere,
+					"ì‹ë‹¨ ê´€ë¦¬",
+					"top=100, left=450, width=700, height=450, status=no, menubar=no, toolbar=no, resizable=no");
+	}
+		</script>
+					<hr class="d-sm-none">
+				</div>
 			<div class="col-sm-8">
 				<div class="single-post" style="font-family: nanumSquare_acEB;">
-					<h4>¿ä¸® ¼ø¼­</h4>
+					<h4>ìš”ë¦¬ ìˆœì„œ</h4>
 					<div>
 					<ul class="list-group list-group-flush">
 					<% for(int i = 0; i < listMap.size(); i++) {
@@ -163,11 +169,11 @@
 					</ul>
 					</div>
 				</div>
-				<!--·¹½ÃÇÇ Á¶¸® °úÁ¤  -->
+				<!--ë ˆì‹œí”¼ ì¡°ë¦¬ ê³¼ì •  -->
                   <div class="container">
-                  		<h4 class="col-sm-4">Á¶¸® °úÁ¤</h4>
+                  		<h4 class="col-sm-4">ì¡°ë¦¬ ê³¼ì •</h4>
                        <div id="demo" class="carousel slide" data-ride="carousel">
-                          <div class="carousel-inner"> <!-- ½½¶óÀÌµå ¼î -->
+                          <div class="carousel-inner"> <!-- ìŠ¬ë¼ì´ë“œ ì‡¼ -->
                              
 							<% for(int i = 0; i < listMap.size(); i++) {
 								HashMap<String, String> map = listMap.get(i);
@@ -176,7 +182,7 @@
 										%> <div class="carousel-item active">
 													 <div class="single-post">
 													  <!-- Post Thumb -->
-			                                            <img src="<%=map.get("IMG_URL")%>" alt="°úÁ¤ ¾øÀ½">
+			                                            <img src="<%=map.get("IMG_URL")%>" alt="ê³¼ì • ì—†ìŒ">
 			                                           	</div>
 				                                        <div class="carousel-caption d-none d-md-block">
 				                                        	<h5><%=map.get("TIP") %></h5>
@@ -187,7 +193,7 @@
 											<div class="carousel-item">
 		                                    	<div class="single-post">
 		                                        <!-- Post Thumb -->
-		                                            <img src="<%=map.get("IMG_URL")%>" alt="°úÁ¤ ¾øÀ½">
+		                                            <img src="<%=map.get("IMG_URL")%>" alt="ê³¼ì • ì—†ìŒ">
 		                                           </div> 
 			                                        <div class="carousel-caption d-none d-md-block">
 			                                        	<h5><%=map.get("TIP") %></h5>
@@ -197,21 +203,21 @@
 		                                    }
 										}
 									}%>
-                                 <!-- / ½½¶óÀÌµå ¼î ³¡ -->
-                                  <!-- ¿ÞÂÊ ¿À¸¥ÂÊ È­»ìÇ¥ ¹öÆ° -->
+                                 <!-- / ìŠ¬ë¼ì´ë“œ ì‡¼ ë -->
+                                  <!-- ì™¼ìª½ ì˜¤ë¥¸ìª½ í™”ì‚´í‘œ ë²„íŠ¼ -->
                                    <a class="carousel-control-prev" href="#demo" data-slide="prev"> 
                                    		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                    	</a>
                                     <a class="carousel-control-next" href="#demo" data-slide="next">
 										<span class="carousel-control-next-icon" aria-hidden="true"></span>
 									</a> 
-                                    <!-- / È­»ìÇ¥ ¹öÆ° ³¡ --> 
-                                    <!-- ÀÎµðÄÉÀÌÅÍ --> 
+                                    <!-- / í™”ì‚´í‘œ ë²„íŠ¼ ë --> 
+                                    <!-- ì¸ë””ì¼€ì´í„° --> 
                                     <ul class="carousel-indicators">
                                     	 <li data-target="#demo" data-slide-to="0" class="active"></li> 
                                     	 <li data-target="#demo" data-slide-to="1"></li>
 	                                      <li data-target="#demo" data-slide-to="2"></li>
-	                                </ul> <!-- ÀÎµðÄÉÀÌÅÍ ³¡ -->
+	                                </ul> <!-- ì¸ë””ì¼€ì´í„° ë -->
 	                       </div>
 					</div>
 			</div>
@@ -219,7 +225,7 @@
 		<div class="row">
 			<div class="col-12 none" style="float: left;">
 				<h4>
-					<span id="underline">3</span> ´ñ±Û
+					<span id="underline">3</span> ëŒ“ê¸€
 				</h4>
 				<ol>
 					<!-- Single Comment Area -->
@@ -283,38 +289,38 @@
 	</div>
 		<div class="single-post">
 			<fieldset>
-				<h4>·¹½ÃÇÇ ÈÄ±â</h4>
+				<h4>ë ˆì‹œí”¼ í›„ê¸°</h4>
 				<div>
-					<span>ÀüÃ¼ </span> <strong>20</strong> <span>°Ç</span>
+					<span>ì „ì²´ </span> <strong>20</strong> <span>ê±´</span>
 					<button type="button" class="btn btn-outline-warning btn-sm"
-						style="float: right; margin-bottom: 1%">ÈÄ±â µî·Ï</button>
+						style="float: right; margin-bottom: 1%">í›„ê¸° ë“±ë¡</button>
 				</div>
 			</fieldset>
-			<table class="table table-hover" summary="¹øÈ£,³»¿ë,±Û¾´ÀÌ,µî·ÏÀÏ·Î ±¸¼ºµÈ °Ô½ÃÆÇ">
+			<table class="table table-hover" summary="ë²ˆí˜¸,ë‚´ìš©,ê¸€ì“´ì´,ë“±ë¡ì¼ë¡œ êµ¬ì„±ëœ ê²Œì‹œíŒ">
 				<thead>
 					<tr>
-						<th>¹øÈ£</th>
-						<th>³»¿ë</th>
-						<th>±Û¾´ÀÌ</th>
-						<th>µî·ÏÀÏ</th>
+						<th>ë²ˆí˜¸</th>
+						<th>ë‚´ìš©</th>
+						<th>ê¸€ì“´ì´</th>
+						<th>ë“±ë¡ì¼</th>
 					</tr>
 				</thead>
 				<tr>
 					<td>1</td>
-					<td>³Ê¹«³Ê¹« ¸ÀÀÖ¾î¿ä</td>
-					<td>¿ä¸®ÁöÅ´ÀÌ</td>
+					<td>ë„ˆë¬´ë„ˆë¬´ ë§›ìžˆì–´ìš”</td>
+					<td>ìš”ë¦¬ì§€í‚´ì´</td>
 					<td>20-01-22</td>
 				</tr>
 				<tr>
 					<td>2</td>
-					<td>¹äÀÌ¶û ¸ÔÀ¸´Ï ¿ä¸®°¡ ÀÏÇ°</td>
-					<td>¹ä¼ö´Ï</td>
+					<td>ë°¥ì´ëž‘ ë¨¹ìœ¼ë‹ˆ ìš”ë¦¬ê°€ ì¼í’ˆ</td>
+					<td>ë°¥ìˆ˜ë‹ˆ</td>
 					<td>20-01-18</td>
 				</tr>
 				<tr>
 					<td>3</td>
-					<td>È¥ÀÚ ¸Ô±â ¾Æ½¬¿î ¿ä¸® ¤Ì¤Ì</td>
-					<td>ÀÚÃë»ý</td>
+					<td>í˜¼ìž ë¨¹ê¸° ì•„ì‰¬ìš´ ìš”ë¦¬ ã…œã…œ</td>
+					<td>ìžì·¨ìƒ</td>
 					<td>20-01-14</td>
 				</tr>
 			</table>
@@ -325,7 +331,7 @@
 <script> 
 $('.carousel').carousel({
 	interval: 2000 
-	//±âº» 5ÃÊ 
+	//ê¸°ë³¸ 5ì´ˆ 
 	}) 
 </script>
 </body>

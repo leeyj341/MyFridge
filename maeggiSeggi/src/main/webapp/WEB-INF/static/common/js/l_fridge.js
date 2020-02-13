@@ -52,7 +52,8 @@ $(document).ready(function() {
 				//url:"/maeggiSeggi/"
 			})
 		})
-	})
+	});
+	
 });
 
 function wow_default_alert(msg) {
