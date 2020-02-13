@@ -182,7 +182,7 @@
 	}
 		</script>
 					<hr class="d-sm-none">
-
+				</div>
 
 
 			<div class="col-sm-8">

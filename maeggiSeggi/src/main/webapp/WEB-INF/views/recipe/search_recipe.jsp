@@ -156,7 +156,7 @@
 						</div>
 					</c:forEach>
 					</div>
-				<div style="text-align: center;">
+				<div style="text-align: center;clear:both;">
 					<c:if test="${page.prev}">
 						<a style="text-decoration: none;" href="javascript:page(${page.getStartPage()-1 });">&laquo;</a>
 					</c:if>
@@ -243,7 +243,5 @@
 
 		
 	</script>
-
-
 </body>
 </html>

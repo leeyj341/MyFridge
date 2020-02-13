@@ -8,7 +8,7 @@ window.onload = function() {
 	//현재 위치 기반 지도 생성
 	createMap();
 	// 키워드로 장소를 검색합니다
-	document.getElementById("sendkey").onclick = searchPlaces;
+	searchPlaces();
 }
 
 

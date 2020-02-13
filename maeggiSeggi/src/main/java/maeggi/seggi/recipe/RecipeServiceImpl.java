@@ -132,4 +132,16 @@ public class RecipeServiceImpl implements RecipeService {
 		dao.like(recipe_id);
 	}
 
+
+	@Override
+	public List<RecipeVO> hitlist(String hit) {
+		return dao.hitlist(hit);
+	}
+
+
+	@Override
+	public List<NutrientVO> drunklist(String dname) {
+		return dao.drunklist(dname);
+	}
+
 }

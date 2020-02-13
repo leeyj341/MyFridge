@@ -57,7 +57,12 @@
 		where r.recipe_id=d.recipe_id and r.recipe_id=#{recipe_id}
         order by d.recipe_order_num
 	</select>
-	
+	<!-- 핫한 요리 (조회수) -->
+	<select id = "hitRecipe" resultType="recipe" parameterType="String">
+		select * from
+		(select * from recipe)
+		order by hit desc
+	</select>
 	<!-- 난이도별 조회 -->
   	<select id="levelRecipe" resultType="recipe" parameterType="String">
   		select * from	
@@ -65,7 +70,12 @@
   		where cook_level=#{cook_level}
   		order by dbms_random.random())
   	</select>
-	
+	<!-- 테마별 요리 -->
+	<select id="drunkRecipe" resultType="maeggi.seggi.recipe.NutrientVO" parameterType="String">
+		 <![CDATA[
+		select substrb(name,0,6) as dname from food_nutrient where rownum<=10 order by vitaminb
+		 ]]>
+	</select>
 	<resultMap type="Map" id="detailMap">
 		<result column="recipe_id" property="id"/>
 		<result column="name" property="name"/>

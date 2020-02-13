@@ -37,5 +37,4 @@ public class RecipeFavoriteController {
 		ArrayList<HashMap<String, String>> listMap = (ArrayList<HashMap<String, String>>)service.selectByRecipeName(member_id, name);
 		return listMap;
 	}
-	
 }

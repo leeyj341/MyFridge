@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 public class mealPlannerDAOImpl implements mealPlannerDAO{
 	@Autowired
 	SqlSession SqlSession;
-	
+	 
 	@Override
 	public List<mealPlannerVO> mealSelect(mealPlannerVO meal) {
 		return SqlSession.selectList("maeggi.seggi.meal.mealPlan", meal);
@@ -23,7 +23,7 @@ public class mealPlannerDAOImpl implements mealPlannerDAO{
 
 	//칼로리 계산
 	@Override
-	public int kcalsum(mealPlannerVO date) {
+	public int kcalsum(String date) {
 		return SqlSession.selectOne("maeggi.seggi.meal.mealKcal", date);
 	}
 	

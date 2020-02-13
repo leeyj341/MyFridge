@@ -23,10 +23,7 @@ public class RecipeController {
 	@Autowired
 	RecipeService service;
 	//private RecipeDAO mapper;
-	@RequestMapping("/recipe/main.do")
-	public String recipe() {
-		return "main";
-	}
+
 	@RequestMapping("/recipe/themeRecipe.do")
 	public String theme() {
 		return "theme";
@@ -95,7 +92,7 @@ public class RecipeController {
 		mav.setViewName("search");
 		return mav;
 		}else {
-			List<RecipeVO> testlist = service.testlist((pageMaker.getPagenum()*10)+1, pageMaker.getPagenum()*10+pageMaker.getContentnum());	
+			List<RecipeVO> testlist = service.testlist((pageMaker.getPagenum()*9)+1, pageMaker.getPagenum()*9+pageMaker.getContentnum());	
 			System.out.println(testlist);
 			System.out.println(pageMaker.getContentnum());
 			mav.addObject("list",testlist);
@@ -240,8 +237,11 @@ public ModelAndView categoryList(String recipe_category, HttpServletRequest requ
 		mav.setViewName("level");
 		return mav;
 	}
+
+
 	@RequestMapping(value="recipe/ajax_levellist.do",method=RequestMethod.GET,produces="application/json;charset=utf-8")
 	public @ResponseBody List<RecipeVO> recipeList(String cook_level){
+		System.out.println(cook_level);
 		List<RecipeVO> recipelist = service.levellist(cook_level);
 		System.out.println("----------------------"+recipelist.size());
 		return recipelist;
@@ -267,6 +267,17 @@ public ModelAndView categoryList(String recipe_category, HttpServletRequest requ
 		
 		return "forward:/recipe/detailRecipe.do";
 	}
-
-	
+	@RequestMapping(value="/recipe/main.do", method=RequestMethod.GET)
+	public ModelAndView mainView(String hit,String dname,String theme) {
+		System.out.println("메인 단입니다.");
+		System.out.println(dname);
+		ModelAndView mav = new ModelAndView();
+		List<RecipeVO> hitList = service.hitlist(hit);
+		List<NutrientVO> drunkList = service.drunklist(dname);
+		System.out.println("히트 메뉴"+hitList);
+		mav.addObject("hitList",hitList);
+		mav.addObject("drunklist",drunkList);
+		mav.setViewName("main");
+	return mav;
+	}
 }

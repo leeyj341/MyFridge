@@ -11,156 +11,98 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-<!-- Title -->
-<title>Yummy Blog - Food Blog Template</title>
+<!-- 검색창 css -->
+<link href="/maeggiSeggi/common/css/button.css" rel="stylesheet">
 
-<!-- Favicon -->
-<link rel="icon" href="../../yummy-master/img/core-img/favicon.ico">
 
-<!-- Core Stylesheet -->
-<link href="../../yummy-master/style.css" rel="stylesheet">
+<!-- 검색창 js -->
+<script src="/maeggiSeggi/common/js/button.js"></script>
 
-<!-- Responsive CSS -->
-<link href="../../yummy-master/css/responsive/responsive.css" rel="stylesheet">
+<!-- 지도api js,key -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a9f8501e6405d12afa94844cfc475269&libraries=services"></script>
 
-<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" type = "text/css">
+<!-- 지도 css -->
+<link href="/maeggiSeggi/common/css/map.css" rel="stylesheet">
+<link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
 
-<link href="css/button.css" rel="stylesheet">
+<!-- 지도 js -->
+<script src="/maeggiSeggi/common/js/map2.js"></script>
+
+<style type="text/css">
+	.catagory-titler {
+    width: 200px;
+    height: 50px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    border-radius: 30px;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+.catagory-titler a > h5 {
+    margin-bottom: 0;
+    line-height: 50px;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+	.catagory-titlew {
+    width: 200px;
+    height: 50px;
+    background-color: #fc6c3f;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    border-radius: 30px;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+.catagory-titlew a > h5 {
+    margin-bottom: 0;
+    line-height: 50px;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+.side {
+   font-family: PapyrusM;
+   font-size: 20pt;
+}
+#underline{
+	color: #FC6C3F;
+	font-size: 27pt;
+}
+</style>
+
 </head>
 
 <body>
-	<!-- Preloader Start -->
-    <div id="preloader">
-        <div class="yummy-load"></div>
-    </div>
-    <!-- ****** Top Header Area Start ****** -->
-    <div class="top_header_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-5 col-sm-6">
-                    <!--  Top Social bar start -->
-                    <div class="top_social_bar">
-                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-                <!--  Login Register Area -->
-                <div class="col-7 col-sm-6">
-                    <div class="signup-search-area d-flex align-items-center justify-content-end">
-                        <div class="login_register_area d-flex">
-                            <div class="login">
-                                <a href="register.html">Sing in</a>
-                            </div>
-                            <div class="register">
-                                <a href="register.html">Sing up</a>
-                            </div>
-                        </div>
-                        <!-- Search Button Area -->
-                        <div class="search_button">
-                            <a class="searchBtn" href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
-                        </div>
-                        <!-- Search Form -->
-                        <div class="search-hidden-form">
-                            <form action="#" method="get">
-                                <input type="search" name="search" id="search-anything" placeholder="Search Anything...">
-                                <input type="submit" value="" class="d-none">
-                                <span class="searchBtn"><i class="fa fa-times" aria-hidden="true"></i></span>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ****** Top Header Area End ****** -->
-    <!-- ****** Header Area Start ****** -->
-    <header class="header_area">
-        <div class="container">
-            <div class="row">
-                <!-- Logo Area Start -->
-                <div class="col-12">
-                    <div class="logo_area text-center">
-                        <a href="index.html" class="yummy-logo">Maeggi Seggi</a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <nav class="navbar navbar-expand-lg">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#yummyfood-nav" aria-controls="yummyfood-nav" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars" aria-hidden="true"></i> Menu</button>
-                        <!-- Menu Area Start -->
-                        <div class="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
-                            <ul class="navbar-nav" id="yummy-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="index.html">MY FRIDGE<span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ABOUT US</a>
-                                    <div class="dropdown-menu" aria-labelledby="yummyDropdown">
-                                        <a class="dropdown-item" href="index.html"></a>
-                                        <a class="dropdown-item" href="archive.html">INTRO</a>
-                                        <a class="dropdown-item" href="single.html">GRADE</a>
-                                        <a class="dropdown-item" href="static.html">QnA</a>
-                                        <a class="dropdown-item" href="contact.html">CONTACT</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">RECIPE</a>
-                                </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#">RESTAURANT</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="archive.html">MY PAGE</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">MANAGE</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- ****** Header Area End ****** -->
-
-	<!-- ****** Welcome Post Area Start ****** -->
-	
-	<!-- ****** Welcome Area End ****** -->
-
+	<% String today = (String)request.getAttribute("today"); %>
+	<% String food = (String)request.getAttribute("food"); %>
 	<!-- ****** Categories Area Start ****** -->
 	<section class="categories_area clearfix" id="about">
 		<div class="container">
 			<div class="row">
-				<div class="col-12 col-md-6 col-lg-4">
-					<div class="single_catagory wow fadeInUp" data-wow-delay=".3s">
-						<img src="images/1.jpg" alt="">
-						<div class="catagory-title">
-							<a href="restaurant_main.jsp">
-								<h5>#모범 식당</h5>
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-md-6 col-lg-4">
+				<div class="col-12 col-md-6 col-lg-6">
 					<div class="single_catagory wow fadeInUp" data-wow-delay=".6s">
-						<img src="images/2.jpg" alt="">
-						<div class="catagory-title">
-							<a href="restaurant_main2.jsp">
+						<img src="/maeggiSeggi/images/2.jpg" alt="">
+						<div class="catagory-titler">
+							<a href="/maeggiSeggi/restaurant.do">
 								<h5>#레시피 관련 식당</h5>
 							</a>
 						</div>
 					</div>
 				</div>
-				<div class="col-12 col-md-6 col-lg-4">
+				<div class="col-12 col-md-6 col-lg-6">
 					<div class="single_catagory wow fadeInUp" data-wow-delay=".9s">
-						<img src="images/3.jpg" alt="">
-						<div class="catagory-title">
-							<a href="restaurant_main3.jsp">
+						<img src="/maeggiSeggi/images/3.jpg" alt="">
+						<div class="catagory-titlew">
+							<a href="/maeggiSeggi/weather.do">
 								<h5>#날씨 관련 식당</h5>
 							</a>
 						</div>
@@ -184,7 +126,25 @@
 								<div class="row">
 							<div class="col-12 col-sm-8 col-md-6 col-lg-8">
 								<div class="post-thumb" >
-								<img src="images/map6.PNG" alt="map1" width="730" height="486.66">
+									<div class="map_wrap">
+										<div id="map"
+											style="width: 730px; height: 486.66px; position: relative; overflow: hidden;"></div>
+
+										<div id="menu_wrap" class="bg_white">
+											<div class="option">
+												<div>
+													<form onsubmit="; return false;">
+														키워드 : <input type="text" value="<%= food %>" id="keyword"
+															size="15">
+														<button id="sendkey" type="submit">검색</button>
+													</form>
+												</div>
+											</div>
+											<hr>
+											<ul id="placesList"></ul>
+											<div id="pagination"></div>
+										</div>
+									</div>
 
 							<!-- Post Content -->
 							<div class="post-content">
@@ -192,7 +152,7 @@
 									<div class="post-author-date-area d-flex">
 										<!-- Post Author -->
 										<div class="post-author">
-											<a href="#">역삼역 주변 맛집</a>
+											<a href="#">주변 맛집</a>
 										</div>
 										<!-- Post Date -->
 										<div class="post-date">
@@ -210,28 +170,14 @@
 					<!-- Single Widget Area -->
 					<div class="single-widget-area about-me-widget text-center">
 						<div class="widget-title">
-							<h6>수미 초밥</h6>
-						</div>
-						<div class="about-me-widget-thumb">
-							<img src="images//food.jpg" alt="">
-						</div>
-						<h4 class="font-shadow-into-light">BEST MENU</h4>
-						<p>오픈시간 AM 10:00 <br/> 마감시감 PM 10:00</p>
-					</div>
-
-					<!-- Single Widget Area -->
-					<div class="single-widget-area subscribe_widget text-center">
-						<div class="widget-title">
-							<h6>Subscribe &amp; Follow</h6>
-						</div>
-						<div class="subscribe-link">
-							<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-							<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-							<a href="#"><i class="fa fa-google" aria-hidden="true"></i></a>
-							<a href="#"><i class="fa fa-linkedin-square"
-								aria-hidden="true"></i></a> <a href="#"><i
-								class="fa fa-instagram" aria-hidden="true"></i></a> <a href="#"><i
-								class="fa fa-vimeo" aria-hidden="true"></i></a>
+							<table id="sch" width="370" style="word-break:break-all">
+								<tr>
+									<td class="side" style="">식당정보</td>
+								</tr>
+								<tr>
+									<td class="side" style="">현재 날씨에 맞는 추천 메뉴는 <span id="underline"><%= food %></span>입니다.</td>
+								</tr>
+							</table>
 						</div>
 					</div>
 				</div>
@@ -240,180 +186,6 @@
 			</div>
 		</div>
 	</div>
-					<div class="col-12">
-						<a href="#">
-									<h2 class="post-headline">식당 검색 API</h2>
-								</a>
-								<div class="container">
-								<div class="row">
-									<div class="col-12 col-lg-3">
-										<img src="images//map5.gif" alt="map1">
-									</div>
-									<div class="col-12 col-lg-9" id="sch">
-									<div class="contain">
-  <h1 align="center">Go on, click me!</h1>
-  <div class="search-box-container">
-    <button class="submit">
-      <i class="fa fa-search"></i>
-    </button>
-    <input class="search-box" />
-  </div>
-  <h3 class="response"></h3>
-  <span style="">지역</span>
-										<select>
-											<option value="s">서울</option>
-											<option value="g">경기도</option>
-											<option value="k">강원도</option>
-											<option value="ks">경상도</option>
-										</select>
-</div>
-									
-										
-										</div>
-				
-								</div>
-								</div>
-					</div>
-					<h2 class="post-headline"> 검색 결과</h2>
-					<!-- Single Post -->
-					<div class="row">
-					<div class="col-12 col-md-6 col-lg-4">
-						<div class="single-post wow fadeInUp" data-wow-delay=".4s">
-							<!-- Post Thumb -->
-							<div class="post-thumb">
-								<img src="images/res1.jpg" alt="" width="360" height="270">
-							</div>
-							<!-- Post Content -->
-							<div class="post-content">
-								<div class="post-meta d-flex">
-									<div class="post-author-date-area d-flex">
-										<!-- Post Author -->
-										<div class="post-author">
-											<a href="#">식당1</a>
-										</div>
-										<!-- Post Date -->
-										<div class="post-date">
-											<a href="#">서울, 테헤란로</a>
-										</div>
-									</div>
-									<!-- Post Comment & Share Area -->
-									<div class="post-comment-share-area d-flex">
-										<!-- Post Favourite -->
-										<div class="post-favourite">
-											<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
-												10</a>
-										</div>
-										<!-- Post Comments -->
-										<div class="post-comments">
-											<a href="#"><i class="fa fa-comment-o"
-												aria-hidden="true"></i> 12</a>
-										</div>
-										<!-- Post Share -->
-										<div class="post-share">
-											<a href="#"><i class="fa fa-share-alt"
-												aria-hidden="true"></i></a>
-										</div>
-									</div>
-								</div>
-								<a href="#">
-									<h4 class="post-headline">사거리 식당</h4>
-								</a>
-							</div>
-						</div>
-					</div>
-
-					<!-- Single Post -->
-					<div class="col-12 col-md-6 col-lg-4">
-						<div class="single-post wow fadeInUp" data-wow-delay=".6s">
-							<!-- Post Thumb -->
-							<div class="post-thumb">
-								<img src="images/res2.jpg" alt="">
-							</div>
-							<!-- Post Content -->
-							<div class="post-content">
-								<div class="post-meta d-flex">
-									<div class="post-author-date-area d-flex">
-										<!-- Post Author -->
-										<div class="post-author">
-											<a href="#">식당2</a>
-										</div>
-										<!-- Post Date -->
-										<div class="post-date">
-											<a href="#">강원도, 태백</a>
-										</div>
-									</div>
-									<!-- Post Comment & Share Area -->
-									<div class="post-comment-share-area d-flex">
-										<!-- Post Favourite -->
-										<div class="post-favourite">
-											<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
-												10</a>
-										</div>
-										<!-- Post Comments -->
-										<div class="post-comments">
-											<a href="#"><i class="fa fa-comment-o"
-												aria-hidden="true"></i> 12</a>
-										</div>
-										<!-- Post Share -->
-										<div class="post-share">
-											<a href="#"><i class="fa fa-share-alt"
-												aria-hidden="true"></i></a>
-										</div>
-									</div>
-								</div>
-								<a href="#">
-									<h4 class="post-headline">오대산 식당</h4>
-								</a>
-							</div>
-						</div>
-					</div>
-
-					<!-- Single Post -->
-					<div class="col-12 col-md-6 col-lg-4">
-						<div class="single-post wow fadeInUp" data-wow-delay=".8s">
-							<!-- Post Thumb -->
-							<div class="post-thumb">
-								<img src="images/res3.jpg" alt="">
-							</div>
-							<!-- Post Content -->
-							<div class="post-content">
-								<div class="post-meta d-flex">
-									<div class="post-author-date-area d-flex">
-										<!-- Post Author -->
-										<div class="post-author">
-											<a href="#">식당3</a>
-										</div>
-										<!-- Post Date -->
-										<div class="post-date">
-											<a href="#">경상도, 부산</a>
-										</div>
-									</div>
-									<!-- Post Comment & Share Area -->
-									<div class="post-comment-share-area d-flex">
-										<!-- Post Favourite -->
-										<div class="post-favourite">
-											<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
-												10</a>
-										</div>
-										<!-- Post Comments -->
-										<div class="post-comments">
-											<a href="#"><i class="fa fa-comment-o"
-												aria-hidden="true"></i> 12</a>
-										</div>
-										<!-- Post Share -->
-										<div class="post-share">
-											<a href="#"><i class="fa fa-share-alt"
-												aria-hidden="true"></i></a>
-										</div>
-									</div>
-								</div>
-								<a href="#">
-									<h4 class="post-headline">한근집</h4>
-								</a>
-							</div>
-						</div>
-					</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -428,7 +200,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="images/instagram-img/1.jpg" alt="">
+			<img src="/maeggiSeggi/images/instagram-img/1.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -445,7 +217,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="images/instagram-img/2.jpg" alt="">
+			<img src="/maeggiSeggi/images/instagram-img/2.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -462,7 +234,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="images/instagram-img/3.jpg" alt="">
+			<img src="/maeggiSeggi/images/instagram-img/3.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -479,7 +251,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="images/instagram-img/4.jpg" alt="">
+			<img src="/maeggiSeggi/images/instagram-img/4.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -496,7 +268,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="images/instagram-img/5.jpg" alt="">
+			<img src="/maeggiSeggi/images/instagram-img/5.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -513,7 +285,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="images/instagram-img/6.jpg" alt="">
+			<img src="/maeggiSeggi/images/instagram-img/6.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -530,7 +302,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="images/instagram-img/1.jpg" alt="">
+			<img src="/maeggiSeggi/images/instagram-img/1.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -547,7 +319,7 @@
 		<!-- Instagram Item -->
 		<div class="instagram_gallery_item">
 			<!-- Instagram Thumb -->
-			<img src="images/instagram-img/2.jpg" alt="">
+			<img src="/maeggiSeggi/images/instagram-img/2.jpg" alt="">
 			<!-- Hover -->
 			<div class="hover_overlay">
 				<div class="yummy-table">
@@ -600,125 +372,49 @@
 	<!-- ****** Footer Social Icon Area End ****** -->
 
 	<!-- ****** Footer Menu Area Start ****** -->
-	<footer class="footer_area">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<div class="footer-content">
-						<!-- Logo Area Start -->
-						<div class="footer-logo-area text-center">
-							<a href="index.html" class="yummy-logo">maeggi seggi</a>
-						</div>
-						<!-- Menu Area Start -->
-						<nav class="navbar navbar-expand-lg">
-							<button class="navbar-toggler" type="button"
-								data-toggle="collapse" data-target="#yummyfood-footer-nav"
-								aria-controls="yummyfood-footer-nav" aria-expanded="false"
-								aria-label="Toggle navigation">
-								<i class="fa fa-bars" aria-hidden="true"></i> Menu
-							</button>
-							<!-- Menu Area Start -->
-							<div class="collapse navbar-collapse justify-content-center"
-								id="yummyfood-footer-nav">
-								<ul class="navbar-nav">
-									<li class="nav-item"><a class="nav-link" href="#">MY FRIDGE
-											<span class="sr-only">(current)</span>
-									</a></li>
-									<li class="nav-item"><a class="nav-link" href="#">ABOUT US</a>
-									</li>
-									<li class="nav-item"><a class="nav-link" href="#">RECIPE</a>
-									</li>
-									<li class="nav-item active"><a class="nav-link" href="#">RESTAURANT</a>
-									</li>
-									<li class="nav-item"><a class="nav-link" href="#">MY PAGE</a>
-									</li>
-									<li class="nav-item"><a class="nav-link" href="#">MANAGE</a>
-									</li>
-								</ul>
-							</div>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</div>
+    <footer class="footer_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-content">
+                        <!-- Logo Area Start -->
+                        <div class="footer-logo-area text-center">
+                            <a href="index.html" class="yummy-logo">maeggi seggi</a>
+                        </div>
+                        <!-- Menu Area Start -->
+                        <nav class="navbar navbar-expand-lg">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#yummyfood-footer-nav" aria-controls="yummyfood-footer-nav" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars" aria-hidden="true"></i> Menu</button>
+                            <!-- Menu Area Start -->
+                            <div class="collapse navbar-collapse justify-content-center" id="yummyfood-footer-nav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">MY FRIDGE <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">ABOUT US</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">RECIPE</a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">RESTAURANT</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">MY PAGE</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">MANAGE</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<!-- Copywrite Text -->
-					<div class="copy_right_text text-center">
-						<p>
-							Copyright @2018 All rights reserved | This template is made with
-							<i class="fa fa-heart-o" aria-hidden="true"></i> by <a
-								href="https://colorlib.com" target="_blank">Colorlib</a>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
+    </footer>
+    <!-- ****** Footer Menu Area End ****** -->
 
-	<!-- ****** Footer Menu Area End ****** -->
-
-	<!-- Jquery-2.2.4 js -->
-	<script src="../../yummy-master/js/jquery/jquery-2.2.4.min.js"></script>
-	<!-- Popper js -->
-	<script src="../../yummy-master/js/bootstrap/popper.min.js"></script>
-	<!-- Bootstrap-4 js -->
-	<script src="../../yummy-master/js/bootstrap/bootstrap.min.js"></script>
-	<!-- All Plugins JS -->
-	<script src="../../yummy-master/js/others/plugins.js"></script>
-	<!-- Active JS -->
-	<script src="../../yummy-master/js/active.js"></script>
-	<script>
-$.fn.toggleState = function(b) {
-	$(this).stop().animate({
-		width: b ? "300px" : "50px"
-	}, 600, "easeOutElastic" );
-}
-
-$(document).ready(function() {
-	var container = $(".contain");
-	var boxContainer = $(".search-box-container");
-	var submit = $(".submit");
-	var searchBox = $(".search-box");
-	var response = $(".response");
-	var isOpen = false;
-	submit.on("mousedown", function(e) {
-		e.preventDefault();
-		boxContainer.toggleState(!isOpen);
-		isOpen = !isOpen;
-		if(!isOpen) {
-			handleRequest();
-		} else {
-			searchBox.focus();
-		}	
-	});
-	searchBox.keypress(function(e) {
-		if(e.which === 13) {
-			boxContainer.toggleState(false);
-			isOpen = false;
-			handleRequest();
-		}
-	});
-	searchBox.blur(function() {
-		boxContainer.toggleState(false);
-		isOpen = false;
-	});
-	function handleRequest() {
-		// You could do an ajax request here...
-		var value = searchBox.val();
-		searchBox.val('');
-		if(value.length > 0) {
-			response.text(('Searching for "' + value + '" . . .'));
-			response.animate({
-				opacity: 1
-			}, 300).delay(2000).animate({
-				opacity: 0
-			}, 300);
-		}
-	}
-});
-</script>
 </body>
 </html>

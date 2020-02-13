@@ -88,5 +88,15 @@ public class RecipeDAOImpl implements RecipeDAO {
 		
 	}
 
+	@Override
+	public List<RecipeVO> hitlist(String hit) {
+		return sqlSession.selectList("maeggi.seggi.recipe.hitRecipe",hit);
+	}
+
+	@Override
+	public List<NutrientVO> drunklist(String dname) {
+		return sqlSession.selectList("maeggi.seggi.recipe.drunkRecipe",dname);
+	}
+
 }
 

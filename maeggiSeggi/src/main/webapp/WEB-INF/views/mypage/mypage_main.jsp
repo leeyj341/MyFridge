@@ -91,22 +91,61 @@
 		int month = today.get(Calendar.MONTH)+1;
 		int date = today.get(Calendar.DATE);
 	%>
+	<script type="text/javascript">
+		<%-- <% for(int i = 0; i<mealplan.size();i++){
+			
+		}
+		%> --%>
+		$(document).ready(function(){
+			
+		
+			$('.dd').text('1');
+		
+		});
+		
 	
+	</script>
 		<div>
-			<% for(int i = 0; i<mealplan.size(); i++){ 
-				mealPlannerVO meal = mealplan.get(i);
-			%>
-			<div> <%= meal.getPlanner_date() %> , <%= meal.getPlanner_code() %>,<%= meal.getMeal_name() %> , <%= meal.getKcal() %> </div>
-			<% } %>
-			<%-- <table border="1" class="mypage_table">
+			<table border="1" class="mypage_table">
+				<tr>
+					<td></td>
+					<% for(int k = 0; k<7;k++){
+						int aa = date+k;
+					%>
+						<td align="center"><%= month %>월 <%= aa %> 일</td>	
+					<% }%>
+				</tr>
+				<tr>
+				<td>아침</td>
+				<td><p class="dd"></p></td>
 				<td></td>
-				<% for(int k = 0; k<7;k++){
-					int aa = date+k;
-				%>
-					<td align="center"><%= month %>월 <%= aa %> 일</td>	
-				<% }%>
-				
-			</table> --%>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				</tr>
+				<tr>
+					<td>점심</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>저녁</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
 		</div>
 		<div style="float: right">
 			<input type="button" value="월 전체보기"
@@ -115,19 +154,18 @@
 		</div>
 		<p></p>
 		
-		<% 
+		<%-- <% 
 			int kcal = 0;	
 			for(int i =0; i<3; i++){
 			mealPlannerVO todayKcal = mealplan.get(i); 
 			kcal = kcal + todayKcal.getKcal();
-			
-		}%>
+		}%> --%>
 		
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3">오늘 섭취한 칼로리</div>
 				<div class="col-lg-4">
-					<span> <%= request.getAttribute("kcalsum") %></span>
+					<span></span>
 				</div>
 			</div>
 			<div class="row">
