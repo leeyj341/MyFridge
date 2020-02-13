@@ -27,14 +27,15 @@ public class RecipeServiceImpl implements RecipeService {
 	
 	FileOutputStream fos;
 	@Override
-	public List<RecipeVO> recipeList(String category, int pagenum, int contentnum) {
+	public List<RecipeVO> recipeList(String recipe_category, int pagenum, int contentnum) {
 		List<RecipeVO> list = null;
-		System.out.println("category : " + category);
-		if(category!=null) {
-			if(category.equals("all")) {
+		System.out.println("category : " + recipe_category);
+		if(recipe_category!=null) {
+			if(recipe_category.equals("all")) {
 				list=dao.testlist(pagenum, contentnum);			
 			}else {
-				list=dao.categorySearch(category,pagenum,contentnum);
+				list=dao.categorySearch(recipe_category, Integer.toString(pagenum),Integer.toString(contentnum));
+				//System.out.println(Integer.toString(pagenum)+","+Integer.toString(contentnum));
 			}
 		}
 		return list;

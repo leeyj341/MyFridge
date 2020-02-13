@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -95,7 +94,7 @@ public class RecipeController {
 		mav.setViewName("search");
 		return mav;
 		}else {
-			List<RecipeVO> testlist = service.testlist((pageMaker.getPagenum()*10)+1, pageMaker.getPagenum()*10+pageMaker.getContentnum());	
+			List<RecipeVO> testlist = service.testlist((pageMaker.getPagenum()*9)+1, pageMaker.getPagenum()*9+pageMaker.getContentnum());	
 			System.out.println(testlist);
 			System.out.println(pageMaker.getContentnum());
 			mav.addObject("list",testlist);
@@ -136,7 +135,7 @@ public class RecipeController {
 
 	@RequestMapping(value="/recipe/ajax_searchRecipe.do",method=RequestMethod.GET,produces="application/json;charset=utf-8")	
 	//ajax로 통신하면서 클라이언트에게 명시해줄 데이터를 produces에 붙인다.
-	public @ResponseBody AjaxPageVO categoryList(String category,String pagenum,String contentnum) {
+	public @ResponseBody AjaxPageVO categoryList(String recipe_category,String pagenum,String contentnum) {
 		PageMaker pageMaker = new PageMaker();
 		int pagenumVal = Integer.parseInt(pagenum);
 		int contentnumVal = Integer.parseInt(contentnum);
@@ -153,21 +152,23 @@ public class RecipeController {
 		
 		
 		System.out.println("==중간과정==");
-		ArrayList<RecipeVO> recipeList = null;
+		ArrayList<RecipeVO> categoryRecipe = null;
 		if(pageMaker.getPagenum()==1) {
-			recipeList = (ArrayList<RecipeVO>)service.recipeList(category,pageMaker.getPagenum()*9, pageMaker.getPagenum()*9+pageMaker.getContentnum());
+			categoryRecipe = (ArrayList<RecipeVO>)service.recipeList(recipe_category,pageMaker.getPagenum()*9, pageMaker.getPagenum()*9+pageMaker.getContentnum());
 			//List<RecipeVO> test = new ArrayList<RecipeVO>();
-			System.out.println(recipeList);
 			System.out.println(pageMaker.getContentnum());
-			
+			System.out.println("get pagenum 가능");
 			}else {
-				recipeList = (ArrayList<RecipeVO>)service.recipeList(category,(pageMaker.getPagenum()*10)+1, pageMaker.getPagenum()*10+pageMaker.getContentnum());	
-				System.out.println(recipeList);
+				categoryRecipe = (ArrayList<RecipeVO>)service.recipeList(recipe_category,(pageMaker.getPagenum()*9)+1, pageMaker.getPagenum()*9+pageMaker.getContentnum());	
+				System.out.println(categoryRecipe);
 				System.out.println(pageMaker.getContentnum());
-			
+			System.out.println("get pagenum 가능");
 			}
-		AjaxPageVO apv = new AjaxPageVO(recipeList, pageMaker);
-		System.out.println(apv);
+		System.out.println("======apv출력=========");
+		AjaxPageVO apv = new AjaxPageVO((ArrayList<RecipeVO>) categoryRecipe, pageMaker);
+		System.out.println(apv.mainVo.size());
+		System.out.println(apv.pageMaker.getContentnum());
+
 		return apv;
 	}
 	@RequestMapping(value="/recipe/levelRecipe.do", method=RequestMethod.GET)
@@ -187,23 +188,7 @@ public class RecipeController {
 		mav.setViewName("level");
 		return mav;
 	}
-	@RequestMapping(value="/recipe/levelRecipe.do", method=RequestMethod.GET)
-	public ModelAndView levelView(String cook_levelb, String cook_leveln, String cook_levelh) {
-		System.out.println(cook_levelb+"////////////////"+cook_leveln+"//////////////"+cook_levelh);
-		System.out.println("====================================================================================");
-		ModelAndView mav = new ModelAndView();
-		List<RecipeVO> listb = service.levellist(cook_levelb);
-		List<RecipeVO> listn = service.levellist(cook_leveln);
-		List<RecipeVO> listh = service.levellist(cook_levelh);
-		System.out.println("b:"+listb);
-		System.out.println("n:"+listn);
-		System.out.println("h:"+listh);
-		mav.addObject("levellistb", listb);
-		mav.addObject("levellistn", listn);
-		mav.addObject("levellisth", listh);
-		mav.setViewName("level");
-		return mav;
-	}
+
 	@RequestMapping(value="recipe/ajax_levellist.do",method=RequestMethod.GET,produces="application/json;charset=utf-8")
 	public @ResponseBody List<RecipeVO> recipeList(String cook_level){
 		List<RecipeVO> recipelist = service.levellist(cook_level);
