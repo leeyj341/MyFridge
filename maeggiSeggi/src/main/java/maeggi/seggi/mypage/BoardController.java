@@ -1,6 +1,7 @@
 package maeggi.seggi.mypage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -177,9 +178,9 @@ public class BoardController {
 	public ModelAndView mypage_recipefavorite(HttpSession session) {
 		//즐겨찾기한 정보가 넘어가야 함.
 		String member_id = (String)session.getAttribute("id");
-		ArrayList<RecipeFavoriteVO> list = (ArrayList<RecipeFavoriteVO>)recFavServive.selectAllFavorites(member_id);
+		ArrayList<HashMap<String, String>> listMap = (ArrayList<HashMap<String, String>>)recFavServive.selectAllFavorites(member_id);
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("favorites", list);
+		mav.addObject("favorites", listMap);
 		mav.setViewName("mypage/recipe_favorite");
 		
 		return mav;

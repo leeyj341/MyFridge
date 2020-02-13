@@ -28,7 +28,7 @@ public class RecipeVO {//
 	private String member_id;
 	private ArrayList<RecipeDetailVO> recipe_detail;
 	private ArrayList<IngredientVO> ig_detail;
-	MultipartFile myphoto;
+	private ArrayList<MultipartFile> myphoto;
 	
 	
 	public RecipeVO() {
@@ -40,7 +40,7 @@ public class RecipeVO {//
 			String food_code, String food_category, String cook_time, String kcal, String amount_per_person,
 			String cook_level, String ing_category, String price, String img_url_main, String img_url_sub, String hit,
 			String like_num, String register_date, String member_id, ArrayList<RecipeDetailVO> recipe_detail,
-			ArrayList<IngredientVO> ig_detail, MultipartFile myphoto) {
+			ArrayList<IngredientVO> ig_detail, ArrayList<MultipartFile> myphoto) {
 		super();
 		this.recipe_id = recipe_id;
 		this.name = name;
@@ -290,12 +290,12 @@ public class RecipeVO {//
 	}
 
 
-	public MultipartFile getMyphoto() {
+	public ArrayList<MultipartFile> getMyphoto() {
 		return myphoto;
 	}
 
 
-	public void setMyphoto(MultipartFile myphoto) {
+	public void setMyphoto(ArrayList<MultipartFile> myphoto) {
 		this.myphoto = myphoto;
 	}
 

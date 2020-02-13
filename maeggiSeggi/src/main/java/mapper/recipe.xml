@@ -7,10 +7,10 @@
  	select * from recipe
 
   	</select>
-<!-- radio 카테고리 조회 -->
-  	<select id="categoryRecipe" resultType="recipe" parameterType="String">
-  	SELECT recipe_id,name,register_date,member_id,img_url_main from(select recipe_id,name,register_date,member_id,img_url_main,ROW_NUMBER() OVER (ORDER BY recipe_id)r from recipe)
-  	 where (r between #{pagenum} and #{contentnum} and recipe_category like '%' || #{category} || '%')	
+	<!-- radio 카테고리 조회 -->
+  	<select id="categoryRecipe" resultType="recipe" parameterType="Map">
+  	SELECT recipe_id,name,register_date,member_id,img_url_main,recipe_category from (select recipe_id,name,register_date,member_id,img_url_main,recipe_category,ROW_NUMBER() OVER (ORDER BY recipe_id)r from recipe)
+  	 where (r between #{pagenum} and #{contentnum} and recipe_category like '%' || #{recipe_category} || '%')	
   	</select>
   	<!-- 검색어 조회 (미완성) -->
  	<select id="recipeSearch" resultType="recipe" parameterType="String">

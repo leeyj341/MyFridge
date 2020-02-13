@@ -104,6 +104,54 @@ public class RecipeController {
 			return mav;
 		}
 	}
+
+@RequestMapping("/recipe/categoryRecipe.do")
+public ModelAndView categoryList(String recipe_category, HttpServletRequest request) {
+	PageMaker pageMaker = new PageMaker();
+	ModelAndView mav = new ModelAndView();
+	
+	System.out.println(recipe_category);
+	int pagenum = Integer.parseInt(request.getParameter("pagenum"));
+	System.out.println("pagenum=>"+pagenum);
+	int contentnum = Integer.parseInt(request.getParameter("contentnum"));
+	System.out.println("contentnum=>"+contentnum);
+	
+	pageMaker.setTotalCount(service.testcount());//전체 게시글 갯수 지정
+	pageMaker.setPagenum(pagenum-1);	//현재 페이지를 페이지 객체에 지정, -1을 해야 쿼리에서 사용 가능
+	pageMaker.setContentnum(contentnum); //한 페이지에 몇 개씩 게시글을 보여줄 것인
+	pageMaker.setCurrentblock(pagenum); //현재 페이지 블록
+	pageMaker.setLastblock(pageMaker.getTotalCount()); // 마지막 블록 번호를 전체 게시글 수를 통해 정한다.
+	
+	pageMaker.prevnext(pagenum);//현재 페이지 번호로 화살표를 나타낼 지 정한다
+	pageMaker.setStartPage(pageMaker.getCurrentblock()); //시작 페이지를 페이지 블록번호로 정한다.
+	pageMaker.setEndPage(pageMaker.getLastblock(), pageMaker.getCurrentblock()); 
+	
+	
+	System.out.println("==중간과정==");
+//	List<RecipeVO> list = service.listall();
+//	System.out.println(list);  
+//	mav.addObject("list",list);
+		
+//	System.out.println(pageMaker);
+	if(pageMaker.getPagenum()==1) {
+	List<RecipeVO> testlist = service.recipeList(recipe_category, pageMaker.getPagenum()*9, pageMaker.getPagenum()*9+pageMaker.getContentnum());
+	//List<RecipeVO> test = new ArrayList<RecipeVO>();
+	System.out.println(testlist);
+	System.out.println(pageMaker.getContentnum());
+	mav.addObject("list",testlist);
+	mav.addObject("page",pageMaker);
+	mav.setViewName("search");
+	return mav;
+	}else {
+		List<RecipeVO> testlist = service.recipeList(recipe_category, (pageMaker.getPagenum()*10)+1, pageMaker.getPagenum()*10+pageMaker.getContentnum());	
+		System.out.println(testlist);
+		System.out.println(pageMaker.getContentnum());
+		mav.addObject("list",testlist);
+		mav.addObject("page",pageMaker);
+		mav.setViewName("search");
+		return mav;
+	}
+}
 	
 	
 /*	삭제 
@@ -125,18 +173,23 @@ public class RecipeController {
 
 		System.out.println("***"+recipe);
  		
- 		MultipartFile file = recipe.getMyphoto();
+		ArrayList<MultipartFile> file = recipe.getMyphoto();
  		String path = WebUtils.getRealPath(session.getServletContext(), "/WEB-INF/upload");
-	 	String fileName = file.getOriginalFilename();
-	 	System.out.println("ddddddddd"+fileName);
-	 	service.upload(file, path, fileName);
+	 	
+	 	service.upload(file, path);
+	 	// 넣기 전 이미지 경로를 넣어줘야 함
+	 	recipe.setImg_url_main(file.get(0).getOriginalFilename());
+	 	for (int i = 0; i < recipe.getRecipe_detail().size(); i++) {
+			recipe.getRecipe_detail().get(i).setImg_url(file.get(i + 1).getOriginalFilename());
+		}
+	 	
 	 	service.insert(recipe);
 		return "redirect:/recipe/searchRecipe.do";
 	}
 
 	@RequestMapping(value="/recipe/ajax_searchRecipe.do",method=RequestMethod.GET,produces="application/json;charset=utf-8")	
 	//ajax로 통신하면서 클라이언트에게 명시해줄 데이터를 produces에 붙인다.
-	public @ResponseBody AjaxPageVO categoryList(String category,String pagenum,String contentnum) {
+	public @ResponseBody AjaxPageVO categoryList(String recipe_category,String pagenum,String contentnum) {
 		PageMaker pageMaker = new PageMaker();
 		int pagenumVal = Integer.parseInt(pagenum);
 		int contentnumVal = Integer.parseInt(contentnum);
@@ -155,13 +208,13 @@ public class RecipeController {
 		System.out.println("==중간과정==");
 		ArrayList<RecipeVO> recipeList = null;
 		if(pageMaker.getPagenum()==1) {
-			recipeList = (ArrayList<RecipeVO>)service.recipeList(category,pageMaker.getPagenum()*9, pageMaker.getPagenum()*9+pageMaker.getContentnum());
+			recipeList = (ArrayList<RecipeVO>)service.recipeList(recipe_category,pageMaker.getPagenum()*9, pageMaker.getPagenum()*9+pageMaker.getContentnum());
 			//List<RecipeVO> test = new ArrayList<RecipeVO>();
 			System.out.println(recipeList);
 			System.out.println(pageMaker.getContentnum());
 			
 			}else {
-				recipeList = (ArrayList<RecipeVO>)service.recipeList(category,(pageMaker.getPagenum()*10)+1, pageMaker.getPagenum()*10+pageMaker.getContentnum());	
+				recipeList = (ArrayList<RecipeVO>)service.recipeList(recipe_category,(pageMaker.getPagenum()*10)+1, pageMaker.getPagenum()*10+pageMaker.getContentnum());	
 				System.out.println(recipeList);
 				System.out.println(pageMaker.getContentnum());
 			
@@ -169,23 +222,6 @@ public class RecipeController {
 		AjaxPageVO apv = new AjaxPageVO(recipeList, pageMaker);
 		System.out.println(apv);
 		return apv;
-	}
-	@RequestMapping(value="/recipe/levelRecipe.do", method=RequestMethod.GET)
-	public ModelAndView levelView(String cook_levelb, String cook_leveln, String cook_levelh) {
-		System.out.println(cook_levelb+"////////////////"+cook_leveln+"//////////////"+cook_levelh);
-		System.out.println("====================================================================================");
-		ModelAndView mav = new ModelAndView();
-		List<RecipeVO> listb = service.levellist(cook_levelb);
-		List<RecipeVO> listn = service.levellist(cook_leveln);
-		List<RecipeVO> listh = service.levellist(cook_levelh);
-		System.out.println("b:"+listb);
-		System.out.println("n:"+listn);
-		System.out.println("h:"+listh);
-		mav.addObject("levellistb", listb);
-		mav.addObject("levellistn", listn);
-		mav.addObject("levellisth", listh);
-		mav.setViewName("level");
-		return mav;
 	}
 	@RequestMapping(value="/recipe/levelRecipe.do", method=RequestMethod.GET)
 	public ModelAndView levelView(String cook_levelb, String cook_leveln, String cook_levelh) {

@@ -34,12 +34,13 @@ public class RecipeDAOImpl implements RecipeDAO {
 		sqlSession.insert("maeggi.seggi.recipe.insert",recipe);
 	}
 	@Override
-	public List<RecipeVO> categorySearch(String category,int pagenum, int contentnum) {
-		Map<String, Integer> map = new HashMap<String,Integer>();
-		map.put("pagenum", pagenum);
-		map.put("contentnum", contentnum);
-		List<RecipeVO> list = sqlSession.selectList("maeggi.seggi.recipe.categoryRecipe", category);
-		System.out.println(category + list.size());
+	public List<RecipeVO> categorySearch(String recipe_category,int pagenum, int contentnum) {
+		Map<String, String> map = new HashMap<String,String>();
+		map.put("pagenum", Integer.toString(pagenum));
+		map.put("contentnum", Integer.toString(contentnum));
+		map.put("recipe_category", recipe_category);
+		List<RecipeVO> list = sqlSession.selectList("maeggi.seggi.recipe.categoryRecipe", map);
+		System.out.println(recipe_category + list.size());
 		return list;
 	}
 	@Override
