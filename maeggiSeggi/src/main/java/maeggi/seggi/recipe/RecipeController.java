@@ -22,10 +22,7 @@ public class RecipeController {
 	@Autowired
 	RecipeService service;
 	//private RecipeDAO mapper;
-	@RequestMapping("/recipe/main.do")
-	public String recipe() {
-		return "main";
-	}
+
 	@RequestMapping("/recipe/themeRecipe.do")
 	public String theme() {
 		return "theme";
@@ -217,6 +214,17 @@ public class RecipeController {
 		
 		return "forward:/recipe/detailRecipe.do";
 	}
-
-	
+	@RequestMapping(value="/recipe/main.do", method=RequestMethod.GET)
+	public ModelAndView mainView(String hit,String dname,String theme) {
+		System.out.println("메인 단입니다.");
+		System.out.println(dname);
+		ModelAndView mav = new ModelAndView();
+		List<RecipeVO> hitList = service.hitlist(hit);
+		List<NutrientVO> drunkList = service.drunklist(dname);
+		System.out.println("히트 메뉴"+hitList);
+		mav.addObject("hitList",hitList);
+		mav.addObject("drunklist",drunkList);
+		mav.setViewName("main");
+	return mav;
+	}
 }

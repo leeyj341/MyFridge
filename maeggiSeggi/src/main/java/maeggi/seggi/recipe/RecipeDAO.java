@@ -28,4 +28,6 @@ public interface RecipeDAO {
 	//public List<RecipeVO> listall(@Param("pagenum") int pagenum, @Param("contentnum") int contentnum);
 	public void like(String recipe_id) throws Exception;
 	List<RecipeVO> categorySearch(String recipe_category, String pagenum, String contentnum);
+	List<RecipeVO> hitlist(String hit);
+	List<NutrientVO> drunklist(String dname);
 }

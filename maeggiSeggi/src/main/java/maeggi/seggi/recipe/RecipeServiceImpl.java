@@ -5,7 +5,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -129,6 +128,18 @@ public class RecipeServiceImpl implements RecipeService {
 	@Override
 	public void like(String recipe_id) throws Exception {
 		dao.like(recipe_id);
+	}
+
+
+	@Override
+	public List<RecipeVO> hitlist(String hit) {
+		return dao.hitlist(hit);
+	}
+
+
+	@Override
+	public List<NutrientVO> drunklist(String dname) {
+		return dao.drunklist(dname);
 	}
 
 }
