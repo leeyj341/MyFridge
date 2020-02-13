@@ -36,6 +36,8 @@
 		ArrayList<PointVO> mypoint = (ArrayList<PointVO>)request.getAttribute("mypoint");
 		memberVO loginuser = (memberVO) session.getAttribute("loginuser");
 	%>
+	
+	
 	<%-- <%
 		if (session.getAttribute("id") != null) {
 	%> --%>

@@ -22,7 +22,7 @@ public class RecipeController {
 	
 	@Autowired
 	RecipeService service;
-	//private PageMaker mapper;
+	//private RecipeDAO mapper;
 	@RequestMapping("/recipe/main.do")
 	public String recipe() {
 		return "main";
@@ -47,7 +47,6 @@ public class RecipeController {
 		String recipe_id = req.getParameter("id");
 		System.out.println(recipe_id);
 		ArrayList<HashMap<String, String>> detail = (ArrayList<HashMap<String, String>>)service.detail(recipe_id);
-		
 		mav.addObject("detail",detail);
 		mav.setViewName("detail");
 		return mav;
@@ -59,8 +58,7 @@ public class RecipeController {
 		return "add";
 	}
 	*/
-	
-	@RequestMapping("/recipe/searchRecipe.do")
+@RequestMapping("/recipe/searchRecipe.do")
 	public ModelAndView recipeList(HttpServletRequest request) {
 		PageMaker pageMaker = new PageMaker();
 		ModelAndView mav = new ModelAndView();
@@ -119,7 +117,6 @@ public class RecipeController {
 	}
 	//입력한 레시피 실제 db에 저장하는 메소드
 	@RequestMapping(value="/recipe/recipe_write.do",method=RequestMethod.POST)
-	@ResponseBody
 	public String insert(RecipeVO recipe,HttpSession session) throws Exception {
 /*		Random rand = new Random();
 		String recipe_id = "rec" + rand.nextInt(10000000);
@@ -129,10 +126,11 @@ public class RecipeController {
 		System.out.println("***"+recipe);
  		
  		MultipartFile file = recipe.getMyphoto();
- 		String path = WebUtils.getRealPath(session.getServletContext(), "/maeggiSeggi/WEB_INF/upload");
-	 		String fileName = file.getOriginalFilename();
-	 		service.insert(recipe);
-	 		service.upload(file, path, fileName);
+ 		String path = WebUtils.getRealPath(session.getServletContext(), "/WEB-INF/upload");
+	 	String fileName = file.getOriginalFilename();
+	 	System.out.println("ddddddddd"+fileName);
+	 	service.upload(file, path, fileName);
+	 	service.insert(recipe);
 		return "redirect:/recipe/searchRecipe.do";
 	}
 
@@ -171,6 +169,23 @@ public class RecipeController {
 		AjaxPageVO apv = new AjaxPageVO(recipeList, pageMaker);
 		System.out.println(apv);
 		return apv;
+	}
+	@RequestMapping(value="/recipe/levelRecipe.do", method=RequestMethod.GET)
+	public ModelAndView levelView(String cook_levelb, String cook_leveln, String cook_levelh) {
+		System.out.println(cook_levelb+"////////////////"+cook_leveln+"//////////////"+cook_levelh);
+		System.out.println("====================================================================================");
+		ModelAndView mav = new ModelAndView();
+		List<RecipeVO> listb = service.levellist(cook_levelb);
+		List<RecipeVO> listn = service.levellist(cook_leveln);
+		List<RecipeVO> listh = service.levellist(cook_levelh);
+		System.out.println("b:"+listb);
+		System.out.println("n:"+listn);
+		System.out.println("h:"+listh);
+		mav.addObject("levellistb", listb);
+		mav.addObject("levellistn", listn);
+		mav.addObject("levellisth", listh);
+		mav.setViewName("level");
+		return mav;
 	}
 	@RequestMapping(value="/recipe/levelRecipe.do", method=RequestMethod.GET)
 	public ModelAndView levelView(String cook_levelb, String cook_leveln, String cook_levelh) {

@@ -33,6 +33,10 @@
 <!-- All Plugins JS (지우지말것)-->
 <script src="/maeggiSeggi/common/js/others/plugins.js"></script>
 
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
 </head>
 <body>
 	<%
@@ -84,11 +88,11 @@
 	<!-- 1:1 ask area start -->
 	<div id="ask">
 
-		<table id="table_boardlist" border="1"
+		<table id="table_boardlist" class="table table-hover"
 			style="width: 800px; height: 100px; text-align: center; margin-left: auto; margin-right: auto;">
 			<thead>
 				<tr style="font-weight: bold;">
-					<td scope="col">No</td>
+					<td scope="col">번호</td>
 					<td scope="col">제목</td>
 					<td scope="col">등록일자</td>
 				</tr>

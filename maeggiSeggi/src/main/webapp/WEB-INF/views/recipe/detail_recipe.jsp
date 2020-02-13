@@ -6,12 +6,13 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="maeggi.seggi.recipe.RecipeVO"%>
 <%@ page import="java.net.URLEncoder" %>
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+
+<meta charset="UTF-8">
 <meta name="description" content="">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -118,14 +119,17 @@
 						<div>
 
 							<div>
-								<span><strong>THEME :</strong></span><span><%=listMap.get(0).get("RECIPE_CATEGORY")%></span>&ensp;<br />
-								<span><strong>CATEGORY :</strong></span><span><%=listMap.get(0).get("FOOD_CATEGORY")%></span><br />
+							
 
-								<span><strong>조리 시간 :</strong></span><span><%=String.valueOf(listMap.get(0).get("COOK_TIME"))%>분</span>&ensp;
-								<span><strong>칼로리:</strong></span>
-								<%=String.valueOf(listMap.get(0).get("KCAL"))%>
-								<span>kcal</span><br /> <span><strong>인분 :</strong></span><span><%=String.valueOf(listMap.get(0).get("AMOUNT_PER_PERSON"))%>인분</span>&ensp;
-								<span><strong>예상 가격대 :</strong> </span><span><%=String.valueOf(listMap.get(0).get("PRICE"))%>원</span>&ensp;
+								<div>
+									<span><strong>THEME :</strong></span><span><%=listMap.get(0).get("RECIPE_CATEGORY")%></span>&ensp;<br/>
+									<span><strong>CATEGORY :</strong></span><span><%=listMap.get(0).get("FOOD_CATEGORY")%></span><br/>
+									
+									<span><strong>조리 시간 :</strong></span><span><%=String.valueOf(listMap.get(0).get("COOK_TIME"))%>분</span>&ensp;
+									<span><strong>칼로리:</strong></span> <%=String.valueOf(listMap.get(0).get("KCAL"))%> <span>kcal</span><br/>
+									<span><strong>인분 :</strong></span><span><%=String.valueOf(listMap.get(0).get("AMOUNT_PER_PERSON"))%>인분</span>&ensp;
+									<span><strong>예상 가격대 :</strong> </span><span><%=String.valueOf(listMap.get(0).get("PRICE"))%>원</span>&ensp;
+								</div>
 							</div>
 						</div>
 					</div>
@@ -145,23 +149,24 @@
 						</ul>
 					</div>
 				</div>
-				<form action="">
-					<%
-						if (session.getAttribute("id") != null) {
-					%>
-					<input type="button" id="add" value="식단에 추가하기" onclick="popup()">
-					<%
-						} else {
-					%>
-					<input type="button" id="add" value="식단에 추가하기"
-						onclick="alert('로그인이 필요한 기능입니다.')">
-					<%
-						}
-					%>
-				</form>
-				<hr class="d-sm-none">
-
-			</div>
+			<form action="">
+		<% if(session.getAttribute("id")!=null){ %>
+					<input type="button" id="add" value="식단에 추가하기" onclick="popup(<%=listMap.get(0).get("RECIPE_ID")%>)">
+		<% }else{ %>
+			<input type="button" id="add" value="식단에 추가하기" onclick="alert('로그인이 필요한 기능입니다.')">
+		<% } %>
+			</form>
+			
+			<script type="text/javascript">
+	function popup(rere) {
+		  window
+			.open(
+					"/maeggiSeggi/recipe/addPlanner.do?id="+rere,
+					"식단 관리",
+					"top=100, left=450, width=700, height=450, status=no, menubar=no, toolbar=no, resizable=no");
+	}
+		</script>
+					<hr class="d-sm-none">
 
 
 

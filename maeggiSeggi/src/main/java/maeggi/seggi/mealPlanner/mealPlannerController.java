@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import maeggi.seggi.loginandcustomer.memberVO;
+import maeggi.seggi.mypage.BoardService;
+import maeggi.seggi.mypage.PointVO;
 
 
 @Controller
@@ -23,19 +25,30 @@ public class mealPlannerController {
 	@Autowired
 	mealPlannerService service;
 	
+	@Autowired
+	BoardService pointservice;
+	
 	@RequestMapping(value = "/mealPlanner/select.do", method = RequestMethod.GET)
-	public ModelAndView read(mealPlannerVO meal,HttpServletRequest req) {
+	public ModelAndView read(mealPlannerVO meal, PointVO point, String Dday, HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();
 		HttpSession ses = req.getSession(false);
 		if(ses!=null) {
 			memberVO user=(memberVO) ses.getAttribute("loginuser");
+			String DDday = (String)ses.getAttribute("Dday");
 			if(user!=null) {
 				meal.setMember_id((user.getMember_id()));//mealPlannerVO에 로그인한 회원의 id를 set.
+				point.setMember_id((user.getMember_id()));
+				meal.setPlanner_date(DDday);
 			}
 		}
 		List<mealPlannerVO> mealplan = service.mealSelect(meal);
-		System.out.println("mealplan -==============="+mealplan);
+		int pointsum = pointservice.pointsum(point);
+		System.out.println("====================DDday==========="+meal.getPlanner_date());
+		/*int kcalsum = service.kcalsum(meal);
+		System.out.println("=============kcalsum==================="+kcalsum);*/
 		mav.addObject("mealplan", mealplan);
+		mav.addObject("pointsum", pointsum);
+		//mav.addObject("kcalsum", kcalsum);
 		mav.setViewName("mypage/main");
 		return mav;
 	}

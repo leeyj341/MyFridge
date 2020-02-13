@@ -3,6 +3,7 @@ package maeggi.seggi.fridge;
 import java.util.List;
 
 public interface FridgeDetailService {
-	List<FridgeDetailVO> selectAll();
+	List<FridgeDetailVO> selectAll(String refrigerator_id);
 	int insertFridge(FridgeDetailVO vo);
+	int deleteFridge(FridgeDetailVO vo);
 }

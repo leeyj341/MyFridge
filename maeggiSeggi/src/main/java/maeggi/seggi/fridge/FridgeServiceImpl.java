@@ -21,6 +21,11 @@ public class FridgeServiceImpl implements FridgeService {
 	}
 	
 	@Override
+	public int deleteFridge(FridgeVO vo) {
+		return dao.deleteFridge(vo);
+	}
+	
+	@Override
 	public int updateMain(FridgeVO vo) {
 		return dao.updateMain(vo);
 	}

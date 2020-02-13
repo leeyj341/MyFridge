@@ -94,6 +94,7 @@ public class RecipeServiceImpl implements RecipeService {
 
 	@Override
 	public void upload(MultipartFile file, String path, String fileName) {
+		System.out.println("path:"+path+":"+fileName);
 		try {
 			byte[] data = file.getBytes();
 			fos = new FileOutputStream(path+File.separator+fileName);

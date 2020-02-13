@@ -36,9 +36,22 @@ public class FridgeController {
 		return message;
 	}
 	
+	@RequestMapping(value="/refrigerator/ajax_fridge_delete.do", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
+	public @ResponseBody String deleteFridge(FridgeVO vo) {
+		int result = service.deleteFridge(vo);
+		String message = "";
+		if(result == 1) {
+			message = "#" + vo.getName() +  " 냉장고를 삭제했습니다";
+		} else {
+			message = "해당 이름의 냉장고가 없습니다.";
+		}
+		return message;
+	}
+	
 	@RequestMapping(value="/refrigerator/ajax_update_main.do", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
 	public @ResponseBody String updateMain(FridgeVO vo) {
 		int result = service.updateMain(vo);
+		System.out.println("================================================================================== " + result);
 		String message = "";
 		if(result == 1) {
 			message = "메인 냉장고를 변경했습니다!";

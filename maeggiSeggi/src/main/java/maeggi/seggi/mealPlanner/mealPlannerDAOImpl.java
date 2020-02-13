@@ -13,12 +13,18 @@ public class mealPlannerDAOImpl implements mealPlannerDAO{
 	
 	@Override
 	public List<mealPlannerVO> mealSelect(mealPlannerVO meal) {
-		return SqlSession.selectList("maeggi.seggi.reply.mealPlan", meal);
+		return SqlSession.selectList("maeggi.seggi.meal.mealPlan", meal);
 	}
 
 	@Override
 	public int insert(mealPlannerVO meal) {
-		return SqlSession.insert("maeggi.seggi.reply.mealPlanInsert", meal);
+		return SqlSession.insert("maeggi.seggi.meal.mealPlanInsert", meal);
+	}
+
+	//칼로리 계산
+	@Override
+	public int kcalsum(mealPlannerVO date) {
+		return SqlSession.selectOne("maeggi.seggi.meal.mealKcal", date);
 	}
 	
 	

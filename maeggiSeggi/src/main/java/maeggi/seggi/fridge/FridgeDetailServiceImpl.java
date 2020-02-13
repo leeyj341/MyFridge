@@ -13,14 +13,17 @@ public class FridgeDetailServiceImpl implements FridgeDetailService {
 	FridgeDetailDAO dao;
 	
 	@Override
-	public List<FridgeDetailVO> selectAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<FridgeDetailVO> selectAll(String refrigerator_id) {
+		return dao.selectAll(refrigerator_id);
 	}
 	
 	@Override
 	public int insertFridge(FridgeDetailVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return dao.insertFridge(vo);
+	}
+	
+	@Override
+	public int deleteFridge(FridgeDetailVO vo) {
+		return dao.deleteFridge(vo);
 	}
 }
