@@ -19,7 +19,7 @@
     <!-- Responsive CSS -->
     <link href="/maeggiSeggi/common/css/responsive/responsive.css" rel="stylesheet">
     <!-- Jquery-2.2.4 js -->
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <!-- Popper js -->
     <script src="/maeggiSeggi/common/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap-4 js -->
@@ -49,14 +49,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-5 col-sm-6">
-                     <!--  Top Social bar start -->
-                   <!-- <div class="top_social_bar">
-                        <a href="#"><i class="fas fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fas fa-twitter" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fas fa-linkedin" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fas fa-skype" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fas-dribbble" aria-hidden="true"></i></a>
-                    </div> -->
                 </div>
                 <!--  Login Register Area -->
                 <div class="col-7 col-sm-6">
@@ -142,7 +134,7 @@
                                     <div class="dropdown-menu" aria-labelledby="yummyDropdown">
                                     	<a class="dropdown-item" href="#"></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/restaurant.do"><b>식당 조회</b></a>
-                                        <a class="dropdown-item" href="/maeggiSeggi/map.do"><b>지도 조회</b></a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/weather.do"><b>날씨별 식당 추천</b></a>
                                     </div>
                                 </li>
                                 
@@ -158,20 +150,12 @@
                                     </div>
                                 </li>
                             
-                                
-                                    <!--  choose when otherwise 를 이용하여 아이디가 manager 일 경우 MANAGEMODE a태그를 생성한다. -->
-                       <%--      <c:set var = "loginid" value = "${session.getAttribute('id')}"/>
-                            <c:choose>
-							<c:when test= "${loginid == 'manager'}" >
-							  <li class="nav-item">
-                                    <a class="nav-link" href="#">MANAGEMODE</a>
-                                </li>
-							</c:when>
-							<!--  이 밑에는 로그인 된 아이디가 manager가 아닐때 나타날 것을 표시 -->
-							<c:otherwise>
-							<span></span>
-							</c:otherwise>
-							</c:choose> --%>
+                            
+							 <c:if test= "${loginuser.member_id == 'test'}">
+                                    <a class="nav-link" href="/maeggiSeggi/loginandcustomer/admin_asklist.do">MANAGEMODE</a>
+
+	
+							</c:if> 
                             </ul>
                         </div>
                     </nav>

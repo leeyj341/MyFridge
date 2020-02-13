@@ -53,7 +53,75 @@
 				}
 			});
 		});
-		
+		 function join_check() {
+			  var form = document.userInfo;
+		      if (!form.member_id.value) {
+		         alert("아이디를 입력하세요.");
+		         form.member_id.focus();
+		         return false;
+		      }
+			
+			if (!form.pass.value) {
+		         alert("비밀번호를 입력하세요.");
+		         form.pass.focus();
+		         return false;
+		      }
+			 if (form.pass.value.length<3 || form.pass.value.length>12) {
+		         alert("비밀번호를 3~12자로 입력해주세요.")
+		         form.pass.focus();
+		         return false;
+		      }
+			 // 비밀번호와 비밀번호 확인 입력 값 동일여부 확인
+		      if (form.pass.value != form.pass_confirm.value) {
+		         alert("비밀번호를 동일하게 입력하세요.");
+		         form.pass_confirm.focus();
+		         return false;
+		      }
+		      if (!form.name.value) {
+		         alert("이름을 입력하세요.");
+		         form.name.focus();
+		         return false;
+		      }
+		      if (!form.ssn.value) {
+		         alert("주민등록번호를 입력해주세요");
+		         form.ssn.focus();
+		         return false;
+		      }
+		     
+			
+		      if (!form.height.value) {
+			         alert("키를 입력하세요.");
+			         form.height.focus();
+			         return false;
+			      }
+		      if (!form.weight.value) {
+			         alert("몸무게를 입력하세요.");
+			         form.weight.focus();
+			         return false;
+			      }
+		      
+		      if (form.ssn.value.length!=13) {
+			         alert("주민등록번호는 13자리로 입력해야 합니다.")
+			         form.ssn.focus();
+			         return false;
+			      }
+		 
+		      if (!(form.phonenum.value.length==11)) {
+			         alert("폰번호는 11자리로 입력해야 합니다.")
+			         form.phonenum.focus();
+			         return false;
+			      }
+		      if (!form.phonenum.value) {
+			         alert("전화번호를 입력하세요.");
+			         form.phonenum.focus();
+			         return false;
+			      }
+		      if (isNaN(form.phonenum.value)) {
+		         alert("전화번호는 - 제외한 숫자만 입력해주세요.");
+		         form.phonenum.focus();
+		         return false;
+		      }
+		} 
 		
 		$(document).ready(function() {
 			//id 중복체크
@@ -64,6 +132,9 @@
 				}, "text")
 				
 			});
+			
+			
+			
 			
 			//핸드폰 번호 수
 			$("#phonenum").on("keyup",function(){
@@ -148,7 +219,7 @@
 ​
 ​
 		<div class="container">
-			<form action="/maeggiSeggi/loginandcustomer/join.do" method="POST">
+			<form action="/maeggiSeggi/loginandcustomer/join.do" name="userInfo" method="POST" onsubmit="return join_check()">
 				<div class="join_form">
 					<label for="id">아이디:</label> 
 					<input type="text"
@@ -158,11 +229,11 @@
 								
 				<div class="join_form">
 					<label for="pwd">비밀번호:</label> <input type="password"
-						class="form-control" id="pass" name="pass" placeholder="Enter password">
+						class="form-control" id="pass" name="pass" placeholder="최소3자 이상 최대 12자 이하">
 ​
 				</div>
 				<div class="join_form">
-					<label for="pwd">비밀번호 확인:</label> <input type="text"
+					<label for="pwd">비밀번호 확인:</label> <input type="password"
 						class="form-control" id="pass_confirm" name="pass_cofirm"
 						placeholder="Enter password">
 					<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>

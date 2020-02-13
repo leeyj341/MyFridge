@@ -191,6 +191,7 @@ public class RecipeController {
 
 	@RequestMapping(value="recipe/ajax_levellist.do",method=RequestMethod.GET,produces="application/json;charset=utf-8")
 	public @ResponseBody List<RecipeVO> recipeList(String cook_level){
+		System.out.println(cook_level);
 		List<RecipeVO> recipelist = service.levellist(cook_level);
 		System.out.println("----------------------"+recipelist.size());
 		return recipelist;

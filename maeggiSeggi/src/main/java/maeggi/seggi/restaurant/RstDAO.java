@@ -1,9 +1,7 @@
 package maeggi.seggi.restaurant;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public interface RstService {
-	ArrayList<searchVO> main(String tit);
+public interface RstDAO {
 	List<weatherVO> weathersearch(String today);
 }

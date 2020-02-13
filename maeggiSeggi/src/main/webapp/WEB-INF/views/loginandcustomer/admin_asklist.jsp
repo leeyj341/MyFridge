@@ -29,6 +29,10 @@
 <!-- Responsive CSS -->
 <link href="/maeggiSeggi/common/css/responsive/responsive.css"
 	rel="stylesheet">
+	
+	<!-- bootstrap -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 </head>
 
@@ -86,7 +90,7 @@
 						</div>
 
 						<div id="AskUserForm">
-							<table class="askboard" border="1">
+							<table class="table table-hover" id="asklistid">
 								<tr>
 									<th>번호</th>
 									<th>날짜</th>
