@@ -21,7 +21,7 @@ public class mealPlannerServiceImpl implements mealPlannerService{
 	}
 
 	@Override
-	public int kcalsum(mealPlannerVO date) {
+	public int kcalsum(String date) {
 		return dao.kcalsum(date);
 	}
 	

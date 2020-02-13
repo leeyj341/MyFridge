@@ -33,13 +33,13 @@
 	<%
 		memberVO loginuser = (memberVO)session.getAttribute("loginuser");
 	%>
-	<%
+	<%-- <%
 		Calendar today = Calendar.getInstance();
 		int year = today.get(Calendar.YEAR);
 		int month = today.get(Calendar.MONTH) + 1;
 		int date = today.get(Calendar.DATE);
 		String Dday = Integer.toString(year)+'-'+Integer.toString(month)+'-'+Integer.toString(date);
-	%>
+	%> --%>
 	<!-- Preloader Start -->
 	<div id="preloader">
 		<div class="yummy-load"></div>
@@ -68,7 +68,7 @@
                             </div>
                             <% } else {
                             	session.setAttribute("member", loginuser);
-                            	session.setAttribute("today", Dday);
+                            	/* session.setAttribute("today", Dday); */
                             	session.setAttribute("id", loginuser.getMember_id());
                             %>
                             <div class="login"><span><%= session.getAttribute("id") %>님 환영합니다.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
@@ -157,21 +157,14 @@
                                         <a class="dropdown-item" href="/maeggiSeggi/board/recipe_favorite.do"><b>즐겨찾은 레시피</b></a>
                                     </div>
                                 </li>
-                            
-                                
-                                    <!--  choose when otherwise 를 이용하여 아이디가 manager 일 경우 MANAGEMODE a태그를 생성한다. -->
-                       <%--      <c:set var = "loginid" value = "${session.getAttribute('id')}"/>
-                            <c:choose>
-							<c:when test= "${loginid == 'manager'}" >
+                            <c:if test= "${loginuser.member_id == 'test'}">
 							  <li class="nav-item">
                                     <a class="nav-link" href="#">MANAGEMODE</a>
                                 </li>
-							</c:when>
 							<!--  이 밑에는 로그인 된 아이디가 manager가 아닐때 나타날 것을 표시 -->
-							<c:otherwise>
-							<span></span>
-							</c:otherwise>
-							</c:choose> --%>
+							</c:if> 
+                                
+                       
                             </ul>
                         </div>
                     </nav>
