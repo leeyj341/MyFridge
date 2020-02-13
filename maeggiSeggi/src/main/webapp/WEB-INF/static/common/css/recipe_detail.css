@@ -22,7 +22,13 @@ h4 {
 	font-size: 30pt;
 	text-align: justify;
 }
-
+button{
+padding: 0%;
+border: solid 1px transparent;
+background: white;
+width:18px;
+height:18px;
+}
 #add {
 	width: 100%;
 	background-color: white;

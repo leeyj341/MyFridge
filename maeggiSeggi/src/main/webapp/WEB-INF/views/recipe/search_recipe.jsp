@@ -109,7 +109,7 @@
 			</div>
 			<div class="col-sm-9">
 				<div style="font-size: 20pt; float: left;width=100%">
-					<div class="nav-tabs-right">
+<!-- 					<div class="nav-tabs-right">
 						<select class="form-control" id="contentnum" name="contentnum">
 							<option>Limit</option>
 							<option value="10">10</option>
@@ -117,7 +117,7 @@
 							<option value="50">50</option>
 							<option value="100">100</option>
 						</select>
-					</div>
+					</div> -->
 					<div class="search-result">
 						<span id="underline">검색어</span>(으)로 조회된 결과는 <span id="Scount">0</span> 개 입니다.
 					</div>
@@ -156,7 +156,7 @@
 						</div>
 					</c:forEach>
 					</div>
-	
+				<div style="text-align: center;">
 					<c:if test="${page.prev}">
 						<a style="text-decoration: none;" href="javascript:page(${page.getStartPage()-1 });">&laquo;</a>
 					</c:if>
@@ -166,6 +166,7 @@
 					<c:if test="${page.next}">
 						<a style="text-decoration: none;" href="javascript:page(${page.getEndPage()+1 });">&raquo;</a>
 					</c:if>
+					</div>
 				</div>
 			</div>
 			<hr class="d-sm-none">
@@ -175,9 +176,9 @@
 	<script type="text/javascript">
 	function page(idx){
 		var pagenum = idx;
-		alert(pagenum)
-	//	var contentnum =$("#contentnum option:selected").val();
-		location.href="/maeggiSeggi/recipe/search.do?pagenum="+pagenum+"&contentnum="+contentnum;
+		//alert(pagenum)
+		//var contentnum =$("#contentnum option").is(":selected").val();
+		location.href="/maeggiSeggi/recipe/searchRecipe.do?pagenum="+pagenum+"&contentnum=9";
 	}
 		var serviceType;
 
@@ -234,6 +235,7 @@
 																								
 
 																					}
+																					
 																					$("#main").empty();
 																					$("#main").append(mydata);
 																					

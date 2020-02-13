@@ -1,3 +1,4 @@
+<%@page import="java.util.Calendar"%>
 <%@page import="maeggi.seggi.loginandcustomer.memberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -12,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	 <!-- Favicon -->
-    <link rel="icon" href="/maeggiSeggi/images/core-img/favicon.ico">
+    <link rel="icon" href="/maeggiSeggi/common/images/core-img/favicon.ico">
     <!-- Core Stylesheet -->
     <link href="/maeggiSeggi/common/css/style.css" rel="stylesheet">
     <!-- Responsive CSS -->
@@ -31,6 +32,13 @@
 <body>
 	<%
 		memberVO loginuser = (memberVO)session.getAttribute("loginuser");
+	%>
+	<%
+		Calendar today = Calendar.getInstance();
+		int year = today.get(Calendar.YEAR);
+		int month = today.get(Calendar.MONTH) + 1;
+		int date = today.get(Calendar.DATE);
+		String Dday = Integer.toString(year)+'-'+Integer.toString(month)+'-'+Integer.toString(date);
 	%>
 	<!-- Preloader Start -->
 	<div id="preloader">
@@ -52,6 +60,7 @@
                             </div>
                             <% } else {
                             	session.setAttribute("member", loginuser);
+                            	session.setAttribute("today", Dday);
                             	session.setAttribute("id", loginuser.getMember_id());
                             %>
                             <div class="login"><span><%= session.getAttribute("id") %>님 환영합니다.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
@@ -142,20 +151,12 @@
                                     </div>
                                 </li>
                             
-                                
-                                    <!--  choose when otherwise 를 이용하여 아이디가 manager 일 경우 MANAGEMODE a태그를 생성한다. -->
-                       <%--      <c:set var = "loginid" value = "${session.getAttribute('id')}"/>
-                            <c:choose>
-							<c:when test= "${loginid == 'manager'}" >
+							 <c:if test= "${loginuser.member_id == 'test'}">
 							  <li class="nav-item">
-                                    <a class="nav-link" href="#">MANAGEMODE</a>
+                                    <a class="nav-link" href="/maeggiSeggi/loginandcustomer/admin_asklist.do">MANAGEMODE</a>
                                 </li>
-							</c:when>
-							<!--  이 밑에는 로그인 된 아이디가 manager가 아닐때 나타날 것을 표시 -->
-							<c:otherwise>
-							<span></span>
-							</c:otherwise>
-							</c:choose> --%>
+	
+							</c:if> 
                             </ul>
                         </div>
                     </nav>

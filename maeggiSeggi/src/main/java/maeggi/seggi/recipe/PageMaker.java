@@ -11,14 +11,13 @@ public class PageMaker {
 	private int currentblock; //현재 페이지 블록
 	private int lastblock;	//마지막 페이지 블록
 	
+	//첫 페이지에서는
+			//이전 페이지로 가는 화살표가 보이지 않고 다음 페이지로 가는 화살표만 보인다.
 	public void prevnext(int pagenum) {
-		if(pagenum>0 && pagenum<6) {
+		if(pagenum>0&&pagenum<6) {
 			setPrev(false);
 			setNext(true);
-		}
-		//첫 페이지에서는
-		//이전 페이지로 가는 화살표가 보이지 않고 다음 페이지로 가는 화살표만 보인다.
-		else if(getLastblock() == getCurrentblock()) {
+		}else if(getLastblock()==getCurrentblock()) {
 			setPrev(true);
 			setNext(false);
 		}else {
@@ -26,9 +25,11 @@ public class PageMaker {
 			setNext(true);
 		}
 	}
-	public int calcpage(int totalCount,int contentnum) { //전체 페이지 수 계산
-		int totalpage = totalCount / contentnum;
-		if(totalpage%contentnum>0) {
+	//전체 페이지 수 계산
+	public int calcpage(int totalcount, int contentnum) { //전체 페이지 수를 계산하는 함수  
+		//125/10 => 12.5 -> 13페이지 
+		int totalpage=totalcount/contentnum;
+		if(totalcount%contentnum>0) {
 			totalpage++;
 		}
 		return totalpage;
@@ -96,10 +97,12 @@ public class PageMaker {
 	public int getLastblock() {
 		return lastblock;
 	}
-	public void setLastblock(int totalCount) {
-		
-		this.lastblock = totalCount/(5*this.contentnum);
-		if(totalCount%(5*this.contentnum)>0) {
+	public void setLastblock(int totalcount) {
+		//10 , 5 = > 10 * 5 => 50
+		//125/ 50 
+		//3
+		this.lastblock = totalcount/(5*this.contentnum);
+		if(totalcount%(5*this.contentnum)>0) {
 			this.lastblock++;
 		}
 	}

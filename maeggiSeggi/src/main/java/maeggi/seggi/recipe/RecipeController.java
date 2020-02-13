@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,7 +22,7 @@ public class RecipeController {
 	
 	@Autowired
 	RecipeService service;
-	private RecipeDAO mapper;
+	//private RecipeDAO mapper;
 	@RequestMapping("/recipe/main.do")
 	public String recipe() {
 		return "main";
@@ -57,8 +58,7 @@ public class RecipeController {
 		return "add";
 	}
 	*/
-	
-	@RequestMapping("/recipe/searchRecipe.do")
+@RequestMapping("/recipe/searchRecipe.do")
 	public ModelAndView recipeList(HttpServletRequest request) {
 		PageMaker pageMaker = new PageMaker();
 		ModelAndView mav = new ModelAndView();
@@ -68,10 +68,7 @@ public class RecipeController {
 		int contentnum = Integer.parseInt(request.getParameter("contentnum"));
 		System.out.println("contentnum=>"+contentnum);
 		
-		List<RecipeVO> list = service.listall();
-		System.out.println(list);  
-		mav.addObject("list",list);
-		pageMaker.setTotalCount(mapper.testcount());//전체 게시글 갯수 지정
+		pageMaker.setTotalCount(service.testcount());//전체 게시글 갯수 지정
 		pageMaker.setPagenum(pagenum-1);	//현재 페이지를 페이지 객체에 지정, -1을 해야 쿼리에서 사용 가능
 		pageMaker.setContentnum(contentnum); //한 페이지에 몇 개씩 게시글을 보여줄 것인
 		pageMaker.setCurrentblock(pagenum); //현재 페이지 블록
@@ -80,21 +77,28 @@ public class RecipeController {
 		pageMaker.prevnext(pagenum);//현재 페이지 번호로 화살표를 나타낼 지 정한다
 		pageMaker.setStartPage(pageMaker.getCurrentblock()); //시작 페이지를 페이지 블록번호로 정한다.
 		pageMaker.setEndPage(pageMaker.getLastblock(), pageMaker.getCurrentblock()); 
-		System.out.println(pageMaker);
+		
+		
+		System.out.println("==중간과정==");
+	//	List<RecipeVO> list = service.listall();
+	//	System.out.println(list);  
+	//	mav.addObject("list",list);
+			
+	//	System.out.println(pageMaker);
 		if(pageMaker.getPagenum()==1) {
-		List<RecipeVO> testlist = mapper.testlist(pageMaker.getPagenum()*9, pageMaker.getPagenum()*9+pageMaker.getContentnum());
-		List<RecipeVO> test = new ArrayList<RecipeVO>();
+		List<RecipeVO> testlist = service.testlist(pageMaker.getPagenum()*9, pageMaker.getPagenum()*9+pageMaker.getContentnum());
+		//List<RecipeVO> test = new ArrayList<RecipeVO>();
 		System.out.println(testlist);
 		System.out.println(pageMaker.getContentnum());
-		mav.addObject("testlist",testlist);
+		mav.addObject("list",testlist);
 		mav.addObject("page",pageMaker);
 		mav.setViewName("search");
 		return mav;
 		}else {
-			List<RecipeVO> testlist = mapper.testlist((pageMaker.getPagenum()*10)+1, pageMaker.getPagenum()*10+pageMaker.getContentnum());	
+			List<RecipeVO> testlist = service.testlist((pageMaker.getPagenum()*10)+1, pageMaker.getPagenum()*10+pageMaker.getContentnum());	
 			System.out.println(testlist);
 			System.out.println(pageMaker.getContentnum());
-			mav.addObject("testlist",testlist);
+			mav.addObject("list",testlist);
 			mav.addObject("page",pageMaker);
 			mav.setViewName("search");
 			return mav;
@@ -132,10 +136,56 @@ public class RecipeController {
 
 	@RequestMapping(value="/recipe/ajax_searchRecipe.do",method=RequestMethod.GET,produces="application/json;charset=utf-8")	
 	//ajax로 통신하면서 클라이언트에게 명시해줄 데이터를 produces에 붙인다.
-	public @ResponseBody ArrayList<RecipeVO> categoryList(String category) {
-		ArrayList<RecipeVO> recipeList = (ArrayList<RecipeVO>)service.recipeList(category);
-		System.out.println("ajax 통신"+recipeList.size());
-		return recipeList;
+	public @ResponseBody AjaxPageVO categoryList(String category,String pagenum,String contentnum) {
+		PageMaker pageMaker = new PageMaker();
+		int pagenumVal = Integer.parseInt(pagenum);
+		int contentnumVal = Integer.parseInt(contentnum);
+		System.out.println("중간점검"+pagenum+","+contentnum);
+		pageMaker.setTotalCount(service.testcount());//전체 게시글 갯수 지정
+		pageMaker.setPagenum(pagenumVal-1);	//현재 페이지를 페이지 객체에 지정, -1을 해야 쿼리에서 사용 가능
+		pageMaker.setContentnum(contentnumVal); //한 페이지에 몇 개씩 게시글을 보여줄 것인
+		pageMaker.setCurrentblock(pagenumVal); //현재 페이지 블록
+		pageMaker.setLastblock(pageMaker.getTotalCount()); // 마지막 블록 번호를 전체 게시글 수를 통해 정한다.
+		
+		pageMaker.prevnext(pagenumVal);//현재 페이지 번호로 화살표를 나타낼 지 정한다
+		pageMaker.setStartPage(pageMaker.getCurrentblock()); //시작 페이지를 페이지 블록번호로 정한다.
+		pageMaker.setEndPage(pageMaker.getLastblock(), pageMaker.getCurrentblock()); 
+		
+		
+		System.out.println("==중간과정==");
+		ArrayList<RecipeVO> recipeList = null;
+		if(pageMaker.getPagenum()==1) {
+			recipeList = (ArrayList<RecipeVO>)service.recipeList(category,pageMaker.getPagenum()*9, pageMaker.getPagenum()*9+pageMaker.getContentnum());
+			//List<RecipeVO> test = new ArrayList<RecipeVO>();
+			System.out.println(recipeList);
+			System.out.println(pageMaker.getContentnum());
+			
+			}else {
+				recipeList = (ArrayList<RecipeVO>)service.recipeList(category,(pageMaker.getPagenum()*10)+1, pageMaker.getPagenum()*10+pageMaker.getContentnum());	
+				System.out.println(recipeList);
+				System.out.println(pageMaker.getContentnum());
+			
+			}
+		AjaxPageVO apv = new AjaxPageVO(recipeList, pageMaker);
+		System.out.println(apv);
+		return apv;
+	}
+	@RequestMapping(value="/recipe/levelRecipe.do", method=RequestMethod.GET)
+	public ModelAndView levelView(String cook_levelb, String cook_leveln, String cook_levelh) {
+		System.out.println(cook_levelb+"////////////////"+cook_leveln+"//////////////"+cook_levelh);
+		System.out.println("====================================================================================");
+		ModelAndView mav = new ModelAndView();
+		List<RecipeVO> listb = service.levellist(cook_levelb);
+		List<RecipeVO> listn = service.levellist(cook_leveln);
+		List<RecipeVO> listh = service.levellist(cook_levelh);
+		System.out.println("b:"+listb);
+		System.out.println("n:"+listn);
+		System.out.println("h:"+listh);
+		mav.addObject("levellistb", listb);
+		mav.addObject("levellistn", listn);
+		mav.addObject("levellisth", listh);
+		mav.setViewName("level");
+		return mav;
 	}
 	@RequestMapping(value="/recipe/levelRecipe.do", method=RequestMethod.GET)
 	public ModelAndView levelView(String cook_levelb, String cook_leveln, String cook_levelh) {
@@ -172,5 +222,15 @@ public class RecipeController {
 		System.out.println("컨트롤러를 거친 recipe_id: "+ mealinfo);
 		return mav;
 	}
+	
+	@RequestMapping(value ="/recipe/like.do", method=RequestMethod.GET)
+	public String like(HttpServletRequest reqest) throws Exception{
+		String recipe_id = reqest.getParameter("id");
+		System.out.println("좋아요~"+recipe_id);
+		service.like(recipe_id);
+		
+		return "forward:/recipe/detailRecipe.do";
+	}
+
 	
 }

@@ -9,6 +9,10 @@ outter, h1, h2, h3 {
 	font-family: 'PapyrusM';
 }
 
+.table table-hover{
+	text-align: center;
+}
+
 #noticeboard_list {
 	margin-left: auto;
 	margin-right: auto;

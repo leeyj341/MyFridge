@@ -27,14 +27,14 @@ public class RecipeServiceImpl implements RecipeService {
 	
 	FileOutputStream fos;
 	@Override
-	public List<RecipeVO> recipeList(String category) {
+	public List<RecipeVO> recipeList(String category, int pagenum, int contentnum) {
 		List<RecipeVO> list = null;
 		System.out.println("category : " + category);
 		if(category!=null) {
 			if(category.equals("all")) {
-				list=dao.listall(); 			
+				list=dao.testlist(pagenum, contentnum);			
 			}else {
-				list=dao.categorySearch(category);
+				list=dao.categorySearch(category,pagenum,contentnum);
 			}
 		}
 		return list;
@@ -66,10 +66,10 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 
 
-	@Override
+/*	@Override
 	public List<RecipeVO> listall() {
 		return dao.listall();
-	}
+	}*/
 
 
 	@Override
@@ -118,6 +118,16 @@ public class RecipeServiceImpl implements RecipeService {
 	public List<RecipeVO> testlist(int pagenum, int contentnum) {
 		// TODO Auto-generated method stub
 		return dao.testlist(pagenum, contentnum);
+	}
+	@Override
+	public int testcount() {
+		
+		return dao.testcount();
+	}
+
+	@Override
+	public void like(String recipe_id) throws Exception {
+		dao.like(recipe_id);
 	}
 
 }
