@@ -22,5 +22,5 @@ public interface RecipeService {
 	//좋아요
 	public void like(String recipe_id) throws Exception;
 	List<RecipeVO> recipeList(String recipe_category, int pagenum, int contentnum);
-
+	List<weatherVO> weatherList(String today);
 }

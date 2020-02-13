@@ -131,4 +131,11 @@ public class RecipeServiceImpl implements RecipeService {
 		dao.like(recipe_id);
 	}
 
+
+	@Override
+	public List<weatherVO> weatherList(String today) {
+		List<weatherVO> wlist = dao.weatherList(today);
+		return wlist;
+	}
+
 }

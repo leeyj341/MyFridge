@@ -14,6 +14,7 @@
 		<typeAlias type="maeggi.seggi.recipe.RecipeVO" alias="recipe"/>
 		<typeAlias type="maeggi.seggi.restaurant.RecipePlannerAddVO" alias="add"/>
 		<typeAlias type="maeggi.seggi.restaurant.weatherVO" alias="weather"/>
+		<typeAlias type="maeggi.seggi.recipe.weatherVO" alias="recipeweather"/>
 		<!-- fridge -->
 		<typeAlias type="maeggi.seggi.fridge.FridgeVO" alias="fridge"/>
 		<typeAlias type="maeggi.seggi.fridge.FridgeDetailVO" alias="fridgeDetail"/>
@@ -35,6 +36,7 @@
 		<mapper resource="mapper/recipe.xml"/>
 		<mapper resource="mapper/add.xml"/>
 		<mapper resource="mapper/weather.xml"/>
+		<mapper resource="mapper/recipeweather.xml"/>
 		<!-- fridge -->
 		<mapper resource="mapper/fridge.xml"/>
 		<mapper resource="mapper/fridge_detail.xml"/>

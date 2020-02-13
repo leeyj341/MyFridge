@@ -89,5 +89,10 @@ public class RecipeDAOImpl implements RecipeDAO {
 		
 	}
 
+	@Override
+	public List<weatherVO> weatherList(String today) {
+		return sqlSession.selectList("maeggi.seggi.recipe.recipeweather", today);
+	}
+
 }
 

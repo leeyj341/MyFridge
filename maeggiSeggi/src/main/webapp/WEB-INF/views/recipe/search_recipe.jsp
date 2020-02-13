@@ -210,7 +210,7 @@
 																						"<div class='single-post'>"
 																								+ "<div class='post-thumb'>"
 																								+ "<a href='/maeggiSeggi/recipe/detailRecipe.do?id="
-																								+ data[i].recipe_id
+																								+ data[i].mainVo.recipe_id
 																								+ "'>"
 																								+ "<img src='" + data[i].img_url_main + "' style='width:248px;height:248px;'/>"
 																								+ "</a>"

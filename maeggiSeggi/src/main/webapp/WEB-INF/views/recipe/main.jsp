@@ -1,3 +1,5 @@
+<%@page import="maeggi.seggi.recipe.RecipeVO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -70,6 +72,10 @@ color: skyblue;
 
 </head>
 <body>
+	<% String today = (String)request.getAttribute("today"); %>
+	<% List<RecipeVO> rlist = (List<RecipeVO>)request.getAttribute("rlist"); %>
+	<% List<RecipeVO> rlistt = (List<RecipeVO>)request.getAttribute("rlistt"); %>
+	<% List<RecipeVO> rlisttt = (List<RecipeVO>)request.getAttribute("rlisttt"); %>
 	<!-- ****** Breadcumb Area Start ****** -->
 	<div class="breadcumb-nav">
 		<div class="container">
@@ -240,7 +246,7 @@ color: skyblue;
 		</section><br/><br/>
 	<div id="line">
 		<div id="headtitle">
-			<h4><span id="underline">비오는 날</span> 이런 음식 어때요?</h4>
+			<h4><span id="underline"><%= today %></span> 이런 음식 어때요?</h4>
 			<a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="레시피 등록" ></a>
 			<input type="button" id="more" value="More">
 		</div>
@@ -255,7 +261,7 @@ color: skyblue;
 					<div class="single-post wow fadeInUp" data-wow-delay="0.1s">
 						<!-- Post Thumb -->
 						<div class="post-thumb">
-							<img src="../images/pork1.PNG" alt="">
+							<img src="<%= rlist.get(0).getImg_url_main() %>" alt="">
 						</div>
 						<!-- Post Content -->
 						<div class="post-content">
@@ -289,7 +295,7 @@ color: skyblue;
 								</div>
 							</div>
 							<a href="#">
-								<h4 class="post-headline">지글지글 맛있는 김치찌개</h4>
+								<h4 class="post-headline"><%= rlist.get(0).getName() %></h4>
 							</a>
 						</div>
 					</div>
@@ -299,7 +305,7 @@ color: skyblue;
 					<div class="single-post wow fadeInUp" data-wow-delay="0.3s">
 						<!-- Post Thumb -->
 						<div class="post-thumb">
-							<img src="../images/pork2.PNG" alt="">
+							<img src="<%= rlistt.get(0).getImg_url_main() %>" alt="">
 						</div>
 						<!-- Post Content -->
 						<div class="post-content">
@@ -333,7 +339,7 @@ color: skyblue;
 								</div>
 							</div>
 							<a href="#">
-								<h4 class="post-headline">백종원의 만능고기양념으로 재운 단짠단짠 la 양념갈비</h4>
+								<h4 class="post-headline"><%= rlistt.get(0).getName() %></h4>
 							</a>
 						</div>
 					</div>
@@ -345,7 +351,7 @@ color: skyblue;
 					<div class="single-post wow fadeInUp" data-wow-delay="0.4s">
 						<!-- Post Thumb -->
 						<div class="post-thumb">
-							<img src="../images/sandwitch.jpg" alt="">
+							<img src="<%= rlisttt.get(0).getImg_url_main() %>" alt="">
 						</div>
 						<!-- Post Content -->
 						<div class="post-content">
@@ -379,8 +385,7 @@ color: skyblue;
 								</div>
 							</div>
 							<a href="#">
-								<h4 class="post-headline">크리스마스&nbsp;&nbsp;
-									파티음식으로&nbsp;&nbsp; 최고!몬테크리스토 샌드위치:)</h4>
+								<h4 class="post-headline"><%= rlisttt.get(0).getName() %></h4>
 							</a>
 						</div>
 					</div>
