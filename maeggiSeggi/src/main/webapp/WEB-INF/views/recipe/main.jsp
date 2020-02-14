@@ -80,6 +80,9 @@ font-size: 20pt;
 		<% List<RecipeVO> hitList = (List<RecipeVO>)request.getAttribute("hitList");
 		List<RecipeVO> drunklist = (List<RecipeVO>) request.getAttribute("drunklist");
 		List<RecipeVO> freshlist = (List<RecipeVO>) request.getAttribute("freshlist");%>
+		<% List<RecipeVO> rlist = (List<RecipeVO>)request.getAttribute("rlist"); %>
+	<% List<RecipeVO> rlistt = (List<RecipeVO>)request.getAttribute("rlistt"); %>
+	<% List<RecipeVO> rlisttt = (List<RecipeVO>)request.getAttribute("rlisttt"); %>
 	<!-- ****** Breadcumb Area Start ****** -->
 	<div class="breadcumb-nav">
 		<div class="container">
@@ -235,7 +238,7 @@ font-size: 20pt;
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post wow fadeInUp" data-wow-delay="0.1s">
 						<div class="post-thumb">
-							<img src="<%= rlist.get(0).getImg_url_main() %>" alt="">
+							<a href="/maeggiSeggi/recipe/detailRecipe.do?id=<%=rlist.get(0).getRecipe_id() %>"><img src="<%= rlist.get(0).getImg_url_main() %>" alt="">
 						</div>
 						<div class="post-content">
 							<div class="post-meta d-flex">
@@ -269,7 +272,7 @@ font-size: 20pt;
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post wow fadeInUp" data-wow-delay="0.3s">
 						<div class="post-thumb">
-							<img src="<%= rlistt.get(0).getImg_url_main() %>" alt="">
+							<a href="/maeggiSeggi/recipe/detailRecipe.do?id=<%=rlistt.get(0).getRecipe_id() %>"><img src="<%= rlistt.get(0).getImg_url_main() %>" alt="">
 						</div>
 						<div class="post-content">
 							<div class="post-meta d-flex">
@@ -306,7 +309,7 @@ font-size: 20pt;
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post wow fadeInUp" data-wow-delay="0.4s">
 						<div class="post-thumb">
-							<img src="<%= rlisttt.get(0).getImg_url_main() %>" alt="">
+							<a href="/maeggiSeggi/recipe/detailRecipe.do?id=<%=rlisttt.get(0).getRecipe_id() %>"><img src="<%= rlisttt.get(0).getImg_url_main() %>" alt="">
 						</div>
 						<div class="post-content">
 							<div class="post-meta d-flex">
@@ -417,7 +420,7 @@ font-size: 20pt;
 										<a href="#"><%=freshlist.get(i).getMember_id() %></a>
 									</div>
 									<div class="post-date">
-										
+			
 									<a href="#">REGISTER: <%=freshlist.get(i).getRegister_date()%></a>
 									</div>
 								</div>

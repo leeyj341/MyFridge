@@ -32,6 +32,14 @@
 
 <!-- Responsive CSS -->
 <link href="css/responsive/responsive.css" rel="stylesheet">
+<script type="text/javascript">
+	function popup() {
+		pop = window.open('maeggiSeggi.mypage_search.jsp', 'search',
+				'width=400,height=400,location=no,status=no,scrollbars=yes');
+	}
+</script>
+
+
 <style type="text/css">
 #mealplannerid {
 	text-align: center;
@@ -98,7 +106,7 @@
 			int date = today.get(Calendar.DATE);
 		%>
 
-		
+		<div>
 			
 
 

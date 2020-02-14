@@ -37,7 +37,7 @@ public class RecipeServiceImpl implements RecipeService {
 				list=dao.testlist(pagenum, contentnum);			
 			}else {
 				System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-				list=dao.categorySearch(recipe_category, Integer.toString(pagenum),Integer.toString(contentnum));
+				list=dao.categorySearch(recipe_category, pagenum,contentnum);
 				//System.out.println(Integer.toString(pagenum)+","+Integer.toString(contentnum));
 			}
 		}
@@ -129,6 +129,10 @@ public class RecipeServiceImpl implements RecipeService {
 	public int testcount() {
 		
 		return dao.testcount();
+	}
+	@Override
+	public int testcount2(String recipe_category) {
+		return dao.testcount2(recipe_category);
 	}
 
 	@Override

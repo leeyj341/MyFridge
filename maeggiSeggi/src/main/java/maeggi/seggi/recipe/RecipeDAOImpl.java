@@ -75,6 +75,11 @@ public class RecipeDAOImpl implements RecipeDAO {
 	public int testcount() {
 		return sqlSession.selectOne("maeggi.seggi.recipe.testcount");
 	}
+	
+	@Override
+	public int testcount2(String recipe_category) {
+		return sqlSession.selectOne("maeggi.seggi.recipe.testcount2", recipe_category);
+	}
 
 
 	@Override

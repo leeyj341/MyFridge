@@ -47,11 +47,29 @@ $(document).ready(function() {
 	
 	//냉장고 재료 등록
 	$(".save-btn").each(function() {
+		var message = "";
 		$(this).on("click", function() {
-			$.ajax({
-				//url:"/maeggiSeggi/"
-			})
-		})
+			$("#fridge").find("li").each(function(index, element) {
+				$.ajax({
+					url:"/maeggiSeggi/fridgeDetail/ajax_fd_insert.do",
+					async: false,
+					type:"post",
+					dataType:"text",
+					data: {
+						"ingredient_id": $(this).find("div").attr("value"),
+						"ig_amount": $(this).find("p:last").text(),
+						"refrigerator_id": $("#fridge_name").attr("value")
+					},
+					success: function(data) {
+						message = data;
+					},
+					fail: function(data) {
+						message = data;
+					}
+				});
+			});
+			alert(message);
+		});
 	});
 	
 });

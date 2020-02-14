@@ -53,6 +53,11 @@
 	font-size: 14pt;
 }
 
+#fridge > li p {
+	font-family: nanumSquare_acB;
+	font-size: 14pt;
+}
+
 .sort-list > li > div {
 	border: solid 2px #ffa042;
 	border-radius: 10%;

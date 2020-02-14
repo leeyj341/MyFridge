@@ -1,5 +1,6 @@
 package maeggi.seggi.recipe;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -18,6 +19,7 @@ public interface RecipeService {
 
 	public List<RecipeVO> testlist(int pagenum, int contentnum);
 	public int testcount();
+	public int testcount2(String recipe_category);
 	RecipeVO moveTopopup(String recipe_id);
 	//좋아요
 	public void like(String recipe_id) throws Exception;
