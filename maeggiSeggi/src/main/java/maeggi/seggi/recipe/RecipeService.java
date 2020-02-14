@@ -1,5 +1,6 @@
 package maeggi.seggi.recipe;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -14,7 +15,7 @@ public interface RecipeService {
 	List<RecipeVO> levellist(String cook_level);
 	List<RecipeVO> readbyName(String name);
 	//파일 업로드
-	void upload(MultipartFile file,String path,String fileName);
+	void upload(ArrayList<MultipartFile> file,String path);
 
 	public List<RecipeVO> testlist(int pagenum, int contentnum);
 	public int testcount();
@@ -22,5 +23,7 @@ public interface RecipeService {
 	//좋아요
 	public void like(String recipe_id) throws Exception;
 	List<RecipeVO> recipeList(String recipe_category, int pagenum, int contentnum);
+	List<RecipeVO> hitlist(String hit);
+	List<NutrientVO> drunklist(String dname);
 	List<weatherVO> weatherList(String today);
 }

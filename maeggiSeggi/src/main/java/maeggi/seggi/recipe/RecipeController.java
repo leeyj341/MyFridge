@@ -17,6 +17,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,7 +31,7 @@ public class RecipeController {
 	@Autowired
 	RecipeService service;
 	//private RecipeDAO mapper;
-	@RequestMapping("/recipe/main.do")
+	@RequestMapping("/recipe/main.do", method=RequestMethod.GET)
 	public @ResponseBody ModelAndView wapi() {
 		ModelAndView mav = new ModelAndView();
 		SimpleDateFormat date = new SimpleDateFormat("yyyyMMdd");
@@ -131,6 +132,15 @@ public class RecipeController {
 		mav.addObject("rlistt", rlistt);
 		mav.addObject("rlisttt", rlisttt);
 		mav.setViewName("main");
+		System.out.println("메인 단입니다.");
+		System.out.println(dname);
+		ModelAndView mav = new ModelAndView();
+		List<RecipeVO> hitList = service.hitlist(hit);
+		List<NutrientVO> drunkList = service.drunklist(dname);
+		System.out.println("히트 메뉴"+hitList);
+		mav.addObject("hitList",hitList);
+		mav.addObject("drunklist",drunkList);
+		mav.setViewName("main");
 		return mav;
 	}
 	@RequestMapping("/recipe/themeRecipe.do")
@@ -211,6 +221,54 @@ public class RecipeController {
 		}
 	}
 	
+@RequestMapping("/recipe/categoryRecipe.do")
+public ModelAndView categoryList(String recipe_category, HttpServletRequest request) {
+	PageMaker pageMaker = new PageMaker();
+	ModelAndView mav = new ModelAndView();
+	
+	System.out.println(recipe_category);
+	int pagenum = Integer.parseInt(request.getParameter("pagenum"));
+	System.out.println("pagenum=>"+pagenum);
+	int contentnum = Integer.parseInt(request.getParameter("contentnum"));
+	System.out.println("contentnum=>"+contentnum);
+	
+	pageMaker.setTotalCount(service.testcount());//전체 게시글 갯수 지정
+	pageMaker.setPagenum(pagenum-1);	//현재 페이지를 페이지 객체에 지정, -1을 해야 쿼리에서 사용 가능
+	pageMaker.setContentnum(contentnum); //한 페이지에 몇 개씩 게시글을 보여줄 것인
+	pageMaker.setCurrentblock(pagenum); //현재 페이지 블록
+	pageMaker.setLastblock(pageMaker.getTotalCount()); // 마지막 블록 번호를 전체 게시글 수를 통해 정한다.
+	
+	pageMaker.prevnext(pagenum);//현재 페이지 번호로 화살표를 나타낼 지 정한다
+	pageMaker.setStartPage(pageMaker.getCurrentblock()); //시작 페이지를 페이지 블록번호로 정한다.
+	pageMaker.setEndPage(pageMaker.getLastblock(), pageMaker.getCurrentblock()); 
+	
+	
+	System.out.println("==중간과정==");
+//	List<RecipeVO> list = service.listall();
+//	System.out.println(list);  
+//	mav.addObject("list",list);
+		
+//	System.out.println(pageMaker);
+	if(pageMaker.getPagenum()==1) {
+	List<RecipeVO> testlist = service.recipeList(recipe_category, pageMaker.getPagenum()*9, pageMaker.getPagenum()*9+pageMaker.getContentnum());
+	//List<RecipeVO> test = new ArrayList<RecipeVO>();
+	System.out.println(testlist);
+	System.out.println(pageMaker.getContentnum());
+	mav.addObject("list",testlist);
+	mav.addObject("page",pageMaker);
+	mav.setViewName("search");
+	return mav;
+	}else {
+		List<RecipeVO> testlist = service.recipeList(recipe_category, (pageMaker.getPagenum()*10)+1, pageMaker.getPagenum()*10+pageMaker.getContentnum());	
+		System.out.println(testlist);
+		System.out.println(pageMaker.getContentnum());
+		mav.addObject("list",testlist);
+		mav.addObject("page",pageMaker);
+		mav.setViewName("search");
+		return mav;
+	}
+}
+	
 	
 /*	삭제 
 	public String delete(RecipeVO recipe) {
@@ -231,11 +289,16 @@ public class RecipeController {
 
 		System.out.println("***"+recipe);
  		
- 		MultipartFile file = recipe.getMyphoto();
+		ArrayList<MultipartFile> file = recipe.getMyphoto();
  		String path = WebUtils.getRealPath(session.getServletContext(), "/WEB-INF/upload");
-	 	String fileName = file.getOriginalFilename();
-	 	System.out.println("ddddddddd"+fileName);
-	 	service.upload(file, path, fileName);
+	 	
+	 	service.upload(file, path);
+	 	// 넣기 전 이미지 경로를 넣어줘야 함
+	 	recipe.setImg_url_main(file.get(0).getOriginalFilename());
+	 	for (int i = 0; i < recipe.getRecipe_detail().size(); i++) {
+			recipe.getRecipe_detail().get(i).setImg_url(file.get(i + 1).getOriginalFilename());
+		}
+	 	
 	 	service.insert(recipe);
 		return "redirect:/recipe/searchRecipe.do";
 	}
@@ -259,23 +322,21 @@ public class RecipeController {
 		
 		
 		System.out.println("==중간과정==");
-		ArrayList<RecipeVO> categoryRecipe = null;
+		ArrayList<RecipeVO> recipeList = null;
 		if(pageMaker.getPagenum()==1) {
-			categoryRecipe = (ArrayList<RecipeVO>)service.recipeList(recipe_category,pageMaker.getPagenum()*9, pageMaker.getPagenum()*9+pageMaker.getContentnum());
+			recipeList = (ArrayList<RecipeVO>)service.recipeList(recipe_category,pageMaker.getPagenum()*9, pageMaker.getPagenum()*9+pageMaker.getContentnum());
 			//List<RecipeVO> test = new ArrayList<RecipeVO>();
+			System.out.println(recipeList);
 			System.out.println(pageMaker.getContentnum());
-			System.out.println("get pagenum 가능");
+			
 			}else {
-				categoryRecipe = (ArrayList<RecipeVO>)service.recipeList(recipe_category,(pageMaker.getPagenum()*9)+1, pageMaker.getPagenum()*9+pageMaker.getContentnum());	
-				System.out.println(categoryRecipe);
+				recipeList = (ArrayList<RecipeVO>)service.recipeList(recipe_category,(pageMaker.getPagenum()*10)+1, pageMaker.getPagenum()*10+pageMaker.getContentnum());	
+				System.out.println(recipeList);
 				System.out.println(pageMaker.getContentnum());
-			System.out.println("get pagenum 가능");
+			
 			}
-		System.out.println("======apv출력=========");
-		AjaxPageVO apv = new AjaxPageVO((ArrayList<RecipeVO>) categoryRecipe, pageMaker);
-		System.out.println(apv.mainVo.size());
-		System.out.println(apv.pageMaker.getContentnum());
-
+		AjaxPageVO apv = new AjaxPageVO(recipeList, pageMaker);
+		System.out.println(apv);
 		return apv;
 	}
 	@RequestMapping(value="/recipe/levelRecipe.do", method=RequestMethod.GET)
@@ -324,6 +385,17 @@ public class RecipeController {
 		
 		return "forward:/recipe/detailRecipe.do";
 	}
-
-	
+	@RequestMapping(value="/recipe/main.do", method=RequestMethod.GET)
+	public ModelAndView mainView(String hit,String dname,String theme) {
+		System.out.println("메인 단입니다.");
+		System.out.println(dname);
+		ModelAndView mav = new ModelAndView();
+		List<RecipeVO> hitList = service.hitlist(hit);
+		List<NutrientVO> drunkList = service.drunklist(dname);
+		System.out.println("히트 메뉴"+hitList);
+		mav.addObject("hitList",hitList);
+		mav.addObject("drunklist",drunkList);
+		mav.setViewName("main");
+	return mav;
+	}
 }

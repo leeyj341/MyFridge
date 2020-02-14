@@ -1,5 +1,8 @@
 <%@page import="maeggi.seggi.recipe.RecipeVO"%>
 <%@page import="java.util.List"%>
+<%@page import="maeggi.seggi.recipe.NutrientVO"%>
+<%@page import="maeggi.seggi.recipe.RecipeVO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -76,6 +79,8 @@ color: skyblue;
 	<% List<RecipeVO> rlist = (List<RecipeVO>)request.getAttribute("rlist"); %>
 	<% List<RecipeVO> rlistt = (List<RecipeVO>)request.getAttribute("rlistt"); %>
 	<% List<RecipeVO> rlisttt = (List<RecipeVO>)request.getAttribute("rlisttt"); %>
+		<% List<RecipeVO> hitList = (List<RecipeVO>)request.getAttribute("hitList");
+		   List<NutrientVO> drunklist = (List<NutrientVO>)request.getAttribute("drunkList");%>
 	<!-- ****** Breadcumb Area Start ****** -->
 	<div class="breadcumb-nav">
 		<div class="container">
@@ -111,7 +116,7 @@ color: skyblue;
 					<div class="single-post wow fadeInUp" data-wow-delay="0.1s">
 						<!-- Post Thumb -->
 						<div class="post-thumb">
-							<img src="../images/pork1.PNG" alt="">
+							<a href="/maeggiSeggi/recipe/detailRecipe.do?id=<%=hitList.get(0).getRecipe_id() %>"><img src="<%=hitList.get(0).getImg_url_main() %>" alt=""></a>
 						</div>
 						<!-- Post Content -->
 						<div class="post-content">
@@ -119,77 +124,62 @@ color: skyblue;
 								<div class="post-author-date-area d-flex">
 									<!-- Post Author -->
 									<div class="post-author">
-										<a href="#">By 융또융</a>
+										<a href="#"><%=hitList.get(0).getMember_id() %></a>
 									</div>
 									<!-- Post Date -->
 									<div class="post-date">
-										<a href="#">May 19, 2017</a>
+										<a href="#"><%=hitList.get(0).getRegister_date() %></a>
 									</div>
 								</div>
 								<!-- Post Comment & Share Area -->
 								<div class="post-comment-share-area d-flex">
 									<!-- Post Favourite -->
 									<div class="post-favourite">
-										<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
-											10</a>
+										<a href="#"><i class="fas fa-heart" aria-hidden="true"></i>
+											<%=hitList.get(0).getLike_num() %></a>
 									</div>
 									<!-- Post Comments -->
 									<div class="post-comments">
-										<a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
-											12</a>
-									</div>
-									<!-- Post Share -->
-									<div class="post-share">
-										<a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+										<a href="#"><i class="fas far fa-smile" aria-hidden="true"></i>
+											<%=hitList.get(0).getHit() %></a>
 									</div>
 								</div>
 							</div>
 							<a href="#">
-								<h4 class="post-headline">지글지글 맛있는 김치찌개</h4>
+								<h4 class="post-headline"><%=hitList.get(0).getName() %></h4>
 							</a>
 						</div>
 					</div>
 				</div>
-				<!-- Single Post -->
+				<!-- <!-- Single Post -->
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post wow fadeInUp" data-wow-delay="0.3s">
-						<!-- Post Thumb -->
 						<div class="post-thumb">
-							<img src="../images/pork2.PNG" alt="">
+							<a href="/maeggiSeggi/recipe/detailRecipe.do?id=<%=hitList.get(1).getRecipe_id() %>"><img src="<%=hitList.get(1).getImg_url_main() %>" alt=""></a>
 						</div>
-						<!-- Post Content -->
 						<div class="post-content">
 							<div class="post-meta d-flex">
 								<div class="post-author-date-area d-flex">
-									<!-- Post Author -->
 									<div class="post-author">
-										<a href="#">By 영주영주</a>
+										<a href="#"><%=hitList.get(1).getMember_id() %></a>
 									</div>
-									<!-- Post Date -->
 									<div class="post-date">
-										<a href="#">May 19, 2017</a>
+										<a href="#"><%= hitList.get(1).getRegister_date() %></a>
 									</div>
 								</div>
-								<!-- Post Comment & Share Area -->
 								<div class="post-comment-share-area d-flex">
-									<!-- Post Favourite -->
 									<div class="post-favourite">
-										<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
-											10</a>
+										<a href="#"><i class="fas fa-heart" aria-hidden="true"></i>
+											<%=hitList.get(1).getLike_num() %></a>
 									</div>
-									<!-- Post Comments -->
 									<div class="post-comments">
-										<a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
-											12</a>
-									</div>
-									<!-- Post Share -->
-									<div class="post-share">
-										<a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+										<a href="#"><i class="fas far fa-smile" aria-hidden="true"></i>
+											<%=hitList.get(1).getHit() %></a>
 									</div>
 								</div>
 							</div>
 							<a href="#">
-								<h4 class="post-headline">백종원의 만능고기양념으로 재운 단짠단짠 la 양념갈비</h4>
+								<h4 class="post-headline"><%=hitList.get(1).getName() %></h4>
 							</a>
 						</div>
 					</div>
@@ -199,44 +189,32 @@ color: skyblue;
 				<!-- Single Post -->
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post wow fadeInUp" data-wow-delay="0.4s">
-						<!-- Post Thumb -->
 						<div class="post-thumb">
-							<img src="../images/sandwitch.jpg" alt="">
+							<a href="/maeggiSeggi/recipe/detailRecipe.do?id=<%=hitList.get(2).getRecipe_id() %>"><img src="<%=hitList.get(2).getImg_url_main() %>" alt=""></a>
 						</div>
-						<!-- Post Content -->
 						<div class="post-content">
 							<div class="post-meta d-flex">
 								<div class="post-author-date-area d-flex">
-									<!-- Post Author -->
 									<div class="post-author">
-										<a href="#">By 민정민정</a>
+										<a href="#"><%=hitList.get(2).getMember_id() %></a>
 									</div>
-									<!-- Post Date -->
 									<div class="post-date">
-										<a href="#">May 19, 2017</a>
+										<a href="#"><%=hitList.get(2).getRegister_date() %></a>
 									</div>
 								</div>
-								<!-- Post Comment & Share Area -->
 								<div class="post-comment-share-area d-flex">
-									<!-- Post Favourite -->
 									<div class="post-favourite">
-										<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
-											10</a>
+										<a href="#"><i class="fas fa-heart-o" aria-hidden="true"></i>
+											<%=hitList.get(2).getLike_num() %></a>
 									</div>
-									<!-- Post Comments -->
 									<div class="post-comments">
-										<a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
-											12</a>
-									</div>
-									<!-- Post Share -->
-									<div class="post-share">
-										<a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+										<a href="#"><i class="fas far fa-smile" aria-hidden="true"></i>
+											<%=hitList.get(2).getHit() %></a>
 									</div>
 								</div>
 							</div>
 							<a href="#">
-								<h4 class="post-headline">크리스마스&nbsp;&nbsp;
-									파티음식으로&nbsp;&nbsp; 최고!몬테크리스토 샌드위치:)</h4>
+								<h4 class="post-headline"><%=hitList.get(2).getName() %></h4>
 							</a>
 						</div>
 					</div>
@@ -256,39 +234,30 @@ color: skyblue;
 		<div class="container">
 			<div class="row">
 
-				<!-- Single Post -->
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post wow fadeInUp" data-wow-delay="0.1s">
-						<!-- Post Thumb -->
 						<div class="post-thumb">
 							<img src="<%= rlist.get(0).getImg_url_main() %>" alt="">
 						</div>
-						<!-- Post Content -->
 						<div class="post-content">
 							<div class="post-meta d-flex">
 								<div class="post-author-date-area d-flex">
-									<!-- Post Author -->
 									<div class="post-author">
 										<a href="#">By 융또융</a>
 									</div>
-									<!-- Post Date -->
 									<div class="post-date">
 										<a href="#">May 19, 2017</a>
 									</div>
 								</div>
-								<!-- Post Comment & Share Area -->
 								<div class="post-comment-share-area d-flex">
-									<!-- Post Favourite -->
 									<div class="post-favourite">
 										<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
 											10</a>
 									</div>
-									<!-- Post Comments -->
 									<div class="post-comments">
 										<a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
 											12</a>
 									</div>
-									<!-- Post Share -->
 									<div class="post-share">
 										<a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
 									</div>
@@ -300,39 +269,30 @@ color: skyblue;
 						</div>
 					</div>
 				</div>
-				<!-- Single Post -->
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post wow fadeInUp" data-wow-delay="0.3s">
-						<!-- Post Thumb -->
 						<div class="post-thumb">
 							<img src="<%= rlistt.get(0).getImg_url_main() %>" alt="">
 						</div>
-						<!-- Post Content -->
 						<div class="post-content">
 							<div class="post-meta d-flex">
 								<div class="post-author-date-area d-flex">
-									<!-- Post Author -->
 									<div class="post-author">
 										<a href="#">By 영주영주</a>
 									</div>
-									<!-- Post Date -->
 									<div class="post-date">
 										<a href="#">May 19, 2017</a>
 									</div>
 								</div>
-								<!-- Post Comment & Share Area -->
 								<div class="post-comment-share-area d-flex">
-									<!-- Post Favourite -->
 									<div class="post-favourite">
 										<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
 											10</a>
 									</div>
-									<!-- Post Comments -->
 									<div class="post-comments">
 										<a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
 											12</a>
 									</div>
-									<!-- Post Share -->
 									<div class="post-share">
 										<a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
 									</div>
@@ -346,39 +306,30 @@ color: skyblue;
 				</div>
 
 
-				<!-- Single Post -->
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post wow fadeInUp" data-wow-delay="0.4s">
-						<!-- Post Thumb -->
 						<div class="post-thumb">
 							<img src="<%= rlisttt.get(0).getImg_url_main() %>" alt="">
 						</div>
-						<!-- Post Content -->
 						<div class="post-content">
 							<div class="post-meta d-flex">
 								<div class="post-author-date-area d-flex">
-									<!-- Post Author -->
 									<div class="post-author">
 										<a href="#">By 민정민정</a>
 									</div>
-									<!-- Post Date -->
 									<div class="post-date">
 										<a href="#">May 19, 2017</a>
 									</div>
 								</div>
-								<!-- Post Comment & Share Area -->
 								<div class="post-comment-share-area d-flex">
-									<!-- Post Favourite -->
 									<div class="post-favourite">
 										<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
 											10</a>
 									</div>
-									<!-- Post Comments -->
 									<div class="post-comments">
 										<a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
 											12</a>
 									</div>
-									<!-- Post Share -->
 									<div class="post-share">
 										<a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
 									</div>
@@ -404,39 +355,32 @@ color: skyblue;
 		<div class="container">
 			<div class="row">
 
-				<!-- Single Post -->
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post wow fadeInUp" data-wow-delay="0.1s">
-						<!-- Post Thumb -->
 						<div class="post-thumb">
 							<img src="../images/pork1.PNG" alt="">
 						</div>
-						<!-- Post Content -->
 						<div class="post-content">
 							<div class="post-meta d-flex">
 								<div class="post-author-date-area d-flex">
-									<!-- Post Author -->
 									<div class="post-author">
 										<a href="#">By 융또융</a>
 									</div>
-									<!-- Post Date -->
 									<div class="post-date">
 										<a href="#">May 19, 2017</a>
 									</div>
 								</div>
-								<!-- Post Comment & Share Area -->
 								<div class="post-comment-share-area d-flex">
-									<!-- Post Favourite -->
 									<div class="post-favourite">
 										<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
 											10</a>
 									</div>
-									<!-- Post Comments -->
+								
 									<div class="post-comments">
 										<a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
 											12</a>
 									</div>
-									<!-- Post Share -->
+									
 									<div class="post-share">
 										<a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
 									</div>
@@ -448,39 +392,39 @@ color: skyblue;
 						</div>
 					</div>
 				</div>
-				<!-- Single Post -->
+			
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post wow fadeInUp" data-wow-delay="0.3s">
-						<!-- Post Thumb -->
+						
 						<div class="post-thumb">
 							<img src="../images/pork2.PNG" alt="">
 						</div>
-						<!-- Post Content -->
+						
 						<div class="post-content">
 							<div class="post-meta d-flex">
 								<div class="post-author-date-area d-flex">
-									<!-- Post Author -->
+								
 									<div class="post-author">
 										<a href="#">By 영주영주</a>
 									</div>
-									<!-- Post Date -->
+									
 									<div class="post-date">
 										<a href="#">May 19, 2017</a>
 									</div>
 								</div>
-								<!-- Post Comment & Share Area -->
+								
 								<div class="post-comment-share-area d-flex">
-									<!-- Post Favourite -->
+									
 									<div class="post-favourite">
 										<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
 											10</a>
 									</div>
-									<!-- Post Comments -->
+									
 									<div class="post-comments">
 										<a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
 											12</a>
 									</div>
-									<!-- Post Share -->
+									
 									<div class="post-share">
 										<a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
 									</div>
@@ -493,40 +437,38 @@ color: skyblue;
 					</div>
 				</div>
 
-
-				<!-- Single Post -->
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post wow fadeInUp" data-wow-delay="0.4s">
-						<!-- Post Thumb -->
+						
 						<div class="post-thumb">
 							<img src="../images/sandwitch.jpg" alt="">
 						</div>
-						<!-- Post Content -->
+						
 						<div class="post-content">
 							<div class="post-meta d-flex">
 								<div class="post-author-date-area d-flex">
-									<!-- Post Author -->
+									
 									<div class="post-author">
 										<a href="#">By 민정민정</a>
 									</div>
-									<!-- Post Date -->
+									
 									<div class="post-date">
 										<a href="#">May 19, 2017</a>
 									</div>
 								</div>
-								<!-- Post Comment & Share Area -->
+								
 								<div class="post-comment-share-area d-flex">
-									<!-- Post Favourite -->
+								
 									<div class="post-favourite">
 										<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
 											10</a>
 									</div>
-									<!-- Post Comments -->
+								
 									<div class="post-comments">
 										<a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
 											12</a>
 									</div>
-									<!-- Post Share -->
+									
 									<div class="post-share">
 										<a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
 									</div>
@@ -555,39 +497,39 @@ color: skyblue;
 		<div class="container">
 			<div class="row">
 
-				<!-- Single Post -->
+			
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post wow fadeInUp" data-wow-delay="0.1s">
-						<!-- Post Thumb -->
+						
 						<div class="post-thumb">
 							<img src="../images/pork1.PNG" alt="">
 						</div>
-						<!-- Post Content -->
+						
 						<div class="post-content">
 							<div class="post-meta d-flex">
 								<div class="post-author-date-area d-flex">
-									<!-- Post Author -->
+									
 									<div class="post-author">
 										<a href="#">By 융또융</a>
 									</div>
-									<!-- Post Date -->
+									
 									<div class="post-date">
 										<a href="#">May 19, 2017</a>
 									</div>
 								</div>
-								<!-- Post Comment & Share Area -->
+							
 								<div class="post-comment-share-area d-flex">
-									<!-- Post Favourite -->
+									
 									<div class="post-favourite">
 										<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
 											10</a>
 									</div>
-									<!-- Post Comments -->
+									
 									<div class="post-comments">
 										<a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
 											12</a>
 									</div>
-									<!-- Post Share -->
+									
 									<div class="post-share">
 										<a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
 									</div>
@@ -599,39 +541,39 @@ color: skyblue;
 						</div>
 					</div>
 				</div>
-				<!-- Single Post -->
+			
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post wow fadeInUp" data-wow-delay="0.3s">
-						<!-- Post Thumb -->
+					
 						<div class="post-thumb">
 							<img src=../images/pork2.PNG " alt="">
 						</div>
-						<!-- Post Content -->
+						
 						<div class="post-content">
 							<div class="post-meta d-flex">
 								<div class="post-author-date-area d-flex">
-									<!-- Post Author -->
+									
 									<div class="post-author">
 										<a href="#">By 영주영주</a>
 									</div>
-									<!-- Post Date -->
+									
 									<div class="post-date">
 										<a href="#">May 19, 2017</a>
 									</div>
 								</div>
-								<!-- Post Comment & Share Area -->
+								
 								<div class="post-comment-share-area d-flex">
-									<!-- Post Favourite -->
+									
 									<div class="post-favourite">
 										<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
 											10</a>
 									</div>
-									<!-- Post Comments -->
+									
 									<div class="post-comments">
 										<a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
 											12</a>
 									</div>
-									<!-- Post Share -->
+									
 									<div class="post-share">
 										<a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
 									</div>
@@ -643,39 +585,39 @@ color: skyblue;
 						</div>
 					</div>
 				</div>
-						<!-- Single Post -->
+						
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post wow fadeInUp" data-wow-delay="0.4s">
-						<!-- Post Thumb -->
+						
 						<div class="post-thumb">
 							<img src="../images/sandwitch.jpg" alt="">
 						</div>
-						<!-- Post Content -->
+						
 						<div class="post-content">
 							<div class="post-meta d-flex">
 								<div class="post-author-date-area d-flex">
-									<!-- Post Author -->
+									
 									<div class="post-author">
 										<a href="#">By 민정민정</a>
 									</div>
-									<!-- Post Date -->
+									
 									<div class="post-date">
 										<a href="#">May 19, 2017</a>
 									</div>
 								</div>
-								<!-- Post Comment & Share Area -->
+								
 								<div class="post-comment-share-area d-flex">
-									<!-- Post Favourite -->
+								
 									<div class="post-favourite">
 										<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
 											10</a>
 									</div>
-									<!-- Post Comments -->
+									
 									<div class="post-comments">
 										<a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
 											12</a>
 									</div>
-									<!-- Post Share -->
+									
 									<div class="post-share">
 										<a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
 									</div>
@@ -705,39 +647,39 @@ color: skyblue;
 		<div class="container">
 			<div class="row">
 
-				<!-- Single Post -->
+				
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post wow fadeInUp" data-wow-delay="0.1s">
-						<!-- Post Thumb -->
+						
 						<div class="post-thumb">
 							<img src="../images/pork1.PNG" alt="">
 						</div>
-						<!-- Post Content -->
+						
 						<div class="post-content">
 							<div class="post-meta d-flex">
 								<div class="post-author-date-area d-flex">
-									<!-- Post Author -->
+									
 									<div class="post-author">
 										<a href="#">By 융또융</a>
 									</div>
-									<!-- Post Date -->
+								
 									<div class="post-date">
 										<a href="#">May 19, 2017</a>
 									</div>
 								</div>
-								<!-- Post Comment & Share Area -->
+								
 								<div class="post-comment-share-area d-flex">
-									<!-- Post Favourite -->
+									
 									<div class="post-favourite">
 										<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
 											10</a>
 									</div>
-									<!-- Post Comments -->
+									
 									<div class="post-comments">
 										<a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
 											12</a>
 									</div>
-									<!-- Post Share -->
+									
 									<div class="post-share">
 										<a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
 									</div>
@@ -749,39 +691,39 @@ color: skyblue;
 						</div>
 					</div>
 				</div>
-				<!-- Single Post -->
+			
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post wow fadeInUp" data-wow-delay="0.3s">
-						<!-- Post Thumb -->
+						
 						<div class="post-thumb">
 							<img src=../images/pork2.PNG " alt="">
 						</div>
-						<!-- Post Content -->
+						
 						<div class="post-content">
 							<div class="post-meta d-flex">
 								<div class="post-author-date-area d-flex">
-									<!-- Post Author -->
+								
 									<div class="post-author">
 										<a href="#">By 영주영주</a>
 									</div>
-									<!-- Post Date -->
+									
 									<div class="post-date">
 										<a href="#">May 19, 2017</a>
 									</div>
 								</div>
-								<!-- Post Comment & Share Area -->
+								
 								<div class="post-comment-share-area d-flex">
-									<!-- Post Favourite -->
+									
 									<div class="post-favourite">
 										<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
 											10</a>
 									</div>
-									<!-- Post Comments -->
+									
 									<div class="post-comments">
 										<a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
 											12</a>
 									</div>
-									<!-- Post Share -->
+								
 									<div class="post-share">
 										<a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
 									</div>
@@ -795,39 +737,39 @@ color: skyblue;
 				</div>
 
 
-				<!-- Single Post -->
+			
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post wow fadeInUp" data-wow-delay="0.4s">
-						<!-- Post Thumb -->
+						
 						<div class="post-thumb">
 							<img src="../images/sandwitch.jpg" alt="">
 						</div>
-						<!-- Post Content -->
+						
 						<div class="post-content">
 							<div class="post-meta d-flex">
 								<div class="post-author-date-area d-flex">
-									<!-- Post Author -->
+									
 									<div class="post-author">
 										<a href="#">By 민정민정</a>
 									</div>
-									<!-- Post Date -->
+									
 									<div class="post-date">
 										<a href="#">May 19, 2017</a>
 									</div>
 								</div>
-								<!-- Post Comment & Share Area -->
+								
 								<div class="post-comment-share-area d-flex">
-									<!-- Post Favourite -->
+									
 									<div class="post-favourite">
 										<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
 											10</a>
 									</div>
-									<!-- Post Comments -->
+									
 									<div class="post-comments">
 										<a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
 											12</a>
 									</div>
-									<!-- Post Share -->
+									
 									<div class="post-share">
 										<a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
 									</div>
@@ -843,6 +785,28 @@ color: skyblue;
 			</div>
 		</div>
 	</section>
+ <script type="text/javascript">
+	$(document).ready(function () {
+		//var dnameVal = new Array();
+		
+		var drunklist = "<%= drunklist %>";
+		
+		var list = new Array(); 
+		for ( var i = 0; i < list.length; i++) {
 
+		    String check = (drunklist.dname)string.includes(list.get[i])
+			alert(check)
+		}
+
+
+
+	
+
+
+
+		
+	})
+
+</script> 
 </body>
 </html>

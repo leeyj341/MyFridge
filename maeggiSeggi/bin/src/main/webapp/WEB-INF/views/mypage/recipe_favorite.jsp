@@ -15,7 +15,7 @@
     <title>Yummy Blog - Food Blog Template</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico">
+    <link rel="icon" href="/maeggiSeggi/common/images/core-img/favicon.ico">
 
     <!-- Core Stylesheet -->
     <link href="/maeggiSeggi/common/css/minjae.css" rel="stylesheet">

@@ -255,6 +255,19 @@
 						});
 		
 		 function getbyname(){
+		function page(idx){
+			var pagenum = idx;
+			//alert(pagenum)
+			//var contentnum =$("#contentnum option").is(":selected").val();
+			if($("input[name=recipe_category]:checked").val() == "all") {
+				location.href="/maeggiSeggi/recipe/searchRecipe.do?pagenum="+pagenum+"&contentnum=9";
+			} else {
+				category = $("input[name=recipe_category]:checked").val();
+				location.href= "/maeggiSeggi/recipe/categoryRecipe.do?recipe_category=" + category +"&pagenum="+pagenum+"&contentnum=9";
+			}
+			
+		}
+			 function getbyname(){
 			var search = $("#recipe_search").val();
 			if(search!=''){
 					$.ajax({
