@@ -31,7 +31,7 @@ public class RecipeController {
 	@Autowired
 	RecipeService service;
 	//private RecipeDAO mapper;
-	@RequestMapping("/recipe/main.do", method=RequestMethod.GET)
+	@RequestMapping(value="/recipe/main.do", method=RequestMethod.GET)
 	public @ResponseBody ModelAndView wapi() {
 		ModelAndView mav = new ModelAndView();
 		SimpleDateFormat date = new SimpleDateFormat("yyyyMMdd");
@@ -133,7 +133,6 @@ public class RecipeController {
 		mav.addObject("rlisttt", rlisttt);
 		mav.setViewName("main");
 		System.out.println("메인 단입니다.");
-		System.out.println(dname);
 		ModelAndView mav = new ModelAndView();
 		List<RecipeVO> hitList = service.hitlist(hit);
 		List<NutrientVO> drunkList = service.drunklist(dname);
