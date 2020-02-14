@@ -1,3 +1,6 @@
+<%@page import="maeggi.seggi.loginandcustomer.memberVO"%>
+<%@page import="maeggi.seggi.mypage.BoardVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -29,19 +32,24 @@
 <!-- Responsive CSS -->
 <link href="/maeggiSeggi/common/css/responsive/responsive.css"
 	rel="stylesheet">
-	
-	<!-- bootstrap -->
+
+<!-- bootstrap -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 </head>
 
 <body>
+
+	<%
+		ArrayList<BoardVO> list = (ArrayList<BoardVO>) request.getAttribute("list");
+		memberVO loginuser = (memberVO) session.getAttribute("loginuser");
+	%>
 	<div id="outter">
 
 		<!-- ****** Breadcumb Area Start ****** -->
 		<div class="breadcumb-area"
-			style="background-image: url(/maeggiSeggi/images/bg-img/breadcumb);">
+			>
 			<div class="container h-100">
 				<div class="row h-100 align-items-center">
 					<div class="col-12">
@@ -75,6 +83,10 @@
 					<div class="col-12" id="asklist_customview">
 						<h2>[관리자 전용 페이지] 문의 글 리스트</h2>
 					</div>
+					
+					<div>
+						<button id="viewmember" onclick="location.href='/maeggiSeggi/loginandcustomer/admin_memberview.do' ">회원 목록 조회</button>
+					</div>
 				</div>
 
 
@@ -91,58 +103,27 @@
 
 						<div id="AskUserForm">
 							<table class="table table-hover" id="asklistid">
-								<tr>
-									<th>번호</th>
-									<th>날짜</th>
-									<th>제목</th>
-									<th>글쓴이</th>
-									<th>조회수</th>
-									<th>답변상태</th>
-								</tr>
-								<tr>
-									<td class="asknum">5</td>
-									<td class="date">2020/01/15</td>
-									<td class="title">문희에요</td>
-									<td class="name">나문희</td>
-									<td class="hit">100</td>
-									<td class="answercheck">미완료</td>
-								</tr>
-								<tr>
-									<td class="asknum">4</td>
-									<td class="date">2020/01/15</td>
-									<td class="title">안녕 세상!</td>
-									<td class="name">tester</td>
-									<td class="hit">5</td>
-									<td class="answercheck">미완료</td>
-								</tr>
-								<tr>
-									<td class="asknum">3</td>
-									<td class="date">2020/01/15</td>
-									<td class="title">안녕</td>
-									<td class="name">김민정</td>
-									<td class="hit">5</td>
-									<td class="answercheck">미완료</td>
-								</tr>
+								<thead>
+									<tr style="font-weight: bold;">
+										<td scope="col">작성자</td>
+										<td scope="col">제목</td>
+										<td scope="col">등록일자</td>
+									</tr>
+								</thead>
 
-
+								<%
+									for (int i = 0; i < list.size(); i++) {
+										BoardVO row = list.get(i);
+								%>
 								<tr>
-									<td class="asknum">2</td>
-									<td class="date">2020/01/15</td>
-									<td class="title">오타 수정해주세요.</td>
-									<td class="name">debugger</td>
-									<td class="hit">5</td>
-									<td class="answercheck">미완료</td>
+									<td><%=row.getMember_id()%></td>
+									<td><a
+										href="/maeggiSeggi/board/read.do?askno=<%=row.getAskno()%>"><%=row.getAsk_title()%></a></td>
+									<td><%=row.getAsk_regdate()%></td>
 								</tr>
-
-								<tr>
-									<td class="asknum">1</td>
-									<td class="date">2020/01/10</td>
-									<td class="title"><a href="#">아이디는못바꾸나요ㅕ</a></td>
-									<td class="name">princess</td>
-									<td class="hit">20</td>
-									<td class="answercheck">완료</td>
-								</tr>
-
+								<%
+									}
+								%>
 							</table>
 
 
@@ -169,186 +150,4 @@
 		</div>
 
 		<!-- ****** Breadcumb Area End ****** -->
-
-
-
-
-
-		<!-- ****** Archive Area Start ****** -->
-		<section class="archive-area section_padding_80">
-
-
-			<div class="container">
-
-
-				<div class="col-12">
-					<div class="pagination-area d-sm-flex mt-15">
-						<nav aria-label="#">
-							<ul class="pagination">
-								<li class="page-item active"><a class="page-link" href="#">1
-										<span class="sr-only">(current)</span>
-								</a></li>
-								<li class="page-item"><a class="page-link" href="#">2</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item"><a class="page-link" href="#">Next
-										<i class="fa fa-angle-double-right" aria-hidden="true"></i>
-								</a></li>
-							</ul>
-						</nav>
-						<div class="page-status">
-							<p>Page 1 of 60 results</p>
-						</div>
-					</div>
-				</div>
-
-			</div>
-	
-	</section>
-	<!-- ****** Archive Area End ****** -->
-
-	<!-- ****** Instagram Area Start ****** -->
-	<div
-		class="instargram_area owl-carousel section_padding_100_0 clearfix"
-		id="portfolio">
-
-		<!-- Instagram Item -->
-		<div class="instagram_gallery_item">
-			<!-- Instagram Thumb -->
-			<img src="img/instagram-img/1.jpg" alt="">
-			<!-- Hover -->
-			<div class="hover_overlay">
-				<div class="yummy-table">
-					<div class="yummy-table-cell">
-						<div class="follow-me text-center">
-							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
-								Follow me</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Instagram Item -->
-		<div class="instagram_gallery_item">
-			<!-- Instagram Thumb -->
-			<img src="../../yummy-master/img/instagram-img/2.jpg" alt="">
-			<!-- Hover -->
-			<div class="hover_overlay">
-				<div class="yummy-table">
-					<div class="yummy-table-cell">
-						<div class="follow-me text-center">
-							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
-								Follow me</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Instagram Item -->
-		<div class="instagram_gallery_item">
-			<!-- Instagram Thumb -->
-			<img src="../../yummy-master/img/instagram-img/3.jpg" alt="">
-			<!-- Hover -->
-			<div class="hover_overlay">
-				<div class="yummy-table">
-					<div class="yummy-table-cell">
-						<div class="follow-me text-center">
-							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
-								Follow me</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Instagram Item -->
-		<div class="instagram_gallery_item">
-			<!-- Instagram Thumb -->
-			<img src="../../yummy-master/img/instagram-img/4.jpg" alt="">
-			<!-- Hover -->
-			<div class="hover_overlay">
-				<div class="yummy-table">
-					<div class="yummy-table-cell">
-						<div class="follow-me text-center">
-							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
-								Follow me</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Instagram Item -->
-		<div class="instagram_gallery_item">
-			<!-- Instagram Thumb -->
-			<img src="../../yummy-master/img/instagram-img/5.jpg" alt="">
-			<!-- Hover -->
-			<div class="hover_overlay">
-				<div class="yummy-table">
-					<div class="yummy-table-cell">
-						<div class="follow-me text-center">
-							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
-								Follow me</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Instagram Item -->
-		<div class="instagram_gallery_item">
-			<!-- Instagram Thumb -->
-			<img src="../../yummy-master/img/instagram-img/6.jpg" alt="">
-			<!-- Hover -->
-			<div class="hover_overlay">
-				<div class="yummy-table">
-					<div class="yummy-table-cell">
-						<div class="follow-me text-center">
-							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
-								Follow me</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Instagram Item -->
-		<div class="instagram_gallery_item">
-			<!-- Instagram Thumb -->
-			<img src="../../yummy-master/img/instagram-img/1.jpg" alt="">
-			<!-- Hover -->
-			<div class="hover_overlay">
-				<div class="yummy-table">
-					<div class="yummy-table-cell">
-						<div class="follow-me text-center">
-							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
-								Follow me</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Instagram Item -->
-		<div class="instagram_gallery_item">
-			<!-- Instagram Thumb -->
-			<img src="../../yummy-master/img/instagram-img/2.jpg" alt="">
-			<!-- Hover -->
-			<div class="hover_overlay">
-				<div class="yummy-table">
-					<div class="yummy-table-cell">
-						<div class="follow-me text-center">
-							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
-								Follow me</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</div>
-</div>
-	<!-- ****** Our Creative Portfolio Area End ****** -->
-
 </body>

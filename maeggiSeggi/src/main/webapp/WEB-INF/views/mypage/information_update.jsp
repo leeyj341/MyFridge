@@ -69,7 +69,7 @@
 	%>
 	<%--  <% if(session.getAttribute("id")!= null){ //로그인 된 유저만 접근 가능 %> --%>
     <!-- ****** Breadcumb Area Start ****** -->
-    <div class="breadcumb-area" style="background-image: url(img/bg-img/breadcumb.jpg);z-index: 0">
+    <div class="breadcumb-area" >
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">

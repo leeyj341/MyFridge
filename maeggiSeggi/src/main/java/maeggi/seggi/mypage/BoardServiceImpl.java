@@ -72,5 +72,19 @@ public class BoardServiceImpl implements BoardService {
 		return dao.pointsum(point);
 	}
 
+	
+	//======================관리자페이지=============================
+	@Override
+	public List<BoardVO> admin_asklist(BoardVO board) {
+		// TODO Auto-generated method stub
+		return dao.admin_asklist(board);
+	}
+
+	@Override
+	public BoardVO admin_askdetail(int askno) {
+		// TODO Auto-generated method stub
+		return dao.admin_askdetail(askno);
+	}
+
 
 }

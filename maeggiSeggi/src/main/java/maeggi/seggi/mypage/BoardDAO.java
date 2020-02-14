@@ -15,6 +15,8 @@ public interface BoardDAO {
 	void reply(BoardVO board);
 	BoardVO read(int askno); //1대1문의 글 자세히 보기
 	void delete(int askno); //게시글 삭제
+	List<BoardVO> admin_asklist(BoardVO board);	
+	BoardVO admin_askdetail(int askno);
 
 	
 }

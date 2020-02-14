@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import maeggi.seggi.comment.CommentService;
+import maeggi.seggi.comment.CommentVO;
 import maeggi.seggi.loginandcustomer.memberService;
 import maeggi.seggi.loginandcustomer.memberVO;
 import maeggi.seggi.recipeFavorite.RecipeFavoriteService;
@@ -30,20 +32,22 @@ public class BoardController {
 	memberService mservice;
 	@Autowired
 	RecipeFavoriteService recFavServive;
+	@Autowired
+	CommentService commentService;
 
 	// 게시글 전체 목록을 보여주는 기능
 	@RequestMapping(value = "/board/list.do")
-	public ModelAndView listall(BoardVO board,HttpServletRequest req) {
+	public ModelAndView listall(BoardVO board, HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();
-		HttpSession ses = req.getSession(false); //로그인이 안되어 있으면 NULL값 반환, 로그인이 되어있으면 ses에 로그인 세션을 발급.
-		if(ses!=null) {
-			memberVO user=(memberVO) ses.getAttribute("loginuser"); //top.jsp에 올려놓은 로그인 세션을 loginuser로 받아서 user로 저장
-			if(user!=null) {
+		HttpSession ses = req.getSession(false); // 로그인이 안되어 있으면 NULL값 반환, 로그인이 되어있으면 ses에 로그인 세션을 발급.
+		if (ses != null) {
+			memberVO user = (memberVO) ses.getAttribute("loginuser"); // top.jsp에 올려놓은 로그인 세션을 loginuser로 받아서 user로 저장
+			if (user != null) {
 				board.setMember_id(user.getMember_id());
 			}
 		}
 		List<BoardVO> list = service.listall(board);
-		System.out.println("list==============="+list);
+		System.out.println("list===============" + list);
 		mav.addObject("list", list);
 		mav.setViewName("mypage/ask");
 		return mav;
@@ -62,136 +66,155 @@ public class BoardController {
 		return "redirect:/board/list.do";
 
 	}
-
+	
+	//제목을 눌러 글 상세보기 시 
 	@RequestMapping(value = "/board/read.do", method = RequestMethod.GET)
-	public String read(BoardVO boardVO, Model model) {
+	public String read(BoardVO boardVO, CommentVO comment, Model model) {
 		model.addAttribute("read", service.read(boardVO.getAskno()));
 		model.addAttribute("list_reply", replyService.list_reply());
+		comment.setBoard_no(boardVO.getAskno());
+		model.addAttribute("comment", commentService.commentlistall(comment.getBoard_no()));
 		return "mypage/ask/title";
 	}
-	
-	 //update.jsp 보여줌
-		@RequestMapping(value = "/board/update.do", method = RequestMethod.GET)
-		public ModelAndView updateGET(BoardVO board) {
-			//System.out.println("============="+askno);
-			//BoardVO board = service.read(askno);
-			ModelAndView mav = new ModelAndView();
-			BoardVO uplist = service.updatelist(board);
-			mav.addObject("uplist", uplist);
-			mav.setViewName("mypage/modify");
-			return mav;
-	
-		}
-	    
-	    //실제로 게시물을 수정함
-		@RequestMapping(value = "/board/update.do", method = RequestMethod.POST)
-		public String updatePOST(BoardVO board){
-			int result = service.update(board);
-			System.out.println("수정된 값 갯수"+result);
-			//return "redirect:/board/read.do?askno=\"board.getAskno()\"";
-			return "redirect:/board/list.do";
-		}
-	
-	
+
+	// update.jsp 보여줌
+	@RequestMapping(value = "/board/update.do", method = RequestMethod.GET)
+	public ModelAndView updateGET(BoardVO board) {
+		// System.out.println("============="+askno);
+		// BoardVO board = service.read(askno);
+		ModelAndView mav = new ModelAndView();
+		BoardVO uplist = service.updatelist(board);
+		mav.addObject("uplist", uplist);
+		mav.setViewName("mypage/modify");
+		return mav;
+
+	}
+
+	// 실제로 게시물을 수정함
+	@RequestMapping(value = "/board/update.do", method = RequestMethod.POST)
+	public String updatePOST(BoardVO board) {
+		int result = service.update(board);
+		System.out.println("수정된 값 갯수" + result);
+		// return "redirect:/board/read.do?askno=\"board.getAskno()\"";
+		return "redirect:/board/list.do";
+	}
 
 	// 글 삭제
 	@RequestMapping(value = "/board/delete.do", method = RequestMethod.GET)
 	public String delete(int askno) {
 		System.out.println("취소할 것" + askno);
 		service.delete(askno);
-		
+
 		return "redirect:/board/list.do";
 
 	}
-	
-	
-	
-	
-	//회원정보 수정 View
+
+	// 회원정보 수정 View
 	@RequestMapping(value = "/board/infoupdate.do", method = RequestMethod.GET)
 	public String updateView(memberVO user) {
 		return "mypage/information/update";
 	}
-	//회원정보 수정 POST
+
+	// 회원정보 수정 POST
 	@RequestMapping(value = "/board/infoupdate.do", method = RequestMethod.POST)
 	public String update(memberVO user, HttpSession session) {
-		System.out.println("유저:"+user);
+		System.out.println("유저:" + user);
 		mservice.update(user);
 		session.invalidate();
 		return "redirect:/loginandcustomer/login.do";
 	}
-	
-			
-	//회원의 point, point내역 보여주기
+
+	// 회원의 point, point내역 보여주기
 	@RequestMapping(value = "/board/mypoint.do")
-	public ModelAndView mypage_mypoint(PointVO point,HttpServletRequest req) {
+	public ModelAndView mypage_mypoint(PointVO point, HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();
 		HttpSession ses = req.getSession(false);
-		if(ses!=null) {
-			memberVO user=(memberVO) ses.getAttribute("loginuser");
-			if(user!=null) {
-				point.setMember_id((user.getMember_id()));//pointVO에 로그인한 회원의 id를 set.
+		if (ses != null) {
+			memberVO user = (memberVO) ses.getAttribute("loginuser");
+			if (user != null) {
+				point.setMember_id((user.getMember_id()));// pointVO에 로그인한 회원의 id를 set.
 			}
 		}
 		List<PointVO> mypoint = service.pointListall(point);
 		int pointsum = service.pointsum(point);
-		System.out.println("mypoint"+mypoint);
-		System.out.println("pointsum============"+pointsum);
+		System.out.println("mypoint" + mypoint);
+		System.out.println("pointsum============" + pointsum);
 		mav.addObject("mypoint", mypoint);
 		mav.addObject("pointsum", pointsum);
 		mav.setViewName("mypage/mypoint");
 		return mav;
 	}
-			
-			
-			
-	/*// 게시글 전체 목록을 보여주는 기능
-	@RequestMapping(value = "board/mypoint.do")
-	public ModelAndView mypage_mypoint(BoardVO board,HttpServletRequest req, PointVO point) {
+
+	/*
+	 * // 게시글 전체 목록을 보여주는 기능
+	 * 
+	 * @RequestMapping(value = "board/mypoint.do") public ModelAndView
+	 * mypage_mypoint(BoardVO board,HttpServletRequest req, PointVO point) {
+	 * ModelAndView mav = new ModelAndView(); HttpSession ses =
+	 * req.getSession(false); if(ses!=null) { memberVO user=(memberVO)
+	 * ses.getAttribute("loginuser"); if(user!=null) {
+	 * board.setMember_id(user.getMember_id()); } } List<PointVO> point=
+	 * service.pointListall(point); System.out.println(list); mav.addObject("list",
+	 * list); mav.setViewName("mypage/ask"); return mav; }
+	 */
+
+	@RequestMapping("/board/main.do")
+	public String mypage_main() {
+
+		return "mypage/main";
+	}
+
+	@RequestMapping("/board/recipe_favorite.do")
+	public ModelAndView mypage_recipefavorite(HttpSession session) {
+		// 즐겨찾기한 정보가 넘어가야 함.
+		String member_id = (String) session.getAttribute("id");
+		ArrayList<RecipeFavoriteVO> list = (ArrayList<RecipeFavoriteVO>) recFavServive.selectAllFavorites(member_id);
 		ModelAndView mav = new ModelAndView();
-		HttpSession ses = req.getSession(false);
-		if(ses!=null) {
-			memberVO user=(memberVO) ses.getAttribute("loginuser");
-			if(user!=null) {
+		mav.addObject("favorites", list);
+		mav.setViewName("mypage/recipe_favorite");
+
+		return mav;
+	}
+
+	// 관리자가 1대1 문의사항 목록 볼 때
+	@RequestMapping(value = "/board/admin_asklist.do")
+	public ModelAndView admin_asklist(BoardVO board, HttpServletRequest req) {
+		ModelAndView mav = new ModelAndView();
+		
+		
+		HttpSession ses = req.getSession(false); // 로그인이 안되어 있으면 NULL값 반환, 로그인이 되어있으면 ses에 로그인 세션을 발급.
+		if (ses != null) {
+			memberVO user = (memberVO) ses.getAttribute("loginuser"); // top.jsp에 올려놓은 로그인 세션을 loginuser로 받아서 user로 저장
+			if (user != null) {
 				board.setMember_id(user.getMember_id());
 			}
 		}
-		List<PointVO> point= service.pointListall(point);
-		System.out.println(list);
-		mav.addObject("list", list);
-		mav.setViewName("mypage/ask");
-		return mav;
-	}*/
-
-	
-	
-	
-	
-	
-	@RequestMapping("/board/main.do")
-	public String mypage_main() {
-	
-		return "mypage/main";
-	}
-	
-	@RequestMapping("/board/recipe_favorite.do")
-	public ModelAndView mypage_recipefavorite(HttpSession session) {
-		//즐겨찾기한 정보가 넘어가야 함.
-		String member_id = (String)session.getAttribute("id");
-		ArrayList<HashMap<String, String>> listMap = (ArrayList<HashMap<String, String>>)recFavServive.selectAllFavorites(member_id);
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("favorites", listMap);
-		mav.setViewName("mypage/recipe_favorite");
+			List<BoardVO> list = service.admin_asklist(board);
+			
+			System.out.println("1대1문의사항들입니다.." + list);
+			mav.addObject("list", list);
+			mav.setViewName("loginandcustomer/admin_asklist");
 		
 		return mav;
 	}
 	
+	//관리자가 문의 글을 자세히 볼 때
+	@RequestMapping("/board/admin_askdetail.do")
+	public String admin_askdetail(BoardVO boardVO, Model model) {
+		
+		model.addAttribute("admin_askdetail", service.admin_askdetail(boardVO.getAskno()));
+		//model.addAttribute("list_reply", replyService.list_reply());
+		
+		return "loginandcustomer/admin_askdetail";
+	}
 	
-	
-	
-	
-	
-	
+	/*@RequestMapping(value = "/board/read.do", method = RequestMethod.GET)
+	public String read(BoardVO boardVO, Model model) {
+		model.addAttribute("read", service.read(boardVO.getAskno()));
+		model.addAttribute("list_reply", replyService.list_reply());
+		return "mypage/ask/title";
+	}*/
+
 	/*
 	 * //======================= 답변형 게시판 =========================// //댓글 전체보기
 	 * 
