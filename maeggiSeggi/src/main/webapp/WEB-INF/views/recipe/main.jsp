@@ -237,7 +237,7 @@ color: skyblue;
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post wow fadeInUp" data-wow-delay="0.1s">
 						<div class="post-thumb">
-							<img src="<%= rlist.get(0).getImg_url_main() %>" alt="">
+							<a href="/maeggiSeggi/recipe/detailRecipe.do?id=<%=rlist.get(0).getRecipe_id() %>"><img src="<%= rlist.get(0).getImg_url_main() %>" alt="">
 						</div>
 						<div class="post-content">
 							<div class="post-meta d-flex">
@@ -272,7 +272,7 @@ color: skyblue;
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post wow fadeInUp" data-wow-delay="0.3s">
 						<div class="post-thumb">
-							<img src="<%= rlistt.get(0).getImg_url_main() %>" alt="">
+							<a href="/maeggiSeggi/recipe/detailRecipe.do?id=<%=rlistt.get(0).getRecipe_id() %>"><img src="<%= rlistt.get(0).getImg_url_main() %>" alt="">
 						</div>
 						<div class="post-content">
 							<div class="post-meta d-flex">
@@ -309,7 +309,7 @@ color: skyblue;
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post wow fadeInUp" data-wow-delay="0.4s">
 						<div class="post-thumb">
-							<img src="<%= rlisttt.get(0).getImg_url_main() %>" alt="">
+							<a href="/maeggiSeggi/recipe/detailRecipe.do?id=<%=rlisttt.get(0).getRecipe_id() %>"><img src="<%= rlisttt.get(0).getImg_url_main() %>" alt="">
 						</div>
 						<div class="post-content">
 							<div class="post-meta d-flex">
