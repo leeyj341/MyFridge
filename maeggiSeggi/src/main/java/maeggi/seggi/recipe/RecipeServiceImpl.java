@@ -127,6 +127,10 @@ public class RecipeServiceImpl implements RecipeService {
 		
 		return dao.testcount();
 	}
+	@Override
+	public int testcount2(String recipe_category) {
+		return dao.testcount2(recipe_category);
+	}
 
 	@Override
 	public void like(String recipe_id) throws Exception {

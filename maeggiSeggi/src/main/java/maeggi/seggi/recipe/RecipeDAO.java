@@ -25,6 +25,7 @@ public interface RecipeDAO {
 	
 	public List<RecipeVO> testlist (@Param("pagenum") int pagenum, @Param("contentnum") int contentnum);
 	public int testcount();
+	public int testcount2(String recipe_category);
 	//public List<RecipeVO> listall(@Param("pagenum") int pagenum, @Param("contentnum") int contentnum);
 	public void like(String recipe_id) throws Exception;
 	List<RecipeVO> categorySearch(String recipe_category, int pagenum, int contentnum);

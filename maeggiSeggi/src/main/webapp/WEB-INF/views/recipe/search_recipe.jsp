@@ -32,6 +32,11 @@
 
 </head>
 <body>
+	<%
+		String category = (String)request.getAttribute("category");
+		
+	%>
+
 	<div class="breadcumb-nav">
 		<div class="container">
 			<div class="row">

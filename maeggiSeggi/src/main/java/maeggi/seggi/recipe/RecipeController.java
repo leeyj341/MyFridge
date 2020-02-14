@@ -230,7 +230,7 @@ public ModelAndView categoryList(String recipe_category, HttpServletRequest requ
 	int contentnum = Integer.parseInt(request.getParameter("contentnum"));
 	System.out.println("contentnum=>"+contentnum);
 	
-	pageMaker.setTotalCount(service.testcount());//전체 게시글 갯수 지정
+	pageMaker.setTotalCount(service.testcount2(recipe_category));//전체 게시글 갯수 지정
 	pageMaker.setPagenum(pagenum-1);	//현재 페이지를 페이지 객체에 지정, -1을 해야 쿼리에서 사용 가능
 	pageMaker.setContentnum(contentnum); //한 페이지에 몇 개씩 게시글을 보여줄 것인
 	pageMaker.setCurrentblock(pagenum); //현재 페이지 블록
@@ -253,14 +253,16 @@ public ModelAndView categoryList(String recipe_category, HttpServletRequest requ
 	System.out.println(testlist);
 	System.out.println(pageMaker.getContentnum());
 	mav.addObject("list",testlist);
+	mav.addObject("category", testlist.get(0).getRecipe_category());
 	mav.addObject("page",pageMaker);
 	mav.setViewName("search");
 	return mav;
 	}else {
-		List<RecipeVO> testlist = service.recipeList(recipe_category, (pageMaker.getPagenum()*10)+1, pageMaker.getPagenum()*10+pageMaker.getContentnum());	
+		List<RecipeVO> testlist = service.recipeList(recipe_category, (pageMaker.getPagenum()*9)+1, pageMaker.getPagenum()*9+pageMaker.getContentnum());	
 		System.out.println(testlist);
 		System.out.println(pageMaker.getContentnum());
 		mav.addObject("list",testlist);
+		mav.addObject("category", testlist.get(0).getRecipe_category());
 		mav.addObject("page",pageMaker);
 		mav.setViewName("search");
 		return mav;

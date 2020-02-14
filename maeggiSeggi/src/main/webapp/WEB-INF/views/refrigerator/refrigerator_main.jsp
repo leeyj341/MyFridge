@@ -64,17 +64,20 @@
 	    			if(data.length < 1) $("#fridge_name").text("냉장고를 추가하세요!");
 	    			else if(data.length == 1) {
 	    				$("#fridge_name").html("<b>" + id + "</b> 님의 " + "<b>#" + data[0].name + "</b> 냉장고");
+	    				$("#fridge_name").attr("value", data[0].refrigerator_id);
 	    			}
 	    			else {
 	    				var flag = false;
 	    				for (var i = 0; i < data.length; i++) {
 	        				if(data[i].distinct_code == '1') {
 	        					$("#fridge_name").html("<b>" + id + "</b> 님의 " + "<b>#" + data[i].name + "</b> 냉장고");
+	        					$("#fridge_name").attr("value", data[i].refrigerator_id);
 	        					flag = true;
 	        					
 	        				} else {
 	        					if(flag == false) {
 	        						$("#fridge_name").html("<b>" + id + "</b> 님의 " + "<b>#" + data[i].name + "</b> 냉장고");
+	        						$("#fridge_name").attr("value", data[i].refrigerator_id);
 	        						flag = true;
 	        					}
 	        				}
@@ -82,6 +85,32 @@
 	    			}
 	    		}
 	    	});
+	    	
+	    	$.ajax({
+				url:"/maeggiSeggi/fridgeDetail/ajax_fridgeDetail.do",
+				type:"get",
+				dataType:"json",
+				data: {
+					"refrigerator_id": $("#fridge_name").attr("value")
+				},
+				success: function(data) {
+					ingredients = "";
+					for (var i = 0; i < data.length; i++) {
+						ingredients = ingredients + "<li class='draggable' draggable='false'><div value=" + data[i]["INGREDIENT_ID"] + " draggable='false'>";
+						if(data[i]["IG_TYPE_NAME"] == "주재료") {
+							ingredients += "<img src='/maeggiSeggi/images/l_dish.png' draggable='false'><p draggable='false'>" + data[i]["NAME"] + "</p></div>";
+						} else if(data[i]["IG_TYPE_NAME"] == "부재료") {
+							ingredients += "<img src='/maeggiSeggi/images/l_soup.png' draggable='false'><p draggable='false'>" + data[i]["NAME"] + "</p></div>";
+						} else {
+							ingredients += "<img src='/maeggiSeggi/images/l_chili-sauce.png' draggable='false'><p draggable='false'>" + data[i]["NAME"] + "</p></div>";
+						}
+						ingredients += "<p draggable='false'>" + data[i]["IG_AMOUNT"] + "</p></li>";
+					}
+					
+					$("#fridge").empty();
+					$("#fridge").append(ingredients);
+				}
+			});
 	    }
 	    
 	    function addDataToModal(id) {
@@ -249,9 +278,11 @@
 	    	$(document).on("drop",$("#fridge"),function(e) {
 	    		var amount = prompt("얼마나 저장하시겠습니까? ","재료의 양을 입력하세요. ex) 100g, 10개 등)");
 	    		//$("#fridge").children("li>div").find("#" + target_clone.find("div").attr("id")).
-	    		var p = $("<p draggable='false'>" + amount + "</p>");
-	    		target_clone.append(p);
-	    		$("#fridge").append(target_clone);
+	    		if(amount != null) {
+	    			var p = $("<p draggable='false'>" + amount + "</p>");
+		    		target_clone.append(p);
+		    		$("#fridge").append(target_clone);	
+	    		}
 	    	})
 	    }
 	    
