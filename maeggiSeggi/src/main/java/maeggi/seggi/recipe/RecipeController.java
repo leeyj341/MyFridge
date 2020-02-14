@@ -32,7 +32,7 @@ public class RecipeController {
 	RecipeService service;
 	//private RecipeDAO mapper;
 	@RequestMapping(value="/recipe/main.do", method=RequestMethod.GET)
-	public @ResponseBody ModelAndView wapi() {
+	public @ResponseBody ModelAndView wapi(String dname, String hit) {
 		ModelAndView mav = new ModelAndView();
 		SimpleDateFormat date = new SimpleDateFormat("yyyyMMdd");
 		String sysdate = date.format (System.currentTimeMillis());
@@ -133,7 +133,7 @@ public class RecipeController {
 		mav.addObject("rlisttt", rlisttt);
 		mav.setViewName("main");
 		System.out.println("메인 단입니다.");
-		ModelAndView mav = new ModelAndView();
+		System.out.println(dname);
 		List<RecipeVO> hitList = service.hitlist(hit);
 		List<NutrientVO> drunkList = service.drunklist(dname);
 		System.out.println("히트 메뉴"+hitList);
@@ -383,18 +383,5 @@ public ModelAndView categoryList(String recipe_category, HttpServletRequest requ
 		service.like(recipe_id);
 		
 		return "forward:/recipe/detailRecipe.do";
-	}
-	@RequestMapping(value="/recipe/main.do", method=RequestMethod.GET)
-	public ModelAndView mainView(String hit,String dname,String theme) {
-		System.out.println("메인 단입니다.");
-		System.out.println(dname);
-		ModelAndView mav = new ModelAndView();
-		List<RecipeVO> hitList = service.hitlist(hit);
-		List<NutrientVO> drunkList = service.drunklist(dname);
-		System.out.println("히트 메뉴"+hitList);
-		mav.addObject("hitList",hitList);
-		mav.addObject("drunklist",drunkList);
-		mav.setViewName("main");
-	return mav;
 	}
 }

@@ -33,9 +33,12 @@ public class RecipeServiceImpl implements RecipeService {
 		System.out.println("recipe_category : " + recipe_category);
 		if(recipe_category!=null) {
 			if(recipe_category.equals("all")) {
+				System.out.println("&&&&ㅁㄴㄹ&&&&&ㅁㄴㄹ&&&&&&&&&&&&&&&&&");
 				list=dao.testlist(pagenum, contentnum);			
 			}else {
-				list=dao.categorySearch(recipe_category,pagenum,contentnum);
+				System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+				list=dao.categorySearch(recipe_category, Integer.toString(pagenum),Integer.toString(contentnum));
+				//System.out.println(Integer.toString(pagenum)+","+Integer.toString(contentnum));
 			}
 		}
 		return list;
@@ -97,20 +100,20 @@ public class RecipeServiceImpl implements RecipeService {
 	public void upload(ArrayList<MultipartFile> file, String path) {
 		for (int i = 0; i < file.size(); i++) {
 			String fileName = file.get(i).getOriginalFilename();
-		try {
-				byte[] data = file.get(i).getBytes();
-			fos = new FileOutputStream(path+File.separator+fileName);
-			fos.write(data);
-		}catch (IOException e) {
-			e.printStackTrace();
-		}finally {
 			try {
-				if(fos!=null)fos.close();
-			} catch (IOException e) {
+				byte[] data = file.get(i).getBytes();
+				fos = new FileOutputStream(path+File.separator+fileName);
+				fos.write(data);
+			}catch (IOException e) {
 				e.printStackTrace();
+			}finally {
+				try {
+					if(fos!=null)fos.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}
-	}
 	}
 @Override
 	public RecipeVO moveTopopup(String recipe_id) {
@@ -148,8 +151,14 @@ public class RecipeServiceImpl implements RecipeService {
 
 
 	@Override
-	public List<NutrientVO> drunklist(String dname) {
-		return dao.drunklist(dname);
+	public List<RecipeVO> drunklist() {
+		return dao.drunklist();
+	}
+
+
+	@Override
+	public List<RecipeVO> freshlist() {
+		return dao.freshlist();
 	}
 
 }

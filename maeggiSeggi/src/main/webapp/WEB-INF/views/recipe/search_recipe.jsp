@@ -176,18 +176,23 @@
 	<script type="text/javascript">
 	function page(idx){
 		var pagenum = idx;
-		//alert(pagenum)
+	//	alert(pagenum)
 		//var contentnum =$("#contentnum option").is(":selected").val();
 		location.href="/maeggiSeggi/recipe/searchRecipe.do?pagenum="+pagenum+"&contentnum=9";
 	}
 		var serviceType;
 
 		$(document).ready(function() {
-
+			
 							recipe_category = "${recipe_category}";
-							pagenum = "${pagenum}";
+							pagenum = "${page.pagenum}";
 							contentnum = 9;
+							
+							
 							recipeId = "";
+							alert(recipe_category)
+							alert(pagenum)
+							alert(contentnum)
 							$("#check input").each(function() {
 												$(this).on("click",
 																function() {
@@ -197,11 +202,11 @@
 																				type : "get",
 																				data : {
 																					"recipe_category" : recipe_category,
-																					"pagenum"  : 1,
+																					"pagenum"  : pagenum,
 																					"contentnum" : 9
 																				},
 																				success : function(data) {
-																					alert(data.mainVo.length)
+																				 	alert(data.mainVo.length)
 																					alert(data.pageMaker.totalCount)
 																					alert(data.mainVo.name)
 																					mydata = "";

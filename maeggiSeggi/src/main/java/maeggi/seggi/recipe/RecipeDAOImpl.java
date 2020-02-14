@@ -23,7 +23,7 @@ public class RecipeDAOImpl implements RecipeDAO {
 	public List<RecipeVO> testlist(int pagenum, int contentnum) {
 		Map<String, Integer> map = new HashMap<String,Integer>();
 		map.put("pagenum", pagenum);
-		map.put("contentnum", contentnum);
+		map.put("contentnum", contentnum); 
 		List<RecipeVO> result = sqlSession.selectList("maeggi.seggi.recipe.testlist",map);
 		System.out.println(result);
 		return result;
@@ -39,6 +39,7 @@ public class RecipeDAOImpl implements RecipeDAO {
 		map.put("pagenum", Integer.toString(pagenum));
 		map.put("contentnum", Integer.toString(contentnum));
 		map.put("recipe_category", recipe_category);
+		System.out.println(map+"fsgddfgdg");
 		List<RecipeVO> list = sqlSession.selectList("maeggi.seggi.recipe.categoryRecipe", map);
 		System.out.println(recipe_category + list.size());
 		return list;
@@ -99,8 +100,15 @@ public class RecipeDAOImpl implements RecipeDAO {
 	}
 
 	@Override
-	public List<NutrientVO> drunklist(String dname) {
-		return sqlSession.selectList("maeggi.seggi.recipe.drunkRecipe",dname);
+	public List<RecipeVO> drunklist() {
+		List<RecipeVO> drunklist = sqlSession.selectList("maeggi.seggi.recipe.drunkRecipe");
+		return drunklist;
+	}
+
+	@Override
+	public List<RecipeVO> freshlist() {
+		List<RecipeVO> freshlist = sqlSession.selectList("maeggi.seggi.recipe.freshRecipe");
+		return freshlist;
 	}
 
 }

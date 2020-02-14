@@ -11,7 +11,7 @@
 	
 	<insert id="mealPlanInsert" parameterType="meal">
 		insert into meal_planner 
-		values(mealplanner_seq.nextval, #{meal_name}, sysdate, #{planner_date},#{planner_code},#{member_id},#{kcal})
+		values(mealplanner_seq.nextval, #{meal_name}, sysdate, #{planner_date},#{planner_code},#{member_id},#{kcal}*3)
 	</insert>
 	
 	<select id="mealKcal" resultType="int" parameterType="String">

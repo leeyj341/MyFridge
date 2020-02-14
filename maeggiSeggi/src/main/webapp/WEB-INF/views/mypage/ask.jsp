@@ -92,7 +92,7 @@
 			style="width: 800px; height: 100px; text-align: center; margin-left: auto; margin-right: auto;">
 			<thead>
 				<tr style="font-weight: bold;">
-					<td scope="col">번호</td>
+					<td scope="col">작성자</td>
 					<td scope="col">제목</td>
 					<td scope="col">등록일자</td>
 				</tr>
@@ -103,7 +103,7 @@
 						BoardVO row = list.get(i);
 				%>
 				<tr>
-					<td><%=row.getAskno()%></td>
+				<td><%=row.getMember_id()%></td>
 					<td><a href="/maeggiSeggi/board/read.do?askno=<%=row.getAskno()%>"><%=row.getAsk_title()%></a></td>
 					<td><%=row.getAsk_regdate()%></td>
 				</tr>

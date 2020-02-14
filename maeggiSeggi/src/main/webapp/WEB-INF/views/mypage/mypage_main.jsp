@@ -32,14 +32,6 @@
 
 <!-- Responsive CSS -->
 <link href="css/responsive/responsive.css" rel="stylesheet">
-<script type="text/javascript">
-	function popup() {
-		pop = window.open('maeggiSeggi.mypage_search.jsp', 'search',
-				'width=400,height=400,location=no,status=no,scrollbars=yes');
-	}
-</script>
-
-
 <style type="text/css">
 #mealplannerid {
 	text-align: center;
@@ -61,10 +53,6 @@
 		List<mealPlannerVO> mealplan = (List<mealPlannerVO>) request.getAttribute("mealplan");
 		memberVO loginuser = (memberVO) session.getAttribute("member");
 	%>
-	<%-- <%
-		if (session.getAttribute("id") != null) { //로그인 된 유저만 접근 가능
-	%> --%>
-
 	<!-- ****** Breadcumb Area Start ****** -->
 	<div class="breadcumb-area">
 		<div class="container h-100">
@@ -102,53 +90,7 @@
 
 		</div>
 		<p></p>
-<<<<<<< HEAD
 
-		<%-- <table border="1" class="mypage_table">
-=======
-		
-	<% 
-		Calendar today = Calendar.getInstance();
-		int month = today.get(Calendar.MONTH)+1;
-		int date = today.get(Calendar.DATE);
-	%>
-	<script type="text/javascript">
-		<%-- <% for(int i = 0; i<mealplan.size();i++){
-			
-		}
-		%> --%>
-		$(document).ready(function(){
-			
-		
-			$('.dd').text('1');
-		
-		});
-		
-	
-	</script>
-		<div>
-			<table border="1" class="mypage_table">
-				<tr>
-					<td></td>
-					<% for(int k = 0; k<7;k++){
-						int aa = date+k;
-					%>
-						<td align="center"><%= month %>월 <%= aa %> 일</td>	
-					<% }%>
-				</tr>
-				<tr>
-				<td>아침</td>
-				<td><p class="dd"></p></td>
->>>>>>> refs/remotes/origin/master
-				<td></td>
-<<<<<<< HEAD
-				<% for(int k = 0; k<7;k++){
-					int aa = date+k;
-				%>
-					<td align="center"><%= month %>월 <%= aa %> 일</td>	
-				<% }%>
-				
-			</table> --%>
 
 		<%
 			Calendar today = Calendar.getInstance();
@@ -156,7 +98,7 @@
 			int date = today.get(Calendar.DATE);
 		%>
 
-		<div>
+		
 			
 
 
@@ -206,15 +148,9 @@
 						
 						<h3>kcal, Exercise (0.1분 = 6초)</h3>
 						<h4></h4>
-				<%-- <%! 
-					double walkmin;
-					double runmin;
-					double bicyclemin;
-					
-					
-				%> --%>
+
 				<% 
-						 int kcalsum= (int)request.getAttribute("kcalsum");
+						 int kcalsum= (Integer)request.getAttribute("kcalsum");
 							double walkmin=0;
 							double runmin=0;
 							double bicyclemin=0;
@@ -222,13 +158,13 @@
 				 		
 							
 					    if( loginuser.getGender().equals("male") && 100<= kcalsum){						 						 
-						 walkmin = ((kcalsum-2600)/(2.9*17.5*loginuser.getWeight()));
-						 runmin = ((kcalsum-2600)/(8*17.5*loginuser.getWeight()));
-						 bicyclemin = ((kcalsum-2600)/(4*17.5*loginuser.getWeight()));
+						 walkmin = ((kcalsum)/(2.9*loginuser.getWeight()));
+						 runmin = ((kcalsum)/(8*loginuser.getWeight()));
+						 bicyclemin = ((kcalsum)/(4*loginuser.getWeight()));
 					}else if(loginuser.getGender().equals("female") && 100<=kcalsum){
-						 walkmin = ((kcalsum-50)/(2.9*17.5*loginuser.getWeight()));
-						 runmin = ((kcalsum-50)/(8*17.5*loginuser.getWeight()));
-						 bicyclemin = ((kcalsum-50)/(4*17.5*loginuser.getWeight()));
+						 walkmin = ((kcalsum)/(2.9*loginuser.getWeight()));
+						 runmin = ((kcalsum)/(8*loginuser.getWeight()));
+						 bicyclemin = ((kcalsum)/(4*loginuser.getWeight()));
 					}     
 				%>
 		
@@ -252,133 +188,14 @@
 								<th><%= Math.round(bicyclemin*10)/10.0 %>분</th>
 							</tr> 
 						</table>
-
-
-
 					</div>
 				</div>
 			</div>
 
 
 
-=======
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				</tr>
-				<tr>
-					<td>점심</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>저녁</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-			</table>
->>>>>>> refs/remotes/origin/master
-		</div>
-		<!-- <div style="float: right">
-			<input type="button" value="월 전체보기"
-				onclick="window.open('mypage_calander.jsp', 'calender','width=850,height=530,location=no,status=no,scrollbars=yes')"
-				style="color: white; background-color: #fc6c3f; width: 100px" />
-		</div> -->
-		<p></p>
-<<<<<<< HEAD
-
-=======
 		
->>>>>>> refs/remotes/origin/master
-		<%-- <% 
-			int kcal = 0;	
-			for(int i =0; i<3; i++){
-			mealPlannerVO todayKcal = mealplan.get(i); 
-			kcal = kcal + todayKcal.getKcal();
-<<<<<<< HEAD
-			
-		}%> --%>
-
-=======
-		}%> --%>
 		
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3">오늘 섭취한 칼로리</div>
-				<div class="col-lg-4">
-					<span></span>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-3" style="text-align: center;">걷기</div>
-				<div class="col-lg-1" style="text-align: center;">
-					<span>50</span>분
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-3" style="text-align: center;">뛰기</div>
-				<div class="col-lg-1" style="text-align: center;">
-					<span>20</span>분
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-3" style="text-align: center;">자전거</div>
-				<div class="col-lg-1" style="text-align: center;">
-					<span>30</span>분
-				</div>
-			</div>
-		</div>
->>>>>>> refs/remotes/origin/master
-	</div>
-	<p></p>
-
-
-
-
-	<%-- <table border=1 align="center">
-<%
-
-	"<th>"
-	for(int k = 0; k<7;k++){
-	}
-    for(int i=0; i<=2; i++) {
-%>
-    <%= ""<tr> %>
-    <%= "<th></th>" %>
-    <% for(int j=0; j<=6; j++) { %>
-        <%= "<td align=center>" + j + "x" + i + "=" + j*i + "</td>" %>
-        <%  
-        }
-    %>
-    <%= "</tr>" %>
-<% } %>
-</table> --%>
-	<!-- mypage main area end -->
-
-	<!-- 로그인 안 된 유저일 때 -->
-	<%-- <%
-		} else {
-	%>
-
-	<script type="text/javascript">
-		alert("로그인이 필요한 기능입니다!");
-		document.location.href = "/maeggiSeggi/loginandcustomer/login.do";
-	</script>
-	<%
-		}
-	%>
- --%>
+		
 
 </body>
