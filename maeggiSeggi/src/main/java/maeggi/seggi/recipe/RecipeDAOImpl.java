@@ -34,12 +34,13 @@ public class RecipeDAOImpl implements RecipeDAO {
 		sqlSession.insert("maeggi.seggi.recipe.insert",recipe);
 	}
 	@Override
-	public List<RecipeVO> categorySearch(String category,int pagenum, int contentnum) {
-		Map<String, Integer> map = new HashMap<String,Integer>();
-		map.put("pagenum", pagenum);
-		map.put("contentnum", contentnum);
-		List<RecipeVO> list = sqlSession.selectList("maeggi.seggi.recipe.categoryRecipe", category);
-		System.out.println(category + list.size());
+	public List<RecipeVO> categorySearch(String recipe_category,int pagenum, int contentnum) {
+		Map<String, String> map = new HashMap<String,String>();
+		map.put("pagenum", Integer.toString(pagenum));
+		map.put("contentnum", Integer.toString(contentnum));
+		map.put("recipe_category", recipe_category);
+		List<RecipeVO> list = sqlSession.selectList("maeggi.seggi.recipe.categoryRecipe", map);
+		System.out.println(recipe_category + list.size());
 		return list;
 	}
 	@Override
@@ -85,6 +86,21 @@ public class RecipeDAOImpl implements RecipeDAO {
 	public void like(String recipe_id) throws Exception {
 		sqlSession.update("maeggi.seggi.recipe.like",recipe_id);
 		
+	}
+
+	@Override
+	public List<weatherVO> weatherList(String today) {
+		return sqlSession.selectList("maeggi.seggi.recipe.recipeweather", today);
+	}
+
+	@Override
+	public List<RecipeVO> hitlist(String hit) {
+		return sqlSession.selectList("maeggi.seggi.recipe.hitRecipe",hit);
+	}
+
+	@Override
+	public List<NutrientVO> drunklist(String dname) {
+		return sqlSession.selectList("maeggi.seggi.recipe.drunkRecipe",dname);
 	}
 
 }

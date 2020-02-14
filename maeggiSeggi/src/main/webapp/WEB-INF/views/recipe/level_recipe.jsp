@@ -83,25 +83,210 @@ section {
 </style>
 <script type="text/javascript">
 	$(document).ready(function() {
+		checkb = 0;
 		$("#bmore").on("click", function() {
-			
+			cook_level = "초보환영";
+			if(checkb==0){
+				checkb = 1;
 			$.ajax({
 				url : "/maeggiSeggi/recipe/ajax_levellist.do",
 				type : "get",
-				data : {
-					"cook_level" : "초보환영"
-				},
+				data : {"cook_level" : cook_level},
 				success : function(data) {
-					alert("데이터 넣기 성공");
 					mydata = "";
-					for (i = 0; i < array.length; i++) {
-						mydata = myadata + 
-							""
+					for (i = 0; i < data.length; i++) {
+						mydata = mydata + "<div class='bbb col-12 col-md-6 col-lg-4'>"
+							+"<div class=''>"
+				               +"<div class='single-post wow fadeInUp' data-wow-delay='0.1s'>"
+				                  <!-- Post Thumb -->
+				                  +"<div class='post-thumb'>"
+				                  +"<a href='/maeggiSeggi/recipe/detailRecipe.do?id="+data[i].recipe_id+"'>"+"<img src='"+data[i].img_url_main+"' alt=''/></a>"
+				                  +"</div>"
+				                  <!-- Post Content -->
+				                  +"<div class='post-content'>"
+				                     +"<div class='post-meta d-flex'>"
+				                        +"<div class='post-author-date-area d-flex'>"
+				                           <!-- Post Author -->
+				                           +"<div class='post-author'>"
+				                              +"<a href='#'>By 융또융</a>"
+				                           +"</div>"
+				                           <!-- Post Date -->
+				                           +"<div class='post-date'>"
+				                              +"<a href='#'>May 19, 2017</a>"
+				                           +"</div>"
+				                        +"</div>"
+				                        <!-- Post Comment & Share Area -->
+				                        +"<div class='post-comment-share-area d-flex'>"
+				                           <!-- Post Favourite -->
+				                           +"<div class='post-favourite'>"
+				                              +"<a href='#'><i class='fa fa-heart-o' aria-hidden='true'></i>10</a>"
+				                           +"</div>"
+				                           <!-- Post Comments -->
+				                           +"<div class='post-comments'>"
+				                              +"<a href='#'><i class='fa fa-comment-o' aria-hidden='true'></i>12</a>"
+				                           +"</div>"
+				                           <!-- Post Share -->
+				                           +"<div class='post-share'>"
+				                              +"<a href='#'><i class='fa fa-share-alt' aria-hidden='true'></i></a>"
+				                           +"</div>"
+				                        +"</div>"
+				                     +"</div>"
+				                     +"<a href='/maeggiSeggi/recipe/detailRecipe.do'>"
+				                        +"<h4 class='post-headline'>"+data[i].name
+				                     +"</a>"
+				                  +"</div>"
+				               +"</div>"
+				            +"</div>"
+				            +"</div>"
 					}
 					$("#bend").append(mydata);
+					hr="";
+					hr=hr+"<hr width=100% color='#f8585b' size='3'>"
+					$("#fend").append(hr);
 				}
 			});
-		})
+			}else if(checkb==1){
+				checkb = 0;
+				$(".bbb").remove();
+				$("#fend").children().last().remove();
+			}
+		});
+		checkn = 0;
+		$("#nmore").on("click", function() {
+			cook_level = "보통";
+			if(checkn==0){
+				checkn = 1;
+			$.ajax({
+				url : "/maeggiSeggi/recipe/ajax_levellist.do",
+				type : "get",
+				data : {"cook_level" : cook_level},
+				success : function(data) {
+					mydata = "";
+					for (i = 0; i < data.length; i++) {
+						mydata = mydata + "<div class='nnn col-12 col-md-6 col-lg-4'>"
+							+"<div class=''>"
+				               +"<div class='single-post wow fadeInUp' data-wow-delay='0.1s'>"
+				                  <!-- Post Thumb -->
+				                  +"<div class='post-thumb'>"
+				                  +"<a href='/maeggiSeggi/recipe/detailRecipe.do?id="+data[i].recipe_id+"'>"+"<img src='"+data[i].img_url_main+"' alt=''/></a>"
+				                  +"</div>"
+				                  <!-- Post Content -->
+				                  +"<div class='post-content'>"
+				                     +"<div class='post-meta d-flex'>"
+				                        +"<div class='post-author-date-area d-flex'>"
+				                           <!-- Post Author -->
+				                           +"<div class='post-author'>"
+				                              +"<a href='#'>By 융또융</a>"
+				                           +"</div>"
+				                           <!-- Post Date -->
+				                           +"<div class='post-date'>"
+				                              +"<a href='#'>May 19, 2017</a>"
+				                           +"</div>"
+				                        +"</div>"
+				                        <!-- Post Comment & Share Area -->
+				                        +"<div class='post-comment-share-area d-flex'>"
+				                           <!-- Post Favourite -->
+				                           +"<div class='post-favourite'>"
+				                              +"<a href='#'><i class='fa fa-heart-o' aria-hidden='true'></i>10</a>"
+				                           +"</div>"
+				                           <!-- Post Comments -->
+				                           +"<div class='post-comments'>"
+				                              +"<a href='#'><i class='fa fa-comment-o' aria-hidden='true'></i>12</a>"
+				                           +"</div>"
+				                           <!-- Post Share -->
+				                           +"<div class='post-share'>"
+				                              +"<a href='#'><i class='fa fa-share-alt' aria-hidden='true'></i></a>"
+				                           +"</div>"
+				                        +"</div>"
+				                     +"</div>"
+				                     +"<a href='/maeggiSeggi/recipe/detailRecipe.do'>"
+				                        +"<h4 class='post-headline'>"+data[i].name
+				                     +"</a>"
+				                  +"</div>"
+				               +"</div>"
+				            +"</div>"
+				            +"</div>"
+					}
+					$("#nend").append(mydata);
+					hr="";
+					hr=hr+"<hr width=100% color='#f8585b' size='3'>"
+					$("#ffend").append(hr);
+				}
+			});
+			}else if(checkn==1){
+				checkn = 0;
+				$(".nnn").remove();
+				$("#ffend").children().last().remove();
+			}
+		});
+		checkh = 0;
+		$("#hmore").on("click", function() {
+			cook_level = "어려움";
+			if(checkh==0){
+				checkh = 1;
+			$.ajax({
+				url : "/maeggiSeggi/recipe/ajax_levellist.do",
+				type : "get",
+				data : {"cook_level" : cook_level},
+				success : function(data) {
+					mydata = "";
+					for (i = 0; i < data.length; i++) {
+						mydata = mydata + "<div class='hhh col-12 col-md-6 col-lg-4'>"
+							+"<div class=''>"
+				               +"<div class='single-post wow fadeInUp' data-wow-delay='0.1s'>"
+				                  <!-- Post Thumb -->
+				                  +"<div class='post-thumb'>"
+				                  +"<a href='/maeggiSeggi/recipe/detailRecipe.do?id="+data[i].recipe_id+"'>"+"<img src='"+data[i].img_url_main+"' alt=''/></a>"
+				                  +"</div>"
+				                  <!-- Post Content -->
+				                  +"<div class='post-content'>"
+				                     +"<div class='post-meta d-flex'>"
+				                        +"<div class='post-author-date-area d-flex'>"
+				                           <!-- Post Author -->
+				                           +"<div class='post-author'>"
+				                              +"<a href='#'>By 융또융</a>"
+				                           +"</div>"
+				                           <!-- Post Date -->
+				                           +"<div class='post-date'>"
+				                              +"<a href='#'>May 19, 2017</a>"
+				                           +"</div>"
+				                        +"</div>"
+				                        <!-- Post Comment & Share Area -->
+				                        +"<div class='post-comment-share-area d-flex'>"
+				                           <!-- Post Favourite -->
+				                           +"<div class='post-favourite'>"
+				                              +"<a href='#'><i class='fa fa-heart-o' aria-hidden='true'></i>10</a>"
+				                           +"</div>"
+				                           <!-- Post Comments -->
+				                           +"<div class='post-comments'>"
+				                              +"<a href='#'><i class='fa fa-comment-o' aria-hidden='true'></i>12</a>"
+				                           +"</div>"
+				                           <!-- Post Share -->
+				                           +"<div class='post-share'>"
+				                              +"<a href='#'><i class='fa fa-share-alt' aria-hidden='true'></i></a>"
+				                           +"</div>"
+				                        +"</div>"
+				                     +"</div>"
+				                     +"<a href='/maeggiSeggi/recipe/detailRecipe.do'>"
+				                        +"<h4 class='post-headline'>"+data[i].name
+				                     +"</a>"
+				                  +"</div>"
+				               +"</div>"
+				            +"</div>"
+				            +"</div>"
+					}
+					$("#hend").append(mydata);
+					hr="";
+					hr=hr+"<hr width=100% color='#f8585b' size='3'>"
+					$("#fffend").append(hr);
+				}
+			});
+			}else if(checkh==1){
+				checkh = 0;
+				$(".hhh").remove();
+				$("#fffend").children().last().remove();
+			}
+		});
 	});
 </script>
 </head>
@@ -136,9 +321,9 @@ section {
    </div>
 
 
-   <section class="archive-area">
+   <section class="archive-area" id="fend">
       <div class="container">
-         <div class="row">
+         <div class="row" id="bend">
 
 
             <!-- Single Post -->
@@ -146,7 +331,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="<%= listb.get(0).getImg_url_main() %>" alt=""/></a>
+                     <a href="/maeggiSeggi/recipe/detailRecipe.do?id=<%= listb.get(0).getRecipe_id() %>"><img src="<%= listb.get(0).getImg_url_main() %>" alt=""/></a>
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -190,7 +375,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.3s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="<%= listb.get(1).getImg_url_main() %>" alt=""/></a>
+                     <a href="/maeggiSeggi/recipe/detailRecipe.do?id=<%= listb.get(1).getRecipe_id() %>"><img src="<%= listb.get(1).getImg_url_main() %>" alt=""/></a>
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -234,11 +419,11 @@ section {
 
 
             <!-- Single Post -->
-            <div class="col-12 col-md-6 col-lg-4" id="bend">
+            <div class="col-12 col-md-6 col-lg-4">
                <div class="single-post wow fadeInUp" data-wow-delay="0.4s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="<%= listb.get(2).getImg_url_main() %>" alt=""/></a>
+                     <a href="/maeggiSeggi/recipe/detailRecipe.do?id=<%= listb.get(2).getRecipe_id() %>"><img src="<%= listb.get(2).getImg_url_main() %>" alt=""/></a>
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -291,9 +476,9 @@ section {
    </div>
 
 
-   <section class="archive-area">
+   <section class="archive-area" id="ffend">
       <div class="container">
-         <div class="row">
+         <div class="row" id="nend">
 
 
             <!-- Single Post -->
@@ -301,7 +486,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="<%= listn.get(0).getImg_url_main() %>" alt=""/></a>
+                     <a href="/maeggiSeggi/recipe/detailRecipe.do?id=<%= listn.get(0).getRecipe_id() %>"><img src="<%= listn.get(0).getImg_url_main() %>" alt=""/></a>
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -345,7 +530,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.3s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="<%= listn.get(1).getImg_url_main() %>" alt=""/></a>
+                     <a href="/maeggiSeggi/recipe/detailRecipe.do?id=<%= listn.get(1).getRecipe_id() %>"><img src="<%= listn.get(1).getImg_url_main() %>" alt=""/></a>
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -393,7 +578,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.4s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="<%= listn.get(2).getImg_url_main() %>" alt=""/></a>
+                     <a href="/maeggiSeggi/recipe/detailRecipe.do?id=<%= listn.get(2).getRecipe_id() %>"><img src="<%= listn.get(2).getImg_url_main() %>" alt=""/></a>
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -446,9 +631,9 @@ section {
    </div>
 
 
-   <section class="archive-area">
+   <section class="archive-area" id="fffend">
       <div class="container">
-         <div class="row">
+         <div class="row" id="hend">
 
 
             <!-- Single Post -->
@@ -456,7 +641,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="<%= listh.get(0).getImg_url_main() %>" alt=""/></a>
+                     <a href="/maeggiSeggi/recipe/detailRecipe.do?id=<%= listh.get(0).getRecipe_id() %>"><img src="<%= listh.get(0).getImg_url_main() %>" alt=""/></a>
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -500,7 +685,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.3s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="<%= listh.get(1).getImg_url_main() %>" alt=""/></a>
+                     <a href="/maeggiSeggi/recipe/detailRecipe.do?id=<%= listh.get(1).getRecipe_id() %>"><img src="<%= listh.get(1).getImg_url_main() %>" alt=""/></a>
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">
@@ -548,7 +733,7 @@ section {
                <div class="single-post wow fadeInUp" data-wow-delay="0.4s">
                   <!-- Post Thumb -->
                   <div class="post-thumb">
-                     <a href="/maeggiSeggi/recipe/detailRecipe.do"><img src="<%= listh.get(2).getImg_url_main() %>" alt=""></a>
+                     <a href="/maeggiSeggi/recipe/detailRecipe.do?id=<%= listh.get(2).getRecipe_id() %>"><img src="<%= listh.get(2).getImg_url_main() %>" alt=""></a>
                   </div>
                   <!-- Post Content -->
                   <div class="post-content">

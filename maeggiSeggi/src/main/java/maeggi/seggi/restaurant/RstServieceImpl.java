@@ -5,12 +5,20 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 @Service
 public class RstServieceImpl implements RstService{
+	@Autowired
+	RstDAO dao;
+	
     public static StringBuilder sb;//
  
     static String getString(String input, String data) // API에서 필요한 문자 자르기.
@@ -95,4 +103,9 @@ public class RstServieceImpl implements RstService{
         }
         return searchlist;
     }
+	@Override
+	public List<weatherVO> weathersearch(String today) {
+		List<weatherVO> wlist = dao.weathersearch(today);
+		return wlist;
+	}
 }

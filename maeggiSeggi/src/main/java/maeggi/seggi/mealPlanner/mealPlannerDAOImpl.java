@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 public class mealPlannerDAOImpl implements mealPlannerDAO{
 	@Autowired
 	SqlSession SqlSession;
-	
+	 
 	@Override
 	public List<mealPlannerVO> mealSelect(mealPlannerVO meal) {
 		return SqlSession.selectList("maeggi.seggi.meal.mealPlan", meal);

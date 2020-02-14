@@ -7,10 +7,17 @@
 	<insert id="insertFavorite" parameterType="favorite">
 		insert into recipe_favorite values(concat('fav',favorite_id_seq.nextval), #{recipe_id}, #{member_id}, sysdate, #{memo})
 	</insert>
-	<delete id="deleteFavorite" parameterType="favorite">
-		delete from recipe_favorite where recipe_favorite_id = #{recipe_favorite_id}
+	<delete id="deleteFavorite" parameterType="Map">
+		delete from recipe_favorite rf where (#{recipe_id}, #{name}) = (select r.recipe_id, r.name from recipe r where r.recipe_id = rf.recipe_id)
 	</delete>
-	<select id="selectAllFavorites" parameterType="String" resultType="favorite">
-		select * from recipe_favorite where member_id = #{member_id}
+	<select id="selectAllFavorites" parameterType="String" resultType="Map">
+		select r.name, r.member_id, r.content_intro, r.like_num, r.img_url_main, rf.*  
+		from recipe_favorite rf, recipe r 
+		where r.recipe_id = rf.recipe_id and rf.member_id = #{member_id}
+	</select>
+	<select id="selectByRecipeName" parameterType="Map" resultType="Map">
+		select r.name, r.member_id, r.content_intro, r.like_num, r.img_url_main, rf.*  
+		from recipe_favorite rf, recipe r 
+		where r.recipe_id = rf.recipe_id and rf.member_id = #{member_id} and r.name like '%' || #{name} || '%'
 	</select>
 </mapper>

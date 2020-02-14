@@ -58,17 +58,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-5 col-sm-6">
-                     <!--  Top Social bar start -->
-                   <!-- <div class="top_social_bar">
-                        <a href="#"><i class="fas fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fas fa-twitter" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fas fa-linkedin" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fas fa-skype" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fas-dribbble" aria-hidden="true"></i></a>
-                    </div> -->
                 </div>
-                
-       
                 <!--  Login Register Area -->
                 <div class="col-7 col-sm-6">
                     <div class="signup-search-area d-flex align-items-center justify-content-end">
@@ -109,8 +99,6 @@
     </div>
     <!-- ****** Top Header Area End ****** -->
     <!-- ****** Header Area Start ****** -->
-    
-    
     <header class="header_area">
         <div class="container">
             <div class="row">
@@ -145,7 +133,7 @@
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">RECIPE</a>
                                     <div class="dropdown-menu" aria-labelledby="yummyDropdown">
                                     	<a class="dropdown-item" href="#"></a>
-                                        <a class="dropdown-item" href="/maeggiSeggi/recipe/main.do"><b>테마별 레시피</b></a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/recipe/main.do?theme=숙취"><b>테마별 레시피</b></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/recipe/levelRecipe.do?cook_levelb=초보환영&cook_leveln=보통&cook_levelh=어려움"><b>난이도별 레시피</b></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/recipe/searchRecipe.do?pagenum=1&contentnum=9"><b>레시피 조회</b></a>
                                     </div>
@@ -155,7 +143,7 @@
                                     <div class="dropdown-menu" aria-labelledby="yummyDropdown">
                                     	<a class="dropdown-item" href="#"></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/restaurant.do"><b>식당 조회</b></a>
-                                        <a class="dropdown-item" href="/maeggiSeggi/map.do"><b>지도 조회</b></a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/weather.do"><b>날씨별 식당 추천</b></a>
                                     </div>
                                 </li>
                                 

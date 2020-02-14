@@ -3,6 +3,7 @@ package maeggi.seggi.recipe;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
@@ -27,14 +28,14 @@ public class RecipeServiceImpl implements RecipeService {
 	
 	FileOutputStream fos;
 	@Override
-	public List<RecipeVO> recipeList(String category, int pagenum, int contentnum) {
+	public List<RecipeVO> recipeList(String recipe_category, int pagenum, int contentnum) {
 		List<RecipeVO> list = null;
-		System.out.println("category : " + category);
-		if(category!=null) {
-			if(category.equals("all")) {
+		System.out.println("recipe_category : " + recipe_category);
+		if(recipe_category!=null) {
+			if(recipe_category.equals("all")) {
 				list=dao.testlist(pagenum, contentnum);			
 			}else {
-				list=dao.categorySearch(category,pagenum,contentnum);
+				list=dao.categorySearch(recipe_category,pagenum,contentnum);
 			}
 		}
 		return list;
@@ -93,10 +94,11 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 
 	@Override
-	public void upload(MultipartFile file, String path, String fileName) {
-		System.out.println("path:"+path+":"+fileName);
+	public void upload(ArrayList<MultipartFile> file, String path) {
+		for (int i = 0; i < file.size(); i++) {
+			String fileName = file.get(i).getOriginalFilename();
 		try {
-			byte[] data = file.getBytes();
+				byte[] data = file.get(i).getBytes();
 			fos = new FileOutputStream(path+File.separator+fileName);
 			fos.write(data);
 		}catch (IOException e) {
@@ -108,6 +110,7 @@ public class RecipeServiceImpl implements RecipeService {
 				e.printStackTrace();
 			}
 		}
+	}
 	}
 @Override
 	public RecipeVO moveTopopup(String recipe_id) {
@@ -128,6 +131,25 @@ public class RecipeServiceImpl implements RecipeService {
 	@Override
 	public void like(String recipe_id) throws Exception {
 		dao.like(recipe_id);
+	}
+
+
+	@Override
+	public List<weatherVO> weatherList(String today) {
+		List<weatherVO> wlist = dao.weatherList(today);
+		return wlist;
+	}
+
+
+	@Override
+	public List<RecipeVO> hitlist(String hit) {
+		return dao.hitlist(hit);
+	}
+
+
+	@Override
+	public List<NutrientVO> drunklist(String dname) {
+		return dao.drunklist(dname);
 	}
 
 }

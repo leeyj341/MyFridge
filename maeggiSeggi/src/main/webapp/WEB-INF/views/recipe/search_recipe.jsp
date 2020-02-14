@@ -80,24 +80,24 @@
 						<div id="check">
 							<div id="title">테마별</div>
 							<div class="form-group">
-								<label><input type="radio" name="category" id="checkVal"
+								<label><input type="radio" name="recipe_category" id="checkVal"
 									value="all" checked>All</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="category" value="한식">한식</label>
+								<label><input type="radio" name="recipe_category" value="한식">한식</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="category" value="퓨전">
+								<label><input type="radio" name="recipe_category" value="퓨전">
 									퓨전</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="category" value="서양이탈리아"> 서양이탈리아</label>
+								<label><input type="radio" name="recipe_category" value="서양이탈리아"> 서양이탈리아</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="category" value="중국/동남아시아"> 중국 /동남아시아</label>
+								<label><input type="radio" name="recipe_category" value="중국/동남아시아"> 중국 /동남아시아</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="category" value="일본">
+								<label><input type="radio" name="recipe_category" value="일본">
 									일본</label>
 							</div>
 						</div>
@@ -156,7 +156,7 @@
 						</div>
 					</c:forEach>
 					</div>
-				<div style="text-align: center;">
+				<div style="text-align: center;clear:both;">
 					<c:if test="${page.prev}">
 						<a style="text-decoration: none;" href="javascript:page(${page.getStartPage()-1 });">&laquo;</a>
 					</c:if>
@@ -184,27 +184,33 @@
 
 		$(document).ready(function() {
 
-							category = "${category}";
-
+							recipe_category = "${recipe_category}";
+							pagenum = "${pagenum}";
+							contentnum = 9;
 							recipeId = "";
 							$("#check input").each(function() {
 												$(this).on("click",
 																function() {
-																	category = $(this).val();
+																	recipe_category = $(this).val();
 																	$.ajax({
 																				url : "/maeggiSeggi/recipe/ajax_searchRecipe.do",
 																				type : "get",
 																				data : {
-																					"category" : category
+																					"recipe_category" : recipe_category,
+																					"pagenum"  : 1,
+																					"contentnum" : 9
 																				},
 																				success : function(data) {
+																					alert(data.mainVo.length)
+																					alert(data.pageMaker.totalCount)
+																					alert(data.mainVo.name)
 																					mydata = "";
 																					for (var i = 0; i < data.length; i++) {
 																						mydata += "<div id='content'><div class='grid'>"+
 																						"<div class='single-post'>"
 																								+ "<div class='post-thumb'>"
 																								+ "<a href='/maeggiSeggi/recipe/detailRecipe.do?id="
-																								+ data[i].recipe_id
+																								+ data[i].mainVo.recipe_id
 																								+ "'>"
 																								+ "<img src='" + data[i].img_url_main + "' style='width:248px;height:248px;'/>"
 																								+ "</a>"
@@ -249,6 +255,19 @@
 						});
 		
 		 function getbyname(){
+		function page(idx){
+			var pagenum = idx;
+			//alert(pagenum)
+			//var contentnum =$("#contentnum option").is(":selected").val();
+			if($("input[name=recipe_category]:checked").val() == "all") {
+				location.href="/maeggiSeggi/recipe/searchRecipe.do?pagenum="+pagenum+"&contentnum=9";
+			} else {
+				category = $("input[name=recipe_category]:checked").val();
+				location.href= "/maeggiSeggi/recipe/categoryRecipe.do?recipe_category=" + category +"&pagenum="+pagenum+"&contentnum=9";
+			}
+			
+		}
+			 function getbyname(){
 			var search = $("#recipe_search").val();
 			if(search!=''){
 					$.ajax({
