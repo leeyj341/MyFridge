@@ -102,53 +102,7 @@
 
 		</div>
 		<p></p>
-<<<<<<< HEAD
 
-		<%-- <table border="1" class="mypage_table">
-=======
-		
-	<% 
-		Calendar today = Calendar.getInstance();
-		int month = today.get(Calendar.MONTH)+1;
-		int date = today.get(Calendar.DATE);
-	%>
-	<script type="text/javascript">
-		<%-- <% for(int i = 0; i<mealplan.size();i++){
-			
-		}
-		%> --%>
-		$(document).ready(function(){
-			
-		
-			$('.dd').text('1');
-		
-		});
-		
-	
-	</script>
-		<div>
-			<table border="1" class="mypage_table">
-				<tr>
-					<td></td>
-					<% for(int k = 0; k<7;k++){
-						int aa = date+k;
-					%>
-						<td align="center"><%= month %>월 <%= aa %> 일</td>	
-					<% }%>
-				</tr>
-				<tr>
-				<td>아침</td>
-				<td><p class="dd"></p></td>
->>>>>>> refs/remotes/origin/master
-				<td></td>
-<<<<<<< HEAD
-				<% for(int k = 0; k<7;k++){
-					int aa = date+k;
-				%>
-					<td align="center"><%= month %>월 <%= aa %> 일</td>	
-				<% }%>
-				
-			</table> --%>
 
 		<%
 			Calendar today = Calendar.getInstance();
@@ -204,16 +158,8 @@
 
 						<br/><br/><br/>
 						
-						<h3>kcal, Exercise (0.1분 = 6초)</h3>
-						<h4></h4>
-				<%-- <%! 
-					double walkmin;
-					double runmin;
-					double bicyclemin;
-					
-					
-				%> --%>
-				<% 
+						<h3>kcal, Exercise</h3>
+					<% 
 						 int kcalsum= (int)request.getAttribute("kcalsum");
 							double walkmin=0;
 							double runmin=0;
@@ -252,6 +198,8 @@
 								<th><%= Math.round(bicyclemin*10)/10.0 %>분</th>
 							</tr> 
 						</table>
+					
+						
 
 
 
@@ -261,35 +209,6 @@
 
 
 
-=======
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				</tr>
-				<tr>
-					<td>점심</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>저녁</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-			</table>
->>>>>>> refs/remotes/origin/master
 		</div>
 		<!-- <div style="float: right">
 			<input type="button" value="월 전체보기"
@@ -297,50 +216,15 @@
 				style="color: white; background-color: #fc6c3f; width: 100px" />
 		</div> -->
 		<p></p>
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> refs/remotes/origin/master
 		<%-- <% 
 			int kcal = 0;	
 			for(int i =0; i<3; i++){
 			mealPlannerVO todayKcal = mealplan.get(i); 
 			kcal = kcal + todayKcal.getKcal();
-<<<<<<< HEAD
 			
 		}%> --%>
 
-=======
-		}%> --%>
-		
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3">오늘 섭취한 칼로리</div>
-				<div class="col-lg-4">
-					<span></span>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-3" style="text-align: center;">걷기</div>
-				<div class="col-lg-1" style="text-align: center;">
-					<span>50</span>분
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-3" style="text-align: center;">뛰기</div>
-				<div class="col-lg-1" style="text-align: center;">
-					<span>20</span>분
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-3" style="text-align: center;">자전거</div>
-				<div class="col-lg-1" style="text-align: center;">
-					<span>30</span>분
-				</div>
-			</div>
-		</div>
->>>>>>> refs/remotes/origin/master
 	</div>
 	<p></p>
 
