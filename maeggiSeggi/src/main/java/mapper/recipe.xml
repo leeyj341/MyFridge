@@ -65,6 +65,7 @@
 		(select * from recipe)
 		order by hit desc
 	</select>
+
 	<!-- 난이도별 조회 -->
   	<select id="levelRecipe" resultType="recipe" parameterType="String">
   		select * from	
@@ -72,12 +73,15 @@
   		where cook_level=#{cook_level}
   		order by dbms_random.random())
   	</select>
-	<!-- 테마별 요리 -->
-	<select id="drunkRecipe" resultType="maeggi.seggi.recipe.NutrientVO" parameterType="String">
-		 <![CDATA[
-		select substrb(name,0,6) as dname from food_nutrient where rownum<=10 order by vitaminb
-		 ]]>
+	<!-- 숙취가 해결되는 음식 -->
+	<select id="drunkRecipe" resultType="recipe" parameterType="String">
+		select r.*,i.* from recipe r,ingredients i where r.recipe_id = i.recipe_id and i.name in ('버섯','시금치','레몬')
 	</select>
+	<!-- 피로회복 -->
+	<select id="freshRecipe" resultType="recipe" parameterType="String">
+		select r.*,i.* from recipe r,ingredients i where r.recipe_id = i.recipe_id and i.name in ('콩나물')
+	</select>
+	<!-- 피로회복 -->
 	<resultMap type="Map" id="detailMap">
 		<result column="recipe_id" property="id"/>
 		<result column="name" property="name"/>
@@ -101,4 +105,5 @@
 	set like_num = like_num+1
 	where recipe_id=#{recipe_id}
 	</update>
+
  </mapper> 

@@ -61,6 +61,11 @@ font-family: 'PapyrusM';
 	display:inline;
 	margin-left: auto;
 	margin-right : auto;
+	font-size: 15px;
+}
+#joinlist{
+	font-size: 40px;
+	
 }
 
 #social1{

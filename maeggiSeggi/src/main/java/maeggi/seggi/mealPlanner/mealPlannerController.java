@@ -29,20 +29,41 @@ public class mealPlannerController {
 	BoardService pointservice;
 	
 	@RequestMapping(value = "/mealPlanner/select.do", method = RequestMethod.GET)
-	public ModelAndView read(mealPlannerVO meal, PointVO point, HttpServletRequest req) {
+
+	
+
+	public ModelAndView read(mealPlannerVO meal, PointVO point, String today, HttpServletRequest req) {
+
 		ModelAndView mav = new ModelAndView();
 		HttpSession ses = req.getSession(false);
 		if(ses!=null) {		
 			memberVO user=(memberVO) ses.getAttribute("loginuser");
+
+			String DDday = (String)ses.getAttribute("today");
+
 			if(user!=null) {
 				meal.setMember_id((user.getMember_id()));//mealPlannerVO에 로그인한 회원의 id를 set.
 				point.setMember_id((user.getMember_id()));
+
+				meal.setPlanner_date(DDday);
+				
+				System.out.println("식단날짜: "+meal.getPlanner_date()+"po유저:"+point.getMember_id()+"meal유저"+meal.getMember_id());
+
 			}
 		}
 		List<mealPlannerVO> mealplan = service.mealSelect(meal);
 		int pointsum = pointservice.pointsum(point);
+
+		System.out.println("====================DDday==========="+meal.getPlanner_date());
+		int kcalsum = service.kcalsum(meal.getPlanner_date());
+		System.out.println("=============kcalsum==================="+kcalsum);
+
+
 		mav.addObject("mealplan", mealplan);
 		mav.addObject("pointsum", pointsum);
+
+		mav.addObject("kcalsum", kcalsum);
+
 		mav.setViewName("mypage/main");
 		return mav;
 	}

@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -32,9 +33,12 @@ public class RecipeServiceImpl implements RecipeService {
 		System.out.println("recipe_category : " + recipe_category);
 		if(recipe_category!=null) {
 			if(recipe_category.equals("all")) {
+				System.out.println("&&&&ㅁㄴㄹ&&&&&ㅁㄴㄹ&&&&&&&&&&&&&&&&&");
 				list=dao.testlist(pagenum, contentnum);			
 			}else {
-				list=dao.categorySearch(recipe_category,pagenum,contentnum);
+				System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+				list=dao.categorySearch(recipe_category, pagenum,contentnum);
+				//System.out.println(Integer.toString(pagenum)+","+Integer.toString(contentnum));
 			}
 		}
 		return list;
@@ -138,14 +142,27 @@ public class RecipeServiceImpl implements RecipeService {
 
 
 	@Override
+	public List<weatherVO> weatherList(String today) {
+		List<weatherVO> wlist = dao.weatherList(today);
+		return wlist;
+	}
+
+
+	@Override
 	public List<RecipeVO> hitlist(String hit) {
 		return dao.hitlist(hit);
 	}
 
 
 	@Override
-	public List<NutrientVO> drunklist(String dname) {
-		return dao.drunklist(dname);
+	public List<RecipeVO> drunklist() {
+		return dao.drunklist();
+	}
+
+
+	@Override
+	public List<RecipeVO> freshlist() {
+		return dao.freshlist();
 	}
 
 }

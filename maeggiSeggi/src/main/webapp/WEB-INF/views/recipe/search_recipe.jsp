@@ -86,23 +86,23 @@
 							<div id="title">테마별</div>
 							<div class="form-group">
 								<label><input type="radio" name="recipe_category" id="checkVal"
-									value="all" onclick="javascript:page(1)">All</label>
+									value="all" checked>All</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="recipe_category" value="한식" onclick="javascript:page(1)">한식</label>
+								<label><input type="radio" name="recipe_category" value="한식">한식</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="recipe_category" value="퓨전" onclick="javascript:page(1)">
+								<label><input type="radio" name="recipe_category" value="퓨전">
 									퓨전</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="recipe_category" value="서양이탈리아" onclick="javascript:page(1)"> 서양이탈리아</label>
+								<label><input type="radio" name="recipe_category" value="서양이탈리아"> 서양이탈리아</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="recipe_category" value="중국/동남아시아" onclick="javascript:page(1)"> 중국 /동남아시아</label>
+								<label><input type="radio" name="recipe_category" value="중국/동남아시아"> 중국 /동남아시아</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="recipe_category" value="일본" onclick="javascript:page(1)">
+								<label><input type="radio" name="recipe_category" value="일본">
 									일본</label>
 							</div>
 						</div>
@@ -179,16 +179,92 @@
 	</div>
 
 	<script type="text/javascript">
+	function page(idx){
+		var pagenum = idx;
+	//	alert(pagenum)
+		//var contentnum =$("#contentnum option").is(":selected").val();
+		location.href="/maeggiSeggi/recipe/searchRecipe.do?pagenum="+pagenum+"&contentnum=9";
+	}
+		var serviceType;
+
 		$(document).ready(function() {
-			var category = "<%= category %>";
 			
-			if(category) {
-				$("input[value='" + category + "']").attr("checked",true);
-			} else {
-				$("input[value='all']").attr("checked",true);
-			}
-		})	
-	
+							recipe_category = "${recipe_category}";
+							pagenum = "${page.pagenum}";
+							contentnum = 9;
+							
+							
+							recipeId = "";
+							alert(recipe_category)
+							alert(pagenum)
+							alert(contentnum)
+							$("#check input").each(function() {
+												$(this).on("click",
+																function() {
+																	recipe_category = $(this).val();
+																	$.ajax({
+																				url : "/maeggiSeggi/recipe/ajax_searchRecipe.do",
+																				type : "get",
+																				data : {
+																					"recipe_category" : recipe_category,
+																					"pagenum"  : pagenum,
+																					"contentnum" : 9
+																				},
+																				success : function(data) {
+																				 	alert(data.mainVo.length)
+																					alert(data.pageMaker.totalCount)
+																					alert(data.mainVo.name)
+																					mydata = "";
+																					for (var i = 0; i < data.length; i++) {
+																						mydata += "<div id='content'><div class='grid'>"+
+																						"<div class='single-post'>"
+																								+ "<div class='post-thumb'>"
+																								+ "<a href='/maeggiSeggi/recipe/detailRecipe.do?id="
+																								+ data[i].mainVo.recipe_id
+																								+ "'>"
+																								+ "<img src='" + data[i].img_url_main + "' style='width:248px;height:248px;'/>"
+																								+ "</a>"
+																								+ "</div></div>"
+																								+ "<div class='post-content'>"
+																								+ "<div class='post-meta d-flex'>"
+																								+ "<a hef='/maeggiSeggi/recipe/detailRecipe.do'>"
+																								+ "<h6 style='font-family: nanumSquare_acEB;font:arial;'>"
+																								+ data[i].name
+																								+ "</h6><br/>"
+																								+ "</a>"
+																								+ "<div class='post-author-date-area d-flex'>"
+																								+ "<div class='post-author'>"
+																								+ "<a href='#'>"
+																								+ data[i].member_id
+																								+ "</a>"
+																								+ "</div>"
+																								+ "<div class='post-date' >"
+																								+ "<a href='#'>"
+																								+ data[i].register_date
+																								+ "</a>"
+																								+ "</div>"
+																								+ "</div>"
+																								+ "</div>"
+																								+ "</div>"
+																								+ "</div>"
+																								+ "</div>";
+																								
+
+																					}
+																					
+																					$("#main").empty();
+																					$("#main").append(mydata);
+																					
+																				}
+																				
+
+																			
+																			});
+																});
+											});
+						});
+		
+		 function getbyname(){
 		function page(idx){
 			var pagenum = idx;
 			//alert(pagenum)
@@ -258,5 +334,7 @@
 
 		
 	</script>
+
+
 </body>
 </html>

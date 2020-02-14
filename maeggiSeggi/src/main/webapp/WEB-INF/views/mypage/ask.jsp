@@ -41,7 +41,7 @@
 <body>
 	<%
 		ArrayList<BoardVO> list = (ArrayList<BoardVO>)request.getAttribute("list");
-		memberVO loginuser = (memberVO) session.getAttribute("loginuser");
+		memberVO admin_loginuser = (memberVO) session.getAttribute("admin_loginuser");
 	
 	%>
 	<%--  <% if(session.getAttribute("id")!= null){ //로그인유저만 접근 가능 %> --%>
@@ -55,7 +55,7 @@
 	
 	<!-- ****** Breadcumb Area Start ****** -->
 	<div class="breadcumb-area"
-		style="background-image: url(/maeggiSeggi/images/bg-img/breadcumb.jpg); z-index: 0">
+		 >
 		<div class="container h-100">
 			<div class="row h-100 align-items-center">
 				<div class="col-12">
@@ -92,7 +92,7 @@
 			style="width: 800px; height: 100px; text-align: center; margin-left: auto; margin-right: auto;">
 			<thead>
 				<tr style="font-weight: bold;">
-					<td scope="col">번호</td>
+					<td scope="col">작성자</td>
 					<td scope="col">제목</td>
 					<td scope="col">등록일자</td>
 				</tr>
@@ -103,7 +103,7 @@
 						BoardVO row = list.get(i);
 				%>
 				<tr>
-					<td><%=row.getAskno()%></td>
+				<td><%=row.getMember_id()%></td>
 					<td><a href="/maeggiSeggi/board/read.do?askno=<%=row.getAskno()%>"><%=row.getAsk_title()%></a></td>
 					<td><%=row.getAsk_regdate()%></td>
 				</tr>

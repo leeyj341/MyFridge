@@ -44,7 +44,7 @@
 
 	<!-- ****** Breadcumb Area Start ****** -->
 	<div class="breadcumb-area"
-		style="background-image: url(img/bg-img/breadcumb.jpg); z-index: 0">
+		>
 		<div class="container h-100">
 			<div class="row h-100 align-items-center">
 				<div class="col-12">
@@ -84,31 +84,14 @@
 			<fieldset>
 				<div class="">
 					<div class="">
-						<span>내 포인트</span> <strong><%= request.getAttribute("pointsum") %></strong> <span>점</span> <span>ⓘ</span>
-						<span class=""><a href="">적립조건</a></span> <span class=""> <input
-							type="button" id="towrite" value="포인트 전환" onclick=""
-							style="color: white; background-color: #fc6c3f; width: 100px;">
-						</span>
+						<span>내 포인트</span> <strong><%= request.getAttribute("pointsum") %></strong> <span>점</span>
 					</div>
 				</div>
 			</fieldset>
-
-			<script type="text/javascript">
-				function popup(rere) {
-					
-					
-					  window
-						.open(
-								"/maeggiSeggi/recipe/addPlanner.do?id="+rere,
-								"식단 관리",
-								"top=100, left=450, width=700, height=450, status=no, menubar=no, toolbar=no, resizable=no"); 
-				
-				}
-			</script>
 		</div>
 		<p></p>
 		<table border="1"
-			style="margin-left: auto; margin-right: auto; width: 500px">
+			style="margin-left: auto; margin-right: auto; width: 500px; text-align: center;">
 			<tr style="text-align: center; font-weight: bold;">
 				<td>No</td>
 				<td>적립내용</td>
@@ -131,25 +114,6 @@
 				%>
 			</tbody>
 		</table>
-		<div>
-			<div class="pagination-area d-sm-flex mt-15"
-				style="width: 280px; margin-left: auto; margin-right: auto;">
-				<nav aria-label="#">
-					<ul class="pagination">
-						<li class="page-item active"><a class="page-link" href="#">1
-								<span class="sr-only">(current)</span>
-						</a></li>
-						<li class="page-item"><a class="page-link" href="#">2</a></li>
-						<li class="page-item"><a class="page-link" href="#">3</a></li>
-						<li class="page-item"><a class="page-link" href="#">4</a></li>
-						<li class="page-item"><a class="page-link" href="#">5</a></li>
-						<li class="page-item"><a class="page-link" href="#">Next
-								<i class="fa fa-angle-double-right" aria-hidden="true"></i>
-						</a></li>
-					</ul>
-				</nav>
-			</div>
-		</div>
 	</div>
 	<p></p>
 	<!-- my point area end -->
