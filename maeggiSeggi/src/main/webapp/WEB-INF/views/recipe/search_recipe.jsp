@@ -32,6 +32,11 @@
 
 </head>
 <body>
+	<%
+		String category = (String)request.getAttribute("category");
+		
+	%>
+
 	<div class="breadcumb-nav">
 		<div class="container">
 			<div class="row">
@@ -81,23 +86,23 @@
 							<div id="title">테마별</div>
 							<div class="form-group">
 								<label><input type="radio" name="recipe_category" id="checkVal"
-									value="all" checked>All</label>
+									value="all" onclick="javascript:page(1)">All</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="recipe_category" value="한식">한식</label>
+								<label><input type="radio" name="recipe_category" value="한식" onclick="javascript:page(1)">한식</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="recipe_category" value="퓨전">
+								<label><input type="radio" name="recipe_category" value="퓨전" onclick="javascript:page(1)">
 									퓨전</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="recipe_category" value="서양이탈리아"> 서양이탈리아</label>
+								<label><input type="radio" name="recipe_category" value="서양이탈리아" onclick="javascript:page(1)"> 서양이탈리아</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="recipe_category" value="중국/동남아시아"> 중국 /동남아시아</label>
+								<label><input type="radio" name="recipe_category" value="중국/동남아시아" onclick="javascript:page(1)"> 중국 /동남아시아</label>
 							</div>
 							<div class="form-group">
-								<label><input type="radio" name="recipe_category" value="일본">
+								<label><input type="radio" name="recipe_category" value="일본" onclick="javascript:page(1)">
 									일본</label>
 							</div>
 						</div>
@@ -174,6 +179,16 @@
 	</div>
 
 	<script type="text/javascript">
+		$(document).ready(function() {
+			var category = "<%= category %>";
+			
+			if(category) {
+				$("input[value='" + category + "']").attr("checked",true);
+			} else {
+				$("input[value='all']").attr("checked",true);
+			}
+		})	
+	
 		function page(idx){
 			var pagenum = idx;
 			//alert(pagenum)

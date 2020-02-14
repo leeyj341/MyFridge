@@ -4,12 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="maeggi.seggi.fridge">
-  		<select id="selectAll" resultType="fridgeDetail" parameterType="String">
-  			select * from refrigerator_detail where refrigerator_id=#{refrigerator_id};
+  		<select id="selectAll" resultType="Map" parameterType="String">
+  			select rd.*, i.name, i.ig_type_name from refrigerator_detail rd, ingredients i 
+  			where i.ingredient_id = rd.ingredient_id and rd.refrigerator_id=#{refrigerator_id}
   		</select>
-  		<insert id="insertFridgeDetail" parameterType="fridgeDetail">
+  		<insert id="insertFridgeDetail" parameterType="Map">
   			insert into refrigerator_detail 
-  			values(#{code}, #{ingredient_id}, #{amount}, #{expire_date_rt}, #{expire_date_cold}, sysdate, #{user_expire_date}, #{refrigerator_id})
+  			values(#{ingredient_id}, #{ig_amount}, sysdate, sysdate, sysdate, sysdate, #{refrigerator_id})
   		</insert>
   		<delete id="deleteFridgeDetail" parameterType="fridgeDetail">
   			delete from refrigerator_detail
