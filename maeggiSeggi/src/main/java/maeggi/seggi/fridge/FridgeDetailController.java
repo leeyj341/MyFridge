@@ -1,6 +1,8 @@
 package maeggi.seggi.fridge;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,14 +16,16 @@ public class FridgeDetailController {
 	FridgeDetailService service;
 	
 	@RequestMapping(value="/fridgeDetail/ajax_fridgeDetail.do", method=RequestMethod.GET, produces="application/json;charset=UTF-8")
-	public @ResponseBody ArrayList<FridgeDetailVO> getFridgeDetailList(String refrigerator_id) {
-		ArrayList<FridgeDetailVO> list = (ArrayList<FridgeDetailVO>)service.selectAll(refrigerator_id);
+	public @ResponseBody ArrayList<HashMap<String, String>> getFridgeDetailList(String refrigerator_id) {
+		ArrayList<HashMap<String, String>> list = (ArrayList<HashMap<String, String>>)service.selectAll(refrigerator_id);
+		System.out.println(list);
 		return list;
 	}
 	
 	@RequestMapping(value="/fridgeDetail/ajax_fd_insert.do", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
-	public @ResponseBody String insertFridgeDetail(FridgeDetailVO vo) {
-		int result = service.insertFridge(vo);
+	public @ResponseBody String insertFridgeDetail(String ingredient_id, String refrigerator_id, String ig_amount) {
+		System.out.println(ig_amount);
+		int result = service.insertFridge(ingredient_id, refrigerator_id, ig_amount);
 		String message = "";
 		if(result == 1) {
 			message = "재료 등록에 성공했습니다.";

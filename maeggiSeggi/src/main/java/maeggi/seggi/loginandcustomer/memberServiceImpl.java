@@ -1,6 +1,7 @@
 package maeggi.seggi.loginandcustomer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -62,5 +63,19 @@ public class memberServiceImpl implements memberService {
 	public int insert(memberVO user) {
 		return dao.insert(user);
 	}
+	
+	
+	@Override
+	public List<memberVO> admin_memberview() {
+		return dao.admin_memberview();
+	}
+	
+	@Override
+	public int admin_memberdelete(memberVO member_id) {
+		return dao.admin_memberdelete(member_id);
+	}
+	
+	
+	
 	
 }

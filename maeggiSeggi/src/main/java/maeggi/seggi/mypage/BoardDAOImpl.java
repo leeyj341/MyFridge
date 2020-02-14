@@ -77,6 +77,16 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	
+	//================관리자================
+	
+	public List<BoardVO> admin_asklist(BoardVO board) {
+		return sqlSession.selectList("maeggi.seggi.mypage.admin_asklist",board);
+		
+	}
+	@Override
+	public BoardVO admin_askdetail(int askno) {
+		return sqlSession.selectOne("maeggi.seggi.mypage.admin_askdetail",askno);
+	}
 
 
 }

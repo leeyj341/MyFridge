@@ -29,6 +29,8 @@
 		<typeAlias type="maeggi.seggi.mypage.PointVO" alias="point"/>
 		<!-- favorite -->
 		<typeAlias type="maeggi.seggi.recipeFavorite.RecipeFavoriteVO" alias="favorite"/>
+		<!-- 댓글 작성 -->
+		<typeAlias type="maeggi.seggi.comment.CommentVO" alias="comment"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/mypage_board.xml" />
@@ -47,5 +49,7 @@
 		<!-- meal_planner -->
 		<mapper resource="mapper/meal_planner.xml"/>
 		<mapper resource="mapper/recipe_favorite.xml"/>
+		<!-- 댓글 작성-->
+		<mapper resource="mapper/comment.xml"/>
 	</mappers>
 </configuration>

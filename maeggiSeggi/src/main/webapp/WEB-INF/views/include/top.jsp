@@ -1,3 +1,5 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="maeggi.seggi.loginandcustomer.memberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -19,7 +21,7 @@
     <!-- Responsive CSS -->
     <link href="/maeggiSeggi/common/css/responsive/responsive.css" rel="stylesheet">
     <!-- Jquery-2.2.4 js -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <!-- Popper js -->
     <script src="/maeggiSeggi/common/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap-4 js -->
@@ -34,11 +36,18 @@
 		memberVO loginuser = (memberVO)session.getAttribute("loginuser");
 	%>
 	<%
+	
+		SimpleDateFormat format1 = new SimpleDateFormat("yyyy-mm-dd");
 		Calendar today = Calendar.getInstance();
 		int year = today.get(Calendar.YEAR);
 		int month = today.get(Calendar.MONTH) + 1;
 		int date = today.get(Calendar.DATE);
+		
 		String Dday = Integer.toString(year)+'-'+Integer.toString(month)+'-'+Integer.toString(date);
+		/* Date time = new Date();
+		String time1 = format1.format(time); */
+		
+		
 	%>
 	<!-- Preloader Start -->
 	<div id="preloader">
@@ -149,11 +158,11 @@
                                         <a class="dropdown-item" href="/maeggiSeggi/board/recipe_favorite.do"><b>즐겨찾은 레시피</b></a>
                                     </div>
                                 </li>
-                            
-                            
-							 <c:if test= "${loginuser.member_id == 'test'}">
-                                    <a class="nav-link" href="/maeggiSeggi/loginandcustomer/admin_asklist.do">MANAGEMODE</a>
-
+            
+							 <c:if test= "${loginuser.member_id == 'admin'}">
+							  <li class="nav-item">
+                                    <a class="nav-link" href="/maeggiSeggi/board/admin_asklist.do">MANAGEMODE</a>
+                                </li>
 	
 							</c:if> 
                             </ul>

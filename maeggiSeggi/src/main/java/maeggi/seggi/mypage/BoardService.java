@@ -15,4 +15,7 @@ public interface BoardService {
 	void reply(BoardVO board);
 	BoardVO read(int askno); //문의 글 상세보기 
 	void delete(int askno);
+	
+	List<BoardVO> admin_asklist(BoardVO board);
+	BoardVO admin_askdetail(int askno);
 }

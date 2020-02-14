@@ -1,6 +1,7 @@
 package maeggi.seggi.loginandcustomer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface memberService {
 	ArrayList<memberVO> getTreeEmpList(String deptno);
@@ -13,4 +14,11 @@ public interface memberService {
 	ArrayList<memberVO> search(String column, String search, String pass);
 	int update(memberVO user);
 	memberVO login(memberVO loginUser);
+	List<memberVO> admin_memberview();//관리자가 회원 전체보기
+	int admin_memberdelete(memberVO member_id);
+
+
+
+
+
 }

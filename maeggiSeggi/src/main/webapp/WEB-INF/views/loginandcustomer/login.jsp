@@ -75,14 +75,12 @@
 							</li>
 							<li><input type="submit" id="loginbutton" value="로그인" /></li>
 						</ul>
-						<ul id="joinAndsearch">
-							<li><a href="/maeggiSeggi/loginandcustomer/join.do">[회원가입]</a></li>
-							<li>[아이디/비밀번호 찾기]</li>
-						</ul>
-					</div>
-					<!-- login_box -->
-					<div id="notmember_box">비회원으로 이용하기</div>
-					<div id="socialLogin_box">
+						
+							<div id="joinlist"><a href="/maeggiSeggi/loginandcustomer/join.do">[회원가입]</a></div>
+
+					
+					</div>	
+					<%-- <div id="socialLogin_box">
 						소셜 로그인
 						<div id="socialList">
 							<ul>
@@ -105,7 +103,7 @@
 									value="Google로 로그인"></li>
 							</ul>
 						</div>
-					</div>
+					</div> --%>
 				</form>
 			</div>
 
@@ -323,20 +321,7 @@
 
 
 
-				<!-- 기업광고  -->
-				<div class="col-12">
-					<div class="single-post wow fadeInUp" data-wow-delay="1.2s">
-						<!-- Post Thumb -->
-						<div class="post-thumb">
-							<a href="http://www.ssg.com"><img
-								src="/maeggiSeggi/images/blog-img/5.jpg" alt=""></a>
-						</div>
-
-
-						<h4>위 사진은 기업 광고 사진이 올라오는 곳입니다.</h4>
-
-					</div>
-				</div>
+			
 			</div>
 		</div>
 	</div>
