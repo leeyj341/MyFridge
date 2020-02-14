@@ -1,6 +1,7 @@
 package maeggi.seggi.loginandcustomer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,6 +72,18 @@ public class memberDAOImpl implements memberDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+	@Override
+	public List<memberVO> admin_memberview() {
+		return sqlSession.selectList("maeggi.seggi.loginandcustomer.admin_memberview");
+	}
 
+	@Override
+	public int admin_memberdelete(memberVO member_id) {
+		// TODO Auto-generated method stub
+		return sqlSession.delete("maeggi.seggi.loginandcustomer.admin_delete", member_id);
+	}
+
+	
+	
+	
 }

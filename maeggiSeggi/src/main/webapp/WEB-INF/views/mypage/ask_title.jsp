@@ -1,3 +1,4 @@
+<%@page import="maeggi.seggi.comment.CommentVO"%>
 <%@page import="maeggi.seggi.mypage.BoardVO"%>
 <%@page import="maeggi.seggi.reply.replyBoardVO"%>
 <%@page import="java.util.ArrayList"%>
@@ -17,7 +18,8 @@
 
 <!-- Title -->
 <title>Yummy Blog - Food Blog Template</title>
-
+<!-- font -->
+<link href="/maeggiSeggi/common/css/maeggiFonts.css" rel="stylesheet">
 <!-- Favicon -->
 <link rel="icon" href="img/core-img/favicon.ico">
 
@@ -122,13 +124,14 @@
 	<%
 		ArrayList<replyBoardVO> list_reply = (ArrayList<replyBoardVO>) request.getAttribute("list_reply");
 		BoardVO read = (BoardVO) request.getAttribute("read");
+		ArrayList<CommentVO> commentlist = (ArrayList<CommentVO>) request.getAttribute("comment");
 	%>
 
 
 	<!-- ****** Breadcumb Area Start ****** -->
 	<div>
 		<div class="breadcumb-area"
-			style="background-image: url(img/bg-img/breadcumb.jpg);">
+			>
 			<div class="container h-100">
 				<div class="row h-100 align-items-center">
 					<div class="col-12">
@@ -173,59 +176,106 @@
 
 							<!-- #####################################################수정, 삭제버튼 -->
 
-							
 
-								<a href="/maeggiSeggi/board/list.do" class="btn btn-primary">목록으로</a>
-								<a href="/maeggiSeggi/board/update.do?askno=<%=read.getAskno() %>" class="btn btn-warning">수정하기</a>
 
-								<button id="btn-remove" class="btn btn-danger">삭제하기</button>
+							<a href="/maeggiSeggi/board/list.do" class="btn btn-primary">목록으로</a>
+							<a href="/maeggiSeggi/board/update.do?askno=<%=read.getAskno()%>"
+								class="btn btn-warning">수정하기</a>
 
-								<script>
+							<button id="btn-remove" class="btn btn-danger">삭제하기</button>
+
+							<script>
 						//삭제 버튼 누르면 삭제할 것이냐고 묻고 삭제한다고 하면 주소이동(BoardController의 remove 메소드 호출)
 							$(function(){
 							$('#btn-remove').click(function(){
 								
-										self.location.href = "/maeggiSeggi/board/delete.do?askno=<%=read.getAskno() %>";
-			
-							});
-							});
+										self.location.href = "/maeggiSeggi/board/delete.do?askno=<%=read.getAskno()%>
+								";
+
+													});
+								});
 							</script>
 
-								<!-- <input type="submit" class="delete_btn" value="삭제하기" 
+							<!-- <input type="submit" class="delete_btn" value="삭제하기" 
 									style="color: white; background-color: #fc6c3f; width: 150px" />
 									
 								<input type="submit" class="update_btn" value="수정하기"
 									style="color: white; background-color: #fc6c3f; width: 150px" /> -->
 
 
-						
-							<table class="mypage_askboard" id="mypage_askboard_detail"
-								border="1">
+
+							<table class="mypage_askboard" id="mypage_askboard_detail" style="border">
 								<tr>
-									<td>작성자</td>
+									<td class="basic">작성자<br/></td>
 									<td><%=read.getMember_id()%></td>
 								</tr>
 
 								<tr>
-									<td>작성일</td>
+									<td class="basic">작성일<br/></td>
 									<td><%=read.getAsk_regdate()%></td>
 								</tr>
 
 								<tr>
-									<td>제목</td>
+									<td class="basic">제목<br/></td>
 									<td><%=read.getAsk_title()%></td>
 								</tr>
 
 								<tr>
-									<td>content</td>
+									<td class="basic">content</td>
 									<td><%=read.getAsk_content()%></td>
 								</tr>
 							</table>
 						</div>
 					</div>
 				</div>
+				<br /> <br /> <br />
+			</div>
+			<table class="table table-striped" id="replytable">
+
+				<tr>
+					<th>작성자</th>
+					<th>댓글</th>
+					<th>작성일</th>
+
+				</tr>
 
 				<%
+					for (int i = 0; i < commentlist.size(); i++) {
+						CommentVO row = commentlist.get(i);
+				%>
+
+				<tr>
+					<td><%=row.getMember_id()%></td>
+					<td><%=row.getCom_content()%></td>
+					<td><%=row.getCom_regdate()%></td>
+
+				</tr>
+
+				<%
+					}
+				%>
+
+			</table>
+			
+			<div id="replysubmitform">
+
+			<form action="/maeggiSeggi/comment/insert.do" method="POST">
+
+				<input type="text" name="com_content" class="replysubmittext" /> <input type="hidden"
+					name="board_no" value="<%=read.getAskno()%>" /> <input
+					type="hidden" name="member_id"
+					value="<%=session.getAttribute("id")%>" /> <input type="submit"
+					value="댓글등록" />
+
+
+			</form>
+			</div>
+
+
+
+
+
+			<%-- <%
 					for (int i = 0; i < list_reply.size(); i++) {
 						replyBoardVO repl = list_reply.get(i);
 				%>
@@ -256,7 +306,7 @@
 				</div>
 				<%
 					}
-				%>
+				%> --%>
 
-			</div>
+		</div>
 </body>

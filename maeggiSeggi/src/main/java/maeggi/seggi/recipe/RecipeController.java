@@ -187,23 +187,7 @@ public class RecipeController {
 		mav.setViewName("level");
 		return mav;
 	}
-	@RequestMapping(value="/recipe/levelRecipe.do", method=RequestMethod.GET)
-	public ModelAndView levelView(String cook_levelb, String cook_leveln, String cook_levelh) {
-		System.out.println(cook_levelb+"////////////////"+cook_leveln+"//////////////"+cook_levelh);
-		System.out.println("====================================================================================");
-		ModelAndView mav = new ModelAndView();
-		List<RecipeVO> listb = service.levellist(cook_levelb);
-		List<RecipeVO> listn = service.levellist(cook_leveln);
-		List<RecipeVO> listh = service.levellist(cook_levelh);
-		System.out.println("b:"+listb);
-		System.out.println("n:"+listn);
-		System.out.println("h:"+listh);
-		mav.addObject("levellistb", listb);
-		mav.addObject("levellistn", listn);
-		mav.addObject("levellisth", listh);
-		mav.setViewName("level");
-		return mav;
-	}
+	
 	@RequestMapping(value="recipe/ajax_levellist.do",method=RequestMethod.GET,produces="application/json;charset=utf-8")
 	public @ResponseBody List<RecipeVO> recipeList(String cook_level){
 		List<RecipeVO> recipelist = service.levellist(cook_level);

@@ -34,8 +34,11 @@
 	<definition name="loginandcustomer/admin_notice_write" extends="maeggiTemplate">
 		<put-attribute name="content" value="/WEB-INF/views/loginandcustomer/admin_notice_write.jsp"></put-attribute>
 	</definition>
+	<definition name="loginandcustomer/admin_memberview" extends="maeggiTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/loginandcustomer/admin_memberview.jsp"></put-attribute>
+	</definition>
 	
-	
+	<!-- 
 	<definition name="naver/callback" extends="maeggiTemplate">
 		<put-attribute name="content" value="/WEB-INF/views/loginandcustomer/naver_login_callback.jsp"></put-attribute>
 	</definition>
@@ -47,5 +50,7 @@
 	<definition name="naver/callbackjs" extends="maeggiTemplate">
 		<put-attribute name="content" value="/WEB-INF/views/loginandcustomer/naver_login_callback2.jsp"></put-attribute>
 	</definition>
+	 -->
+	
 	
 </tiles-definitions>   

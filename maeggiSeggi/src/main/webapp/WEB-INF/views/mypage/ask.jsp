@@ -41,7 +41,7 @@
 <body>
 	<%
 		ArrayList<BoardVO> list = (ArrayList<BoardVO>)request.getAttribute("list");
-		memberVO loginuser = (memberVO) session.getAttribute("loginuser");
+		memberVO admin_loginuser = (memberVO) session.getAttribute("admin_loginuser");
 	
 	%>
 	<%--  <% if(session.getAttribute("id")!= null){ //로그인유저만 접근 가능 %> --%>
@@ -55,7 +55,7 @@
 	
 	<!-- ****** Breadcumb Area Start ****** -->
 	<div class="breadcumb-area"
-		style="background-image: url(/maeggiSeggi/images/bg-img/breadcumb.jpg); z-index: 0">
+		 >
 		<div class="container h-100">
 			<div class="row h-100 align-items-center">
 				<div class="col-12">

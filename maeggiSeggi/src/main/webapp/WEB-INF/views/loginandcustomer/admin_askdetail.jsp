@@ -1,3 +1,6 @@
+<%@page import="maeggi.seggi.loginandcustomer.memberVO"%>
+<%@page import="maeggi.seggi.mypage.BoardVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
@@ -33,10 +36,14 @@
 </head>
 
 <body>
+<%
+		
+		BoardVO admin_askdetail = (BoardVO) request.getAttribute("admin_askdetail");
+	%>
 	<div id=outter>
 	<!-- ****** Breadcumb Area Start ****** -->
 	<div class="breadcumb-area"
-		style="background-image: url(../../yummy-master/img/bg-img/breadcumb.jpg);">
+		>
 		<div class="container h-100">
 			<div class="row h-100 align-items-center">
 				<div class="col-12">
@@ -75,28 +82,29 @@
 
 					<div id="AskUserForm">
 						<table class="askboard" id="askboard_detail" border="1">
-						
-							<tr>
-								<td>작성자</td>
-								<td>debugger</td>
-							</tr>
+				
+								<tr>
+									<td>작성자</td>
+									<td><%=admin_askdetail.getMember_id()%></td>
+								</tr>
 
-							<tr>
-								<td>작성일</td>
-								<td>2020-01-15</td>
-							</tr>
+								<tr>
+									<td>작성일</td>
+									<td><%=admin_askdetail.getAsk_regdate()%></td>
+								</tr>
 
-							<tr>
-								<td>제목</td>
-								<td>레시피 글에 오타가 잇어여</td>
-							</tr>
+								<tr>
+									<td>제목</td>
+									<td><%=admin_askdetail.getAsk_title()%></td>
+								</tr>
 
-							<tr>
-								<td>content</td>
-								<td>레시피에 오타가있어요. 빨리 수정해주세요 .</td>
-							</tr>
+								<tr>
+									<td>content</td>
+									<td><%=admin_askdetail.getAsk_content()%></td>
+								</tr>
+							</table>
 							
-						</table>
+						
 						
 					</div>
 				</div>
@@ -107,7 +115,8 @@
 				<div class="row" id="asklist_customview">
 
 					<form>
-						<div class="col-xs-3" id="askdetail_reply_managername">관리자</div>
+						<div class="col-xs-3" id="askdetail_reply_managername">
+						<%=session.getAttribute("id")%></div>
 						<div class="col-xs-9" id="feedback_box">
 							<textarea id="text_feedback"></textarea>
 						</div>
@@ -131,148 +140,6 @@
 		<!-- ****** Breadcumb Area End ****** -->
 
 
-
-
-
-		<!-- ****** Archive Area Start ****** -->
-		<section class="archive-area section_padding_80">
-
-
-			<div class="container">
-
-
-				<div class="col-12">
-					<div class="pagination-area d-sm-flex mt-15"></div>
-				</div>
-
-			</div>
-	</div>
-	</section>
-	<!-- ****** Archive Area End ****** -->
-
-	<!-- ****** Instagram Area Start ****** -->
-	<div
-		class="instargram_area owl-carousel section_padding_100_0 clearfix"
-		id="portfolio">
-
-		<!-- Instagram Item -->
-		<div class="instagram_gallery_item">
-			<!-- Instagram Thumb -->
-			<img src="../../yummy-master/img/instagram-img/1.jpg" alt="">
-			<!-- Hover -->
-			<div class="hover_overlay">
-				<div class="yummy-table">
-					<div class="yummy-table-cell">
-						<div class="follow-me text-center">
-							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
-								Follow me</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Instagram Item -->
-		<div class="instagram_gallery_item">
-			<!-- Instagram Thumb -->
-			<img src="../../yummy-master/img/instagram-img/2.jpg" alt="">
-			<!-- Hover -->
-			<div class="hover_overlay">
-				<div class="yummy-table">
-					<div class="yummy-table-cell">
-						<div class="follow-me text-center">
-							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
-								Follow me</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Instagram Item -->
-		<div class="instagram_gallery_item">
-			<!-- Instagram Thumb -->
-			<img src="../../yummy-master/img/instagram-img/3.jpg" alt="">
-			<!-- Hover -->
-			<div class="hover_overlay">
-				<div class="yummy-table">
-					<div class="yummy-table-cell">
-						<div class="follow-me text-center">
-							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
-								Follow me</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Instagram Item -->
-		<div class="instagram_gallery_item">
-			<!-- Instagram Thumb -->
-			<img src="../../yummy-master/img/instagram-img/4.jpg" alt="">
-			<!-- Hover -->
-			<div class="hover_overlay">
-				<div class="yummy-table">
-					<div class="yummy-table-cell">
-						<div class="follow-me text-center">
-							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
-								Follow me</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Instagram Item -->
-		<div class="instagram_gallery_item">
-			<!-- Instagram Thumb -->
-			<img src="../../yummy-master/img/instagram-img/5.jpg" alt="">
-			<!-- Hover -->
-			<div class="hover_overlay">
-				<div class="yummy-table">
-					<div class="yummy-table-cell">
-						<div class="follow-me text-center">
-							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
-								Follow me</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Instagram Item -->
-		<div class="instagram_gallery_item">
-			<!-- Instagram Thumb -->
-			<img src="../../yummy-master/img/instagram-img/6.jpg" alt="">
-			<!-- Hover -->
-			<div class="hover_overlay">
-				<div class="yummy-table">
-					<div class="yummy-table-cell">
-						<div class="follow-me text-center">
-							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
-								Follow me</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Instagram Item -->
-		<div class="instagram_gallery_item">
-			<!-- Instagram Thumb -->
-			<img src="../../yummy-master/img/instagram-img/1.jpg" alt="">
-			<!-- Hover -->
-			<div class="hover_overlay">
-				<div class="yummy-table">
-					<div class="yummy-table-cell">
-						<div class="follow-me text-center">
-							<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
-								Follow me</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 
 	
 </div>

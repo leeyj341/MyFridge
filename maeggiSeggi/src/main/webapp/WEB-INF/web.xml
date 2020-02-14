@@ -53,5 +53,9 @@
 				mimeType="application/octet-stream" />
 		</staticContent>
 	</system.webServer>
+	
+	<session-config>
+		<session-timeout>200</session-timeout>
+	</session-config>
 
 </web-app>

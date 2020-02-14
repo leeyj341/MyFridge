@@ -1,3 +1,5 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="maeggi.seggi.loginandcustomer.memberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -34,11 +36,18 @@
 		memberVO loginuser = (memberVO)session.getAttribute("loginuser");
 	%>
 	<%
+	
+		SimpleDateFormat format1 = new SimpleDateFormat("yyyy-mm-dd");
 		Calendar today = Calendar.getInstance();
 		int year = today.get(Calendar.YEAR);
 		int month = today.get(Calendar.MONTH) + 1;
 		int date = today.get(Calendar.DATE);
+		
 		String Dday = Integer.toString(year)+'-'+Integer.toString(month)+'-'+Integer.toString(date);
+		/* Date time = new Date();
+		String time1 = format1.format(time); */
+		
+		
 	%>
 	<!-- Preloader Start -->
 	<div id="preloader">
@@ -162,9 +171,9 @@
                                     </div>
                                 </li>
             
-							 <c:if test= "${loginuser.member_id == 'test'}">
+							 <c:if test= "${loginuser.member_id == 'admin'}">
 							  <li class="nav-item">
-                                    <a class="nav-link" href="/maeggiSeggi/loginandcustomer/admin_asklist.do">MANAGEMODE</a>
+                                    <a class="nav-link" href="/maeggiSeggi/board/admin_asklist.do">MANAGEMODE</a>
                                 </li>
 	
 							</c:if> 
