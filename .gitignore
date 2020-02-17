@@ -3,8 +3,4 @@ RemoteSystemsTempFiles/
 /.recommenders/
 Servers/
 maeggiSeggi/target/m2e-wtp/web-resources/META-INF/
-maeggiSeggi/.classpath
-maeggiSeggi/.settings
-maeggiSeggi/.springBeans
-maeggiSeggi/.tern-project
 maeggiSeggi/target/
