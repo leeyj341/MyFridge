@@ -296,11 +296,11 @@ public ModelAndView categoryList(String recipe_category, HttpServletRequest requ
 	 	// 넣기 전 이미지 경로를 넣어줘야 함
 	 	recipe.setImg_url_main(file.get(0).getOriginalFilename());
 	 	for (int i = 0; i < recipe.getRecipe_detail().size(); i++) {
-			recipe.getRecipe_detail().get(i).setImg_url(file.get(i + 1).getOriginalFilename());
+			recipe.getRecipe_detail().get(i).setImg_url(file.get(i).getOriginalFilename());
 		}
 	 	
 	 	service.insert(recipe);
-		return "redirect:/recipe/searchRecipe.do";
+		return "forward:/recipe/recipe_write.do";
 	}
 
 	@RequestMapping(value="/recipe/ajax_searchRecipe.do",method=RequestMethod.GET,produces="application/json;charset=utf-8")	
