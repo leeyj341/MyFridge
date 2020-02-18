@@ -11,7 +11,7 @@
   	<select id="categoryRecipe" resultType="recipe" parameterType="Map">
   	SELECT recipe_id,name,register_date,member_id,img_url_main,recipe_category 
   	from (select recipe_id,name,register_date,member_id,img_url_main,recipe_category,ROW_NUMBER() OVER (ORDER BY recipe_id) r from recipe)
-  	 where (r between #{pagenum} and #{contentnum} and recipe_category like '%' || #{recipe_category} || '%')	
+  	 where (r between #{pagenum} and #{contentnum}+2 and recipe_category like '%' || #{recipe_category} || '%')	
   	</select>
   	
   	<!-- 검색어 조회 (미완성) -->
@@ -43,7 +43,7 @@
   		<foreach collection="detail" item="rd" separator=" ">
   			into recipe_detail values(concat('rec', (recipe_id_seq.currval + 90000)), #{rd.recipe_order_num},#{rd.recipe_describe},#{rd.img_url},#{rd.tip})
   		</foreach>	
-  		 select * from dual -->
+  		 select * from dual
   	</insert>
   	<!-- 조회수 증가  -->
   	<update id="updatehit" parameterType="String">
@@ -60,7 +60,7 @@
         order by d.recipe_order_num
 	</select>
 	<!-- 핫한 요리 (조회수) -->
-	<select id = "hitRecipe" resultType="recipe" parameterType="String">
+	<select id = "hitRecipe" resultType="recipe">
 		select * from
 		(select * from recipe)
 		order by hit desc
@@ -75,7 +75,7 @@
   	</select>
 	<!-- 숙취가 해결되는 음식 -->
 	<select id="drunkRecipe" resultType="recipe" parameterType="String">
-		select r.*,i.* from recipe r,ingredients i where r.recipe_id = i.recipe_id and i.name in ('버섯','시금치','레몬')
+		select r.* from recipe r,ingredients i where r.recipe_id = i.recipe_id and i.name in ('버섯','시금치','레몬')
 	</select>
 	<!-- 피로회복 -->
 	<select id="freshRecipe" resultType="recipe" parameterType="String">

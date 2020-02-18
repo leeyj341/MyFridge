@@ -19,12 +19,17 @@ public class FridgeDetailServiceImpl implements FridgeDetailService {
 	}
 	
 	@Override
-	public int insertFridge(String ingredient_id, String refrigerator_id, String ig_amount) {
-		return dao.insertFridge(ingredient_id, refrigerator_id, ig_amount);
+	public int insertFridge(FridgeDetailListVO voList) {
+		return dao.insertFridge(voList);
 	}
 	
 	@Override
-	public int deleteFridge(FridgeDetailVO vo) {
-		return dao.deleteFridge(vo);
+	public void deletebyId(String id) {
+		dao.deletebyId(id);
+	}
+	
+	@Override
+	public int deleteFridgeDetail(FridgeDetailListVO voList) {
+		return dao.deleteFridgeDetail(voList);
 	}
 }

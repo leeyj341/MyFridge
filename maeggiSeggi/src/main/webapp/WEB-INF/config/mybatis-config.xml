@@ -18,6 +18,7 @@
 		<!-- fridge -->
 		<typeAlias type="maeggi.seggi.fridge.FridgeVO" alias="fridge"/>
 		<typeAlias type="maeggi.seggi.fridge.FridgeDetailVO" alias="fridgeDetail"/>
+		<typeAlias type="maeggi.seggi.fridge.FridgeDetailListVO" alias="fridgeDetailList"/>
 		<!-- Ingredient -->
 		<typeAlias type="maeggi.seggi.ingredient.IngredientVO" alias="ingredients"/>
 		<!-- reply -->

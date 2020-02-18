@@ -11,7 +11,12 @@ public class FridgeServiceImpl implements FridgeService {
 	FridgeDAO dao;
 	
 	@Override
-	public List<FridgeVO> selectMyFridgeByName(String id) {
+	public List<FridgeVO> selectAllMyFridge(String id) {
+		return dao.selectAllMyFridge(id);
+	}
+	
+	@Override
+	public FridgeVO selectMyFridgeByName(String id) {
 		return dao.selectMyFridgeByName(id);
 	}
 	

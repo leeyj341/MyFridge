@@ -22,6 +22,7 @@
 		location="/WEB-INF/static/common/" />
 	<resources mapping="/fonts/**"
 		location="/WEB-INF/static/fonts/" />
+	<resources location="/WEB-INF/upload/" mapping="/uploadImages/**"/>
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->

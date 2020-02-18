@@ -22,11 +22,11 @@ img {
 }
 
 h4 {
-	margin-left: 13%;
+	margin-left: 13%; 
 	font-family: PapyrusM;
 	font-size: 30pt;
 	text-align: justify;
-	float: left;
+	
 }
 
 #more {
@@ -80,7 +80,7 @@ font-size: 20pt;
 		<% List<RecipeVO> hitList = (List<RecipeVO>)request.getAttribute("hitList");
 		List<RecipeVO> drunklist = (List<RecipeVO>) request.getAttribute("drunklist");
 		List<RecipeVO> freshlist = (List<RecipeVO>) request.getAttribute("freshlist");%>
-		<% List<RecipeVO> rlist = (List<RecipeVO>)request.getAttribute("rlist"); %>
+<% List<RecipeVO> rlist = (List<RecipeVO>)request.getAttribute("rlist"); %>
 	<% List<RecipeVO> rlistt = (List<RecipeVO>)request.getAttribute("rlistt"); %>
 	<% List<RecipeVO> rlisttt = (List<RecipeVO>)request.getAttribute("rlisttt"); %>
 	<!-- ****** Breadcumb Area Start ****** -->
@@ -223,11 +223,11 @@ font-size: 20pt;
 			</div>
 		</div>
 		</section><br/><br/>
-	<div id="line">
+  	<div id="line">
 		<div id="headtitle">
 			<h4><span id="underline">오늘 날씨</span>에는 이런 음식 어때요?</h4>
 			<a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="레시피 등록" ></a>
-			<input type="button" id="more" value="More">
+		
 		</div>
 	</div>
 
@@ -343,7 +343,7 @@ font-size: 20pt;
 				</div>
 			</div>
 		</div>
-	</section><br/><br/>
+	</section><br/><br/> 
 	<div id="line">
 		<div id="headtitle">
 			<h4><span id="underline">숙취</span>에는 이런 음식 어때요?</h4>
@@ -358,7 +358,7 @@ font-size: 20pt;
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post wow fadeInUp" data-wow-delay="0.1s">
 						<div class="post-thumb">
-							<img src="<%=drunklist.get(i).getImg_url_main() %>" alt="">
+							<a href="/maeggiSeggi/recipe/detailRecipe.do?id=<%=drunklist.get(i).getRecipe_id() %>"><img src="<%=drunklist.get(i).getImg_url_main() %>" alt=""></a>
 						</div>
 						<div class="post-content">
 							<div class="post-meta d-flex">
@@ -368,7 +368,7 @@ font-size: 20pt;
 									</div>
 									<div class="post-date">
 										
-									<a href="#">REGISTER: <%=drunklist.get(i).getRegister_date()%></a>
+									<a href="#"><%=drunklist.get(i).getRegister_date()%></a>
 									</div>
 								</div>
 								<div class="post-comment-share-area d-flex">
@@ -411,7 +411,7 @@ font-size: 20pt;
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post wow fadeInUp" data-wow-delay="0.1s">
 						<div class="post-thumb">
-							<img src="<%= freshlist.get(i).getImg_url_main() %>" alt="">
+							<a href="/maeggiSeggi/recipe/detailRecipe.do?id=<%=freshlist.get(i).getRecipe_id() %>"><img src="<%= freshlist.get(i).getImg_url_main() %>" alt=""></a>
 						</div>
 						<div class="post-content">
 							<div class="post-meta d-flex">
@@ -421,7 +421,7 @@ font-size: 20pt;
 									</div>
 									<div class="post-date">
 			
-									<a href="#">REGISTER: <%=freshlist.get(i).getRegister_date()%></a>
+									<a href="#"><%=freshlist.get(i).getRegister_date()%></a>
 									</div>
 								</div>
 								<div class="post-comment-share-area d-flex">
@@ -453,18 +453,6 @@ font-size: 20pt;
 	<br />
 	
  <script type="text/javascript">
-<%-- 	$(document).ready(function () {
-		//var dnameVal = new Array();
-		
-		var drunklist = "<%= drunklist %>";
-		
-		var list = new Array(); 
-		for ( var i = 0; i < list.length; i++) {
-
-		    String check = (drunklist.dname)string.includes(list.get[i])
-			alert(check)
-		}
-	}) --%>
 
 </script> 
 </body>

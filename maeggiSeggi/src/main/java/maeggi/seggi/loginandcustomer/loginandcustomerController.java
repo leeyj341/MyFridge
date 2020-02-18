@@ -1,9 +1,12 @@
 package maeggi.seggi.loginandcustomer;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 /*import org.springframework.social.oauth2.GrantType;
 import org.springframework.social.oauth2.OAuth2Operations;*/
@@ -13,12 +16,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import maeggi.seggi.fridge.FridgeDetailService;
+import maeggi.seggi.fridge.FridgeService;
+import maeggi.seggi.fridge.FridgeVO;
+
 /*import com.jade.swp.auth.SNSLogin;
 import com.jade.swp.auth.SnsValue;*/
 @Controller
 public class loginandcustomerController {
 	@Autowired
 	memberService service;
+	@Autowired
+	FridgeService fridgeService;
+	@Autowired
+	FridgeDetailService detailService;
+	
 	@RequestMapping(value= "/loginandcustomer/login.do", method = RequestMethod.GET)
 	public String loginPage() {
 		return "loginandcustomer/login";
@@ -34,6 +46,13 @@ public class loginandcustomerController {
 			HttpSession ses = request.getSession();
 			//2. 세션에 데이터 공유
 			ses.setAttribute("loginuser", loginuser);
+			
+			FridgeVO mainFridge = (FridgeVO)fridgeService.selectMyFridgeByName(loginUserInfo.getMember_id());
+			ArrayList<HashMap<String, String>> listMap = (ArrayList<HashMap<String, String>>)detailService.selectAll(mainFridge.getRefrigerator_id());
+			
+			mav.addObject("main", mainFridge);
+			mav.addObject("detail", listMap);
+			
 			viewName = "fridge";
 		}else {
 			//로그인 실패시 로그인 페이지 보여준다는 의미
