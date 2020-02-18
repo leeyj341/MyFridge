@@ -12,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class replyController {
 	@Autowired
 	replyService service;
+	
+	//maeggi.seggi.comment 패키지로 대체합니다.
 
 	// ======================= 답변형 게시판 =========================
 	// 댓글 전체보기
