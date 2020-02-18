@@ -30,7 +30,7 @@ public class RecipeController {
 	@Autowired
 	RecipeService service;
 	@RequestMapping(value="/recipe/main.do", method=RequestMethod.GET)
-	public @ResponseBody ModelAndView wapi(String hit) {
+	public @ResponseBody ModelAndView wapi() {
 		ModelAndView mav = new ModelAndView();
 		SimpleDateFormat date = new SimpleDateFormat("yyyyMMdd");
 		String sysdate = date.format (System.currentTimeMillis());
@@ -126,7 +126,7 @@ public class RecipeController {
 		mav.addObject("rlisttt", rlisttt);
 		mav.setViewName("main");
 		System.out.println("메인 단입니다.");
-		List<RecipeVO> hitList = service.hitlist(hit);
+		List<RecipeVO> hitList = service.hitlist();
 		List<RecipeVO> drunkList = service.drunklist();
 		List<RecipeVO> freshList = service.freshlist();
 		mav.addObject("hitList",hitList);
@@ -288,7 +288,7 @@ public ModelAndView categoryList(String recipe_category, HttpServletRequest requ
 	 	}
 	 	
 	 	service.insert(recipe);
-		return "몰라";
+		return "redirect:/recipe/main.do";
 	}
 
 	@RequestMapping(value="/recipe/ajax_searchRecipe.do",method=RequestMethod.GET,produces="application/json;charset=utf-8")	
