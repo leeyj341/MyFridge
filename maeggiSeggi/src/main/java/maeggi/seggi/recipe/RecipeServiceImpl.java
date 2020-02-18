@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -33,10 +32,8 @@ public class RecipeServiceImpl implements RecipeService {
 		System.out.println("recipe_category : " + recipe_category);
 		if(recipe_category!=null) {
 			if(recipe_category.equals("all")) {
-				System.out.println("&&&&ㅁㄴㄹ&&&&&ㅁㄴㄹ&&&&&&&&&&&&&&&&&");
 				list=dao.testlist(pagenum, contentnum);			
 			}else {
-				System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
 				list=dao.categorySearch(recipe_category, pagenum,contentnum);
 				//System.out.println(Integer.toString(pagenum)+","+Integer.toString(contentnum));
 			}
@@ -47,17 +44,13 @@ public class RecipeServiceImpl implements RecipeService {
 
 	@Override
 	public void insert(RecipeVO recipe) {
-		
-		/*Random rand = new Random();
-		String recipe_id = "rec" + rand.nextInt(10000000);
-		recipe.setRecipe_id(recipe_id);*/
+	
 		for (int i = 0; i < recipe.getRecipe_detail().size(); i++) {
 			recipe.getRecipe_detail().get(i);
 		}
 		for (int i = 0; i < recipe.getIg_detail().size(); i++) {
 			recipe.getIg_detail().get(i);
 		}
-		System.out.println("id값 insert=>"+recipe);
 		dao.insert(recipe);												//insert into recipe values()
 		daodt.insertdetail(recipe.getRecipe_detail());			// insert into recipe_detail values(#{id}, #{dsd},..... )
 		daoig.insertigdetail(recipe.getIg_detail());			//insert into ingredients values(#{id}, #{dsd},..... )

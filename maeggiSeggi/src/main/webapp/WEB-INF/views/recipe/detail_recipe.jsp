@@ -49,7 +49,6 @@
 	</div>
 	<%
 		ArrayList<HashMap<String, String>> listMap = (ArrayList<HashMap<String, String>>) request.getAttribute("detail");
-	    System.out.println(listMap.get(0));
 	%>
 	
 	
@@ -264,70 +263,7 @@
 		<!-- Comment Area Start -->
 		<div class="row">
 			<div class="col-12 none" style="float: left;">
-				<h4>
-					<span id="underline">3</span> 댓글
-				</h4>
-				<ol>
-					<!-- Single Comment Area -->
-					<li class="single_comment_area">
-						<div class="comment-wrapper d-flex">
-							<!-- Comment Meta -->
-							<div class="comment-author">
-								<img src="/maeggiSeggi/images/blog-img/17.jpg" alt="">
-							</div>
-							<!-- Comment Content -->
-							<div class="comment-content">
-								<span class="comment-date text-muted">27 Aug 2018</span>
-								<h5>Brandon Kelley</h5>
-								<p>Neque porro qui squam est, qui dolorem ipsum quia dolor
-									sit amet, consectetur, adipisci velit, sed quia non numquam
-									eius modi tempora.</p>
-								<a href="#">Like</a> <a class="active" href="#">Reply</a>
-							</div>
-						</div>
-						<ol class="children">
-							<li class="single_comment_area">
-								<div class="comment-wrapper d-flex">
-									<!-- Comment Meta -->
-									<div class="comment-author">
-										<img src="/maeggiSeggi/images/blog-img/18.jpg" alt="">
-									</div>
-									<!-- Comment Content -->
-									<div class="comment-content">
-										<span class="comment-date text-muted">27 Aug 2018</span>
-										<h5>Brandon Kelley</h5>
-												<p>Neque porro qui squam est, qui dolorem ipsum quia
-													dolor sit amet, consectetur, adipisci velit, sed quia non
-													numquam eius modi tempora.</p>
-										<a href="#">Like</a> <a class="active" href="#">Reply</a>
-									</div>
-								</div>
-							</li>
-						</ol>
-					</li>
-					<li class="single_comment_area">
-						<div class="comment-wrapper d-flex">
-							<!-- Comment Meta -->
-							<div class="comment-author">
-								<img src="/maeggiSeggi/images/blog-img/19.jpg" alt="">
-							</div>
-							<!-- Comment Content -->
-							<div class="comment-content">
-								<span class="comment-date text-muted">27 Aug 2018</span>
-								<h5>Brandon Kelley</h5>
-								<p>Neque porro qui squam est, qui dolorem ipsum quia dolor
-									sit amet, consectetur, adipisci velit, sed quia non numquam
-									eius modi tempora.</p>
-								<a href="#">Like</a> <a class="active" href="#">Reply</a>
-							</div>
-						</div>
-					</li>
-				</ol>
-			</div>
-		</div>
-	</div>
-	</div>
-		<div class="single-post">
+			<div class="single-post">
 			<fieldset>
 				<h4>레시피 후기</h4>
 				<div>
@@ -365,7 +301,12 @@
 				</tr>
 			</table>
 			<br />
+		</div>	
+			</div>
 		</div>
+	</div>
+	</div>
+		
 		<script
 			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
 			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"

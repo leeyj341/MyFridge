@@ -29,9 +29,8 @@ public class RecipeController {
 	
 	@Autowired
 	RecipeService service;
-	//private RecipeDAO mapper;
 	@RequestMapping(value="/recipe/main.do", method=RequestMethod.GET)
-	public @ResponseBody ModelAndView wapi(String dname, String hit) {
+	public @ResponseBody ModelAndView wapi(String hit) {
 		ModelAndView mav = new ModelAndView();
 		SimpleDateFormat date = new SimpleDateFormat("yyyyMMdd");
 		String sysdate = date.format (System.currentTimeMillis());
@@ -132,12 +131,12 @@ public class RecipeController {
 		mav.addObject("rlisttt", rlisttt);
 		mav.setViewName("main");
 		System.out.println("메인 단입니다.");
-		System.out.println(dname);
 		List<RecipeVO> hitList = service.hitlist(hit);
 		List<RecipeVO> drunkList = service.drunklist();
-		System.out.println("히트 메뉴"+hitList);
+		List<RecipeVO> freshList = service.freshlist();
 		mav.addObject("hitList",hitList);
 		mav.addObject("drunklist",drunkList);
+		mav.addObject("freshlist",freshList);
 		mav.setViewName("main");
 		return mav;
 	}
@@ -157,7 +156,6 @@ public class RecipeController {
 	@RequestMapping("/recipe/detailRecipe.do")
 	public ModelAndView detail(HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();
-		System.out.println("====================================================================================");
 		String recipe_id = req.getParameter("id");
 		System.out.println(recipe_id);
 		ArrayList<HashMap<String, String>> detail = (ArrayList<HashMap<String, String>>)service.detail(recipe_id);
@@ -229,7 +227,6 @@ public ModelAndView categoryList(String recipe_category, HttpServletRequest requ
 	System.out.println("pagenum=>"+pagenum);
 	int contentnum = Integer.parseInt(request.getParameter("contentnum"));
 	System.out.println("contentnum=>"+contentnum);
-	
 	pageMaker.setTotalCount(service.testcount2(recipe_category));//전체 게시글 갯수 지정
 	pageMaker.setPagenum(pagenum-1);	//현재 페이지를 페이지 객체에 지정, -1을 해야 쿼리에서 사용 가능
 	pageMaker.setContentnum(contentnum); //한 페이지에 몇 개씩 게시글을 보여줄 것인
@@ -247,17 +244,17 @@ public ModelAndView categoryList(String recipe_category, HttpServletRequest requ
 //	mav.addObject("list",list);
 		
 //	System.out.println(pageMaker);
-	if(pageMaker.getPagenum()==1) {
+//	if(pageMaker.getPagenum()==1) {
 	List<RecipeVO> testlist = service.recipeList(recipe_category, pageMaker.getPagenum()*9, pageMaker.getPagenum()*9+pageMaker.getContentnum());
 	//List<RecipeVO> test = new ArrayList<RecipeVO>();
 	System.out.println(testlist);
 	System.out.println(pageMaker.getContentnum());
 	mav.addObject("list",testlist);
-	mav.addObject("category", testlist.get(0).getRecipe_category());
+	mav.addObject("category",recipe_category);
 	mav.addObject("page",pageMaker);
 	mav.setViewName("search");
 	return mav;
-	}else {
+/*	}else {
 		List<RecipeVO> testlist = service.recipeList(recipe_category, (pageMaker.getPagenum()*9)+1, pageMaker.getPagenum()*9+pageMaker.getContentnum());	
 		System.out.println(testlist);
 		System.out.println(pageMaker.getContentnum());
@@ -266,7 +263,7 @@ public ModelAndView categoryList(String recipe_category, HttpServletRequest requ
 		mav.addObject("page",pageMaker);
 		mav.setViewName("search");
 		return mav;
-	}
+	}*/
 }
 	
 	
@@ -282,13 +279,7 @@ public ModelAndView categoryList(String recipe_category, HttpServletRequest requ
 	//입력한 레시피 실제 db에 저장하는 메소드
 	@RequestMapping(value="/recipe/recipe_write.do",method=RequestMethod.POST)
 	public String insert(RecipeVO recipe,HttpSession session) throws Exception {
-/*		Random rand = new Random();
-		String recipe_id = "rec" + rand.nextInt(10000000);
-		recipe.setRecipe_id(recipe_id);
-		rd.setRecipe_id(recipe_id);*/
-
 		System.out.println("***"+recipe);
- 		
 		ArrayList<MultipartFile> file = recipe.getMyphoto();
  		String path = WebUtils.getRealPath(session.getServletContext(), "/WEB-INF/upload");
 	 	
@@ -310,7 +301,7 @@ public ModelAndView categoryList(String recipe_category, HttpServletRequest requ
 		int pagenumVal = Integer.parseInt(pagenum);
 		int contentnumVal = Integer.parseInt(contentnum);
 		System.out.println("중간점검"+pagenum+","+contentnum);
-		pageMaker.setTotalCount(service.testcount());//전체 게시글 갯수 지정
+		pageMaker.setTotalCount(service.testcount2(recipe_category));//전체 게시글 갯수 지정
 		pageMaker.setPagenum(pagenumVal-1);	//현재 페이지를 페이지 객체에 지정, -1을 해야 쿼리에서 사용 가능
 		pageMaker.setContentnum(contentnumVal); //한 페이지에 몇 개씩 게시글을 보여줄 것인
 		pageMaker.setCurrentblock(pagenumVal); //현재 페이지 블록
@@ -380,7 +371,6 @@ public ModelAndView categoryList(String recipe_category, HttpServletRequest requ
 	@RequestMapping(value ="/recipe/like.do", method=RequestMethod.GET)
 	public String like(HttpServletRequest reqest) throws Exception{
 		String recipe_id = reqest.getParameter("id");
-		System.out.println("좋아요~"+recipe_id);
 		service.like(recipe_id);
 		
 		return "forward:/recipe/detailRecipe.do";
