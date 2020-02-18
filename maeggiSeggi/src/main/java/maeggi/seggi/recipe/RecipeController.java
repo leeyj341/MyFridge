@@ -289,13 +289,15 @@ public ModelAndView categoryList(String recipe_category, HttpServletRequest requ
 	 	
 	 	service.upload(file, path);
 	 	// 넣기 전 이미지 경로를 넣어줘야 함
-	 	recipe.setImg_url_main(file.get(0).getOriginalFilename());
-	 	for (int i = 0; i < recipe.getRecipe_detail().size(); i++) {
-			recipe.getRecipe_detail().get(i).setImg_url(file.get(i).getOriginalFilename());
-		}
+	 	recipe.setImg_url_main("/maeggiSeggi/uploadImages/" + file.get(0).getOriginalFilename());
+	 	if(file.size() > 1) {
+	 		for (int i = 0; i < recipe.getRecipe_detail().size(); i++) {
+				recipe.getRecipe_detail().get(i).setImg_url("/maeggiSeggi/uploadImages/" + file.get(i + 1).getOriginalFilename());
+			}
+	 	}
 	 	
 	 	service.insert(recipe);
-		return "forward:/recipe/recipe_write.do";
+		return "몰라";
 	}
 
 	@RequestMapping(value="/recipe/ajax_searchRecipe.do",method=RequestMethod.GET,produces="application/json;charset=utf-8")	
