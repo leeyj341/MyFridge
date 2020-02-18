@@ -2,7 +2,7 @@
  * 
  */
 
-var category;
+var category = "주재료";
 var target_clone;
 var deleteInput = "";
 var deleteIndex = 0;
