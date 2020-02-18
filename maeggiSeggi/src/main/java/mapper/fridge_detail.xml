@@ -20,8 +20,12 @@
   			delete from refrigerator_detail
   			where refrigerator_id=#{refrigerator_id}
   		</delete>
-  		<delete id="deleteFridgeDetail" parameterType="fridgeDetail">
+  		<delete id="deleteFridgeDetail" parameterType="fridgeDetailList">
   			delete from refrigerator_detail
-  			where refrigerator_id=#{refrigerator_id} and ingredient_id=#{ingredient_id}
+  			<where>
+  				<foreach collection="detailList" item="fd" separator="OR">
+  					refrigerator_id=#{fd.refrigerator_id} and ingredient_id=#{fd.ingredient_id}
+  				</foreach> 
+  			</where>
   		</delete>
   </mapper>

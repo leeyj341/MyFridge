@@ -7,5 +7,5 @@ public interface FridgeDetailService {
 	List<HashMap<String, String>> selectAll(String refrigerator_id);
 	int insertFridge(FridgeDetailListVO voList);
 	void deletebyId(String id);
-	int deleteFridge(FridgeDetailVO vo);
+	int deleteFridgeDetail(FridgeDetailListVO voList);
 }
