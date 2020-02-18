@@ -188,83 +188,72 @@
 		var serviceType;
 
 		$(document).ready(function() {
-			
-							recipe_category = "${recipe_category}";
-							pagenum = "${page.pagenum}";
-							contentnum = 9;
-							
-							
-							recipeId = "";
-							alert(recipe_category)
-							alert(pagenum)
-							alert(contentnum)
-							$("#check input").each(function() {
-												$(this).on("click",
-																function() {
-																	recipe_category = $(this).val();
-																	$.ajax({
-																				url : "/maeggiSeggi/recipe/ajax_searchRecipe.do",
-																				type : "get",
-																				data : {
-																					"recipe_category" : recipe_category,
-																					"pagenum"  : pagenum,
-																					"contentnum" : 9
-																				},
-																				success : function(data) {
-																				 	alert(data.mainVo.length)
-																					alert(data.pageMaker.totalCount)
-																					alert(data.mainVo.name)
-																					mydata = "";
-																					for (var i = 0; i < data.length; i++) {
-																						mydata += "<div id='content'><div class='grid'>"+
-																						"<div class='single-post'>"
-																								+ "<div class='post-thumb'>"
-																								+ "<a href='/maeggiSeggi/recipe/detailRecipe.do?id="
-																								+ data[i].mainVo.recipe_id
-																								+ "'>"
-																								+ "<img src='" + data[i].img_url_main + "' style='width:248px;height:248px;'/>"
-																								+ "</a>"
-																								+ "</div></div>"
-																								+ "<div class='post-content'>"
-																								+ "<div class='post-meta d-flex'>"
-																								+ "<a hef='/maeggiSeggi/recipe/detailRecipe.do'>"
-																								+ "<h6 style='font-family: nanumSquare_acEB;font:arial;'>"
-																								+ data[i].name
-																								+ "</h6><br/>"
-																								+ "</a>"
-																								+ "<div class='post-author-date-area d-flex'>"
-																								+ "<div class='post-author'>"
-																								+ "<a href='#'>"
-																								+ data[i].member_id
-																								+ "</a>"
-																								+ "</div>"
-																								+ "<div class='post-date' >"
-																								+ "<a href='#'>"
-																								+ data[i].register_date
-																								+ "</a>"
-																								+ "</div>"
-																								+ "</div>"
-																								+ "</div>"
-																								+ "</div>"
-																								+ "</div>"
-																								+ "</div>";
-																								
 
-																					}
-																					
-																					$("#main").empty();
-																					$("#main").append(mydata);
-																					
-																				}
-																				
-
-																			
-																			});
-																});
-											});
-						});
+		recipe_category = "${recipe_category}";
+		pagenum = "${page.pagenum}";
+		contentnum = 9;
 		
-		 function getbyname(){
+
+		$("#check input").each(function() {
+			$(this).on("click",
+							function() {
+								recipe_category = $(this).val();
+								$.ajax({
+											url : "/maeggiSeggi/recipe/ajax_searchRecipe.do",
+											type : "get",
+											dataType:"json",
+											cache:false,
+											data : {
+												"recipe_category" : recipe_category,
+												"pagenum"  : pagenum,
+												"contentnum" : 9
+											},
+											success : function(data) {
+											
+												mydata = "";
+												for (var i = 0; i < data.length; i++) {
+												mydata += "<div id='content'>"+
+													"<div class='grid'>"+
+													"<div class='single-post'>"
+															+ "<div class='post-thumb'>"
+																+ "<a href='/maeggiSeggi/recipe/detailRecipe.do?id="+ data[i].recipe_id+ "'>"
+																	+ "<img src='" + data[i].img_url_main + "' style='width:248px;height:248px;'/>"
+																+ "</a>"
+															+ "</div></div>"
+															+ "<div class='post-content'>"
+																+ "<div class='post-meta d-flex'>"
+																	+ "<a hef='/maeggiSeggi/recipe/detailRecipe.do'>"
+																		+ "<h6 style='font-family: nanumSquare_acEB;font:arial;'>"+ data[i].name+ "</h6><br/>"
+																	+ "</a>"
+																+ "<div class='post-author-date-area d-flex'>"
+																	+ "<div class='post-author'>"
+																		+ "<a href='#'>"+ data[i].member_id+ "</a>"
+																	+ "</div>"
+																	+ "<div class='post-date' >"
+																		+ "<a href='#'>"+ data[i].register_date+ "</a>"
+																	+ "</div>"
+																+ "</div>"
+															+ "</div>"
+														+ "</div>"
+													+ "</div>"
+												+ "</div>";
+															
+		
+												}
+												
+												//$("#main").empty();
+												$("#main").append(mydata);
+												
+											}
+											
+		
+										
+										});
+							});
+													});
+								});
+		
+/* 		 function getbyname(){
 		function page(idx){
 			var pagenum = idx;
 			//alert(pagenum)
@@ -276,8 +265,8 @@
 				location.href= "/maeggiSeggi/recipe/categoryRecipe.do?recipe_category=" + category +"&pagenum="+pagenum+"&contentnum=9";
 			}
 			
-		}
-			 function getbyname(){
+		} */
+			/*  function getbyname(){
 			var search = $("#recipe_search").val();
 			if(search!=''){
 					$.ajax({
@@ -331,7 +320,7 @@
 				});
 			}
 		}
-
+ */
 		
 	</script>
 
