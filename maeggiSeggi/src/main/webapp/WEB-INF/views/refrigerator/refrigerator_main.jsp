@@ -3,6 +3,7 @@
 <%@page import="maeggi.seggi.loginandcustomer.memberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,9 +31,6 @@
 	    $(document).ready(function() {
 	    	var memId = '<%= session.getAttribute("id") %>';
 	    	
-	    	//냉장고 정보 로드
-	    	loadFridge(memId);
-	    	
 	    	//냉장고 관리 모달 창 열기
 	    	addDataToModal(memId);
 	    	
@@ -50,68 +48,6 @@
 	    	//드랍
 	    	drop();
 	    });
-	    
-	    function loadFridge(id) {
-	    	$.ajax({
-	    		url:"/maeggiSeggi/refrigerator/ajax_fridge.do",
-	    		async: false,
-	    		type:"get",
-	    		data: {
-	    			"id": id
-	    			},
-	    		success: function(data) {
-	    			fridgeList = data;
-	    			if(data.length < 1) $("#fridge_name").text("냉장고를 추가하세요!");
-	    			else if(data.length == 1) {
-	    				$("#fridge_name").html("<b>" + id + "</b> 님의 " + "<b>#" + data[0].name + "</b> 냉장고");
-	    				$("#fridge_name").attr("value", data[0].refrigerator_id);
-	    			}
-	    			else {
-	    				var flag = false;
-	    				for (var i = 0; i < data.length; i++) {
-	        				if(data[i].distinct_code == '1') {
-	        					$("#fridge_name").html("<b>" + id + "</b> 님의 " + "<b>#" + data[i].name + "</b> 냉장고");
-	        					$("#fridge_name").attr("value", data[i].refrigerator_id);
-	        					flag = true;
-	        					
-	        				} else {
-	        					if(flag == false) {
-	        						$("#fridge_name").html("<b>" + id + "</b> 님의 " + "<b>#" + data[i].name + "</b> 냉장고");
-	        						$("#fridge_name").attr("value", data[i].refrigerator_id);
-	        						flag = true;
-	        					}
-	        				}
-	        			}	
-	    			}
-	    		}
-	    	});
-	    	
-	    	$.ajax({
-				url:"/maeggiSeggi/fridgeDetail/ajax_fridgeDetail.do",
-				type:"get",
-				dataType:"json",
-				data: {
-					"refrigerator_id": $("#fridge_name").attr("value")
-				},
-				success: function(data) {
-					ingredients = "";
-					for (var i = 0; i < data.length; i++) {
-						ingredients = ingredients + "<li class='draggable' draggable='false'><div value=" + data[i]["INGREDIENT_ID"] + " draggable='false'>";
-						if(data[i]["IG_TYPE_NAME"] == "주재료") {
-							ingredients += "<img src='/maeggiSeggi/images/l_dish.png' draggable='false'><p draggable='false'>" + data[i]["NAME"] + "</p></div>";
-						} else if(data[i]["IG_TYPE_NAME"] == "부재료") {
-							ingredients += "<img src='/maeggiSeggi/images/l_soup.png' draggable='false'><p draggable='false'>" + data[i]["NAME"] + "</p></div>";
-						} else {
-							ingredients += "<img src='/maeggiSeggi/images/l_chili-sauce.png' draggable='false'><p draggable='false'>" + data[i]["NAME"] + "</p></div>";
-						}
-						ingredients += "<p draggable='false'>" + data[i]["IG_AMOUNT"] + "</p></li>";
-					}
-					
-					$("#fridge").empty();
-					$("#fridge").append(ingredients);
-				}
-			});
-	    }
 	    
 	    function addDataToModal(id) {
 			$(".modal-btn").on("click", function() {
@@ -262,6 +198,10 @@
 				}
 				alert(message);
 			});
+			
+			$("#modalClose").on("click", function() {
+				location.href = "/maeggiSeggi/refrigerator/fridge.do";
+			});
 		}
 	    
 	    function drag() {
@@ -293,6 +233,9 @@
 <body class="bg-amond">
 	<!-- ******Refrigerator Area Start ****** -->
 	<div class="fridge-area">
+		<button class="save-btn fridge-btn btn-orange btn-fill-vert-o">
+			<p>삭제</p>
+		</button>
 		<button class="save-btn fridge-btn btn-orange btn-fill-vert-o">
 			<p>저장</p>
 		</button>
@@ -347,132 +290,6 @@
 								<p>계란</p>
 							</div>
 						</li>
-						<li>
-							<div class="" id="ingredient_2" draggable="true">
-								<img src="/maeggiSeggi/images/ingredients.jpg">
-								<p>쌀</p>
-							</div>
-						</li>
-						<li>
-							<div class="" id="ingredient_1" draggable="true">
-								<img src="/maeggiSeggi/images/ingredients.jpg">
-								<p>계란</p>
-							</div>
-						</li>
-						<li>
-							<div class="" id="ingredient_2" draggable="true">
-								<img src="/maeggiSeggi/images/ingredients.jpg">
-								<p>쌀</p>
-							</div>
-						</li>
-						<li>
-							<div class="" id="ingredient_1" draggable="true">
-								<img src="/maeggiSeggi/images/ingredients.jpg">
-								<p>계란</p>
-							</div>
-						</li>
-						<li>
-							<div class="" id="ingredient_2" draggable="true">
-								<img src="/maeggiSeggi/images/ingredients.jpg">
-								<p>쌀</p>
-							</div>
-						</li>
-						<li>
-							<div class="" id="ingredient_1" draggable="true">
-								<img src="/maeggiSeggi/images/ingredients.jpg">
-								<p>계란</p>
-							</div>
-						</li>
-						<li>
-							<div class="" id="ingredient_2" draggable="true">
-								<img src="/maeggiSeggi/images/ingredients.jpg">
-								<p>쌀</p>
-							</div>
-						</li>
-						<li>
-							<div class="" id="ingredient_1" draggable="true">
-								<img src="/maeggiSeggi/images/ingredients.jpg">
-								<p>계란</p>
-							</div>
-						</li>
-						<li>
-							<div class="" id="ingredient_2" draggable="true">
-								<img src="/maeggiSeggi/images/ingredients.jpg">
-								<p>쌀</p>
-							</div>
-						</li>
-						<li>
-							<div class="" id="ingredient_1" draggable="true">
-								<img src="/maeggiSeggi/images/ingredients.jpg">
-								<p>계란</p>
-							</div>
-						</li>
-						<li>
-							<div class="" id="ingredient_2" draggable="true">
-								<img src="/maeggiSeggi/images/ingredients.jpg">
-								<p>쌀</p>
-							</div>
-						</li>
-						<li>
-							<div class="" id="ingredient_1" draggable="true">
-								<img src="/maeggiSeggi/images/ingredients.jpg">
-								<p>계란</p>
-							</div>
-						</li>
-						<li>
-							<div class="" id="ingredient_2" draggable="true">
-								<img src="/maeggiSeggi/images/ingredients.jpg">
-								<p>쌀</p>
-							</div>
-						</li>
-						<li>
-							<div class="" id="ingredient_1" draggable="true">
-								<img src="/maeggiSeggi/images/ingredients.jpg">
-								<p>계란</p>
-							</div>
-						</li>
-						<li>
-							<div class="" id="ingredient_2" draggable="true">
-								<img src="/maeggiSeggi/images/ingredients.jpg">
-								<p>쌀</p>
-							</div>
-						</li>
-						<li>
-							<div class="" id="ingredient_1" draggable="true">
-								<img src="/maeggiSeggi/images/ingredients.jpg">
-								<p>계란</p>
-							</div>
-						</li>
-						<li>
-							<div class="" id="ingredient_2" draggable="true">
-								<img src="/maeggiSeggi/images/ingredients.jpg">
-								<p>쌀</p>
-							</div>
-						</li>
-						<li>
-							<div class="" id="ingredient_1" draggable="true">
-								<img src="/maeggiSeggi/images/ingredients.jpg">
-								<p>계란</p>
-							</div>
-						</li>
-						<li>
-							<div class="" id="ingredient_2" draggable="true">
-								<img src="/maeggiSeggi/images/ingredients.jpg">
-								<p>쌀</p>
-							</div>
-						</li>
-						<li>
-							<div class="" id="ingredient_1" draggable="true">
-								<img src="/maeggiSeggi/images/ingredients.jpg">
-								<p>계란</p>
-							</div>
-						</li>
-						<li>
-							<div class="" id="ingredient_2" draggable="true">
-								<img src="/maeggiSeggi/images/ingredients.jpg">
-								<p>쌀</p>
-							</div>
-						</li>
 					</ul>
 				</form>
 				<div id="input_search">
@@ -481,7 +298,7 @@
 				</div>
 			</div>
 			<!-- ****** Ingredient Select Area End ****** -->
-
+			
 			<!-- ****** My Fridge Area Select Area End ****** -->
 			<div class="refrigerator-area col-5">
 				<div class="fridge-wrapper">
@@ -489,14 +306,44 @@
 					<!-- 냉장고 div로 배경이미지를 넣거나 border 속성으로 구분.. -->
 					<ul id="fridge" class="list-scroll fridge-list">
 						<!-- 동적으로 추가되어야 함 -->
-						
+					<c:forEach items="${detail}" var="ig">
+						<li class='draggable' draggable='false'>
+							<div value='${ig.get("INGREDIENT_ID")}' draggable='false'>
+						<c:choose>
+							<c:when test='${ig.get("IG_TYPE_NAME") == "주재료"}' >
+								<img src='/maeggiSeggi/images/l_dish.png' draggable='false'>
+							</c:when>
+							<c:when test='${ig.get("IG_TYPE_NAME") == "부재료"}'>
+								<img src='/maeggiSeggi/images/l_soup.png' draggable='false'>
+							</c:when>
+							<c:otherwise>
+								<img src='/maeggiSeggi/images/l_chili-sauce.png' draggable='false'>
+							</c:otherwise>
+							<%-- <c:when test='${ig.get("IG_TYPE_NAME") == "양념"}'>
+								<img src='/maeggiSeggi/images/l_chili-sauce.png' draggable='false'><p draggable='false'>${ig.get("NAME")}</p></div>
+							</c:when> --%>
+						</c:choose>
+								<p draggable='false'>${ig.get("NAME")}</p>
+							</div>
+							<p draggable='false'>${ig.get("IG_AMOUNT")}</p>
+						</li>
+					</c:forEach>
 					</ul>
 				</div>
-				<p id="fridge_name"></p>
+				<% 
+					FridgeVO fridge = (FridgeVO)request.getAttribute("main"); 
+					if(fridge == null) {
+				%>
+				<p id="fridge_name">메인 냉장고를 추가하세요!</p>
+				<% } else { %>
+				<p id="fridge_name" value='<%= fridge.getRefrigerator_id() %>'><b><%= fridge.getMember_id() %></b> 님의 <b>#<%= fridge.getName() %></b> 냉장고</p>
+				<% } %>
 			</div>
 
 		</div>
 	</div>
+	
+	<div id="formDiv"></div>
     
     <!-- 모달 창입니다 ---------------------------------------------------------------------- -->
     <div id="fridge_modal" class="modal" role="dialog" aria-hidden="true">
@@ -513,7 +360,7 @@
     		<button class="plus-btn" title="냉장고 추가"><i class="fas fa-plus-circle fa-2x" style="color:orange;"></i></button>
     		<button class="plus-btn" title="냉장고 제거"><i class="fas fa-minus-circle fa-2x" style="color:gray;"></i></button>
     	</div>
-  		<a href="#" class="" rel="modal:close" style="padding-left: 95%; position: static;">Close</a>
+  		<a id="modalClose" href="#" class="" rel="modal:close" style="padding-left: 95%; position: static;">Close</a>
 	</div>
 </body>
 

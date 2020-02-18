@@ -5,13 +5,21 @@
   
   <mapper namespace="maeggi.seggi.fridge">
   		<select id="selectAll" resultType="Map" parameterType="String">
-  			select rd.*, i.name, i.ig_type_name from refrigerator_detail rd, ingredients i 
+  			select rd.*, i.name, i.ig_type_name 
+  			from refrigerator_detail rd, ingredients i 
   			where i.ingredient_id = rd.ingredient_id and rd.refrigerator_id=#{refrigerator_id}
   		</select>
-  		<insert id="insertFridgeDetail" parameterType="Map">
-  			insert into refrigerator_detail 
-  			values(#{ingredient_id}, #{ig_amount}, sysdate, sysdate, sysdate, sysdate, #{refrigerator_id})
+  		<insert id="insertAllFridgeDetail" parameterType="fridgeDetailList">
+  			insert all
+  			<foreach collection="detailList" item="fd" separator=" ">
+  				into refrigerator_detail values(#{fd.ingredient_id}, #{fd.ig_amount}, sysdate, sysdate, sysdate, sysdate, #{fd.refrigerator_id})
+  			</foreach>
+  			select * from dual
   		</insert>
+  		<delete id="deletebyId" parameterType="String">
+  			delete from refrigerator_detail
+  			where refrigerator_id=#{refrigerator_id}
+  		</delete>
   		<delete id="deleteFridgeDetail" parameterType="fridgeDetail">
   			delete from refrigerator_detail
   			where refrigerator_id=#{refrigerator_id} and ingredient_id=#{ingredient_id}

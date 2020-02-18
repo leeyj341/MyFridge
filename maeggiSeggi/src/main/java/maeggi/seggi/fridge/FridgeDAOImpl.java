@@ -12,8 +12,13 @@ public class FridgeDAOImpl implements FridgeDAO {
 	SqlSession session;
 	
 	@Override
-	public List<FridgeVO> selectMyFridgeByName(String id) {
-		return session.selectList("maeggi.seggi.fridge.selectMyFridgeByName" , id);
+	public List<FridgeVO> selectAllMyFridge(String id) {
+		return session.selectList("maeggi.seggi.fridge.selectAllMyFridge", id);
+	}
+	
+	@Override
+	public FridgeVO selectMyFridgeByName(String id) {
+		return session.selectOne("maeggi.seggi.fridge.selectMyFridgeByName" , id);
 	}
 
 	@Override

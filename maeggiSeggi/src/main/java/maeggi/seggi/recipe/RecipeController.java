@@ -116,15 +116,10 @@ public class RecipeController {
 		}
 		
 		List<weatherVO> wlist = service.weatherList(today);
-		System.out.println(wlist.get(0).food_keyword);
-		System.out.println(wlist.get(1).food_keyword);
-		System.out.println(wlist.get(2).food_keyword);
 		List<RecipeVO> rlist = service.readbyName(wlist.get(0).food_keyword);
 		List<RecipeVO> rlistt = service.readbyName(wlist.get(1).food_keyword);
 		List<RecipeVO> rlisttt = service.readbyName(wlist.get(2).food_keyword);
-		System.out.println(rlist.get(0).getName());
-		System.out.println(rlistt.get(0).getName());
-		System.out.println(rlisttt.get(0).getName());
+
 		mav.addObject("food", wlist.get(0).food_keyword);
 		mav.addObject("today", wlist.get(0).weather_kind);
 		mav.addObject("rlist", rlist);

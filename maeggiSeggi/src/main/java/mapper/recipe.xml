@@ -43,7 +43,7 @@
   		<foreach collection="detail" item="rd" separator=" ">
   			into recipe_detail values(concat('rec', (recipe_id_seq.currval + 90000)), #{rd.recipe_order_num},#{rd.recipe_describe},#{rd.img_url},#{rd.tip})
   		</foreach>	
-  		 select * from dual -->
+  		 select * from dual
   	</insert>
   	<!-- 조회수 증가  -->
   	<update id="updatehit" parameterType="String">

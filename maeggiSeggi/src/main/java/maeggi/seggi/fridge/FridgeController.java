@@ -1,26 +1,45 @@
 package maeggi.seggi.fridge;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import maeggi.seggi.loginandcustomer.memberVO;
 
 @Controller
 public class FridgeController {
 	@Autowired
 	FridgeService service;
+	@Autowired
+	FridgeDetailService detailService;
 	
-	@RequestMapping("/refrigerator/fridge.do")
-	public String fridgeContent() {
-		return "fridge";
+	@RequestMapping(value="/refrigerator/fridge.do", method=RequestMethod.GET)
+	public ModelAndView fridgeContent(HttpSession session) {
+		
+		ModelAndView mav = new ModelAndView();
+		
+		memberVO user = (memberVO)session.getAttribute("loginuser");
+		FridgeVO mainFridge = (FridgeVO)service.selectMyFridgeByName(user.getMember_id());
+		ArrayList<HashMap<String, String>> listMap = (ArrayList<HashMap<String, String>>)detailService.selectAll(mainFridge.getRefrigerator_id());
+		
+		mav.addObject("main", mainFridge);
+		mav.addObject("detail", listMap);
+		
+		mav.setViewName("fridge");
+		return mav;
 	}
 	
 	@RequestMapping(value="/refrigerator/ajax_fridge.do", method=RequestMethod.GET, produces="application/json;charset=UTF-8")
 	public @ResponseBody ArrayList<FridgeVO> getUserFridge(String id) {
-		ArrayList<FridgeVO> list =  (ArrayList<FridgeVO>)service.selectMyFridgeByName(id);
+		ArrayList<FridgeVO> list =  (ArrayList<FridgeVO>)service.selectAllMyFridge(id);
 		return list;
 	}
 	
@@ -51,7 +70,7 @@ public class FridgeController {
 	@RequestMapping(value="/refrigerator/ajax_update_main.do", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
 	public @ResponseBody String updateMain(FridgeVO vo) {
 		int result = service.updateMain(vo);
-		System.out.println("================================================================================== " + result);
+		
 		String message = "";
 		if(result == 1) {
 			message = "메인 냉장고를 변경했습니다!";
