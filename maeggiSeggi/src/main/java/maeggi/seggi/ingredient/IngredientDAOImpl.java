@@ -28,6 +28,11 @@ public class IngredientDAOImpl implements IngredientDAO {
 	}
 	
 	@Override
+	public List<IngredientVO> selectRecipeIg(String recipe_id) {
+		return session.selectList("maeggi.seggi.ingredient.selectRecipeIg", recipe_id);
+	}
+	
+	@Override
 	public void insertigdetail(ArrayList<IngredientVO> igdetail) {
 		Map<String, Object> map = new HashMap<String,Object>();
 		map.put("igdetail", igdetail);

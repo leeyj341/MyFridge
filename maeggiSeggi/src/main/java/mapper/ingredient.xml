@@ -21,4 +21,7 @@
   		</foreach>	
   		select * from dual
   	</insert>
+  	<select id="selectRecipeIg" parameterType="String" resultType="ingredients">
+  		select * from ingredients where recipe_id = #{recipe_id}
+  	</select>
   </mapper>

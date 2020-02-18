@@ -26,7 +26,7 @@
     <Resource name="jdbc/myspring" auth="Container"
 		type="javax.sql.DataSource"
 		driverClassName="oracle.jdbc.driver.OracleDriver"
-		url="jdbc:oracle:thin:@70.12.115.64:1521:xe" username="mg" password="seggi"
+		url="jdbc:oracle:thin:@localhost:1521:xe" username="mg" password="seggi"
 		maxTotal="20" maxIdle="10" maxWaitMillis="-1" />
 		
 </Context>
