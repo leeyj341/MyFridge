@@ -32,7 +32,7 @@ public class RecipeController {
 	@Autowired
 	RecipeService service;
 	@RequestMapping(value="/recipe/main.do", method=RequestMethod.GET)
-	public @ResponseBody ModelAndView wapi(String hit) {
+	public @ResponseBody ModelAndView wapi() {
 		ModelAndView mav = new ModelAndView();
 		SimpleDateFormat date = new SimpleDateFormat("yyyyMMdd");
 		String sysdate = date.format (System.currentTimeMillis());
@@ -128,7 +128,7 @@ public class RecipeController {
 		mav.addObject("rlisttt", rlisttt);
 		mav.setViewName("main");
 		System.out.println("메인 단입니다.");
-		List<RecipeVO> hitList = service.hitlist(hit);
+		List<RecipeVO> hitList = service.hitlist();
 		List<RecipeVO> drunkList = service.drunklist();
 		List<RecipeVO> freshList = service.freshlist();
 		mav.addObject("hitList",hitList);
@@ -216,13 +216,15 @@ public class RecipeController {
 	 	
 	 	service.upload(file, path);
 	 	// 넣기 전 이미지 경로를 넣어줘야 함
-	 	recipe.setImg_url_main(file.get(0).getOriginalFilename());
-	 	for (int i = 0; i < recipe.getRecipe_detail().size(); i++) {
-			recipe.getRecipe_detail().get(i).setImg_url(file.get(i).getOriginalFilename());
-		}
+	 	recipe.setImg_url_main("/maeggiSeggi/uploadImages/" + file.get(0).getOriginalFilename());
+	 	if(file.size() > 1) {
+	 		for (int i = 0; i < recipe.getRecipe_detail().size(); i++) {
+				recipe.getRecipe_detail().get(i).setImg_url("/maeggiSeggi/uploadImages/" + file.get(i + 1).getOriginalFilename());
+			}
+	 	}
 	 	
 	 	service.insert(recipe);
-		return "forward:/recipe/recipe_write.do";
+		return "redirect:/recipe/main.do";
 	}
 
 	@RequestMapping(value="/recipe/ajax_searchRecipe.do",method=RequestMethod.GET,produces="application/json;charset=utf-8")	

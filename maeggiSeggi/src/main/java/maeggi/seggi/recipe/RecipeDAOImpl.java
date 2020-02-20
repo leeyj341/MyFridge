@@ -112,8 +112,8 @@ public class RecipeDAOImpl implements RecipeDAO {
 	}
 
 	@Override
-	public List<RecipeVO> hitlist(String hit) {
-		return sqlSession.selectList("maeggi.seggi.recipe.hitRecipe",hit);
+	public List<RecipeVO> hitlist() {
+		return sqlSession.selectList("maeggi.seggi.recipe.hitRecipe");
 	}
 
 	@Override

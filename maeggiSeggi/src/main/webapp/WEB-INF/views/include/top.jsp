@@ -133,7 +133,7 @@
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">RECIPE</a>
                                     <div class="dropdown-menu" aria-labelledby="yummyDropdown">
                                     	<a class="dropdown-item" href="#"></a>
-                                        <a class="dropdown-item" href="/maeggiSeggi/recipe/main.do?theme=숙취"><b>테마별 레시피</b></a>
+                                        <a class="dropdown-item" href="/maeggiSeggi/recipe/main.do"><b>테마별 레시피</b></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/recipe/levelRecipe.do?cook_levelb=초보환영&cook_leveln=보통&cook_levelh=어려움"><b>난이도별 레시피</b></a>
                                         <a class="dropdown-item" href="/maeggiSeggi/recipe/searchRecipe.do?pagenum=1&contentnum=9"><b>레시피 조회</b></a>
                                     </div>

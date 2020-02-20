@@ -153,8 +153,8 @@ public class RecipeServiceImpl implements RecipeService {
 
 
 	@Override
-	public List<RecipeVO> hitlist(String hit) {
-		return dao.hitlist(hit);
+	public List<RecipeVO> hitlist() {
+		return dao.hitlist();
 	}
 
 

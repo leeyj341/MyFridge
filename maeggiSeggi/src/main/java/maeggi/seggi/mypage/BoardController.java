@@ -47,7 +47,6 @@ public class BoardController {
 			}
 		}
 		List<BoardVO> list = service.listall(board);
-		System.out.println("list===============" + list);
 		mav.addObject("list", list);
 		mav.setViewName("mypage/ask");
 		return mav;
@@ -94,7 +93,6 @@ public class BoardController {
 	@RequestMapping(value = "/board/update.do", method = RequestMethod.POST)
 	public String updatePOST(BoardVO board) {
 		int result = service.update(board);
-		System.out.println("수정된 값 갯수" + result);
 		// return "redirect:/board/read.do?askno=\"board.getAskno()\"";
 		return "redirect:/board/list.do";
 	}
@@ -102,7 +100,6 @@ public class BoardController {
 	// 글 삭제
 	@RequestMapping(value = "/board/delete.do", method = RequestMethod.GET)
 	public String delete(int askno) {
-		System.out.println("취소할 것" + askno);
 		service.delete(askno);
 
 		return "redirect:/board/list.do";
@@ -118,7 +115,6 @@ public class BoardController {
 	// 회원정보 수정 POST
 	@RequestMapping(value = "/board/infoupdate.do", method = RequestMethod.POST)
 	public String update(memberVO user, HttpSession session) {
-		System.out.println("유저:" + user);
 		mservice.update(user);
 		session.invalidate();
 		return "redirect:/loginandcustomer/login.do";
@@ -137,8 +133,6 @@ public class BoardController {
 		}
 		List<PointVO> mypoint = service.pointListall(point);
 		int pointsum = service.pointsum(point);
-		System.out.println("mypoint" + mypoint);
-		System.out.println("pointsum============" + pointsum);
 		mav.addObject("mypoint", mypoint);
 		mav.addObject("pointsum", pointsum);
 		mav.setViewName("mypage/mypoint");
@@ -191,7 +185,6 @@ public class BoardController {
 		}
 			List<BoardVO> list = service.admin_asklist(board);
 			
-			System.out.println("1대1문의사항들입니다.." + list);
 			mav.addObject("list", list);
 			mav.setViewName("loginandcustomer/admin_asklist");
 		

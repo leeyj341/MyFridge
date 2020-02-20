@@ -2,9 +2,10 @@
  * 
  */
 
-var category;
+var category = "주재료";
 var target_clone;
-var flag = false;
+var deleteInput = "";
+var deleteIndex = 0;
 
 $(document).ready(function() {	
 	//재료 처음 한 번 로딩
@@ -50,9 +51,10 @@ $(document).ready(function() {
 	$(".save-btn").each(function() {
 		var message = "";
 		var input = "";
-		var form = $("<form action='/maeggiSeggi/fridgeDetail/fd_insert.do' method='POST'></form>");
+		var form;
 		$(this).on("click", function() {
 			if($(this).find("p").text() == "저장") {
+				form = $("<form action='/maeggiSeggi/fridgeDetail/fd_insert.do' method='POST'></form>");
 				$("#fridge").find("li").each(function(index, element) {
 					input += "<input type='hidden' name='detailList[" + index + "].ingredient_id' value='" + $(this).find("div").attr("value") + "'>"
 								+ "<input type='hidden' name='detailList[" + index + "].ig_amount' value='" + $(this).find("p:last").text() + "'>"
@@ -62,24 +64,33 @@ $(document).ready(function() {
 				$("#formDiv").append(form);
 				form.submit();
 			} else {
-				if(flag == false) flag = true;
-				else flag = false;
-				alert(flag);
+				form = $("<form action='/maeggiSeggi/fridgeDetail/fd_delete.do' method='POST'></form>");
+				if(deleteInput != "") {
+					form.append(deleteInput);
+					$("#formDiv").append(form);
+					form.submit();
+				}
 			}
 		});
 	});
 	
-	$(document).on("click", "#fridge>li", function() {
-		if(flag == true) {
-			//alert($(this).find("p").text());
-			$(this).css("background-color", "red");
-		}
-	})
+	//삭제 Input 생성
+	getInputList();
 	
 });
 
 function wow_default_alert(msg) {
 	  alert(msg);
+}
+
+function getInputList() {
+	$(document).on("click", "#fridge>li", function() {
+		//alert($(this).find("p").text());
+		deleteIndex++;
+		$(this).css("background-color", "red");
+		deleteInput += "<input type='hidden' name='detailList[" + deleteIndex + "].ingredient_id' value='" + $(this).find("div").attr("value") + "'>"
+					+ "<input type='hidden' name='detailList[" + deleteIndex + "].refrigerator_id' value='" + $("#fridge_name").attr("value") + "'>";
+	})
 }
 
 function chagneButton() {

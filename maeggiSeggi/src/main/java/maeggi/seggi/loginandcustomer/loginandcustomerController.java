@@ -39,7 +39,6 @@ public class loginandcustomerController {
 	public ModelAndView login(memberVO loginUserInfo,HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		memberVO loginuser = service.login(loginUserInfo);
-		System.out.println("로그인성공! 로그인된 회원정보: "+ loginuser);
 		String viewName="";
 		mav.addObject("loginuser", loginuser);
 		if(loginuser!=null) {
@@ -93,7 +92,6 @@ public class loginandcustomerController {
 	// 회원가입 Post
 	@RequestMapping(value = "/loginandcustomer/join.do", method = RequestMethod.POST)
 	public String join(memberVO user){
-		System.out.println("넘어온 정보"+user);
 		service.insert(user);
 		return "redirect:/loginandcustomer/login.do";
 	}
@@ -153,7 +151,6 @@ public class loginandcustomerController {
 	
 	@RequestMapping(value = "/loginandcustomer/admin_delete.do", method = RequestMethod.GET)
 	public String admin_delete(memberVO member_id) {
-		System.out.println("삭제할 member_id: "+member_id);
 		service.admin_memberdelete(member_id);
 	
 		return "redirect:/loginandcustomer/admin_memberview.do";

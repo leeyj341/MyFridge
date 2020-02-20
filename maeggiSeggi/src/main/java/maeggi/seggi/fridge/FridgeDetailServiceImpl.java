@@ -29,7 +29,7 @@ public class FridgeDetailServiceImpl implements FridgeDetailService {
 	}
 	
 	@Override
-	public int deleteFridge(FridgeDetailVO vo) {
-		return dao.deleteFridge(vo);
+	public int deleteFridgeDetail(FridgeDetailListVO voList) {
+		return dao.deleteFridgeDetail(voList);
 	}
 }

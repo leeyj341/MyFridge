@@ -52,7 +52,7 @@
         order by d.recipe_order_num
 	</select>
 	<!-- 핫한 요리 (조회수) -->
-	<select id = "hitRecipe" resultType="recipe" parameterType="String">
+	<select id = "hitRecipe" resultType="recipe">
 		select * from
 		(select * from recipe)
 		order by hit desc

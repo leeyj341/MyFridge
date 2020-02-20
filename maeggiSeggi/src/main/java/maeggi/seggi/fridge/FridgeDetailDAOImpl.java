@@ -28,8 +28,8 @@ public class FridgeDetailDAOImpl implements FridgeDetailDAO {
 	}
 	
 	@Override
-	public int deleteFridge(FridgeDetailVO vo) {
-		return session.delete("maeggi.seggi.fridge.deleteFridgeDetail", vo);
+	public int deleteFridgeDetail(FridgeDetailListVO voList) {
+		return session.delete("maeggi.seggi.fridge.deleteFridgeDetail", voList);
 	}
 
 }

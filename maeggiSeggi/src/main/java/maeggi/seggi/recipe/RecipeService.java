@@ -6,8 +6,6 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import maeggi.seggi.ingredient.IngredientVO;
-
 public interface RecipeService {
 	
 	void insert(RecipeVO recipe);
@@ -28,7 +26,7 @@ public interface RecipeService {
 	public void like(String recipe_id) throws Exception;
 	List<RecipeVO> recipeList(String recipe_category, int pagenum, int contentnum);
 	List<RecipeVO> recipeNameList(String search,int pagenum, int contentnum);
-	List<RecipeVO> hitlist(String hit);
+	List<RecipeVO> hitlist();
 	List<RecipeVO> drunklist();
 	List<RecipeVO> freshlist();
 	List<weatherVO> weatherList(String today);
