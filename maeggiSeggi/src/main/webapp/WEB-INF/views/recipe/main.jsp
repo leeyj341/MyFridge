@@ -399,7 +399,7 @@ font-size: 20pt;
 	<br />
 	<br />	<div id="line">
 		<div id="headtitle">
-			<h4><span id="underline">피로</span>에 지쳤을 때</h4>
+			<h4><span id="underline">피로</span>에 지쳤을 때 이런 음식 어때요?</h4>
 			<a href="/maeggiSeggi/recipe/recipe_write.do"><input type="button" id="add" value="레시피 등록" ></a>
 		</div>
 	</div>

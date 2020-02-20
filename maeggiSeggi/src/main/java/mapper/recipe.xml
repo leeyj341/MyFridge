@@ -9,34 +9,26 @@
   	</select>
 	<!-- radio 카테고리 조회 -->
   	<select id="categoryRecipe" resultType="recipe" parameterType="Map">
-  	SELECT recipe_id,name,register_date,member_id,img_url_main,recipe_category 
-  	from (select recipe_id,name,register_date,member_id,img_url_main,recipe_category,ROW_NUMBER() OVER (ORDER BY recipe_id) r from recipe)
-  	 where (r between #{pagenum} and #{contentnum}+2 and recipe_category like '%' || #{recipe_category} || '%')	
+  	SELECT recipe_id,name,register_date,member_id,img_url_main,recipe_category ,r
+  	from (select recipe_id,name,register_date,member_id,img_url_main,recipe_category,ROW_NUMBER() OVER (ORDER BY recipe_id) r from recipe where recipe_category like '%' ||  #{recipe_category} || '%')
+	where r between #{pagenum} and #{contentnum}
   	</select>
-  	
-  	<!-- 검색어 조회 (미완성) -->
- 	<select id="recipeSearch" resultType="recipe" parameterType="String">
-  			select distinct r.recipe_id, r.name,r.content_intro,r.register_date,r.member_id,r.img_url_main
-  			from recipe r,ingredients i
-			where r.recipe_id=i.recipe_id	
-  			  		and (r.name like '%' || #{search} || '%' 
-  			  		or i.name like'%' || #{search} || '%')
-  	</select>
-  	
+  	 <!-- 검색어 조회 -->
+ 
+ 	<select id="recipeNameSearch" resultType="recipe" parameterType="Map">
+ 	SELECT recipe_id,name,register_date,member_id,img_url_main,recipe_category ,r
+  	from (select recipe_id,name,register_date,member_id,img_url_main,recipe_category,ROW_NUMBER() OVER (ORDER BY recipe_id) r from recipe where name like '%' || #{search} || '%')
+	where r between #{pagenum} and #{contentnum}
+
+  	</select> 
   	<!-- 레시피 조회에서 팝업창으로 데이터 전송. -->
   	<select id="moveTopopup" resultType="recipe" parameterType="String">
   		select * from recipe where recipe_id = #{recipe_id}
   	</select>
-  	
-  	<!-- 난이도별 조회 -->
-  	<!-- <select id="levelRecipe" resultType="recipe" parameterType="String">
-  		select * 
-  		from recipe 
-  		where cook_level=#{cook_level}
-  	</select> -->
   	<!-- 레시피 등록 -->
   	<insert id="insert" parameterType="recipe">
-  		insert into recipe values(concat('rec', (recipe_id_seq.nextval + 90000)),#{name},#{content_intro},0,#{recipe_category},0,#{food_category},#{cook_time},#{kcal},#{amount_per_person},#{cook_level},0,#{price},#{img_url_main},0,0,0,sysdate,#{member_id})
+  		insert into recipe values(concat('rec', (recipe_id_seq.nextval + 90000)),#{name},#{content_intro},0,#{recipe_category},
+  					0,#{food_category},#{cook_time},#{kcal},#{amount_per_person},#{cook_level},0,#{price},#{img_url_main},0,0,0,sysdate,#{member_id})
   	</insert>
   	<insert id="insertdetail" parameterType="Map">
   		insert all
@@ -99,11 +91,22 @@
 	<select id="testcount2" resultType="int" parameterType="String">
 		select count(*) from recipe where recipe_category=#{recipe_category}
 	</select>
+	<select id="testcount3" resultType="int" parameterType="String">
+		select count(*) from recipe where name=#{name}
+	</select>
+	
+	<select id="recipeSearch" resultType="recipe" parameterType="String">
+  			select distinct r.recipe_id, r.name,r.content_intro,r.register_date,r.member_id,r.img_url_main
+  			from recipe r,ingredients i
+			where r.recipe_id=i.recipe_id	
+  			  		and (r.name like '%' || #{search} || '%' 
+  			  		or i.name like'%' || #{search} || '%')
+  	</select>
+	
 	<!-- 게시글 좋아요 관리 -->
 	<update id="like" parameterType="String">
 	update recipe
 	set like_num = like_num+1
 	where recipe_id=#{recipe_id}
 	</update>
-
  </mapper> 

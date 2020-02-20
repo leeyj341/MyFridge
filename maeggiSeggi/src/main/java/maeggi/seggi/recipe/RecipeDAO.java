@@ -26,6 +26,7 @@ public interface RecipeDAO {
 	public List<RecipeVO> testlist (@Param("pagenum") int pagenum, @Param("contentnum") int contentnum);
 	public int testcount();
 	public int testcount2(String recipe_category);
+	public int testcount3(String search);
 	//public List<RecipeVO> listall(@Param("pagenum") int pagenum, @Param("contentnum") int contentnum);
 	public void like(String recipe_id) throws Exception;
 	List<RecipeVO> categorySearch(String recipe_category, int pagenum, int contentnum);
@@ -33,4 +34,6 @@ public interface RecipeDAO {
 	List<RecipeVO> drunklist();
 	List<RecipeVO> freshlist();
 	List<weatherVO> weatherList(String today);
+	List<RecipeVO> nameSearch(String search, int pagenum, int contentnum);
+
 }

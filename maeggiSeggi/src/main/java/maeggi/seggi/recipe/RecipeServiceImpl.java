@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import maeggi.seggi.ingredient.IngredientDAO;
+import maeggi.seggi.ingredient.IngredientVO;
 @Service
 public class RecipeServiceImpl implements RecipeService {
 	@Autowired
@@ -35,12 +36,17 @@ public class RecipeServiceImpl implements RecipeService {
 				list=dao.testlist(pagenum, contentnum);			
 			}else {
 				list=dao.categorySearch(recipe_category, pagenum,contentnum);
+				System.out.println("dao의 list size : " + list.size());
 				//System.out.println(Integer.toString(pagenum)+","+Integer.toString(contentnum));
 			}
 		}
 		return list;
 	}
-
+	@Override
+	public List<RecipeVO> recipeNameList(String search, int pagenum, int contentnum) {
+		// TODO Auto-generated method stub
+		return dao.nameSearch(search,pagenum,contentnum);
+	}
 
 	@Override
 	public void insert(RecipeVO recipe) {
@@ -73,6 +79,7 @@ public class RecipeServiceImpl implements RecipeService {
 	public List<HashMap<String, String>> detail(String recipe_id) {
 		
 		//조회수 업데이트
+		
 		dao.updatehit(recipe_id);
 		return dao.detail(recipe_id);
 	}
@@ -129,6 +136,10 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 
 	@Override
+	public int testcount3(String search) {
+		return dao.testcount3(search);
+	}
+	@Override
 	public void like(String recipe_id) throws Exception {
 		dao.like(recipe_id);
 	}
@@ -157,5 +168,17 @@ public class RecipeServiceImpl implements RecipeService {
 	public List<RecipeVO> freshlist() {
 		return dao.freshlist();
 	}
+
+
+	@Override
+	public List<IngredientVO> detailig(String recipe_id) {
+		
+		return daoig.selectRecipeIg(recipe_id);
+	}
+
+
+
+
+
 
 }

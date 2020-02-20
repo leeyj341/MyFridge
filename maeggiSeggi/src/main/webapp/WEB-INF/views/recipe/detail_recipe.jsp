@@ -1,3 +1,5 @@
+<%@page import="maeggi.seggi.ingredient.IngredientVO"%>
+<%@page import="java.util.List"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -49,6 +51,7 @@
 	</div>
 	<%
 		ArrayList<HashMap<String, String>> listMap = (ArrayList<HashMap<String, String>>) request.getAttribute("detail");
+		List<IngredientVO> detailig = (List<IngredientVO>)request.getAttribute("detailig");
 	%>
 	
 	
@@ -131,18 +134,18 @@
 						</div>
 					</div>
 
-
+						
 						<div style="font-family: nanumSquare_acEB; font-size: 12pt;">
 							<h4>재료</h4>
 							<ul>
-
-								<li>김치 <strong>0.5</strong> <span> 쪽</span>
-								</li>
-								<li>두부 <strong>1</strong> <span> 모</span>
-								</li>
-								<li><br /> 양파 <strong>0.5</strong> <span> 개</span></li>
-								<li>고추 <strong>1</strong> <span> 개</span>
-								</li>
+								<% for (int i =0;i<detailig.size();i++){ 
+								if(i%2==0){%>
+									<br/><%}%>
+									
+								<li> <strong><%=detailig.get(i).getName() %></strong><span><%= detailig.get(i).getVolume() %></span></li> &ensp;&ensp;
+								
+								<%
+								} %>
 							</ul>
 						</div>
 					</div>

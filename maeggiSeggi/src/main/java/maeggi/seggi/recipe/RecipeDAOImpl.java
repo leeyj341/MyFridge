@@ -39,15 +39,24 @@ public class RecipeDAOImpl implements RecipeDAO {
 		map.put("pagenum", Integer.toString(pagenum));
 		map.put("contentnum", Integer.toString(contentnum));
 		map.put("recipe_category", recipe_category);
-		System.out.println(map+"fsgddfgdg");
 		List<RecipeVO> list = sqlSession.selectList("maeggi.seggi.recipe.categoryRecipe", map);
-		System.out.println(recipe_category + list.size());
+		System.out.println(recipe_category + " : " + list.size());
 		return list;
+	}
+	@Override
+	public List<RecipeVO> nameSearch(String search, int pagenum, int contentnum) {
+		Map<String, String> map = new HashMap<String,String>();
+		map.put("pagenum", Integer.toString(pagenum));
+		map.put("contentnum", Integer.toString(contentnum));
+		map.put("search", search);
+		List<RecipeVO> listname = sqlSession.selectList("maeggi.seggi.recipe.recipeNameSearch", map);
+		System.out.println(search + listname.size());
+		return listname;
 	}
 	@Override
 	public List<RecipeVO> searchList(String search) {
 		System.out.println(search);
-		List<RecipeVO> recipeList = sqlSession.selectList("maeggi.seggi.recipe.recipeSearch",search);
+		List<RecipeVO> recipeList = sqlSession.selectList("maeggi.seggi.recipe.recipeNameSearch",search);
 		System.out.println("dao=>"+recipeList.size());
 		return recipeList;
 	}
@@ -80,7 +89,10 @@ public class RecipeDAOImpl implements RecipeDAO {
 	public int testcount2(String recipe_category) {
 		return sqlSession.selectOne("maeggi.seggi.recipe.testcount2", recipe_category);
 	}
-
+	@Override
+	public int testcount3(String search) {
+		return sqlSession.selectOne("maeggi.seggi.recipe.testcount3", search);
+	}
 
 	@Override
 	public RecipeVO moveTopopup(String recipe_id) {
@@ -115,6 +127,11 @@ public class RecipeDAOImpl implements RecipeDAO {
 		List<RecipeVO> freshlist = sqlSession.selectList("maeggi.seggi.recipe.freshRecipe");
 		return freshlist;
 	}
+
+
+
+
+
 
 }
 
