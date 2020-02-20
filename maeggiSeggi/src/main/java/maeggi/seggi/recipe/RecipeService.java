@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import maeggi.seggi.ingredient.IngredientVO;
+
 public interface RecipeService {
 	
 	void insert(RecipeVO recipe);

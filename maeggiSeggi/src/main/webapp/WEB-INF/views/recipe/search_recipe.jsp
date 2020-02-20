@@ -124,7 +124,7 @@
 						</select>
 					</div> -->
 					<div class="search-result">
-						<span id="underline">검색어</span>(으)로 조회된 결과는 <span id="Scount">0</span> 개 입니다.
+						<span id="underline">검색어</span>(으)로 조회된 결과는 <span id="Scount">-</span> 개 입니다.
 					</div>
 
 
@@ -183,8 +183,7 @@
 		var pagenum = idx;
 		location.href="/maeggiSeggi/recipe/searchRecipe.do?pagenum="+pagenum+"&contentnum=9";
 	}
-		//var serviceType;
-
+		
 		$(document).ready(function() {
 
 		recipe_category = "${recipe_category}";
@@ -240,10 +239,10 @@
 												
 												$("#main").empty();
 												$("#main").append(mydata);
+												$("#underline").html(recipe_category);
 												
 											}
 											
-		
 										
 										});
 							})
@@ -306,7 +305,7 @@
 				});
 			}
 		})
-			} 
+	} 
 		
 		
 	</script>
